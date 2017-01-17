@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F47F4131E2EB360008D6354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4121E2EB360008D6354 /* AppDelegate.swift */; };
+		2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4141E2EB360008D6354 /* ViewController.swift */; };
+		2F47F4181E2EB360008D6354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F4161E2EB360008D6354 /* Main.storyboard */; };
+		2F47F41A1E2EB360008D6354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F4191E2EB360008D6354 /* Assets.xcassets */; };
+		2F47F41D1E2EB360008D6354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F41B1E2EB360008D6354 /* LaunchScreen.storyboard */; };
+		2F47F4281E2EB360008D6354 /* vite2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4271E2EB360008D6354 /* vite2Tests.swift */; };
+		2F47F4331E2EB360008D6354 /* vite2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4321E2EB360008D6354 /* vite2UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F47F4241E2EB360008D6354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F47F4071E2EB360008D6354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F47F40E1E2EB360008D6354;
+			remoteInfo = vite2;
+		};
+		2F47F42F1E2EB360008D6354 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F47F4071E2EB360008D6354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F47F40E1E2EB360008D6354;
+			remoteInfo = vite2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2F47F40F1E2EB360008D6354 /* vite2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vite2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F47F4121E2EB360008D6354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2F47F4141E2EB360008D6354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2F47F4171E2EB360008D6354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2F47F4191E2EB360008D6354 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F47F41C1E2EB360008D6354 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2F47F41E1E2EB360008D6354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F47F4231E2EB360008D6354 /* vite2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vite2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F47F4271E2EB360008D6354 /* vite2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vite2Tests.swift; sourceTree = "<group>"; };
+		2F47F4291E2EB360008D6354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F47F42E1E2EB360008D6354 /* vite2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vite2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F47F4321E2EB360008D6354 /* vite2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vite2UITests.swift; sourceTree = "<group>"; };
+		2F47F4341E2EB360008D6354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F47F40C1E2EB360008D6354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F47F4201E2EB360008D6354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F47F42B1E2EB360008D6354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F47F4061E2EB360008D6354 = {
+			isa = PBXGroup;
+			children = (
+				2F47F4111E2EB360008D6354 /* vite2 */,
+				2F47F4261E2EB360008D6354 /* vite2Tests */,
+				2F47F4311E2EB360008D6354 /* vite2UITests */,
+				2F47F4101E2EB360008D6354 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2F47F4101E2EB360008D6354 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F47F40F1E2EB360008D6354 /* vite2.app */,
+				2F47F4231E2EB360008D6354 /* vite2Tests.xctest */,
+				2F47F42E1E2EB360008D6354 /* vite2UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F47F4111E2EB360008D6354 /* vite2 */ = {
+			isa = PBXGroup;
+			children = (
+				2F47F4121E2EB360008D6354 /* AppDelegate.swift */,
+				2F47F4141E2EB360008D6354 /* ViewController.swift */,
+				2F47F4161E2EB360008D6354 /* Main.storyboard */,
+				2F47F4191E2EB360008D6354 /* Assets.xcassets */,
+				2F47F41B1E2EB360008D6354 /* LaunchScreen.storyboard */,
+				2F47F41E1E2EB360008D6354 /* Info.plist */,
+			);
+			path = vite2;
+			sourceTree = "<group>";
+		};
+		2F47F4261E2EB360008D6354 /* vite2Tests */ = {
+			isa = PBXGroup;
+			children = (
+				2F47F4271E2EB360008D6354 /* vite2Tests.swift */,
+				2F47F4291E2EB360008D6354 /* Info.plist */,
+			);
+			path = vite2Tests;
+			sourceTree = "<group>";
+		};
+		2F47F4311E2EB360008D6354 /* vite2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				2F47F4321E2EB360008D6354 /* vite2UITests.swift */,
+				2F47F4341E2EB360008D6354 /* Info.plist */,
+			);
+			path = vite2UITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F47F40E1E2EB360008D6354 /* vite2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F47F4371E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2" */;
+			buildPhases = (
+				2F47F40B1E2EB360008D6354 /* Sources */,
+				2F47F40C1E2EB360008D6354 /* Frameworks */,
+				2F47F40D1E2EB360008D6354 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = vite2;
+			productName = vite2;
+			productReference = 2F47F40F1E2EB360008D6354 /* vite2.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2F47F4221E2EB360008D6354 /* vite2Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F47F43A1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2Tests" */;
+			buildPhases = (
+				2F47F41F1E2EB360008D6354 /* Sources */,
+				2F47F4201E2EB360008D6354 /* Frameworks */,
+				2F47F4211E2EB360008D6354 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F47F4251E2EB360008D6354 /* PBXTargetDependency */,
+			);
+			name = vite2Tests;
+			productName = vite2Tests;
+			productReference = 2F47F4231E2EB360008D6354 /* vite2Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2F47F42D1E2EB360008D6354 /* vite2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F47F43D1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2UITests" */;
+			buildPhases = (
+				2F47F42A1E2EB360008D6354 /* Sources */,
+				2F47F42B1E2EB360008D6354 /* Frameworks */,
+				2F47F42C1E2EB360008D6354 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2F47F4301E2EB360008D6354 /* PBXTargetDependency */,
+			);
+			name = vite2UITests;
+			productName = vite2UITests;
+			productReference = 2F47F42E1E2EB360008D6354 /* vite2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F47F4071E2EB360008D6354 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Steven Grutman";
+				TargetAttributes = {
+					2F47F40E1E2EB360008D6354 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 78PV2V3EX4;
+						ProvisioningStyle = Automatic;
+					};
+					2F47F4221E2EB360008D6354 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 78PV2V3EX4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2F47F40E1E2EB360008D6354;
+					};
+					2F47F42D1E2EB360008D6354 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 78PV2V3EX4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2F47F40E1E2EB360008D6354;
+					};
+				};
+			};
+			buildConfigurationList = 2F47F40A1E2EB360008D6354 /* Build configuration list for PBXProject "vite2" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2F47F4061E2EB360008D6354;
+			productRefGroup = 2F47F4101E2EB360008D6354 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F47F40E1E2EB360008D6354 /* vite2 */,
+				2F47F4221E2EB360008D6354 /* vite2Tests */,
+				2F47F42D1E2EB360008D6354 /* vite2UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F47F40D1E2EB360008D6354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F47F41D1E2EB360008D6354 /* LaunchScreen.storyboard in Resources */,
+				2F47F41A1E2EB360008D6354 /* Assets.xcassets in Resources */,
+				2F47F4181E2EB360008D6354 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F47F4211E2EB360008D6354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F47F42C1E2EB360008D6354 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F47F40B1E2EB360008D6354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */,
+				2F47F4131E2EB360008D6354 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F47F41F1E2EB360008D6354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F47F4281E2EB360008D6354 /* vite2Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F47F42A1E2EB360008D6354 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F47F4331E2EB360008D6354 /* vite2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F47F4251E2EB360008D6354 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F47F40E1E2EB360008D6354 /* vite2 */;
+			targetProxy = 2F47F4241E2EB360008D6354 /* PBXContainerItemProxy */;
+		};
+		2F47F4301E2EB360008D6354 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F47F40E1E2EB360008D6354 /* vite2 */;
+			targetProxy = 2F47F42F1E2EB360008D6354 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2F47F4161E2EB360008D6354 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F47F4171E2EB360008D6354 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2F47F41B1E2EB360008D6354 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F47F41C1E2EB360008D6354 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2F47F4351E2EB360008D6354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F47F4361E2EB360008D6354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2F47F4381E2EB360008D6354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				INFOPLIST_FILE = vite2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2F47F4391E2EB360008D6354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				INFOPLIST_FILE = vite2/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		2F47F43B1E2EB360008D6354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				INFOPLIST_FILE = vite2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vite2.app/vite2";
+			};
+			name = Debug;
+		};
+		2F47F43C1E2EB360008D6354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				INFOPLIST_FILE = vite2Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/vite2.app/vite2";
+			};
+			name = Release;
+		};
+		2F47F43E1E2EB360008D6354 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				INFOPLIST_FILE = vite2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = vite2;
+			};
+			name = Debug;
+		};
+		2F47F43F1E2EB360008D6354 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				INFOPLIST_FILE = vite2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = vite2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F47F40A1E2EB360008D6354 /* Build configuration list for PBXProject "vite2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F47F4351E2EB360008D6354 /* Debug */,
+				2F47F4361E2EB360008D6354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F47F4371E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F47F4381E2EB360008D6354 /* Debug */,
+				2F47F4391E2EB360008D6354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F47F43A1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F47F43B1E2EB360008D6354 /* Debug */,
+				2F47F43C1E2EB360008D6354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2F47F43D1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F47F43E1E2EB360008D6354 /* Debug */,
+				2F47F43F1E2EB360008D6354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F47F4071E2EB360008D6354 /* Project object */;
+}
