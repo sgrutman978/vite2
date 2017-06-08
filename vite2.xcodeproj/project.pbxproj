@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1886A0DC604595D41B1896 /* Pods_vite2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C2BC42E193F88EF9246705 /* Pods_vite2.framework */; };
+		21E464CAB9A31E0EB79D431C /* Pods_vite2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D8113212DC9A091B470834 /* Pods_vite2Tests.framework */; };
+		2F1402E31E9FE666005D3894 /* (outerCode).png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1402E21E9FE666005D3894 /* (outerCode).png */; };
 		2F47F4131E2EB360008D6354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4121E2EB360008D6354 /* AppDelegate.swift */; };
 		2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4141E2EB360008D6354 /* ViewController.swift */; };
 		2F47F4181E2EB360008D6354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F4161E2EB360008D6354 /* Main.storyboard */; };
@@ -14,6 +17,35 @@
 		2F47F41D1E2EB360008D6354 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F41B1E2EB360008D6354 /* LaunchScreen.storyboard */; };
 		2F47F4281E2EB360008D6354 /* vite2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4271E2EB360008D6354 /* vite2Tests.swift */; };
 		2F47F4331E2EB360008D6354 /* vite2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4321E2EB360008D6354 /* vite2UITests.swift */; };
+		2F47F4461E2EB5D8008D6354 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4441E2EB5D8008D6354 /* ViewController1.swift */; };
+		2F47F4471E2EB5D8008D6354 /* ViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F4451E2EB5D8008D6354 /* ViewController1.xib */; };
+		2F47F44A1E2EB61E008D6354 /* ViewController0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4481E2EB61E008D6354 /* ViewController0.swift */; };
+		2F47F44B1E2EB61E008D6354 /* ViewController0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F4491E2EB61E008D6354 /* ViewController0.xib */; };
+		2F47F44E1E2EB6B6008D6354 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F44C1E2EB6B6008D6354 /* ViewController2.swift */; };
+		2F47F44F1E2EB6B6008D6354 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */; };
+		2F5FF0DA1EE8C4E000B69423 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5FF0D91EE8C4E000B69423 /* GoogleService-Info.plist */; };
+		2F92B1F51E3D5F9F001F3722 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */; };
+		2F92B1F61E3D5F9F001F3722 /* ViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */; };
+		2F92B1F81E3EA276001F3722 /* snap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1F71E3EA276001F3722 /* snap.jpg */; };
+		2F92B1FC1E3FD03E001F3722 /* insta.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1FB1E3FD03E001F3722 /* insta.jpg */; };
+		2F92B1FE1E3FD12C001F3722 /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1FD1E3FD12C001F3722 /* mail.png */; };
+		2F92B2001E414B6E001F3722 /* stars1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1FF1E414B6E001F3722 /* stars1.jpg */; };
+		2F92B2041E416275001F3722 /* tumblr.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B2031E416275001F3722 /* tumblr.png */; };
+		2F92B2061E416349001F3722 /* twitter.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B2051E416349001F3722 /* twitter.jpg */; };
+		2F92B2081E4168FF001F3722 /* pint.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B2071E4168FF001F3722 /* pint.png */; };
+		2F92B20A1E426EBE001F3722 /* myProf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B2091E426EBE001F3722 /* myProf.jpg */; };
+		2F92B20C1E4272DA001F3722 /* vite.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B20B1E4272DA001F3722 /* vite.png */; };
+		2F92B20E1E4276AC001F3722 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B20D1E4276AC001F3722 /* back.png */; };
+		2F9F861C1E8F095700290027 /* starClear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9F861B1E8F095700290027 /* starClear.png */; };
+		2F9F861E1E8F099C00290027 /* starYellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F9F861D1E8F099C00290027 /* starYellow.png */; };
+		2FD5DF1C1E6A191D00D4C4D3 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5DF1B1E6A191D00D4C4D3 /* phone.png */; };
+		2FD5DF1E1E80B32B00D4C4D3 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5DF1D1E80B32B00D4C4D3 /* fb.png */; };
+		2FD5DF201E81938500D4C4D3 /* prof.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5DF1F1E81938500D4C4D3 /* prof.jpg */; };
+		2FD5DF221E81B18500D4C4D3 /* loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5DF211E81B18500D4C4D3 /* loader.gif */; };
+		2FF795A51E4531EB00EDEECF /* git.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF795A41E4531EB00EDEECF /* git.png */; };
+		2FFA5A0C1EC52010000E7352 /* fbPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA5A0B1EC52010000E7352 /* fbPage.png */; };
+		2FFA5A0E1EC526DF000E7352 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FFA5A0D1EC526DF000E7352 /* plus.png */; };
+		4C0454FCA286119B7FEEAB26 /* Pods_vite2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D673F9ACD9D56F7BACBCDAF0 /* Pods_vite2UITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +66,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vite2/Pods-vite2.debug.xcconfig"; sourceTree = "<group>"; };
+		2F1402E21E9FE666005D3894 /* (outerCode).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(outerCode).png"; sourceTree = SOURCE_ROOT; };
 		2F47F40F1E2EB360008D6354 /* vite2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vite2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F47F4121E2EB360008D6354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F47F4141E2EB360008D6354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +81,42 @@
 		2F47F42E1E2EB360008D6354 /* vite2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vite2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F47F4321E2EB360008D6354 /* vite2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vite2UITests.swift; sourceTree = "<group>"; };
 		2F47F4341E2EB360008D6354 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F47F4441E2EB5D8008D6354 /* ViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController1.swift; sourceTree = "<group>"; };
+		2F47F4451E2EB5D8008D6354 /* ViewController1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController1.xib; sourceTree = "<group>"; };
+		2F47F4481E2EB61E008D6354 /* ViewController0.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController0.swift; path = ../ViewController0.swift; sourceTree = "<group>"; };
+		2F47F4491E2EB61E008D6354 /* ViewController0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ViewController0.xib; path = ../ViewController0.xib; sourceTree = "<group>"; };
+		2F47F44C1E2EB6B6008D6354 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
+		2F5FF0D91EE8C4E000B69423 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/oldDownloadFolders/2/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
+		2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController3.xib; sourceTree = "<group>"; };
+		2F92B1F71E3EA276001F3722 /* snap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snap.jpg; sourceTree = SOURCE_ROOT; };
+		2F92B1FB1E3FD03E001F3722 /* insta.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = insta.jpg; sourceTree = SOURCE_ROOT; };
+		2F92B1FD1E3FD12C001F3722 /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = SOURCE_ROOT; };
+		2F92B1FF1E414B6E001F3722 /* stars1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars1.jpg; sourceTree = SOURCE_ROOT; };
+		2F92B2031E416275001F3722 /* tumblr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tumblr.png; sourceTree = SOURCE_ROOT; };
+		2F92B2051E416349001F3722 /* twitter.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twitter.jpg; sourceTree = SOURCE_ROOT; };
+		2F92B2071E4168FF001F3722 /* pint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pint.png; sourceTree = SOURCE_ROOT; };
+		2F92B2091E426EBE001F3722 /* myProf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = myProf.jpg; sourceTree = SOURCE_ROOT; };
+		2F92B20B1E4272DA001F3722 /* vite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vite.png; sourceTree = SOURCE_ROOT; };
+		2F92B20D1E4276AC001F3722 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = SOURCE_ROOT; };
+		2F9F861B1E8F095700290027 /* starClear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starClear.png; sourceTree = SOURCE_ROOT; };
+		2F9F861D1E8F099C00290027 /* starYellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starYellow.png; sourceTree = SOURCE_ROOT; };
+		2FD5DF1B1E6A191D00D4C4D3 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = SOURCE_ROOT; };
+		2FD5DF1D1E80B32B00D4C4D3 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = SOURCE_ROOT; };
+		2FD5DF1F1E81938500D4C4D3 /* prof.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prof.jpg; sourceTree = SOURCE_ROOT; };
+		2FD5DF211E81B18500D4C4D3 /* loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loader.gif; sourceTree = SOURCE_ROOT; };
+		2FF795A41E4531EB00EDEECF /* git.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = git.png; sourceTree = SOURCE_ROOT; };
+		2FFA5A0B1EC52010000E7352 /* fbPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fbPage.png; sourceTree = SOURCE_ROOT; };
+		2FFA5A0D1EC526DF000E7352 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = SOURCE_ROOT; };
+		39C2BC42E193F88EF9246705 /* Pods_vite2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vite2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48D8113212DC9A091B470834 /* Pods_vite2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vite2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		68A9854DE7A9CB68EC67DDAD /* Pods-vite2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vite2UITests/Pods-vite2UITests.release.xcconfig"; sourceTree = "<group>"; };
+		7354D1120997013625A1BC87 /* Pods-vite2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2.release.xcconfig"; path = "Pods/Target Support Files/Pods-vite2/Pods-vite2.release.xcconfig"; sourceTree = "<group>"; };
+		A3327EE160852D9CEA413ECC /* Pods-vite2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vite2UITests/Pods-vite2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0454E833EF1AF31DD27F5B2 /* Pods-vite2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-vite2Tests/Pods-vite2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		D673F9ACD9D56F7BACBCDAF0 /* Pods_vite2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_vite2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE40E10D32BA81EB88C2A323 /* Pods-vite2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vite2Tests/Pods-vite2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1886A0DC604595D41B1896 /* Pods_vite2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E464CAB9A31E0EB79D431C /* Pods_vite2Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +140,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0454FCA286119B7FEEAB26 /* Pods_vite2UITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		267FCC14A2F7B9278089A7FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39C2BC42E193F88EF9246705 /* Pods_vite2.framework */,
+				48D8113212DC9A091B470834 /* Pods_vite2Tests.framework */,
+				D673F9ACD9D56F7BACBCDAF0 /* Pods_vite2UITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2F47F4061E2EB360008D6354 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +164,8 @@
 				2F47F4261E2EB360008D6354 /* vite2Tests */,
 				2F47F4311E2EB360008D6354 /* vite2UITests */,
 				2F47F4101E2EB360008D6354 /* Products */,
+				30688FDC3AC360979272CC7E /* Pods */,
+				267FCC14A2F7B9278089A7FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +182,38 @@
 		2F47F4111E2EB360008D6354 /* vite2 */ = {
 			isa = PBXGroup;
 			children = (
+				2F5FF0D91EE8C4E000B69423 /* GoogleService-Info.plist */,
 				2F47F4121E2EB360008D6354 /* AppDelegate.swift */,
 				2F47F4141E2EB360008D6354 /* ViewController.swift */,
 				2F47F4161E2EB360008D6354 /* Main.storyboard */,
+				2F47F4481E2EB61E008D6354 /* ViewController0.swift */,
+				2F47F4491E2EB61E008D6354 /* ViewController0.xib */,
+				2F47F4441E2EB5D8008D6354 /* ViewController1.swift */,
+				2F47F4451E2EB5D8008D6354 /* ViewController1.xib */,
+				2F47F44C1E2EB6B6008D6354 /* ViewController2.swift */,
+				2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */,
+				2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */,
+				2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */,
+				2F92B2091E426EBE001F3722 /* myProf.jpg */,
+				2FF795A41E4531EB00EDEECF /* git.png */,
+				2FFA5A0B1EC52010000E7352 /* fbPage.png */,
+				2FD5DF1D1E80B32B00D4C4D3 /* fb.png */,
+				2F1402E21E9FE666005D3894 /* (outerCode).png */,
+				2F92B20D1E4276AC001F3722 /* back.png */,
+				2FD5DF211E81B18500D4C4D3 /* loader.gif */,
+				2F9F861D1E8F099C00290027 /* starYellow.png */,
+				2FD5DF1F1E81938500D4C4D3 /* prof.jpg */,
+				2FFA5A0D1EC526DF000E7352 /* plus.png */,
+				2F9F861B1E8F095700290027 /* starClear.png */,
+				2F92B2031E416275001F3722 /* tumblr.png */,
+				2F92B20B1E4272DA001F3722 /* vite.png */,
+				2F92B2071E4168FF001F3722 /* pint.png */,
+				2F92B1FF1E414B6E001F3722 /* stars1.jpg */,
+				2FD5DF1B1E6A191D00D4C4D3 /* phone.png */,
+				2F92B1F71E3EA276001F3722 /* snap.jpg */,
+				2F92B1FD1E3FD12C001F3722 /* mail.png */,
+				2F92B1FB1E3FD03E001F3722 /* insta.jpg */,
+				2F92B2051E416349001F3722 /* twitter.jpg */,
 				2F47F4191E2EB360008D6354 /* Assets.xcassets */,
 				2F47F41B1E2EB360008D6354 /* LaunchScreen.storyboard */,
 				2F47F41E1E2EB360008D6354 /* Info.plist */,
@@ -125,6 +239,19 @@
 			path = vite2UITests;
 			sourceTree = "<group>";
 		};
+		30688FDC3AC360979272CC7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */,
+				7354D1120997013625A1BC87 /* Pods-vite2.release.xcconfig */,
+				DE40E10D32BA81EB88C2A323 /* Pods-vite2Tests.debug.xcconfig */,
+				B0454E833EF1AF31DD27F5B2 /* Pods-vite2Tests.release.xcconfig */,
+				A3327EE160852D9CEA413ECC /* Pods-vite2UITests.debug.xcconfig */,
+				68A9854DE7A9CB68EC67DDAD /* Pods-vite2UITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +259,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F47F4371E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2" */;
 			buildPhases = (
+				D39ED2B4EA2F5EE926AAE2D6 /* [CP] Check Pods Manifest.lock */,
 				2F47F40B1E2EB360008D6354 /* Sources */,
 				2F47F40C1E2EB360008D6354 /* Frameworks */,
 				2F47F40D1E2EB360008D6354 /* Resources */,
+				8DA2CB4112EF803B358D6324 /* [CP] Embed Pods Frameworks */,
+				0CB5FBE3A1AEBC74B4E71139 /* [CP] Copy Pods Resources */,
+				2F1402E11E95973F005D3894 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -149,9 +280,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F47F43A1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2Tests" */;
 			buildPhases = (
+				D72D04111CC7BA6F745D413C /* [CP] Check Pods Manifest.lock */,
 				2F47F41F1E2EB360008D6354 /* Sources */,
 				2F47F4201E2EB360008D6354 /* Frameworks */,
 				2F47F4211E2EB360008D6354 /* Resources */,
+				215595A75FD0CA21C340F0A2 /* [CP] Embed Pods Frameworks */,
+				0F638E2751CEF154E5B8BBA9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +301,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2F47F43D1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2UITests" */;
 			buildPhases = (
+				C2AD36A176FF709C6FBB0324 /* [CP] Check Pods Manifest.lock */,
 				2F47F42A1E2EB360008D6354 /* Sources */,
 				2F47F42B1E2EB360008D6354 /* Frameworks */,
 				2F47F42C1E2EB360008D6354 /* Resources */,
+				B05B8218D88C3F116DC4E766 /* [CP] Embed Pods Frameworks */,
+				432431D8D8AC7B8ACCFCDF10 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,9 +372,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F47F4471E2EB5D8008D6354 /* ViewController1.xib in Resources */,
+				2F92B2041E416275001F3722 /* tumblr.png in Resources */,
+				2F1402E31E9FE666005D3894 /* (outerCode).png in Resources */,
 				2F47F41D1E2EB360008D6354 /* LaunchScreen.storyboard in Resources */,
+				2F5FF0DA1EE8C4E000B69423 /* GoogleService-Info.plist in Resources */,
+				2F47F44B1E2EB61E008D6354 /* ViewController0.xib in Resources */,
+				2F47F44F1E2EB6B6008D6354 /* ViewController2.xib in Resources */,
+				2F92B1F81E3EA276001F3722 /* snap.jpg in Resources */,
+				2F92B2081E4168FF001F3722 /* pint.png in Resources */,
+				2F9F861E1E8F099C00290027 /* starYellow.png in Resources */,
 				2F47F41A1E2EB360008D6354 /* Assets.xcassets in Resources */,
+				2FD5DF1E1E80B32B00D4C4D3 /* fb.png in Resources */,
+				2F92B20A1E426EBE001F3722 /* myProf.jpg in Resources */,
+				2F92B1FE1E3FD12C001F3722 /* mail.png in Resources */,
+				2FFA5A0C1EC52010000E7352 /* fbPage.png in Resources */,
+				2F9F861C1E8F095700290027 /* starClear.png in Resources */,
+				2F92B20C1E4272DA001F3722 /* vite.png in Resources */,
+				2F92B20E1E4276AC001F3722 /* back.png in Resources */,
 				2F47F4181E2EB360008D6354 /* Main.storyboard in Resources */,
+				2F92B1FC1E3FD03E001F3722 /* insta.jpg in Resources */,
+				2FFA5A0E1EC526DF000E7352 /* plus.png in Resources */,
+				2F92B1F61E3D5F9F001F3722 /* ViewController3.xib in Resources */,
+				2F92B2061E416349001F3722 /* twitter.jpg in Resources */,
+				2FD5DF1C1E6A191D00D4C4D3 /* phone.png in Resources */,
+				2FF795A51E4531EB00EDEECF /* git.png in Resources */,
+				2FD5DF221E81B18500D4C4D3 /* loader.gif in Resources */,
+				2FD5DF201E81938500D4C4D3 /* prof.jpg in Resources */,
+				2F92B2001E414B6E001F3722 /* stars1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,13 +419,168 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0CB5FBE3A1AEBC74B4E71139 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vite2/Pods-vite2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F638E2751CEF154E5B8BBA9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vite2Tests/Pods-vite2Tests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		215595A75FD0CA21C340F0A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vite2Tests/Pods-vite2Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F1402E11E95973F005D3894 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" fc6214a1a785d7ded9c7344d5a8a7a56dea88b62 70a973210ec5424e623f5b2c65e79a4cb0a20457621b10a5d1cfa0e395d35f8b";
+		};
+		432431D8D8AC7B8ACCFCDF10 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vite2UITests/Pods-vite2UITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DA2CB4112EF803B358D6324 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vite2/Pods-vite2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B05B8218D88C3F116DC4E766 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-vite2UITests/Pods-vite2UITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2AD36A176FF709C6FBB0324 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D39ED2B4EA2F5EE926AAE2D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D72D04111CC7BA6F745D413C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2F47F40B1E2EB360008D6354 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F47F44E1E2EB6B6008D6354 /* ViewController2.swift in Sources */,
+				2F47F4461E2EB5D8008D6354 /* ViewController1.swift in Sources */,
+				2F92B1F51E3D5F9F001F3722 /* ViewController3.swift in Sources */,
 				2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */,
 				2F47F4131E2EB360008D6354 /* AppDelegate.swift in Sources */,
+				2F47F44A1E2EB61E008D6354 /* ViewController0.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,12 +730,14 @@
 		};
 		2F47F4381E2EB360008D6354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 78PV2V3EX4;
 				INFOPLIST_FILE = vite2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -426,12 +745,14 @@
 		};
 		2F47F4391E2EB360008D6354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7354D1120997013625A1BC87 /* Pods-vite2.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 78PV2V3EX4;
 				INFOPLIST_FILE = vite2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -439,6 +760,7 @@
 		};
 		2F47F43B1E2EB360008D6354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE40E10D32BA81EB88C2A323 /* Pods-vite2Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -454,6 +776,7 @@
 		};
 		2F47F43C1E2EB360008D6354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0454E833EF1AF31DD27F5B2 /* Pods-vite2Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -469,6 +792,7 @@
 		};
 		2F47F43E1E2EB360008D6354 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3327EE160852D9CEA413ECC /* Pods-vite2UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 78PV2V3EX4;
@@ -483,6 +807,7 @@
 		};
 		2F47F43F1E2EB360008D6354 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68A9854DE7A9CB68EC67DDAD /* Pods-vite2UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 78PV2V3EX4;
@@ -514,6 +839,7 @@
 				2F47F4391E2EB360008D6354 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F47F43A1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2Tests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +848,7 @@
 				2F47F43C1E2EB360008D6354 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F47F43D1E2EB360008D6354 /* Build configuration list for PBXNativeTarget "vite2UITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +857,7 @@
 				2F47F43F1E2EB360008D6354 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
