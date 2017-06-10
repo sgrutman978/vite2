@@ -41,14 +41,84 @@ class ViewController0: UIViewController {
 //    }
     
     @IBAction func closeThis(_ sender: Any) {
-        
+        self.view.isHidden = true
     }
+    
+    
+    
+    func getProfPic(mode: Int, myURLString: String) -> String {
+        if(mode == 0){
+            guard let myURL = URL(string: myURLString) else {
+                print("Error: \(myURLString) doesn't seem to be a valid URL")
+                return ""
+            }
+            do {
+                let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+                var dict = self.convertToDictionary(text: myHTMLString)
+                var dict2 = NSDictionary()
+                dict2 = dict?["data"] as! NSDictionary
+                //                print(dict2["url"] ?? 0)
+                return (dict2["url"] as? String)!
+            } catch let error {
+                print("Error: \(error)")
+            }
+            return ""
+        }else{
+            let fullNameArr = myURLString.components(separatedBy: "_normal")
+            return fullNameArr[0] + fullNameArr[1]
+        }
+    }
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        self.hideKeyboardWhenTappedAround()
         let user = FIRAuth.auth()?.currentUser
+        
+        
+//        //only apply the blur if the user hasn't disabled transparency effects
+//        if !UIAccessibilityIsReduceTransparencyEnabled() {
+//            self.view.backgroundColor = UIColor.clear
+//            
+//            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//            let blurEffectView = UIVisualEffectView(effect: blurEffect)
+//            //always fill the view
+//            blurEffectView.frame = self.view.bounds
+//            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            
+//            self.view.addSubview(blurEffectView) //if you have more UIViews, use an insertSubview API to place it where needed
+//        } else {
+//            self.view.backgroundColor = UIColor.black
+//        }
        
+        var fbTw = 0
+        self.ref.child("users").child((user?.uid)!).child("info").child("00use").observeSingleEvent(of: .value, with: { snapshot6 in
+            if(snapshot6.value as! String == "tw"){
+                fbTw = 1
+            }
+        })
+         self.ref.child("users").child((user?.uid)!).child("info").child("19DEF").observeSingleEvent(of: .value, with: { snapshot2 in
+        if(fbTw == 0){
+            self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 0, myURLString: "http://graph.facebook.com/"+(snapshot2.value as! String)+"/picture?type=large&redirect=false")))
+        }else{
+            self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 1, myURLString: snapshot2.value as! String)))
+        }
+         })
+        
+        
+        
+        
         ref.child("users").child((user?.uid)!).child("info").observe(.value, with: { snapshot in
             self.initBio = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
             self.initName = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? ""
@@ -56,40 +126,46 @@ class ViewController0: UIViewController {
             self.enterName.text = self.initName
         })
         
-        let data = ("vite!-username//"+(user?.uid)!).data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
-        let filter = CIFilter(name: "CIQRCodeGenerator")
-        filter?.setValue(data, forKey: "inputMessage")
-        filter?.setValue("Q", forKey: "inputCorrectionLevel")
-//        qrcodeImage = filter?.outputImage
         
-        //Create a CIFalseColor Filter
-        let colorFilter: CIFilter = CIFilter(name: "CIFalseColor")!
-        colorFilter.setDefaults()
-        colorFilter.setValue(filter?.outputImage!, forKey: "inputImage")
-        //Then set the background colour like this,
-        let transparentBG: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-        // let transparentBG: CIColor = CIColor(red: 255.0, green: 215.0, blue: 20.0, alpha: 1.0)
-        colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
-        colorFilter.setValue(transparentBG, forKey: "inputColor1")
-        qrcodeImage = colorFilter.outputImage!
         
-//        myCode.image = UIImage(ciImage: qrcodeImage)
-        let scaleX = myCode.frame.size.width / qrcodeImage.extent.size.width
-        let scaleY = myCode.frame.size.height / qrcodeImage.extent.size.height
-        let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
-        myCode.image = UIImage(ciImage: transformedImage)
         
-        orange.layer.cornerRadius = 50
-        orange.layer.borderWidth = 2
-        orange.layer.masksToBounds = true
-        orange.layer.borderColor = UIColor.black.cgColor
+//        let data = ("vite!-username//"+(user?.uid)!).data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+//        let filter = CIFilter(name: "CIQRCodeGenerator")
+//        filter?.setValue(data, forKey: "inputMessage")
+//        filter?.setValue("Q", forKey: "inputCorrectionLevel")
+////        qrcodeImage = filter?.outputImage
+//        
+//        //Create a CIFalseColor Filter
+//        let colorFilter: CIFilter = CIFilter(name: "CIFalseColor")!
+//        colorFilter.setDefaults()
+//        colorFilter.setValue(filter?.outputImage!, forKey: "inputImage")
+//        //Then set the background colour like this,
+//        let transparentBG: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+//        // let transparentBG: CIColor = CIColor(red: 255.0, green: 215.0, blue: 20.0, alpha: 1.0)
+//        colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
+//        colorFilter.setValue(transparentBG, forKey: "inputColor1")
+//        qrcodeImage = colorFilter.outputImage!
+//        
+////        myCode.image = UIImage(ciImage: qrcodeImage)
+//        let scaleX = myCode.frame.size.width / qrcodeImage.extent.size.width
+//        let scaleY = myCode.frame.size.height / qrcodeImage.extent.size.height
+//        let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+//        myCode.image = UIImage(ciImage: transformedImage)
+//        
+//        orange.layer.cornerRadius = 50
+//        orange.layer.borderWidth = 2
+//        orange.layer.masksToBounds = true
+//        orange.layer.borderColor = UIColor.black.cgColor
+        
+        
+        
         
 //        arr = [String]()
         //load info for user you scanned from database
-         self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
+//         self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
-            var place = 346
+            var place = 250
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
@@ -143,6 +219,7 @@ class ViewController0: UIViewController {
             self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60)
             self.menu.contentSize = CGSize(width: (arr2.count-1)*58+50, height: 60)
             self.menu.showsHorizontalScrollIndicator = false
+            self.menu.bounces = false
             for all in arr2[1..<(arr2.count)] {
                 let image = UIImage(named: all)
                 let newOne = UIButton()
@@ -170,7 +247,10 @@ class ViewController0: UIViewController {
             self.thing2.addSubview(self.menu)
             self.thing2.addSubview(self.enterText)
             self.thing2.addSubview(self.button2)
-            self.scroller.addSubview(self.thing2)
+//            self.scroller.addSubview(self.thing2)
+            self.view.addSubview(self.thing2)
+            
+            
             
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {

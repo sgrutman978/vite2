@@ -22,10 +22,12 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     var viewer = ViewController()
     var viewer0 = ViewController0()
     var viewer2 = ViewController3()
+    var viewer4 = ViewController4()
     var allowed = true
     
     @IBAction func showCode(_ sender: Any) {
-        
+        viewer4.view.isHidden = false
+        //        self.view.isHidden = true
     }
     @IBAction func showSettings(_ sender: Any) {
         viewer0.view.isHidden = false

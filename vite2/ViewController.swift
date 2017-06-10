@@ -286,15 +286,22 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         vc3.view.frame = frame2
         self.addChildViewController(vc3)
         self.scrollView.addSubview(vc3.view)
+        
+        let vc4 = ViewController4(nibName: "ViewController4", bundle: nil)
+        self.addChildViewController(vc4)
+        self.scrollView.addSubview(vc4.view)
+        
         vc0.didMove(toParentViewController: self)
         
         
         vc1.viewer2 = vc3
         vc1.viewer0 = vc0
+        vc1.viewer4 = vc4
         vc2.viewer2 = vc3
         self.vc2 = vc2
         vc3.view.alpha = 0;
         vc3.view.isHidden = true
+        vc4.view.isHidden = true
         //        moveTofound(vc3: vc3, uid: userID)
         
         self.scrollView.contentSize = CGSize(width: self.view.frame.size.width /* * 3*/ * 2, height: self.view.frame.size.height/*-64*/)

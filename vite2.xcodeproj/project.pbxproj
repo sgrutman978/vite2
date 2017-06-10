@@ -24,6 +24,8 @@
 		2F47F44E1E2EB6B6008D6354 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F44C1E2EB6B6008D6354 /* ViewController2.swift */; };
 		2F47F44F1E2EB6B6008D6354 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */; };
 		2F5FF0DA1EE8C4E000B69423 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5FF0D91EE8C4E000B69423 /* GoogleService-Info.plist */; };
+		2F5FF0E71EEC638500B69423 /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5FF0E51EEC638500B69423 /* ViewController4.swift */; };
+		2F5FF0E81EEC638500B69423 /* ViewController4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F5FF0E61EEC638500B69423 /* ViewController4.xib */; };
 		2F92B1F51E3D5F9F001F3722 /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */; };
 		2F92B1F61E3D5F9F001F3722 /* ViewController3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */; };
 		2F92B1F81E3EA276001F3722 /* snap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F92B1F71E3EA276001F3722 /* snap.jpg */; };
@@ -88,6 +90,8 @@
 		2F47F44C1E2EB6B6008D6354 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
 		2F5FF0D91EE8C4E000B69423 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Library/Mobile Documents/com~apple~CloudDocs/oldDownloadFolders/2/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F5FF0E51EEC638500B69423 /* ViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
+		2F5FF0E61EEC638500B69423 /* ViewController4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController4.xib; sourceTree = "<group>"; };
 		2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController3.xib; sourceTree = "<group>"; };
 		2F92B1F71E3EA276001F3722 /* snap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snap.jpg; sourceTree = SOURCE_ROOT; };
@@ -194,6 +198,8 @@
 				2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */,
 				2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */,
 				2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */,
+				2F5FF0E51EEC638500B69423 /* ViewController4.swift */,
+				2F5FF0E61EEC638500B69423 /* ViewController4.xib */,
 				2F92B2091E426EBE001F3722 /* myProf.jpg */,
 				2FF795A41E4531EB00EDEECF /* git.png */,
 				2FFA5A0B1EC52010000E7352 /* fbPage.png */,
@@ -378,6 +384,7 @@
 				2F47F41D1E2EB360008D6354 /* LaunchScreen.storyboard in Resources */,
 				2F5FF0DA1EE8C4E000B69423 /* GoogleService-Info.plist in Resources */,
 				2F47F44B1E2EB61E008D6354 /* ViewController0.xib in Resources */,
+				2F5FF0E81EEC638500B69423 /* ViewController4.xib in Resources */,
 				2F47F44F1E2EB6B6008D6354 /* ViewController2.xib in Resources */,
 				2F92B1F81E3EA276001F3722 /* snap.jpg in Resources */,
 				2F92B2081E4168FF001F3722 /* pint.png in Resources */,
@@ -576,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F47F44E1E2EB6B6008D6354 /* ViewController2.swift in Sources */,
+				2F5FF0E71EEC638500B69423 /* ViewController4.swift in Sources */,
 				2F47F4461E2EB5D8008D6354 /* ViewController1.swift in Sources */,
 				2F92B1F51E3D5F9F001F3722 /* ViewController3.swift in Sources */,
 				2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */,
