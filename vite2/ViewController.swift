@@ -74,7 +74,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                             return
                         }
                 self.user2URL = "a"
-                        print("danala")
                         
                         
                         

@@ -11,6 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController4" customModule="vite2" customModuleProvider="target">
             <connections>
+                <outlet property="choseLabel" destination="iqr-ZW-g98" id="uca-XB-BkS"/>
+                <outlet property="closeAll" destination="jzG-M3-tPl" id="tBT-FM-H6V"/>
+                <outlet property="closeCode" destination="Wjl-kc-df4" id="y6x-qx-cTp"/>
+                <outlet property="codeView" destination="brI-PT-k9l" id="NsW-Bf-zmI"/>
+                <outlet property="getCode" destination="y0T-dM-e5S" id="itR-MO-BcG"/>
+                <outlet property="myCode" destination="eBa-fD-mWs" id="yGK-LA-fzT"/>
+                <outlet property="scroller" destination="08C-vN-Jrb" id="vaU-Sc-u65"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +25,49 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="08C-vN-Jrb">
+                    <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </scrollView>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brI-PT-k9l">
+                    <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBa-fD-mWs">
+                            <rect key="frame" x="62" y="35" width="250" height="250"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjl-kc-df4">
+                            <rect key="frame" x="164" y="311" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Accounts to Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqr-ZW-g98">
+                    <rect key="frame" x="14" y="27" width="347" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzG-M3-tPl">
+                    <rect key="frame" x="4" y="25" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="X">
+                        <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-dM-e5S">
+                    <rect key="frame" x="155" y="611" width="65" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Get Code"/>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.9002836044520548" colorSpace="custom" customColorSpace="sRGB"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>
