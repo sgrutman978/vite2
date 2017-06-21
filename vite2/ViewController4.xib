@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController4" customModule="vite2" customModuleProvider="target">
             <connections>
                 <outlet property="choseLabel" destination="iqr-ZW-g98" id="uca-XB-BkS"/>
-                <outlet property="closeAll" destination="jzG-M3-tPl" id="tBT-FM-H6V"/>
                 <outlet property="closeCode" destination="Wjl-kc-df4" id="y6x-qx-cTp"/>
                 <outlet property="codeView" destination="brI-PT-k9l" id="NsW-Bf-zmI"/>
                 <outlet property="getCode" destination="y0T-dM-e5S" id="itR-MO-BcG"/>
@@ -59,14 +58,21 @@
                     <state key="normal" title="X">
                         <color key="titleColor" white="0.96999999999999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="closeIt:" destination="-1" eventType="touchUpInside" id="5iX-zh-Y5A"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0T-dM-e5S">
-                    <rect key="frame" x="155" y="611" width="65" height="30"/>
+                    <rect key="frame" x="0.0" y="620" width="375" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.78698048857868019" green="0.46075273006058687" blue="0.0057318526703299807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Get Code"/>
+                    <connections>
+                        <action selector="createCode:" destination="-1" eventType="touchUpInside" id="zEb-Ob-EtN"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.9002836044520548" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.80249357876712324" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>

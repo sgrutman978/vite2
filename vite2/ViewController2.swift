@@ -196,6 +196,7 @@ print("ililil")
 //            }
         }
         })
+        print("hdhdhd")
             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(94*self.counter)))
     }
     
@@ -441,4 +442,3 @@ extension UIViewController {
         view.endEditing(true)
     }
 }
-

@@ -237,4 +237,3 @@ extension UIView {
         self.layer.addSublayer(border)
     }
 }
-

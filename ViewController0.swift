@@ -103,17 +103,22 @@ class ViewController0: UIViewController {
 //        }
        
         var fbTw = 0
-        self.ref.child("users").child((user?.uid)!).child("info").child("00use").observeSingleEvent(of: .value, with: { snapshot6 in
+        self.ref.child("users").child((user?.uid)!).child("info").child("00use").observe(.value, with: { snapshot6 in
             if(snapshot6.value as! String == "tw"){
                 fbTw = 1
             }
         })
-         self.ref.child("users").child((user?.uid)!).child("info").child("19DEF").observeSingleEvent(of: .value, with: { snapshot2 in
-        if(fbTw == 0){
-            self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 0, myURLString: "http://graph.facebook.com/"+(snapshot2.value as! String)+"/picture?type=large&redirect=false")))
+         self.ref.child("users").child((user?.uid)!).child("info").child("19DEF").observe(.value, with: { snapshot2 in
+//            print("ggggg")
+//            print(snapshot2.value as! String)
+//            print("hhhhh")
+            if(snapshot2.value as? String ?? "" != ""){
+            if(fbTw == 0){
+            self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 0, myURLString: "http://graph.facebook.com/"+(snapshot2.value as? String ?? "")+"/picture?type=large&redirect=false")))
         }else{
-            self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 1, myURLString: snapshot2.value as! String)))
+            self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 1, myURLString: snapshot2.value as? String ?? "")))
         }
+            }
          })
         
         
@@ -404,7 +409,7 @@ class ViewController0: UIViewController {
     
     func addService(){
         let user = FIRAuth.auth()?.currentUser
-    ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(21+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 20):label.text ?? "sgrutman978"])
+    ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(21+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
         self.hideMenu()
     }
     
