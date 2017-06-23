@@ -17,7 +17,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
-    var qrCodeFrameView:UIView?
+//    var qrCodeFrameView:UIView?
     
     var viewer = ViewController()
     var viewer0 = ViewController0()
@@ -72,14 +72,14 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             
             
             // Initialize QR Code Frame to highlight the QR code
-            qrCodeFrameView = UIView()
-            
-            if let qrCodeFrameView = qrCodeFrameView {
-                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                qrCodeFrameView.layer.borderWidth = 2
-                view.addSubview(qrCodeFrameView)
-                view.bringSubview(toFront: qrCodeFrameView)
-            }
+//            qrCodeFrameView = UIView()
+//            
+//            if let qrCodeFrameView = qrCodeFrameView {
+//                qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
+//                qrCodeFrameView.layer.borderWidth = 2
+//                view.addSubview(qrCodeFrameView)
+//                view.bringSubview(toFront: qrCodeFrameView)
+//            }
             
         } catch {
             // If any error occurs, simply print it out and don't continue any more.
@@ -91,14 +91,14 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        if(viewer.returnPage() == CGPoint(x: self.view.frame.size.width, y: 0) && allowed){
+        if(viewer.returnPage() == CGPoint(x: 0, y: 0) && allowed){
             allowed = false
             viewer2.view.isHidden = false
             viewer2.view.alpha = 1
-            viewer.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width * 2, y: 0), animated: true)
+            viewer.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: true)
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
-            qrCodeFrameView?.frame = CGRect.zero
+//            qrCodeFrameView?.frame = CGRect.zero
 //            messageLabel.text = "No QR code is detected"
             return
         }
@@ -109,16 +109,19 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         if metadataObj.type == AVMetadataObjectTypeQRCode {
             // If the found metadata is equal to the QR code metadata then update the status label's text and set the bounds
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
-            qrCodeFrameView?.frame = barCodeObject!.bounds
+//            qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
 //                messageLabel.text = metadataObj.stringValue
                 let index: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 16)
+                print("helllooooodsfgdgsdgs")
                 if metadataObj.stringValue.substring(to: index) == "vite!-username//" {
-                    let username = metadataObj.stringValue.substring(from: index)
-//                    print(username)
-                    
-                    viewer.addPerson(mode: 0, vc3: viewer2, uid: username)
+                    let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
+                    let index3: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 44)
+                    let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
+                    let accounts = metadataObj.stringValue.substring(from: index3)
+                    print(username)
+                    viewer.addPerson(mode: 0, vc3: viewer2, uid: username, acc: accounts)
                     print("falseStuff")
                      Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
             }

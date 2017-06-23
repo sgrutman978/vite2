@@ -74,7 +74,16 @@ class ViewController2: UIViewController, UISearchBarDelegate {
 //        print("doggy")
         let enumerator = snapshot.children
         while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-        self.arr2.append(rest.value as! String)
+            var res = ""
+            if let result_number = (rest.value)! as? NSNumber
+            {
+                res = "\(result_number)"
+            }else{
+                res = rest.value as! String
+            }
+            if(res.characters.first == "a"){
+                self.arr2.append(rest.key)
+            }
             //work out deleting stuffs
              self.favoritesPlace = 10
         for subs in self.favs.subviews {
@@ -86,7 +95,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             }
         }
 //        print("lklklklk")
-             if(rest.value as! String != "a"){
+             if(res.characters.first == "a"){
 //                print(rest.key)
                 var fbTw = 0
                 self.ref.child("users").child(rest.key).child("info").child("00use").observeSingleEvent(of: .value, with: { snapshot6 in
@@ -345,6 +354,7 @@ print("ililil")
             refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 let user = FIRAuth.auth()?.currentUser
                 self.ref.child("users").child((user?.uid)!).child("allowed").child(sender.accessibilityIdentifier!).removeValue()
+//                self.arr2.remove(at: self.arr2.index(of: sender.accessibilityIdentifier!)!)
                 sender.superview?.removeFromSuperview()
                 self.reorder()
             }))
@@ -358,7 +368,7 @@ print("ililil")
         print("alalal")
         viewer2.view.isHidden = false
         viewer2.view.alpha = 1
-        viewer.addPerson(mode: 1, vc3: viewer2, uid: sender.accessibilityLabel!)
+        viewer.addPerson(mode: 1, vc3: viewer2, uid: sender.accessibilityLabel!, acc: "")
     }
     
     func getProfPic(mode: Int, myURLString: String) -> String {
@@ -411,10 +421,20 @@ print("ililil")
         sender.setImage(temp, for: .normal)
         ref.child("users").child(user).child("allowed").child(sender.accessibilityIdentifier! as String).observeSingleEvent(of: .value, with: { snapshot in
 //            print(snapshot.value as! String)
-            if(snapshot.value as! String == "a"){
-                 self.ref.child("users").child(self.user).child("allowed").updateChildValues([sender.accessibilityIdentifier! as String: sender.accessibilityIdentifier! as String])
+            var res = ""
+            if let result_number = (snapshot.value)! as? NSNumber
+            {
+                res = "\(result_number)"
             }else{
-                self.ref.child("users").child(self.user).child("allowed").updateChildValues([sender.accessibilityIdentifier! as String: "a"])
+                res = snapshot.value as! String
+            }
+
+            if(res.characters.first == "("){
+                let outputString = "a" + String(res.characters.dropFirst())
+                 self.ref.child("users").child(self.user).child("allowed").updateChildValues([sender.accessibilityIdentifier! as String: outputString])
+            }else{
+                let outputString = "(" + String(res.characters.dropFirst())
+                self.ref.child("users").child(self.user).child("allowed").updateChildValues([sender.accessibilityIdentifier! as String: outputString])
             }
         })
     }

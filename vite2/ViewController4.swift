@@ -22,19 +22,63 @@ class ViewController4: UIViewController {
     var list = ""
     
     
+    @IBAction func closeCode(_ sender: Any) {
+        codeView.isHidden = true
+    }
+    
     @IBAction func closeIt(_ sender: Any) {
         self.view.isHidden = true
     }
     
     @IBAction func createCode(_ sender: Any) {
+        let user = FIRAuth.auth()?.currentUser
+        list = "vite!-username//"+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
+        for all2 in scroller.subviews{
+            for all in all2.subviews{
+            if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.alpha != 1.0){
+                
+            list = list+")"+all.accessibilityIdentifier!
+            }
+        }
+        }
+    
+        var qrcodeImage: CIImage!
+        let data = list.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                filter?.setValue(data, forKey: "inputMessage")
+                filter?.setValue("Q", forKey: "inputCorrectionLevel")
+        //        qrcodeImage = filter?.outputImage
+        
+                //Create a CIFalseColor Filter
+                let colorFilter: CIFilter = CIFilter(name: "CIFalseColor")!
+                colorFilter.setDefaults()
+                colorFilter.setValue(filter?.outputImage!, forKey: "inputImage")
+                //Then set the background colour like this,
+                let transparentBG: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+                // let transparentBG: CIColor = CIColor(red: 255.0, green: 215.0, blue: 20.0, alpha: 1.0)
+                colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
+                colorFilter.setValue(transparentBG, forKey: "inputColor1")
+                qrcodeImage = colorFilter.outputImage!
+        
+                myCode.image = UIImage(ciImage: qrcodeImage)
+                let scaleX = myCode.frame.size.width / qrcodeImage.extent.size.width
+                let scaleY = myCode.frame.size.height / qrcodeImage.extent.size.height
+                let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+                myCode.image = UIImage(ciImage: transformedImage)
+        
+                codeView.layer.cornerRadius = 50
+                codeView.layer.borderWidth = 2
+                codeView.layer.masksToBounds = true
+                codeView.layer.borderColor = UIColor.black.cgColor
+        
         print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
         print(list)
+        self.codeView.isHidden = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = FIRAuth.auth()?.currentUser
-        list = "vite!-username//"+(user?.uid)!
         ref.child("users").child((user?.uid)!).child("info").observe(.value, with: { snapshot in
             let enumerator = snapshot.children
             for all in self.scroller.subviews{
@@ -87,10 +131,11 @@ class ViewController4: UIViewController {
         if(sender.backgroundColor == UIColor(red: num, green: num, blue: num, alpha: 0.77)){
         sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: 0.0)
             sender.setBackgroundImage(nil, for: .normal)
+            sender.alpha = 1.00
         }else{
             sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: 0.77)
             sender.setBackgroundImage(UIImage(named: "checked.png"), for: .normal)
-            list = list+")"+sender.accessibilityIdentifier!
+            sender.alpha = 0.99
         }
     }
 

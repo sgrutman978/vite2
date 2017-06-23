@@ -47,8 +47,19 @@ class ViewController3: UIViewController {
         var fbTw = 0
         var temp = ""
         
+        ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("allowed").child(user).observeSingleEvent(of: .value, with: { snapshot33 in
+//            var res = ""
+//            if let result_number = (rest.value)! as? NSNumber
+//            {
+//                res = "\(result_number)"
+//            }else{
+//                res = rest.value as! String
+//            }
+            print(snapshot33.value!)
+            let arr = String(describing: snapshot33.value!).components(separatedBy: ")")
+        
         //load info for user you scanned from database
-        ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
+        self.ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
 //            print(snapshot.childrenCount) // I got the expected number of items
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
@@ -69,7 +80,7 @@ class ViewController3: UIViewController {
                     res = rest.value as! String
                 }
                 print("r")
-                if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20){
+                if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20 && arr.contains(rest.key)){
                     let button = UIButton()
 //                    button.tag = 123
 //                    button.frame = (frame: CGRect(x: xpx, y: ypx, width: ((Int(self.view.frame.size.width) - (18*4))/3), height: ((Int(self.view.frame.size.width) - (18*4))/3)))
@@ -95,36 +106,6 @@ class ViewController3: UIViewController {
 //                    print("fb://profile/"+res)
                     self.arr.append(arr3[numKey])
                     imgString = arr2[numKey]
-                    
-                    if(rest.key == "20MAIN" || rest.key == "21MAIN"){
-                        print("piiiiiii")
-                        if(fbTw == 0){
-                            let fullNameArr = temp.components(separatedBy: "_normal")
-                            self.profPic.setImageFromURl(stringImageUrl: (fullNameArr[0] + fullNameArr[1]))
-                        }else{
-                            
-                            let myURLString = "http://graph.facebook.com/"+temp+"/picture?type=large&redirect=false"
-                        guard let myURL = URL(string: myURLString) else {
-                            print("Error: \(myURLString) doesn't seem to be a valid URL")
-                            return
-                        }
-                        
-                        do {
-                            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
-                           var dict = self.convertToDictionary(text: myHTMLString)
-                            var dict2 = NSDictionary()
-                            dict2 = dict?["data"] as! NSDictionary
-                            print(dict2["url"] ?? 0)
-                            self.profPic.setImageFromURl(stringImageUrl: (dict2["url"] as? String)!)
-                        } catch let error {
-                            print("Error: \(error)")
-                        }
-                    }
-                        self.profPic.layer.cornerRadius = 10
-                        self.profPic.layer.borderWidth = 2
-                        self.profPic.layer.masksToBounds = true
-                        self.profPic.layer.borderColor = UIColor.black.cgColor
-                    }
                     
                     if(numKey < 3){
                         res = "@"+res
@@ -165,11 +146,39 @@ class ViewController3: UIViewController {
                     thing.addSubview(label)
                     thing.addSubview(imageView)
                     self.scroller.addSubview(thing)
-                }else{
-                   
+                }
+                if(rest.key == "20MAIN" || rest.key == "21MAIN"){
+                    print("piiiiiii")
+                    if(fbTw == 0){
+                        let fullNameArr = temp.components(separatedBy: "_normal")
+                        self.profPic.setImageFromURl(stringImageUrl: (fullNameArr[0] + fullNameArr[1]))
+                    }else{
+                        
+                        let myURLString = "http://graph.facebook.com/"+temp+"/picture?type=large&redirect=false"
+                        guard let myURL = URL(string: myURLString) else {
+                            print("Error: \(myURLString) doesn't seem to be a valid URL")
+                            return
+                        }
+                        
+                        do {
+                            let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
+                            var dict = self.convertToDictionary(text: myHTMLString)
+                            var dict2 = NSDictionary()
+                            dict2 = dict?["data"] as! NSDictionary
+                            print(dict2["url"] ?? 0)
+                            self.profPic.setImageFromURl(stringImageUrl: (dict2["url"] as? String)!)
+                        } catch let error {
+                            print("Error: \(error)")
+                        }
+                    }
+                    self.profPic.layer.cornerRadius = 10
+                    self.profPic.layer.borderWidth = 2
+                    self.profPic.layer.masksToBounds = true
+                    self.profPic.layer.borderColor = UIColor.black.cgColor
                 }
             }
              self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(64*counter))))
+        })
         })
     }
     

@@ -329,14 +329,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         timer.invalidate()
     }
     
-    func addPerson(mode: Int, vc3: ViewController3, uid: String){
+    func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String){
         if(mode == 0){
         let user = FIRAuth.auth()?.currentUser
-        ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: "a"])
-        ref.child("users").child((user?.uid)!).child("temp").updateChildValues([uid: ""])
-        
-        ref.child("users").child(uid).child("allowed").updateChildValues([(user?.uid)!: "a"])
-        ref.child("users").child((user?.uid)!).child("temp").setValue(nil)
+        ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: acc])
+//        ref.child("users").child((user?.uid)!).child("temp").updateChildValues([uid: ""])
+//        ref.child("users").child(uid).child("allowed").updateChildValues([(user?.uid)!: acc])
+//        ref.child("users").child((user?.uid)!).child("temp").setValue(nil)
             (self.vc2 as! ViewController2).addDude(user: uid)
     }
         vc3.setupPerson(user: uid)
