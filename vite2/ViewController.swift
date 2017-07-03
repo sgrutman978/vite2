@@ -254,19 +254,19 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         //creates first view
         let vc0 = ViewController0(nibName: "ViewController0", bundle: nil)
         vc0.mainView = self
-//        self.addChildViewController(vc0)
-//        self.scrollView.addSubview(vc0.view)
+        self.addChildViewController(vc0)
+        self.scrollView.addSubview(vc0.view)
         vc0.didMove(toParentViewController: self)
-        vc0.view.isHidden = true
+//        vc0.view.isHidden = true
         
         
         //creates second view with starting place = width of first
         let vc1 = ViewController1(nibName: "ViewController1", bundle: nil)
         vc = vc1
         vc1.viewer = self
-//        var frame1 = vc1.view.frame
-//        frame1.origin.x = self.view.frame.size.width
-//        vc1.view.frame = frame1
+        var frame1 = vc1.view.frame
+        frame1.origin.x = self.view.frame.size.width
+        vc1.view.frame = frame1
         self.addChildViewController(vc1)
         self.scrollView.addSubview(vc1.view)
         vc1.didMove(toParentViewController: self)
@@ -278,7 +278,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         let vc2 = ViewController2(nibName: "ViewController2", bundle: nil)
         vc2.user = userID
         var frame2 = vc2.view.frame
-        frame2.origin.x = self.view.frame.size.width //* 2
+        frame2.origin.x = self.view.frame.size.width * 2
         vc2.view.frame = frame2
         self.addChildViewController(vc2)
         self.scrollView.addSubview(vc2.view)
@@ -290,6 +290,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.scrollView.addSubview(vc3.view)
         
         let vc4 = ViewController4(nibName: "ViewController4", bundle: nil)
+        vc4.view.frame = frame1
         self.addChildViewController(vc4)
         self.scrollView.addSubview(vc4.view)
         
@@ -320,11 +321,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         vc4.view.isHidden = true
         //        moveTofound(vc3: vc3, uid: userID)
         
-        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width /* * 3*/ * 2, height: self.view.frame.size.height/*-64*/)
+        self.scrollView.contentSize = CGSize(width: self.view.frame.size.width * 3, height: self.view.frame.size.height-64)
         
         //        self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-//        self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: false)
+        self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: false)
         
         //        ref.child("users").child(user.uid).child("allowed").observe(.value) { (snapshot: FIRDataSnapshot) in
         //            print("ooo")

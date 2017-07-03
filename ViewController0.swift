@@ -40,9 +40,9 @@ class ViewController0: UIViewController {
 //        self.activeTextField = textField
 //    }
     
-    @IBAction func closeThis(_ sender: Any) {
-        self.view.isHidden = true
-    }
+//    @IBAction func closeThis(_ sender: Any) {
+//        self.view.isHidden = true
+//    }
     
     
     

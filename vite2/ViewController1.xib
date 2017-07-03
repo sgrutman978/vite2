@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,20 +23,8 @@
                 <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WX-3i-6Uc">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6d-Io-HSK">
-                            <rect key="frame" x="326" y="24" width="31" height="31"/>
-                            <color key="backgroundColor" red="0.26600573874998223" green="0.28941776836097277" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="31" id="gjj-sM-Xrf"/>
-                            </constraints>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <state key="normal" image="cross"/>
-                            <connections>
-                                <action selector="showSettings:" destination="-1" eventType="touchUpInside" id="j2d-Ov-dak"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-ff-ttV">
-                            <rect key="frame" x="20" y="24" width="31" height="31"/>
+                            <rect key="frame" x="172" y="24" width="31" height="31"/>
                             <color key="backgroundColor" red="0.26600573869999999" green="0.2894177684" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="31" id="cy3-iS-nsa"/>
@@ -51,14 +38,10 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="top" secondItem="P6d-Io-HSK" secondAttribute="top" id="6r6-xe-mfx"/>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="baseline" secondItem="P6d-Io-HSK" secondAttribute="baseline" id="7la-Fo-HnT"/>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="firstBaseline" secondItem="P6d-Io-HSK" secondAttribute="firstBaseline" id="8WE-Q5-WgP"/>
-                        <constraint firstItem="P6d-Io-HSK" firstAttribute="top" secondItem="7WX-3i-6Uc" secondAttribute="top" constant="24" id="GAY-64-eDH"/>
-                        <constraint firstAttribute="bottom" secondItem="P6d-Io-HSK" secondAttribute="bottom" id="Mw2-f6-6JZ"/>
+                        <constraint firstItem="DEx-ff-ttV" firstAttribute="top" secondItem="7WX-3i-6Uc" secondAttribute="top" constant="24" id="9dj-ka-R82"/>
                         <constraint firstAttribute="height" constant="55" id="ZBs-dX-vrq"/>
-                        <constraint firstItem="P6d-Io-HSK" firstAttribute="leading" secondItem="7WX-3i-6Uc" secondAttribute="leading" constant="326" id="crK-5F-Giv"/>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="leading" secondItem="7WX-3i-6Uc" secondAttribute="leading" constant="20" id="tlL-qS-D3q"/>
+                        <constraint firstAttribute="bottom" secondItem="DEx-ff-ttV" secondAttribute="bottom" id="cNJ-Sh-yy3"/>
+                        <constraint firstItem="DEx-ff-ttV" firstAttribute="leading" secondItem="7WX-3i-6Uc" secondAttribute="leading" constant="172" id="tlL-qS-D3q"/>
                     </constraints>
                 </view>
             </subviews>

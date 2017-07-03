@@ -30,10 +30,12 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         viewer.modeVc4 = 0
         //        self.view.isHidden = true
     }
-    @IBAction func showSettings(_ sender: Any) {
-        viewer0.view.isHidden = false
-//        self.view.isHidden = true
-    }
+    
+//    @IBAction func showSettings(_ sender: Any) {
+//        viewer0.view.isHidden = false
+////        self.view.isHidden = true
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("lllrrr")
@@ -92,10 +94,10 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        if(viewer.returnPage() == CGPoint(x: 0, y: 0) && allowed){
+        if(viewer.returnPage() == CGPoint(x: self.view.frame.size.width, y: 0) && allowed){
             allowed = false
-            viewer3.view.isHidden = false
-            viewer3.view.alpha = 1
+//            viewer3.view.isHidden = false
+//            viewer3.view.alpha = 1
             viewer.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: true)
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
