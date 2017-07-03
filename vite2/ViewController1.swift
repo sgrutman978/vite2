@@ -96,8 +96,8 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if(viewer.returnPage() == CGPoint(x: self.view.frame.size.width, y: 0) && allowed){
             allowed = false
-//            viewer3.view.isHidden = false
-//            viewer3.view.alpha = 1
+            viewer3.view.isHidden = false
+            viewer3.view.alpha = 1
             viewer.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: true)
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {

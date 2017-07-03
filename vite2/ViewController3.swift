@@ -35,6 +35,7 @@ class ViewController3: UIViewController {
     }
     
     func setupPerson(user: String){
+        self.view.isHidden = false
         viewer.vc4User = user
         //delete all existing buttons
         for subs in scroller.subviews {
