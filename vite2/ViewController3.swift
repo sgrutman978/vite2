@@ -25,12 +25,17 @@ class ViewController3: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func sendBack(_ sender: Any) {
+        viewer.vc4.view.isHidden = false
+        viewer.modeVc4 = 1
+    }
+    
     @IBAction func goBack(_ sender: Any) {
         viewer.goBack(vc3: self)
     }
     
     func setupPerson(user: String){
-        
+        viewer.vc4User = user
         //delete all existing buttons
         for subs in scroller.subviews {
             if subs.tag != -1 {

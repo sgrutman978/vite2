@@ -27,10 +27,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var fbid = ""
     var vc = UIViewController()
     var vc2 = UIViewController()
+    var vc4 = UIViewController()
     var logInButton = TWTRLogInButton()
     var user2NAME = "Enter Name"
     var user2URL = ""
     var use00 = ""
+    var modeVc4 = 0
+    var vc4User = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -244,7 +247,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
                             })
         
-       
+       print("worked")
         userID = user.uid
         self.loginView.isHidden = true
         self.scrollView.isHidden = false
@@ -293,11 +296,25 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         vc0.didMove(toParentViewController: self)
         
         
-        vc1.viewer2 = vc3
+//        vc1.viewer3 = vc3
+//        vc1.viewer0 = vc0
+//        vc1.viewer4 = vc4
+//        vc2.viewer3 = vc3
+        
+        vc1.viewer3 = vc3
         vc1.viewer0 = vc0
+        vc1.viewer = self
         vc1.viewer4 = vc4
-        vc2.viewer2 = vc3
+        
+        vc2.viewer = self
+        
+        vc2.viewer3 = vc3
+        vc3.viewer = self
+        vc4.viewer = self
+        vc4.viewer3 = vc3
+        
         self.vc2 = vc2
+        self.vc4 = vc4
         vc3.view.alpha = 0;
         vc3.view.isHidden = true
         vc4.view.isHidden = true

@@ -21,7 +21,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     var favoritesPlace = 10
     var arr2 = [String]()
     var viewer = ViewController()
-    var viewer2 = ViewController3()
+    var viewer3 = ViewController3()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -366,9 +366,9 @@ print("ililil")
     
     func someAction(_ sender:UITapGestureRecognizer){
         print("alalal")
-        viewer2.view.isHidden = false
-        viewer2.view.alpha = 1
-        viewer.addPerson(mode: 1, vc3: viewer2, uid: sender.accessibilityLabel!, acc: "")
+        viewer3.view.isHidden = false
+        viewer3.view.alpha = 1
+        viewer.addPerson(mode: 1, vc3: viewer3, uid: sender.accessibilityLabel!, acc: "")
     }
     
     func getProfPic(mode: Int, myURLString: String) -> String {

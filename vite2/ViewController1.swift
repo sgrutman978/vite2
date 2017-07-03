@@ -21,12 +21,13 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     var viewer = ViewController()
     var viewer0 = ViewController0()
-    var viewer2 = ViewController3()
+    var viewer3 = ViewController3()
     var viewer4 = ViewController4()
     var allowed = true
     
     @IBAction func showCode(_ sender: Any) {
         viewer4.view.isHidden = false
+        viewer.modeVc4 = 0
         //        self.view.isHidden = true
     }
     @IBAction func showSettings(_ sender: Any) {
@@ -93,8 +94,8 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if(viewer.returnPage() == CGPoint(x: 0, y: 0) && allowed){
             allowed = false
-            viewer2.view.isHidden = false
-            viewer2.view.alpha = 1
+            viewer3.view.isHidden = false
+            viewer3.view.alpha = 1
             viewer.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: true)
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
@@ -121,7 +122,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                     let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
                     let accounts = metadataObj.stringValue.substring(from: index3)
                     print(username)
-                    viewer.addPerson(mode: 0, vc3: viewer2, uid: username, acc: accounts)
+                    viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
                     print("falseStuff")
                      Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
             }
