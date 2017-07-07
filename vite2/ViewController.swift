@@ -17,6 +17,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     @IBOutlet weak var loginView: UIView!
     
+    @IBOutlet weak var loginFb: UIButton!
+    @IBOutlet weak var loginTw: UIButton!
     
     //creates outlet for scroll view
     @IBOutlet weak var scrollView: UIScrollView!
@@ -45,8 +47,15 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             object: nil)
         
         print("hellooooo")
-        loginView.backgroundColor = UIColor.orange
-        
+//        loginView.backgroundColor = UIColor.orange
+        loginFb.layer.cornerRadius = 10
+         loginFb.layer.masksToBounds = true
+//        loginFb.layer.borderWidth = 1
+//        loginFb.layer.borderColor = UIColor.black as! CGColor
+        loginTw.layer.cornerRadius = 10
+        loginTw.layer.masksToBounds = true
+//        loginTw.layer.borderWidth = 1
+//        loginTw.layer.borderColor = UIColor.black as! CGColor
         ref = FIRDatabase.database().reference()
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in

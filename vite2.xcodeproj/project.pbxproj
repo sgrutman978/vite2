@@ -11,6 +11,12 @@
 		21E464CAB9A31E0EB79D431C /* Pods_vite2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D8113212DC9A091B470834 /* Pods_vite2Tests.framework */; };
 		2F1402E31E9FE666005D3894 /* (outerCode).png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1402E21E9FE666005D3894 /* (outerCode).png */; };
 		2F1BE5C01EFA050F0076BE7B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5BF1EFA050F0076BE7B /* checked.png */; };
+		2F1BE5C51F0F266E0076BE7B /* loginTW.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5C31F0F266E0076BE7B /* loginTW.png */; };
+		2F1BE5C61F0F266F0076BE7B /* loginFB.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5C41F0F266E0076BE7B /* loginFB.png */; };
+		2F1BE5C81F0F281C0076BE7B /* blackTriangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5C71F0F281C0076BE7B /* blackTriangle.png */; };
+		2F1BE5CA1F0F2B500076BE7B /* anon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5C91F0F2B500076BE7B /* anon.png */; };
+		2F1BE5CC1F0F2E4A0076BE7B /* codeSample.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5CB1F0F2E4A0076BE7B /* codeSample.png */; };
+		2F1BE5CE1F0F2F930076BE7B /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5CD1F0F2F930076BE7B /* gradient.png */; };
 		2F47F4131E2EB360008D6354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4121E2EB360008D6354 /* AppDelegate.swift */; };
 		2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F47F4141E2EB360008D6354 /* ViewController.swift */; };
 		2F47F4181E2EB360008D6354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F47F4161E2EB360008D6354 /* Main.storyboard */; };
@@ -72,6 +78,12 @@
 		25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vite2/Pods-vite2.debug.xcconfig"; sourceTree = "<group>"; };
 		2F1402E21E9FE666005D3894 /* (outerCode).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(outerCode).png"; sourceTree = SOURCE_ROOT; };
 		2F1BE5BF1EFA050F0076BE7B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = SOURCE_ROOT; };
+		2F1BE5C31F0F266E0076BE7B /* loginTW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginTW.png; sourceTree = SOURCE_ROOT; };
+		2F1BE5C41F0F266E0076BE7B /* loginFB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginFB.png; sourceTree = SOURCE_ROOT; };
+		2F1BE5C71F0F281C0076BE7B /* blackTriangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackTriangle.png; sourceTree = SOURCE_ROOT; };
+		2F1BE5C91F0F2B500076BE7B /* anon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anon.png; sourceTree = SOURCE_ROOT; };
+		2F1BE5CB1F0F2E4A0076BE7B /* codeSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeSample.png; sourceTree = SOURCE_ROOT; };
+		2F1BE5CD1F0F2F930076BE7B /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = SOURCE_ROOT; };
 		2F47F40F1E2EB360008D6354 /* vite2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vite2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F47F4121E2EB360008D6354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F47F4141E2EB360008D6354 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +215,12 @@
 				2F5FF0E51EEC638500B69423 /* ViewController4.swift */,
 				2F5FF0E61EEC638500B69423 /* ViewController4.xib */,
 				2F92B2091E426EBE001F3722 /* myProf.jpg */,
+				2F1BE5C91F0F2B500076BE7B /* anon.png */,
+				2F1BE5CB1F0F2E4A0076BE7B /* codeSample.png */,
+				2F1BE5CD1F0F2F930076BE7B /* gradient.png */,
+				2F1BE5C31F0F266E0076BE7B /* loginTW.png */,
+				2F1BE5C41F0F266E0076BE7B /* loginFB.png */,
+				2F1BE5C71F0F281C0076BE7B /* blackTriangle.png */,
 				2FF795A41E4531EB00EDEECF /* git.png */,
 				2FFA5A0B1EC52010000E7352 /* fbPage.png */,
 				2FD5DF1D1E80B32B00D4C4D3 /* fb.png */,
@@ -382,11 +400,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F47F4471E2EB5D8008D6354 /* ViewController1.xib in Resources */,
+				2F1BE5CE1F0F2F930076BE7B /* gradient.png in Resources */,
 				2F92B2041E416275001F3722 /* tumblr.png in Resources */,
+				2F1BE5C51F0F266E0076BE7B /* loginTW.png in Resources */,
 				2F1402E31E9FE666005D3894 /* (outerCode).png in Resources */,
 				2F47F41D1E2EB360008D6354 /* LaunchScreen.storyboard in Resources */,
 				2F5FF0DA1EE8C4E000B69423 /* GoogleService-Info.plist in Resources */,
 				2F47F44B1E2EB61E008D6354 /* ViewController0.xib in Resources */,
+				2F1BE5CA1F0F2B500076BE7B /* anon.png in Resources */,
 				2F5FF0E81EEC638500B69423 /* ViewController4.xib in Resources */,
 				2F47F44F1E2EB6B6008D6354 /* ViewController2.xib in Resources */,
 				2F92B1F81E3EA276001F3722 /* snap.jpg in Resources */,
@@ -399,14 +420,17 @@
 				2F1BE5C01EFA050F0076BE7B /* checked.png in Resources */,
 				2FFA5A0C1EC52010000E7352 /* fbPage.png in Resources */,
 				2F9F861C1E8F095700290027 /* starClear.png in Resources */,
+				2F1BE5C81F0F281C0076BE7B /* blackTriangle.png in Resources */,
 				2F92B20C1E4272DA001F3722 /* vite.png in Resources */,
 				2F92B20E1E4276AC001F3722 /* back.png in Resources */,
 				2F47F4181E2EB360008D6354 /* Main.storyboard in Resources */,
 				2F92B1FC1E3FD03E001F3722 /* insta.jpg in Resources */,
 				2FFA5A0E1EC526DF000E7352 /* plus.png in Resources */,
+				2F1BE5C61F0F266F0076BE7B /* loginFB.png in Resources */,
 				2F92B1F61E3D5F9F001F3722 /* ViewController3.xib in Resources */,
 				2F92B2061E416349001F3722 /* twitter.jpg in Resources */,
 				2FD5DF1C1E6A191D00D4C4D3 /* phone.png in Resources */,
+				2F1BE5CC1F0F2E4A0076BE7B /* codeSample.png in Resources */,
 				2FF795A51E4531EB00EDEECF /* git.png in Resources */,
 				2FD5DF221E81B18500D4C4D3 /* loader.gif in Resources */,
 				2FD5DF201E81938500D4C4D3 /* prof.jpg in Resources */,
