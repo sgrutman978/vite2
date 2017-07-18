@@ -88,15 +88,15 @@ class ViewController2: UIViewController, UISearchBarDelegate {
              self.favoritesPlace = 10
         for subs in self.favs.subviews {
 //            print("dsdsds")
-//            print(rest.value as! String)
-            if subs.accessibilityIdentifier! as String == rest.value as! String && arr.contains(rest.value as! String) {
-//                print("yuyuyu")
-                arr.remove(at: arr.index(of: rest.value as! String)!)
+            print(rest.key)
+            if subs.accessibilityIdentifier! as String == rest.key && arr.contains(rest.key) && res.characters.first == "a" {
+                print("yuyuyu")
+                arr.remove(at: arr.index(of: rest.key)!)
             }
         }
 //        print("lklklklk")
              if(res.characters.first == "a"){
-//                print(rest.key)
+                print(rest.key)
                 var fbTw = 0
                 self.ref.child("users").child(rest.key).child("info").child("00use").observeSingleEvent(of: .value, with: { snapshot6 in
                     if(snapshot6.value as! String == "tw"){
@@ -109,12 +109,12 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                 arr2.append(subs.accessibilityIdentifier! as String)
             }
            
-            if(!arr2.contains(rest.value as! String)){
+            if(!arr2.contains(rest.key)){
             let imageView2 = UIImageView()
             imageView2.frame = CGRect(x: self.favoritesPlace, y: 10, width: 70, height: 70)
 //            print(self.favoritesPlace)
             
-            imageView2.accessibilityIdentifier = rest.key as String
+            imageView2.accessibilityIdentifier = rest.key
             imageView2.layer.cornerRadius = 5
             imageView2.layer.borderWidth = 1
             imageView2.layer.masksToBounds = true
@@ -141,7 +141,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         })
             }
         }
-
+print(arr)
         for subs in self.favs.subviews {
             if(arr.contains(subs.accessibilityIdentifier! as String)){
                 subs.removeFromSuperview()

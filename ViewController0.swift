@@ -34,6 +34,7 @@ class ViewController0: UIViewController {
     let label = UITextField()
     var initName = ""
     var initBio = ""
+     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png"]
 //    var activeTextField = UITextField()
 //    
 //    private func textFieldDidBeginEditing(textField: UITextField) {
@@ -189,7 +190,6 @@ class ViewController0: UIViewController {
             
             self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 60)
             
-            self.label.placeholder = "username"
             self.label.frame = CGRect(x: 110, y: 6, width: self.view.frame.size.width - 72 - 110, height: 48)
             self.label.font = UIFont(name: "Heiti TC", size: 20)
 //            label.numberOfLines = 0
@@ -220,14 +220,15 @@ class ViewController0: UIViewController {
             self.menu.addSubview(self.button3)
             
             var place2 = 50
-            let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png"]
+           
             self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60)
-            self.menu.contentSize = CGSize(width: (arr2.count-1)*58+50, height: 60)
+            self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+50, height: 60)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
-            for all in arr2[1..<(arr2.count)] {
+            for all in self.arr2[1..<(self.arr2.count)] {
                 let image = UIImage(named: all)
                 let newOne = UIButton()
+                newOne.accessibilityIdentifier = self.arr2.index(of: all)?.description
                 newOne.setImage(image, for: .normal)
                 newOne.frame = CGRect(x: place2, y: 6, width: 48, height: 48)
                 newOne.setTitle(String((place2-50)/58), for: .normal)
@@ -283,8 +284,8 @@ class ViewController0: UIViewController {
                     var imgString = ""
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
-                    imgString = arr2[numKey]
-                    if(numKey < 3){
+                    imgString = self.arr2[numKey]
+                    if(numKey == 4 || numKey == 1){
                         res = "@"+res
                     }
                     
@@ -388,6 +389,18 @@ class ViewController0: UIViewController {
         menu.isHidden = true
         enterText.isHidden = false
         self.enterText.addSubview(self.button3)
+        switch Int(sender.accessibilityIdentifier!)! {
+        case 1,4:
+            self.label.placeholder = "@username"
+        case 2:
+            self.label.placeholder = "(888) 888-8888"
+        case 3, 9, 10:
+            self.label.placeholder = "username"
+        case 6:
+            self.label.placeholder = "username@example.com"
+        default:
+            self.label.placeholder = "put shit here"
+        }
     }
     
     func showMenu(){

@@ -294,7 +294,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         vc2.didMove(toParentViewController: self)
         
         let vc3 = ViewController3(nibName: "ViewController3", bundle: nil)
-        vc3.view.frame = frame2
+        vc3.view.frame = frame1
         self.addChildViewController(vc3)
         self.scrollView.addSubview(vc3.view)
         

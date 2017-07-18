@@ -28,13 +28,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="rVS-kk-ViA">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="rVS-kk-ViA">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.81430558007345089" green="0.82236801155932659" blue="0.82236801155932659" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrc-7w-VFu">
-                                        <rect key="frame" x="47" y="469" width="280" height="56"/>
+                                        <rect key="frame" x="47" y="457" width="280" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -46,7 +46,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4x-Zk-KrJ">
-                                        <rect key="frame" x="47" y="555" width="280" height="56"/>
+                                        <rect key="frame" x="47" y="545" width="280" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" backgroundImage="loginTW.png"/>
@@ -55,23 +55,30 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1V-Ay-B09">
-                                        <rect key="frame" x="0.0" y="329" width="375" height="5"/>
+                                        <rect key="frame" x="0.0" y="321" width="375" height="5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="codeSample.png" translatesAutoresizingMaskIntoConstraints="NO" id="C25-NR-RYc">
-                                        <rect key="frame" x="67" y="47" width="240" height="240"/>
+                                        <rect key="frame" x="67" y="45" width="240" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vite!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6d-EA-pA3">
-                                        <rect key="frame" x="91" y="373" width="192" height="66"/>
+                                        <rect key="frame" x="91" y="367" width="192" height="66"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="65"/>
+                                        <fontDescription key="fontDescription" name="Baskerville-SemiBold" family="Baskerville" pointSize="65"/>
                                         <color key="textColor" red="0.93075824873096447" green="0.63155909122602272" blue="0.0053382724090117921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry2-wX-dFN">
+                                        <rect key="frame" x="76" y="632" width="224" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Something better than this">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="blackTriangle.png" translatesAutoresizingMaskIntoConstraints="NO" id="WxG-Bn-znA">
-                                        <rect key="frame" x="145" y="329" width="80" height="40"/>
+                                        <rect key="frame" x="145" y="321" width="80" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
