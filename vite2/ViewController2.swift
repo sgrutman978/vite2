@@ -368,6 +368,9 @@ print("ililil")
         print("alalal")
         viewer3.view.isHidden = false
         viewer3.view.alpha = 1
+        var frame2 = self.view.frame
+        frame2.origin.x = self.view.frame.size.width * 2
+        viewer3.view.frame = frame2
         viewer.addPerson(mode: 1, vc3: viewer3, uid: sender.accessibilityLabel!, acc: "")
     }
     

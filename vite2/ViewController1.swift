@@ -124,6 +124,9 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                     let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
                     let accounts = metadataObj.stringValue.substring(from: index3)
                     print(username)
+                    var frame1 = self.view.frame
+                    frame1.origin.x = self.view.frame.size.width * 1
+                    viewer3.view.frame = frame1
                     viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
                     print("falseStuff")
                      Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)

@@ -103,6 +103,7 @@ class ViewController4: UIViewController {
                 all.removeFromSuperview()
             }
             var count = 0
+            var counter = 8
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
                 var res = ""
                 if let result_number = (rest.value)! as? NSNumber
@@ -121,11 +122,13 @@ class ViewController4: UIViewController {
                     image.frame = CGRect(x: 0, y: 0, width: 101, height: 101)
 //                    image.layer.cornerRadius = 5
                     let newOne = UIButton()
+                    newOne.accessibilityHint = String(counter)
                     newOne.frame = CGRect(x: 0, y: 0, width: 101, height: 116)
                     newOne.layer.borderWidth = 1
                     newOne.layer.cornerRadius = 5
-                    newOne.layer.borderColor = UIColor.white.cgColor
+//                    newOne.layer.borderColor = UIColor.white.cgColor
                     newOne.addTarget(self, action: #selector(self.checkIt), for: .touchUpInside)
+                    newOne.accessibilityIdentifier = "seth"
                     check.layer.cornerRadius = 5
                     check.layer.masksToBounds = true
                     let label = UILabel(frame: CGRect(x: 0, y: 101, width: 101, height: 14))
@@ -134,10 +137,37 @@ class ViewController4: UIViewController {
                     label.textColor = UIColor.white
                     label.font = label.font.withSize(12)
                     label.textAlignment = .center
+                    var checkThing = UIButton()
+                    checkThing.frame = CGRect(x: 68, y: 3, width: 30, height: 30)
+                    checkThing.setBackgroundImage(UIImage(named: "check.png"), for: .normal)
+                    checkThing.accessibilityHint = String(counter)
+                    checkThing.isHidden = true
+                    counter += 1
                     newOne.accessibilityIdentifier = rest.key
+                    var bColor = UIColor.white
+                    var tColor = UIColor.white
+                    switch type {
+                    case 0:
+                        bColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+                        tColor = UIColor.white
+                    case 1:
+                        bColor = UIColor(red: 2/255, green: 171/255, blue: 238/255, alpha: 1.0)
+                        tColor = UIColor.white
+                    case 2:
+                        break
+                    case 3:
+                        bColor = UIColor(red: 255/255, green: 252/255, blue: 1/255, alpha: 1.0)
+                        tColor = UIColor.black
+                    default:
+                        bColor = UIColor.white
+                        tColor = UIColor.white
+                    }
+                    check.backgroundColor = bColor
+                    label.textColor = tColor
                     check.addSubview(image)
                     check.addSubview(label)
                     check.addSubview(newOne)
+                    check.addSubview(checkThing)
                      self.scroller.addSubview(check)
                 }
             }
@@ -145,15 +175,28 @@ class ViewController4: UIViewController {
     }
     
     public func checkIt(sender: UIButton){
-        let num = CGFloat(0.77)
-        if(sender.backgroundColor == UIColor(red: num, green: num, blue: num, alpha: 0.77)){
-        sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: 0.0)
-            sender.setBackgroundImage(nil, for: .normal)
-            sender.alpha = 1.00
+        print("hey seth")
+        let num = CGFloat(0.4)
+        if(sender.accessibilityIdentifier == "seth"){
+            for all in (sender.superview?.subviews)!{
+                print(sender.accessibilityHint ?? 1)
+                print(all.accessibilityHint ?? 1)
+                if(all.accessibilityHint == sender.accessibilityHint && all != sender){
+                    sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: 0)
+                    all.isHidden = true
+                }
+            }
+            sender.accessibilityIdentifier = "cole"
         }else{
-            sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: 0.77)
-            sender.setBackgroundImage(UIImage(named: "checked.png"), for: .normal)
-            sender.alpha = 0.99
+            for all in (sender.superview?.subviews)!{
+                print(sender.accessibilityHint ?? 1)
+                print(all.accessibilityHint ?? 1)
+                if(all.accessibilityHint == sender.accessibilityHint && all != sender){
+                    sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: num+0.2)
+                    all.isHidden = false
+                }
+            }
+            sender.accessibilityIdentifier = "seth"
         }
     }
 

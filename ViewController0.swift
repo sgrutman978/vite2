@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FBSDKLoginKit
 
-class ViewController0: UIViewController {
+class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelegate*/ {
     // , UITextFieldDelegate
 
     @IBOutlet weak var enterBio: UITextView!
@@ -81,12 +81,23 @@ class ViewController0: UIViewController {
         return nil
     }
     
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        print("return1")
+//        self.view.endEditing(true)
+//        return false
+//    }
+//    
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        print("scrolling1")
+//        self.view.endEditing(true)
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
        self.hideKeyboardWhenTappedAround()
         let user = FIRAuth.auth()?.currentUser
-        
+//        enterBio.delegate = self
         
 //        //only apply the blur if the user hasn't disabled transparency effects
 //        if !UIAccessibilityIsReduceTransparencyEnabled() {
@@ -102,7 +113,16 @@ class ViewController0: UIViewController {
 //        } else {
 //            self.view.backgroundColor = UIColor.black
 //        }
-       
+        logoutButton.layer.cornerRadius = 5
+        logoutButton.layer.borderWidth = 1
+        logoutButton.layer.masksToBounds = true
+        logoutButton.layer.borderColor = UIColor.black.cgColor
+
+        myCode.layer.cornerRadius = 15
+        myCode.layer.borderWidth = 1
+        myCode.layer.masksToBounds = true
+        myCode.layer.borderColor = UIColor.black.cgColor
+        
         var fbTw = 0
         self.ref.child("users").child((user?.uid)!).child("info").child("00use").observe(.value, with: { snapshot6 in
             if(snapshot6.value as! String == "tw"){
@@ -171,7 +191,7 @@ class ViewController0: UIViewController {
 //         self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
-            var place = 250
+            var place = 272
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
@@ -180,8 +200,8 @@ class ViewController0: UIViewController {
                 }
             }
             
-            self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
-            place+=64
+            self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 50)
+            place+=54
             self.thing2.backgroundColor = UIColor.gray
             self.thing2.tag = 0
             
@@ -190,7 +210,7 @@ class ViewController0: UIViewController {
             
             self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 60)
             
-            self.label.frame = CGRect(x: 110, y: 6, width: self.view.frame.size.width - 72 - 110, height: 48)
+            self.label.frame = CGRect(x: 110, y: 2, width: self.view.frame.size.width - 72 - 110, height: 48)
             self.label.font = UIFont(name: "Heiti TC", size: 20)
 //            label.numberOfLines = 0
 //            label.minimumScaleFactor = 0.1
@@ -199,7 +219,7 @@ class ViewController0: UIViewController {
             
             let button4 = UIButton()
             button4.backgroundColor = UIColor.yellow
-            button4.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
+            button4.frame = CGRect(x: (self.view.frame.size.width - 72), y: 4, width: 62, height: 42)
             button4.setTitle("Add", for: .normal)
             button4.setTitleColor(UIColor.black, for: .normal)
             button4.layer.cornerRadius = 10
@@ -208,7 +228,7 @@ class ViewController0: UIViewController {
             button4.addTarget(self, action: #selector(self.addService), for: .touchUpInside)
             self.enterText.addSubview(button4)
             
-            self.button3.frame = CGRect(x: 10, y: 15, width: 30, height: 30)
+            self.button3.frame = CGRect(x: 9, y: 7, width: 36, height: 36)
             self.button3.setTitle("X", for: .normal)
             self.button3.backgroundColor = UIColor.lightGray
             self.button3.setTitleColor(UIColor.black, for: .normal)
@@ -221,8 +241,8 @@ class ViewController0: UIViewController {
             
             var place2 = 50
            
-            self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60)
-            self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+50, height: 60)
+            self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50)
+            self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+50, height: 50)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
             for all in self.arr2[1..<(self.arr2.count)] {
@@ -230,9 +250,9 @@ class ViewController0: UIViewController {
                 let newOne = UIButton()
                 newOne.accessibilityIdentifier = self.arr2.index(of: all)?.description
                 newOne.setImage(image, for: .normal)
-                newOne.frame = CGRect(x: place2, y: 6, width: 48, height: 48)
+                newOne.frame = CGRect(x: place2, y: 3, width: 44, height: 44)
                 newOne.setTitle(String((place2-50)/58), for: .normal)
-                place2+=58
+                place2+=51
                 newOne.setTitleColor(UIColor.clear, for: .normal)
                 newOne.layer.cornerRadius = 5
                 newOne.layer.borderWidth = 1
@@ -243,7 +263,7 @@ class ViewController0: UIViewController {
             }
             
             self.button2.backgroundColor = UIColor.clear
-            self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 60)
+            self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 50)
             self.button2.setTitle("Add Service", for: .normal)
             self.button2.setTitleColor(UIColor.black, for: .normal)
             self.button2.addTarget(self, action: #selector(self.showMenu), for: .touchUpInside)
@@ -383,7 +403,7 @@ class ViewController0: UIViewController {
 //            , options: [:], completionHandler: nil)
         tempP = Int(sender.frame.minX)
         tempB = sender
-        sender.frame = CGRect(x: 50, y: 6, width: 48, height: 48)
+        sender.frame = CGRect(x: 50, y: 3, width: 44, height: 44)
         enterText.addSubview(sender)
         button2.isHidden = true
         menu.isHidden = true
@@ -411,7 +431,7 @@ class ViewController0: UIViewController {
     
     func hideMenu(){
         button2.isHidden = false
-        tempB.frame = CGRect(x: tempP, y: 6, width: 48, height: 48)
+        tempB.frame = CGRect(x: tempP, y: 3, width: 44, height: 44)
         self.menu.addSubview(self.button3)
         self.menu.addSubview(self.tempB)
         menu.isHidden = true

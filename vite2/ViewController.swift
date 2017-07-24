@@ -156,8 +156,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     //                print("error: \(error?.localizedDescription)")
     //            }
     //        }
-    
-    
+  
     
     func applicationDidBecomeActive(_ notification: NSNotification) {
         self.vc.viewDidLoad()
@@ -378,6 +377,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
 }
+
 
 
 public extension UIView {

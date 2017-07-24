@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -24,13 +24,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-ff-ttV">
-                            <rect key="frame" x="172" y="24" width="31" height="31"/>
+                            <rect key="frame" x="167" y="27" width="40" height="40"/>
                             <color key="backgroundColor" red="0.26600573869999999" green="0.2894177684" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="31" id="cy3-iS-nsa"/>
+                                <constraint firstAttribute="width" constant="40" id="cy3-iS-nsa"/>
                             </constraints>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <state key="normal" image="cross"/>
+                            <state key="normal" image="cross" backgroundImage="codeSample.png"/>
                             <connections>
                                 <action selector="showCode:" destination="-1" eventType="touchUpInside" id="Ycr-Kb-Jjq"/>
                             </connections>
@@ -38,10 +38,10 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="top" secondItem="7WX-3i-6Uc" secondAttribute="top" constant="24" id="9dj-ka-R82"/>
+                        <constraint firstItem="DEx-ff-ttV" firstAttribute="top" secondItem="7WX-3i-6Uc" secondAttribute="top" constant="27" id="9dj-ka-R82"/>
                         <constraint firstAttribute="height" constant="55" id="ZBs-dX-vrq"/>
-                        <constraint firstAttribute="bottom" secondItem="DEx-ff-ttV" secondAttribute="bottom" id="cNJ-Sh-yy3"/>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="leading" secondItem="7WX-3i-6Uc" secondAttribute="leading" constant="172" id="tlL-qS-D3q"/>
+                        <constraint firstAttribute="bottom" secondItem="DEx-ff-ttV" secondAttribute="bottom" constant="-12" id="cNJ-Sh-yy3"/>
+                        <constraint firstItem="DEx-ff-ttV" firstAttribute="leading" secondItem="7WX-3i-6Uc" secondAttribute="leading" constant="167" id="tlL-qS-D3q"/>
                     </constraints>
                 </view>
             </subviews>
@@ -55,6 +55,7 @@
         </view>
     </objects>
     <resources>
+        <image name="codeSample.png" width="213" height="206"/>
         <image name="cross" width="16" height="16"/>
     </resources>
 </document>
