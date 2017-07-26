@@ -248,7 +248,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+50, height: 50)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
-            for all in self.arr2[1..<(self.arr2.count)] {
+            for all in self.arr2[0..<(self.arr2.count)] {
                 let image = UIImage(named: all)
                 let newOne = UIButton()
                 newOne.accessibilityIdentifier = self.arr2.index(of: all)?.description
@@ -450,7 +450,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     func addService(){
         let user = FIRAuth.auth()?.currentUser
-    ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(21+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
+    ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
         self.hideMenu()
     }
     
