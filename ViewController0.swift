@@ -11,8 +11,8 @@ import Firebase
 import FBSDKLoginKit
 
 class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelegate*/ {
+    
     // , UITextFieldDelegate
-
     @IBOutlet weak var enterBio: UITextView!
     @IBOutlet weak var enterName: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
@@ -44,7 +44,6 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //    @IBAction func closeThis(_ sender: Any) {
 //        self.view.isHidden = true
 //    }
-    
     
     
     func getProfPic(mode: Int, myURLString: String) -> String {
@@ -95,6 +94,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        self.hideKeyboardWhenTappedAround()
         let user = FIRAuth.auth()?.currentUser
 //        enterBio.delegate = self
@@ -113,15 +113,15 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //        } else {
 //            self.view.backgroundColor = UIColor.black
 //        }
-        logoutButton.layer.cornerRadius = 5
-        logoutButton.layer.borderWidth = 1
-        logoutButton.layer.masksToBounds = true
-        logoutButton.layer.borderColor = UIColor.black.cgColor
+//        logoutButton.layer.cornerRadius = 5
+//        logoutButton.layer.borderWidth = 1
+//        logoutButton.layer.masksToBounds = true
+//        logoutButton.layer.borderColor = UIColor.black.cgColor
 
-        myCode.layer.cornerRadius = 15
-        myCode.layer.borderWidth = 1
+        myCode.layer.cornerRadius = 8
+//        myCode.layer.borderWidth = 1
         myCode.layer.masksToBounds = true
-        myCode.layer.borderColor = UIColor.black.cgColor
+//        myCode.layer.borderColor = UIColor.black.cgColor
         
         var fbTw = 0
         self.ref.child("users").child((user?.uid)!).child("info").child("00use").observe(.value, with: { snapshot6 in
@@ -188,7 +188,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
 //        arr = [String]()
         //load info for user you scanned from database
-//         self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
+         self.topView.addBottomBorderWithColor(color: UIColor.black, width: 2)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             var place = 272
@@ -202,8 +202,11 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             
             self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 50)
             place+=54
-            self.thing2.backgroundColor = UIColor.gray
+            self.thing2.backgroundColor = UIColor.white
             self.thing2.tag = 0
+//            self.thing2.layer.cornerRadius = 10
+            self.thing2.layer.borderWidth = 1
+            self.thing2.layer.borderColor = UIColor.black.cgColor
             
             self.menu.isHidden = true
             self.menu.isScrollEnabled = true
@@ -230,7 +233,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             
             self.button3.frame = CGRect(x: 9, y: 7, width: 36, height: 36)
             self.button3.setTitle("X", for: .normal)
-            self.button3.backgroundColor = UIColor.lightGray
+            self.button3.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
             self.button3.setTitleColor(UIColor.black, for: .normal)
             self.button3.layer.cornerRadius = 15
             self.button3.layer.borderWidth = 0
@@ -265,7 +268,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.button2.backgroundColor = UIColor.clear
             self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 50)
             self.button2.setTitle("Add Service", for: .normal)
-            self.button2.setTitleColor(UIColor.black, for: .normal)
+            self.button2.setTitleColor(UIColor.orange, for: .normal)
             self.button2.addTarget(self, action: #selector(self.showMenu), for: .touchUpInside)
             
             
@@ -297,7 +300,12 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     let thing = UIView()
                     thing.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
                     place+=64
-                    thing.backgroundColor = UIColor.lightGray
+                    thing.backgroundColor = UIColor.clear
+//                    thing.layer.cornerRadius = 15
+//                    thing.layer.borderWidth = 1
+//                    thing.layer.masksToBounds = true
+//                    thing.layer.borderColor = UIColor.black.cgColor
+                    thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                     print("y")
                     thing.tag = counter
                     counter+=1;
@@ -313,9 +321,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     let imageView = UIImageView(image: image!)
                     imageView.frame = CGRect(x: 10, y: 6, width: 48, height: 48)
                     imageView.layer.cornerRadius = 5
-                    imageView.layer.borderWidth = 1
-                    imageView.layer.masksToBounds = true
-                    imageView.layer.borderColor = UIColor.black.cgColor
+//                    imageView.layer.borderWidth = 1
+//                    imageView.layer.masksToBounds = true
+//                    imageView.layer.borderColor = UIColor.black.cgColor
                     
                     let label = UILabel()
                     label.text = res
@@ -500,6 +508,7 @@ extension UIImageView{
         }
     }
 }
+
 
 
 

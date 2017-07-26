@@ -241,7 +241,8 @@ print("ililil")
         //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
         //                    self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
         self.place+=94
-        thing.backgroundColor = UIColor.lightGray
+        thing.backgroundColor = UIColor.clear
+            thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
         //                    print("y")
         thing.tag = self.counter
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
@@ -265,9 +266,9 @@ print("ililil")
                         let imageView = UIImageView()
                         imageView.frame = CGRect(x: 10, y: 10, width: 70, height: 70)
                         imageView.layer.cornerRadius = 5
-                        imageView.layer.borderWidth = 1
+//                        imageView.layer.borderWidth = 1
                         imageView.layer.masksToBounds = true
-                        imageView.layer.borderColor = UIColor.black.cgColor
+//                        imageView.layer.borderColor = UIColor.black.cgColor
                         
                         if(snapshot2.value as? String != nil){
                             if(snapshot5.value as! String == "fb"){
@@ -295,7 +296,8 @@ print("ililil")
                         label2.font = UIFont(name: "Heiti TC", size: 16)
                         
                         let button2 = UIButton()
-                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 30, height: 30)
+                        //red X button
+                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 30, height: 0)
                         button2.setTitle("X", for: .normal)
                         button2.accessibilityIdentifier = rest.key
                         button2.backgroundColor = UIColor.red
@@ -328,7 +330,7 @@ print("ililil")
                             temp = UIImage.init(named: "starClear.png")!
                         }
                         button.setImage(temp, for: .normal)
-                        button.frame = CGRect(x: self.view.frame.size.width - 80, y: 15, width: 60, height: 60)
+                        button.frame = CGRect(x: self.view.frame.size.width - 60, y: 25, width: 40, height: 40)
                         //            button.setTitle("View", for: .normal)
                         //            button.setTitleColor(UIColor.black, for: .normal)
                         //            button.layer.cornerRadius = 10

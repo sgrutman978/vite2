@@ -41,8 +41,9 @@ class ViewController4: UIViewController {
         list = "vite!-username//"+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
         for all2 in scroller.subviews{
             for all in all2.subviews{
-                if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.alpha != 1.0){
-                    
+                if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != ""){
+                     //&& all.alpha != 1.0
+                     print(all.alpha)
                     list = list+")"+all.accessibilityIdentifier!
                 }
             }
@@ -128,7 +129,7 @@ class ViewController4: UIViewController {
                     newOne.layer.cornerRadius = 5
 //                    newOne.layer.borderColor = UIColor.white.cgColor
                     newOne.addTarget(self, action: #selector(self.checkIt), for: .touchUpInside)
-                    newOne.accessibilityIdentifier = "seth"
+                    newOne.accessibilityLabel = "cole"
                     check.layer.cornerRadius = 5
                     check.layer.masksToBounds = true
                     let label = UILabel(frame: CGRect(x: 0, y: 101, width: 101, height: 14))
@@ -177,7 +178,7 @@ class ViewController4: UIViewController {
     public func checkIt(sender: UIButton){
         print("hey seth")
         let num = CGFloat(0.4)
-        if(sender.accessibilityIdentifier == "seth"){
+        if(sender.accessibilityLabel == "seth"){
             for all in (sender.superview?.subviews)!{
                 print(sender.accessibilityHint ?? 1)
                 print(all.accessibilityHint ?? 1)
@@ -186,7 +187,7 @@ class ViewController4: UIViewController {
                     all.isHidden = true
                 }
             }
-            sender.accessibilityIdentifier = "cole"
+            sender.accessibilityLabel = "cole"
         }else{
             for all in (sender.superview?.subviews)!{
                 print(sender.accessibilityHint ?? 1)
@@ -196,7 +197,7 @@ class ViewController4: UIViewController {
                     all.isHidden = false
                 }
             }
-            sender.accessibilityIdentifier = "seth"
+            sender.accessibilityLabel = "seth"
         }
     }
 
