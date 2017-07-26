@@ -41,8 +41,8 @@ class ViewController4: UIViewController {
         list = "vite!-username//"+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
         for all2 in scroller.subviews{
             for all in all2.subviews{
-                if(all.accessibilityLabel == "seth"){
-                     //all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.alpha != 1.0
+                if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
+                     // && all.alpha != 1.0
                      print(all.alpha)
                     list = list+")"+all.accessibilityIdentifier!
                 }
