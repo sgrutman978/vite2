@@ -248,13 +248,14 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+50, height: 50)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
+            var counter11 = 0
             for all in self.arr2[0..<(self.arr2.count)] {
                 let image = UIImage(named: all)
                 let newOne = UIButton()
                 newOne.accessibilityIdentifier = self.arr2.index(of: all)?.description
                 newOne.setImage(image, for: .normal)
                 newOne.frame = CGRect(x: place2, y: 3, width: 44, height: 44)
-                newOne.setTitle(String((place2-50)/58), for: .normal)
+                newOne.setTitle(String(counter11), for: .normal)
                 place2+=51
                 newOne.setTitleColor(UIColor.clear, for: .normal)
                 newOne.layer.cornerRadius = 5
@@ -263,6 +264,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 newOne.layer.borderColor = UIColor.black.cgColor
                  newOne.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
                 self.menu.addSubview(newOne)
+                counter11 = counter11 + 1
             }
             
             self.button2.backgroundColor = UIColor.clear
