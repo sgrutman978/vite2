@@ -251,7 +251,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
                 self.ref.child("users").child(user.uid).child("info").updateChildValues(["19DEF":   self.user2URL])
                 self.ref.child("users").child(user.uid).child("info").updateChildValues(["18NAME":   self.user2NAME])
-                self.ref.child("users").child(user.uid).child("info").updateChildValues(["17BIO":   "Enter Bio"])
+                self.ref.child("users").child(user.uid).child("info").updateChildValues(["17BIO":   ""])
             }
                             })
         

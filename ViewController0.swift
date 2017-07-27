@@ -13,6 +13,7 @@ import FBSDKLoginKit
 class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelegate*/ {
     
     // , UITextFieldDelegate
+    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var enterBio: UITextView!
     @IBOutlet weak var enterName: UITextField!
     @IBOutlet weak var logoutButton: UIButton!
@@ -44,6 +45,37 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //    @IBAction func closeThis(_ sender: Any) {
 //        self.view.isHidden = true
 //    }
+    
+    
+    @IBAction func editClick(_ sender: Any) {
+        if (editButton.titleLabel?.text == "E"){
+            self.thing2.isHidden = false
+            self.scroller.frame.origin.y = CGFloat(50)
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(50))
+            editButton.setTitle("D", for: .normal)
+            editButton.setBackgroundImage(UIImage(named: "orangeCheck.png"), for: .normal)
+            for all2 in self.scroller.subviews{
+                for all in all2.subviews{
+                    if(all.accessibilityLabel != nil && all.accessibilityLabel! == "delete"){
+                        all.isHidden = false
+                    }
+                }
+            }
+        }else{
+            self.thing2.isHidden = true
+            self.scroller.frame.origin.y = CGFloat(0)
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(50))
+            editButton.setTitle("E", for: .normal)
+            editButton.setBackgroundImage(UIImage(named: "edit.png"), for: .normal)
+            for all2 in self.scroller.subviews{
+                for all in all2.subviews{
+                    if(all.accessibilityLabel != nil && all.accessibilityLabel! == "delete"){
+                        all.isHidden = true
+                    }
+            }
+        }
+    }
+    }
     
     
     func getProfPic(mode: Int, myURLString: String) -> String {
@@ -191,7 +223,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
          self.topView.addBottomBorderWithColor(color: UIColor.black, width: 2)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
-            var place = 272
+            var place = 295
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
@@ -201,12 +233,13 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             }
             
             self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 50)
-            place+=54
+            self.thing2.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//            place+=54
             self.thing2.backgroundColor = UIColor.white
             self.thing2.tag = 0
 //            self.thing2.layer.cornerRadius = 10
-            self.thing2.layer.borderWidth = 1
-            self.thing2.layer.borderColor = UIColor.black.cgColor
+//            self.thing2.layer.borderWidth = 1
+//            self.thing2.layer.borderColor = UIColor.black.cgColor
             
             self.menu.isHidden = true
             self.menu.isScrollEnabled = true
@@ -233,12 +266,12 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             
             self.button3.frame = CGRect(x: 9, y: 7, width: 36, height: 36)
             self.button3.setTitle("X", for: .normal)
-            self.button3.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
+//            self.button3.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
             self.button3.setTitleColor(UIColor.black, for: .normal)
-            self.button3.layer.cornerRadius = 15
-            self.button3.layer.borderWidth = 0
-            self.button3.layer.masksToBounds = true
-            self.button3.layer.borderColor = UIColor.black.cgColor
+//            self.button3.layer.cornerRadius = 15
+//            self.button3.layer.borderWidth = 0
+//            self.button3.layer.masksToBounds = true
+//            self.button3.layer.borderColor = UIColor.black.cgColor
             self.button3.addTarget(self, action: #selector(self.hideMenu), for: .touchUpInside)
             self.menu.addSubview(self.button3)
             
@@ -259,9 +292,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 place2+=51
                 newOne.setTitleColor(UIColor.clear, for: .normal)
                 newOne.layer.cornerRadius = 5
-                newOne.layer.borderWidth = 1
+//                newOne.layer.borderWidth = 1
                 newOne.layer.masksToBounds = true
-                newOne.layer.borderColor = UIColor.black.cgColor
+//                newOne.layer.borderColor = UIColor.black.cgColor
                  newOne.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
                 self.menu.addSubview(newOne)
                 counter11 = counter11 + 1
@@ -279,11 +312,14 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.thing2.addSubview(self.enterText)
             self.thing2.addSubview(self.button2)
 //            self.scroller.addSubview(self.thing2)
+            self.thing2.isHidden = true
             self.view.addSubview(self.thing2)
             
             
             
             let enumerator = snapshot.children
+            let number = snapshot.children.allObjects.count - 5
+            
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
                 print("t")
                 var res = ""
@@ -301,13 +337,15 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     
                     let thing = UIView()
                     thing.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
-                    place+=64
+                    place+=60
                     thing.backgroundColor = UIColor.clear
 //                    thing.layer.cornerRadius = 15
 //                    thing.layer.borderWidth = 1
 //                    thing.layer.masksToBounds = true
 //                    thing.layer.borderColor = UIColor.black.cgColor
-                    thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+                    if number != counter{
+                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+                    }
                     print("y")
                     thing.tag = counter
                     counter+=1;
@@ -324,7 +362,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     imageView.frame = CGRect(x: 10, y: 6, width: 48, height: 48)
                     imageView.layer.cornerRadius = 5
 //                    imageView.layer.borderWidth = 1
-//                    imageView.layer.masksToBounds = true
+                    imageView.layer.masksToBounds = true
 //                    imageView.layer.borderColor = UIColor.black.cgColor
                     
                     let label = UILabel()
@@ -345,6 +383,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     button.frame = CGRect(x: self.view.frame.width - 40, y: 15, width: 30, height: 30)
                     button.setTitle("X", for: .normal)
                     button.accessibilityIdentifier = rest.key
+                    button.accessibilityLabel = "delete"
+                    button.isHidden = true
                     button.backgroundColor = UIColor.red
                     button.setTitleColor(UIColor.black, for: .normal)
                     button.layer.cornerRadius = 15
@@ -360,7 +400,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(64*(counter+1)))))
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter)))) - 51)
         })
         
     }

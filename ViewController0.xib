@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController0" customModule="vite2" customModuleProvider="target">
             <connections>
+                <outlet property="editButton" destination="kNH-xt-yDs" id="WAc-Cv-eNA"/>
                 <outlet property="enterBio" destination="NhG-nG-Ox9" id="k1K-Q5-8fi"/>
                 <outlet property="enterName" destination="KSD-om-zxB" id="FDB-8D-BIA"/>
                 <outlet property="logoutButton" destination="jPR-iG-sMg" id="u9l-pe-n8a"/>
@@ -34,7 +35,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KSD-om-zxB">
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KSD-om-zxB">
                             <rect key="frame" x="39" y="179" width="298" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -59,25 +60,29 @@
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPR-iG-sMg">
-                            <rect key="frame" x="14" y="23" width="70" height="33"/>
+                        <button opaque="NO" alpha="0.71999999999999997" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNH-xt-yDs">
+                            <rect key="frame" x="331" y="23" width="35" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                            <state key="normal" title="E" backgroundImage="edit.png">
+                                <color key="titleColor" red="0.91422683000000005" green="0.61968320610000005" blue="0.00077824719479999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="editClick:" destination="-1" eventType="touchUpInside" id="mGl-kE-G3z"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPR-iG-sMg">
+                            <rect key="frame" x="8" y="23" width="35" height="35"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <state key="normal" title="Logout">
-                                <color key="titleColor" red="0.91422683000000005" green="0.61968320610000005" blue="0.00077824719479999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Logout" backgroundImage="logout.png">
+                                <color key="titleColor" red="0.91422683000000005" green="0.61968320610000005" blue="0.00077824719479999995" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="logoutClick:" destination="-1" eventType="touchUpInside" id="3uv-af-moL"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pnK-eB-cHx">
-                            <rect key="frame" x="325" y="23" width="56" height="40"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <color key="textColor" red="0.91422683000000005" green="0.61968320610000005" blue="0.00077824719479999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
@@ -86,4 +91,8 @@
             <point key="canvasLocation" x="62.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="edit.png" width="256" height="256"/>
+        <image name="logout.png" width="256" height="256"/>
+    </resources>
 </document>
