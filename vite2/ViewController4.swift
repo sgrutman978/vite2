@@ -18,6 +18,7 @@ class ViewController4: UIViewController {
     @IBOutlet weak var myCode: UIImageView!
     @IBOutlet weak var closeCode: UIButton!
     @IBOutlet weak var choseLabel: UILabel!
+    let myString = "http://www.appstore.com/stevengrutman/speedsquare#"
     var viewer = ViewController()
     var viewer3 = ViewController3()
     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png"]
@@ -38,7 +39,7 @@ class ViewController4: UIViewController {
     func createHelp(mode: Int){
         let user = FIRAuth.auth()?.currentUser
         
-        list = "vite!-username//"+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
+        list = myString+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
         for all2 in scroller.subviews{
             for all in all2.subviews{
                 if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
@@ -82,8 +83,8 @@ class ViewController4: UIViewController {
             print(list)
             self.codeView.isHidden = false
         }else{
-            let index: String.Index = list.index(list.startIndex, offsetBy: 16)
-            if list.substring(to: index) == "vite!-username//" {
+            let index: String.Index = list.index(list.startIndex, offsetBy: myString.characters.count)
+            if list.substring(to: index) == myString {
                 let index2: String.Index = list.index(list.startIndex, offsetBy: 28)
                 let index3: String.Index = list.index(list.startIndex, offsetBy: 44)
                 let username = list.substring(from: index).substring(to: index2)
@@ -155,9 +156,13 @@ class ViewController4: UIViewController {
                         bColor = UIColor(red: 2/255, green: 171/255, blue: 238/255, alpha: 1.0)
                         tColor = UIColor.white
                     case 2:
-                        break
+                        bColor = UIColor(red: 40/255, green: 210/255, blue: 48/255, alpha: 1.0)
+                        tColor = UIColor.white
                     case 3:
                         bColor = UIColor(red: 255/255, green: 252/255, blue: 1/255, alpha: 1.0)
+                        tColor = UIColor.black
+                    case 4:
+                        bColor = UIColor(red: 255/255, green: 201/255, blue: 105/255, alpha: 1.0)
                         tColor = UIColor.black
                     default:
                         bColor = UIColor.white

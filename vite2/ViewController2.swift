@@ -112,13 +112,17 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             if(!arr2.contains(rest.key)){
             let imageView2 = UIImageView()
             imageView2.frame = CGRect(x: self.favoritesPlace, y: 10, width: 70, height: 70)
+            let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
+                imageView2.isUserInteractionEnabled = true
+            gesture.accessibilityLabel = rest.key
+            imageView2.addGestureRecognizer(gesture)
 //            print(self.favoritesPlace)
             
             imageView2.accessibilityIdentifier = rest.key
             imageView2.layer.cornerRadius = 5
-            imageView2.layer.borderWidth = 1
+//            imageView2.layer.borderWidth = 1
             imageView2.layer.masksToBounds = true
-            imageView2.layer.borderColor = UIColor.black.cgColor
+//            imageView2.layer.borderColor = UIColor.black.cgColor
                 
                 if(fbTw == 0){
                     imageView2.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 0, myURLString: "http://graph.facebook.com/"+(snapshot2.value as! String)+"/picture?type=large&redirect=false")))
@@ -297,7 +301,7 @@ print("ililil")
                         
                         let button2 = UIButton()
                         //red X button
-                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 30, height: 0)
+                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 20, height: 20)
                         button2.setTitle("X", for: .normal)
                         button2.accessibilityIdentifier = rest.key
                         button2.backgroundColor = UIColor.red

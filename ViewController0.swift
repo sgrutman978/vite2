@@ -35,6 +35,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     let label = UITextField()
     var initName = ""
     var initBio = ""
+    var editMode = 0
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png"]
 //    var activeTextField = UITextField()
 //    
@@ -312,7 +313,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.thing2.addSubview(self.enterText)
             self.thing2.addSubview(self.button2)
 //            self.scroller.addSubview(self.thing2)
-            self.thing2.isHidden = true
+            if self.editMode == 0{
+                self.thing2.isHidden = true
+            }
             self.view.addSubview(self.thing2)
             
             
@@ -384,7 +387,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     button.setTitle("X", for: .normal)
                     button.accessibilityIdentifier = rest.key
                     button.accessibilityLabel = "delete"
+                        if self.editMode == 0{
                     button.isHidden = true
+                        }
                     button.backgroundColor = UIColor.red
                     button.setTitleColor(UIColor.black, for: .normal)
                     button.layer.cornerRadius = 15
@@ -400,15 +405,16 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter)))) - 51)
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 51 - self.editMode*10)
+             self.editMode = 0
         })
-        
     }
     
     func removeService(sender: UIButton!){
         
         let refreshAlert = UIAlertController(title: "Remove Service", message: "Would you like to remove this social media platform from your profile?", preferredStyle: UIAlertControllerStyle.alert)
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+             self.editMode = 1
             let user = FIRAuth.auth()?.currentUser
             self.ref.child("users").child((user?.uid)!).child("info").child(sender.accessibilityIdentifier!).removeValue()
         }))
@@ -491,6 +497,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     }
     
     func addService(){
+        self.editMode = 1
         let user = FIRAuth.auth()?.currentUser
     ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
         self.hideMenu()
