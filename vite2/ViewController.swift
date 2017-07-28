@@ -345,14 +345,18 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     //https://chart.googleapis.com/chart?cht=qr&chl=vite!-username%2F%2Fsgrutan978&chs=180x180&choe=UTF-8&chld=L|2' alt='
     
     func goBack(vc3: ViewController3){
-        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(self.goBackHelper), userInfo: vc3, repeats: false)
-        vc3.view.fadeOut(withDuration: 0.2)
+        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.goBackHelper), userInfo: vc3, repeats: false)
+        vc3.view.fadeOut(withDuration: 0.3)
     }
     
     func goBackHelper(timer: Timer){
         let vc3 = timer.userInfo as! ViewController3
         vc3.view.isHidden = true
         timer.invalidate()
+    }
+    
+    func goToPage(num: Int){
+        self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width*CGFloat(num), y: 0), animated: false)
     }
     
     func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String){

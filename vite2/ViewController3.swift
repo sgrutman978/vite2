@@ -18,6 +18,8 @@ class ViewController3: UIViewController {
     @IBOutlet weak var scroller: UIScrollView!
        var arr = [String]()
     @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bio: UITextView!
+    @IBOutlet weak var nameTag: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,8 @@ class ViewController3: UIViewController {
     @IBAction func sendBack(_ sender: Any) {
         viewer.vc4.view.isHidden = false
         viewer.modeVc4 = 1
+        viewer.goToPage(num: 1)
+        goBack(UILabel())
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -53,6 +57,10 @@ class ViewController3: UIViewController {
         var fbTw = 0
         var temp = ""
         
+        ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
+            self.bio.text = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
+            self.nameTag.text = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? ""
+        })
         ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("allowed").child(user).observeSingleEvent(of: .value, with: { snapshot33 in
 //            var res = ""
 //            if let result_number = (rest.value)! as? NSNumber
@@ -94,9 +102,9 @@ class ViewController3: UIViewController {
                     let thing = UIView()
                     thing.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
 //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
-                    self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
+                    self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
                     place+=64
-                    thing.backgroundColor = UIColor.lightGray
+                    thing.backgroundColor = UIColor.clear
                    print("y")
                     thing.tag = counter
                     button.tag = counter
@@ -104,9 +112,9 @@ class ViewController3: UIViewController {
                     
                     var imgString = ""
                     
-                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png"]
+                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
                     
-                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "http://snapchat.com/", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "fbPage", "mailto:"+res, "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus"]
+                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "http://snapchat.com/", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "fbPage", "mailto:"+res, "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
 //                    print("fb://profile/"+res)
@@ -121,9 +129,9 @@ class ViewController3: UIViewController {
                     let imageView = UIImageView(image: image!)
                     imageView.frame = CGRect(x: 10, y: 6, width: 48, height: 48)
                     imageView.layer.cornerRadius = 5
-                    imageView.layer.borderWidth = 1
+//                    imageView.layer.borderWidth = 1
                     imageView.layer.masksToBounds = true
-                    imageView.layer.borderColor = UIColor.black.cgColor
+//                    imageView.layer.borderColor = UIColor.black.cgColor
                     
                     let label = UILabel()
                     label.text = res
@@ -178,9 +186,9 @@ class ViewController3: UIViewController {
                         }
                     }
                     self.profPic.layer.cornerRadius = 10
-                    self.profPic.layer.borderWidth = 2
+//                    self.profPic.layer.borderWidth = 2
                     self.profPic.layer.masksToBounds = true
-                    self.profPic.layer.borderColor = UIColor.black.cgColor
+//                    self.profPic.layer.borderColor = UIColor.black.cgColor
                 }
             }
              self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(64*counter))))

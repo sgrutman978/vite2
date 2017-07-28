@@ -36,7 +36,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     var initName = ""
     var initBio = ""
     var editMode = 0
-     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png"]
+     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
 //    var activeTextField = UITextField()
 //    
 //    private func textFieldDidBeginEditing(textField: UITextField) {
@@ -221,7 +221,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
 //        arr = [String]()
         //load info for user you scanned from database
-         self.topView.addBottomBorderWithColor(color: UIColor.black, width: 2)
+         self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             var place = 295
@@ -301,10 +301,10 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 counter11 = counter11 + 1
             }
             
-            self.button2.backgroundColor = UIColor.clear
+            self.button2.backgroundColor = UIColor(red: 20/255, green: 128/255, blue: 255/255, alpha: 41/100)
             self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 50)
             self.button2.setTitle("Add Service", for: .normal)
-            self.button2.setTitleColor(UIColor.orange, for: .normal)
+            self.button2.setTitleColor(UIColor.black, for: .normal)
             self.button2.addTarget(self, action: #selector(self.showMenu), for: .touchUpInside)
             
             
