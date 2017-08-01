@@ -27,7 +27,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
          self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
-        print("uuuu")
+//        print("uuuu")
         setupList()
             }
     
@@ -36,7 +36,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
-        print(searchBar.text!)
+//        print(searchBar.text!)
         var pos = 0
         var moves: [UIView] = []
         for subs in self.scroller.subviews {
@@ -64,7 +64,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     
     func setupList() {
         //load info for user you scanned from database
-        print("ululul")
+//        print("ululul")
     ref.child("users").child(user).child("allowed").observe(.value, with: { snapshot in
         var arr = [String]()
         for subs in self.favs.subviews {
@@ -88,15 +88,15 @@ class ViewController2: UIViewController, UISearchBarDelegate {
              self.favoritesPlace = 10
         for subs in self.favs.subviews {
 //            print("dsdsds")
-            print(rest.key)
+//            print(rest.key)
             if subs.accessibilityIdentifier! as String == rest.key && arr.contains(rest.key) && res.characters.first == "a" {
-                print("yuyuyu")
+//                print("yuyuyu")
                 arr.remove(at: arr.index(of: rest.key)!)
             }
         }
 //        print("lklklklk")
              if(res.characters.first == "a"){
-                print(rest.key)
+//                print(rest.key)
                 var fbTw = 0
                 self.ref.child("users").child(rest.key).child("info").child("00use").observeSingleEvent(of: .value, with: { snapshot6 in
                     if(snapshot6.value as! String == "tw"){
@@ -145,7 +145,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         })
             }
         }
-print(arr)
+//print(arr)
         for subs in self.favs.subviews {
             if(arr.contains(subs.accessibilityIdentifier! as String)){
                 subs.removeFromSuperview()
@@ -174,7 +174,7 @@ print(arr)
 //                }
 //            }
         
-print("ililil")
+//print("ililil")
        
         self.ref.child("users").child(user).child("allowed").observeSingleEvent(of: .value, with: { snapshot in
 //            let enumerator2 = snapshot.children
@@ -201,15 +201,15 @@ print("ililil")
             
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-                print("ololol")
-                print(rest.key)
+//                print("ololol")
+//                print(rest.key)
 //                print(arr6)
 //                if(!arr6.contains(rest.key)){
                    self.addPerson(rest: rest)
 //            }
         }
         })
-        print("hdhdhd")
+//        print("hdhdhd")
             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(94*self.counter)))
     }
     
@@ -239,7 +239,7 @@ print("ililil")
             }
         }
         if(check){
-            print("klklkl")
+//            print("klklkl")
         let thing = UIView()
         thing.frame = CGRect(x: 0, y: self.place, width:Int(self.view.frame.size.width), height: 90)
         //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
@@ -345,7 +345,7 @@ print("ililil")
                         thing.addSubview(label)
                         thing.addSubview(label2)
                         thing.addSubview(imageView)
-                        print("plplplpl")
+//                        print("plplplpl")
                         self.scroller.addSubview(thing)
                         self.reorder()
                     })
@@ -365,13 +365,13 @@ print("ililil")
                 self.reorder()
             }))
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                print("cancled remove")
+//                print("cancled remove")
             }))
             present(refreshAlert, animated: true, completion: nil)
     }
     
     func someAction(_ sender:UITapGestureRecognizer){
-        print("alalal")
+//        print("alalal")
         viewer3.view.isHidden = false
         viewer3.view.alpha = 1
         var frame2 = self.view.frame

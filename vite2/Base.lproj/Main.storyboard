@@ -24,9 +24,22 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEu-DT-DZQ">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0mZ-xy-f4W">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-VV-JlS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-Z0-NOd">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.62427794930000002" green="0.79635876419999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="lF2-Z0-NOd" firstAttribute="centerX" secondItem="LoK-VV-JlS" secondAttribute="centerX" id="ZyC-y4-uf1"/>
+                                    <constraint firstItem="lF2-Z0-NOd" firstAttribute="centerY" secondItem="LoK-VV-JlS" secondAttribute="centerY" id="a3M-sM-fv0"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0mZ-xy-f4W">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gradient.png" translatesAutoresizingMaskIntoConstraints="NO" id="rVS-kk-ViA">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -81,6 +94,10 @@
                                         <rect key="frame" x="145" y="321" width="80" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iVB-nQ-Uee">
+                                        <rect key="frame" x="178" y="323" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -89,11 +106,21 @@
                         <constraints>
                             <constraint firstItem="PEu-DT-DZQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Dgx-KS-HYK"/>
                             <constraint firstItem="PEu-DT-DZQ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="FjW-lq-oQN"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="leading" secondItem="0mZ-xy-f4W" secondAttribute="leading" id="Kd1-jS-bcw"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="top" secondItem="PEu-DT-DZQ" secondAttribute="top" id="Ppa-v7-UJc"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="RGv-3R-zq8"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="leading" secondItem="PEu-DT-DZQ" secondAttribute="leading" id="RlH-NB-247"/>
                             <constraint firstItem="PEu-DT-DZQ" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="bFo-VA-91z"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="trailing" secondItem="PEu-DT-DZQ" secondAttribute="trailing" id="hRe-5V-I5n"/>
                             <constraint firstItem="PEu-DT-DZQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jno-j9-qWt"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="bottom" secondItem="0mZ-xy-f4W" secondAttribute="bottom" id="qDF-CY-aTJ"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="trailing" secondItem="0mZ-xy-f4W" secondAttribute="trailing" id="sqw-eo-CuQ"/>
+                            <constraint firstItem="LoK-VV-JlS" firstAttribute="top" secondItem="0mZ-xy-f4W" secondAttribute="top" id="umE-ev-6mE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadScreen" destination="LoK-VV-JlS" id="xFe-EH-osW"/>
+                        <outlet property="loader" destination="lF2-Z0-NOd" id="MWx-Ew-j0W"/>
                         <outlet property="loginFb" destination="mrc-7w-VFu" id="hb0-2q-YfZ"/>
                         <outlet property="loginTw" destination="d4x-Zk-KrJ" id="s7t-az-8yO"/>
                         <outlet property="loginView" destination="0mZ-xy-f4W" id="zez-Oo-SBX"/>

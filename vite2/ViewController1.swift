@@ -38,7 +38,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("lllrrr")
+//        print("lllrrr")
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
@@ -73,6 +73,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
 //            view.bringSubview(toFront: messageLabel)
             view.bringSubview(toFront: topbar)
             
+           
             
             // Initialize QR Code Frame to highlight the QR code
 //            qrCodeFrameView = UIView()
@@ -118,18 +119,18 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
 //                messageLabel.text = metadataObj.stringValue
                 let myString = "http://www.appstore.com/stevengrutman/speedsquare#"
                 let index: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: myString.characters.count)
-                print("helllooooodsfgdgsdgs")
+//                print("helllooooodsfgdgsdgs")
                 if metadataObj.stringValue.substring(to: index) == myString {
                     let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
                     let index3: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 44)
                     let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
                     let accounts = metadataObj.stringValue.substring(from: index3)
-                    print(username)
+//                    print(username)
                     var frame1 = self.view.frame
                     frame1.origin.x = self.view.frame.size.width * 1
                     viewer3.view.frame = frame1
                     viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
-                    print("falseStuff")
+//                    print("falseStuff")
                      Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
             }
         }

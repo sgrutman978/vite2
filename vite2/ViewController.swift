@@ -23,6 +23,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     //creates outlet for scroll view
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var loadScreen: UIView!
     let loginButton = FBSDKLoginButton()
     var ref = FIRDatabaseReference()
     var userID = ""
@@ -39,14 +41,16 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+      self.showLoader(mode: 100)
+        self.view.bringSubview(toFront: loadScreen)
+//        self.loadScreen.layer.zPosition = CGFloat.greatestFiniteMagnitude
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(applicationDidBecomeActive(_:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
         
-        print("hellooooo")
+//        print("hellooooo")
 //        loginView.backgroundColor = UIColor.orange
         loginFb.layer.cornerRadius = 10
          loginFb.layer.masksToBounds = true
@@ -60,7 +64,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let user = user {
-                                print(user.uid)
+//                                print(user.uid)
                 if(self.user2URL == ""){
                 self.setupPage(user: user)
                 }
@@ -75,6 +79,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             self.loginButton.delegate = self
             self.loginButton.center.x = -300
             self.loginView.addSubview(self.loginButton)
+//            self.hideLoader()
         
             self.logInButton = TWTRLogInButton(logInCompletion: { session, error in
                 if (session != nil) {
@@ -113,8 +118,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                                         
                                         do {
                                             if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary {
-                                                print("i am getting some form of data")
-                                                print(jsonResult)
+//                                                print("i am getting some form of data")
+//                                                print(jsonResult)
                                                 let data:[String:AnyObject] = jsonResult as! [String : AnyObject]
                                                 //                    print(data.endIndex)
                                                 
@@ -183,7 +188,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton?, didCompleteWith result: FBSDKLoginManagerLoginResult?, error: Error?) {
-        print("helloss")
+//        print("helloss")
         if let error = error {
             print(error.localizedDescription)
             return
@@ -237,10 +242,31 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    func showLoader(mode: Int){
+        switch mode {
+        case 1:
+            
+            break
+        default: break
+            //stuff2
+        }
+        if(mode >= 100){
+        loader.startAnimating()
+        loadScreen.fadeIn()
+        }else{
+            //otherloader
+        }
+    }
+    
+    func hideLoader(){
+        loader.stopAnimating()
+        loadScreen.fadeOut()
+    }
+    
     
     func setupPage(user: FIRUser){
     
-        print("dfgdfg")
+//        print("dfgdfg")
             self.ref.child("users").child(user.uid).child("info").observeSingleEvent(of: .value, with: { snapshot in
             if(!snapshot.hasChild("18NAME")){
                 if(self.use00 != "" && self.use00 != "fb"){
@@ -255,7 +281,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
                             })
         
-       print("worked")
+//       print("worked")
         userID = user.uid
         self.loginView.isHidden = true
         self.scrollView.isHidden = false

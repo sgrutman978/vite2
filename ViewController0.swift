@@ -228,7 +228,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
-                    print(subs)
+//                    print(subs)
                     subs.removeFromSuperview()
                 }
             }
@@ -301,7 +301,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 counter11 = counter11 + 1
             }
             
-            self.button2.backgroundColor = UIColor(red: 20/255, green: 128/255, blue: 255/255, alpha: 41/100)
+            self.button2.backgroundColor = UIColor(red: 159/255, green: 203/255, blue: 255/255, alpha: 1.0)
             self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 50)
             self.button2.setTitle("Add Service", for: .normal)
             self.button2.setTitleColor(UIColor.black, for: .normal)
@@ -324,7 +324,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             let number = snapshot.children.allObjects.count - 5
             
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-                print("t")
+//                print("t")
                 var res = ""
                 if let result_number = (rest.value)! as? NSNumber
                 {
@@ -332,7 +332,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 }else{
                     res = rest.value as! String
                 }
-                print("r")
+//                print("r")
                 if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20){
 //                    let button = UIButton()
                     //                    button.tag = 123
@@ -349,7 +349,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     if number != counter{
                         thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                     }
-                    print("y")
+//                    print("y")
                     thing.tag = counter
                     counter+=1;
                     var imgString = ""
@@ -408,6 +408,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 51 - self.editMode*10)
              self.editMode = 0
         })
+        sleep(1)
+          self.mainView.hideLoader()
     }
     
     func removeService(sender: UIButton!){
@@ -419,7 +421,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.ref.child("users").child((user?.uid)!).child("info").child(sender.accessibilityIdentifier!).removeValue()
         }))
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("cancled remove")
+//            print("cancled remove")
         }))
         present(refreshAlert, animated: true, completion: nil)
     }
@@ -431,7 +433,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.logout()
         }))
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("cancled logout")
+//            print("cancled logout")
         }))
         present(refreshAlert, animated: true, completion: nil)
     }
@@ -447,14 +449,14 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             {
                 subview.removeFromSuperview()
             }
-            print("Logged Out");
+//            print("Logged Out");
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
     }
     
     func buttonAction(sender: UIButton!) {
-        print("yoyoy")
+//        print("yoyoy")
 //        UIApplication.shared.open((URL(string: sender.title(for: .normal)!))!
 //            , options: [:], completionHandler: nil)
         tempP = Int(sender.frame.minX)

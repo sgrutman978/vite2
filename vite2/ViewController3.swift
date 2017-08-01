@@ -44,7 +44,7 @@ class ViewController3: UIViewController {
         //delete all existing buttons
         for subs in scroller.subviews {
             if subs.tag != -1 {
-                print(subs)
+//                print(subs)
                 subs.removeFromSuperview()
             }
         }
@@ -69,7 +69,7 @@ class ViewController3: UIViewController {
 //            }else{
 //                res = rest.value as! String
 //            }
-            print(snapshot33.value!)
+//            print(snapshot33.value!)
             let arr = String(describing: snapshot33.value!).components(separatedBy: ")")
         
         //load info for user you scanned from database
@@ -77,7 +77,7 @@ class ViewController3: UIViewController {
 //            print(snapshot.childrenCount) // I got the expected number of items
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-                print("t")
+//                print("t")
                 if(rest.key == "19DEF"){
                     temp = rest.value as! String
                 }
@@ -93,7 +93,7 @@ class ViewController3: UIViewController {
                 }else{
                     res = rest.value as! String
                 }
-                print("r")
+//                print("r")
                 if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20 && arr.contains(rest.key)){
                     let button = UIButton()
 //                    button.tag = 123
@@ -105,7 +105,7 @@ class ViewController3: UIViewController {
                     self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
                     place+=64
                     thing.backgroundColor = UIColor.clear
-                   print("y")
+//                   print("y")
                     thing.tag = counter
                     button.tag = counter
                     counter+=1;
@@ -162,7 +162,7 @@ class ViewController3: UIViewController {
                     self.scroller.addSubview(thing)
                 }
                 if(rest.key == "20MAIN" || rest.key == "21MAIN"){
-                    print("piiiiiii")
+//                    print("piiiiiii")
                     if(fbTw == 0){
                         let fullNameArr = temp.components(separatedBy: "_normal")
                         self.profPic.setImageFromURl(stringImageUrl: (fullNameArr[0] + fullNameArr[1]))
@@ -179,7 +179,7 @@ class ViewController3: UIViewController {
                             var dict = self.convertToDictionary(text: myHTMLString)
                             var dict2 = NSDictionary()
                             dict2 = dict?["data"] as! NSDictionary
-                            print(dict2["url"] ?? 0)
+//                            print(dict2["url"] ?? 0)
                             self.profPic.setImageFromURl(stringImageUrl: (dict2["url"] as? String)!)
                         } catch let error {
                             print("Error: \(error)")
@@ -208,7 +208,7 @@ class ViewController3: UIViewController {
     }
     
     func buttonAction(sender: UIButton!) {
-        print(arr[sender.tag])
+//        print(arr[sender.tag])
         UIApplication.shared.open((URL(string: arr[sender.tag]))!
             , options: [:], completionHandler: nil)
     }

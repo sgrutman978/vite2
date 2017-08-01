@@ -44,7 +44,7 @@ class ViewController4: UIViewController {
             for all in all2.subviews{
                 if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
                      // && all.alpha != 1.0
-                     print(all.alpha)
+//                     print(all.alpha)
                     list = list+")"+all.accessibilityIdentifier!
                 }
             }
@@ -79,8 +79,8 @@ class ViewController4: UIViewController {
             codeView.layer.masksToBounds = true
             codeView.layer.borderColor = UIColor.black.cgColor
             
-            print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
-            print(list)
+//            print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
+//            print(list)
             self.codeView.isHidden = false
         }else{
             let index: String.Index = list.index(list.startIndex, offsetBy: myString.characters.count)
@@ -89,7 +89,7 @@ class ViewController4: UIViewController {
                 let index3: String.Index = list.index(list.startIndex, offsetBy: 44)
                 let username = list.substring(from: index).substring(to: index2)
                 let accounts = list.substring(from: index3)
-                print(username)
+//                print(username)
                 ref.child("users").child(viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: accounts])
                 //            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
             }
@@ -181,12 +181,12 @@ class ViewController4: UIViewController {
     }
     
     public func checkIt(sender: UIButton){
-        print("hey seth")
+//        print("hey seth")
         let num = CGFloat(0.4)
         if(sender.accessibilityLabel == "seth"){
             for all in (sender.superview?.subviews)!{
-                print(sender.accessibilityHint ?? 1)
-                print(all.accessibilityHint ?? 1)
+//                print(sender.accessibilityHint ?? 1)
+//                print(all.accessibilityHint ?? 1)
                 if(all.accessibilityHint == sender.accessibilityHint && all != sender){
                     sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: 0)
                     all.isHidden = true
@@ -195,8 +195,8 @@ class ViewController4: UIViewController {
             sender.accessibilityLabel = "cole"
         }else{
             for all in (sender.superview?.subviews)!{
-                print(sender.accessibilityHint ?? 1)
-                print(all.accessibilityHint ?? 1)
+//                print(sender.accessibilityHint ?? 1)
+//                print(all.accessibilityHint ?? 1)
                 if(all.accessibilityHint == sender.accessibilityHint && all != sender){
                     sender.backgroundColor = UIColor(red: num, green: num, blue: num, alpha: num+0.2)
                     all.isHidden = false
