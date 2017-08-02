@@ -68,7 +68,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                 if(self.user2URL == ""){
                 self.setupPage(user: user)
                 }
-            } 
+            }
+            
+            if FIRAuth.auth()?.currentUser == nil {
+                self.hideLoader()
+            }
+            
             //else {
 //                                print("you suck")
 //                self.loginButton.delegate = self
