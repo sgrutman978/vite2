@@ -221,7 +221,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
 //        arr = [String]()
         //load info for user you scanned from database
-         self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//         self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             var place = 295
@@ -234,7 +234,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             }
             
             self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 50)
-            self.thing2.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//            self.thing2.addBottomBorderWithColor(color: UIColor.black, width: 1)
 //            place+=54
             self.thing2.backgroundColor = UIColor.white
             self.thing2.tag = 0
@@ -346,9 +346,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    thing.layer.borderWidth = 1
 //                    thing.layer.masksToBounds = true
 //                    thing.layer.borderColor = UIColor.black.cgColor
-                    if number != counter{
-                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
-                    }
+//                    if number != counter{
+//                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//                    }
 //                    print("y")
                     thing.tag = counter
                     counter+=1;
