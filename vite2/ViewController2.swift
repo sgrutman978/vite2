@@ -49,7 +49,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             if(searchBar.text! == "" || (all.accessibilityIdentifier?.contains((searchBar.text?.lowercased())!))!){
                 all.isHidden = false
                 all.frame.origin.y = CGFloat(pos)
-                pos += 94
+                pos += 90
             }else{
                 all.isHidden = true
             }
@@ -210,7 +210,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         }
         })
 //        print("hdhdhd")
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(94*self.counter)))
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(90*self.counter)))
     }
     
     func reorder(){
@@ -225,7 +225,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         let movies = moves.sorted(by: { $0.accessibilityIdentifier! < $1.accessibilityIdentifier! })
                 for subs in movies {
                             subs.frame.origin.y = CGFloat(self.place)
-                            self.place += 94
+                            self.place += 90
                 }
     }
     
@@ -240,11 +240,11 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         }
         if(check){
 //            print("klklkl")
-        let thing = UIView()
+        let thing = UIScrollView()
         thing.frame = CGRect(x: 0, y: self.place, width:Int(self.view.frame.size.width), height: 90)
         //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
         //                    self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
-        self.place+=94
+        self.place+=90
         thing.backgroundColor = UIColor.clear
             thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
         //                    print("y")
@@ -301,18 +301,20 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         
                         let button2 = UIButton()
                         //red X button
-                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 20, height: 20)
-                        button2.setTitle("X", for: .normal)
+//                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 20, height: 20)
+                        button2.frame = CGRect(x: self.view.frame.width, y: 0, width: thing.frame.width/4 + 1, height: thing.frame.height)
+                        button2.setTitle("Delete", for: .normal)
                         button2.accessibilityIdentifier = rest.key
                         button2.backgroundColor = UIColor.red
-                        button2.setTitleColor(UIColor.black, for: .normal)
-                        button2.layer.cornerRadius = 15
+                        button2.setTitleColor(UIColor.white, for: .normal)
+//                        button2.layer.cornerRadius = 15
                         button2.layer.borderWidth = 0
                         button2.layer.masksToBounds = true
                         button2.layer.borderColor = UIColor.black.cgColor
+                        button2.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         button2.addTarget(self, action: #selector(self.removePerson), for: .touchUpInside)
                         
-                        thing.addSubview(button2)
+//                        thing.addSubview(button2)
                         
                         //            label.numberOfLines = 0
                         //            label.minimumScaleFactor = 0.1
@@ -327,8 +329,15 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         let button = UIButton()
                         button.accessibilityIdentifier = rest.key
                         //            button.backgroundColor = UIColor.yellow
+                        var res = ""
+                        if let result_number = (rest.value)! as? NSNumber
+                        {
+                            res = "\(result_number)"
+                        }else{
+                            res = rest.value as! String
+                        }
                         var temp = UIImage()
-                        if(self.arr2.contains(rest.key)){
+                        if(res.characters.first == "a"){
                             temp = UIImage.init(named: "starYellow.png")!
                         }else{
                             temp = UIImage.init(named: "starClear.png")!
@@ -341,6 +350,14 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         //            button.layer.borderWidth = 1
                         //            button.layer.borderColor = UIColor.black.cgColor
                         button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
+                        
+                        
+                        thing.isPagingEnabled = true
+                        thing.contentSize = CGSize(width: thing.frame.width + thing.frame.width/4, height: thing.frame.height)
+                        thing.addSubview(button2)
+                        thing.bounces = false
+                        thing.showsHorizontalScrollIndicator = false
+                        
                         thing.addSubview(button)
                         thing.addSubview(label)
                         thing.addSubview(label2)
@@ -356,18 +373,18 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     }
     
     func removePerson(sender: UIButton!){
-            let refreshAlert = UIAlertController(title: "Remove Service", message: "Would you like to remove this social media platform from your profile?", preferredStyle: UIAlertControllerStyle.alert)
-            refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+//            let refreshAlert = UIAlertController(title: "Remove Service", message: "Would you like to remove this social media platform from your profile?", preferredStyle: UIAlertControllerStyle.alert)
+//            refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
                 let user = FIRAuth.auth()?.currentUser
                 self.ref.child("users").child((user?.uid)!).child("allowed").child(sender.accessibilityIdentifier!).removeValue()
-//                self.arr2.remove(at: self.arr2.index(of: sender.accessibilityIdentifier!)!)
+//  DONT ADD              self.arr2.remove(at: self.arr2.index(of: sender.accessibilityIdentifier!)!)
                 sender.superview?.removeFromSuperview()
                 self.reorder()
-            }))
-            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+//            }))
+//            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
 //                print("cancled remove")
-            }))
-            present(refreshAlert, animated: true, completion: nil)
+//            }))
+//            present(refreshAlert, animated: true, completion: nil)
     }
     
     func someAction(_ sender:UITapGestureRecognizer){

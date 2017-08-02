@@ -85,10 +85,10 @@ class ViewController4: UIViewController {
         }else{
             let index: String.Index = list.index(list.startIndex, offsetBy: myString.characters.count)
             if list.substring(to: index) == myString {
-                let index2: String.Index = list.index(list.startIndex, offsetBy: 28)
-                let index3: String.Index = list.index(list.startIndex, offsetBy: 44)
-                let username = list.substring(from: index).substring(to: index2)
-                let accounts = list.substring(from: index3)
+//                let index2: String.Index = list.index(list.startIndex, offsetBy: 28)
+//                let index3: String.Index = list.index(list.startIndex, offsetBy: 44)
+//                let username = list.substring(from: index).substring(to: index2)
+                let accounts = list.substring(from: index)
 //                print(username)
                 ref.child("users").child(viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: accounts])
                 //            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)

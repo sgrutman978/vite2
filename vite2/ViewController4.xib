@@ -52,7 +52,7 @@
                                 <action selector="closeCode:" destination="-1" eventType="touchUpInside" id="SUO-Mt-lCb"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fb.png" translatesAutoresizingMaskIntoConstraints="NO" id="noO-n7-mr7">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="noO-n7-mr7">
                             <rect key="frame" x="120" y="120" width="50" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -92,7 +92,4 @@
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="fb.png" width="250" height="250"/>
-    </resources>
 </document>
