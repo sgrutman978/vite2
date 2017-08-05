@@ -36,65 +36,75 @@ class ViewController4: UIViewController {
     @IBAction func createCode(_ sender: Any) {
         createHelp(mode: viewer.modeVc4)
     }
+    
     func createHelp(mode: Int){
         let user = FIRAuth.auth()?.currentUser
-        
-        list = myString+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
-        for all2 in scroller.subviews{
-            for all in all2.subviews{
-                if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
-                     // && all.alpha != 1.0
-//                     print(all.alpha)
-                    list = list+")"+all.accessibilityIdentifier!
+        var currentList = "()00use)17BIO)18NAME)19DEF"
+//        self.ref.child("users").child(self.viewer.vc4User).child("allowed").child((user?.uid)!)
+        ref.child("users").child(viewer.vc4User).child("allowed").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
+//            if snapshot.hasChild((user?.uid)!){
+//                currentList = self.ref.child("users").child(self.viewer.vc4User).child("allowed").value(forKey: (user?.uid)!) as! String
+                currentList = snapshot.value as? String ?? "()00use)17BIO)18NAME)19DEF"
+                print(currentList)
+            
+            self.list = self.myString+(user?.uid)!+currentList
+            
+            for all2 in self.scroller.subviews{
+                for all in all2.subviews{
+                    if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
+                        // && all.alpha != 1.0
+                        //                     print(all.alpha)
+                        if(!self.list.contains(")"+all.accessibilityIdentifier!)){
+                            self.list = self.list+")"+all.accessibilityIdentifier!
+                        }
+                    }
                 }
             }
-        }
-        if(mode == 0){
-            var qrcodeImage: CIImage!
-            let data = list.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
-            let filter = CIFilter(name: "CIQRCodeGenerator")
-            filter?.setValue(data, forKey: "inputMessage")
-            filter?.setValue("Q", forKey: "inputCorrectionLevel")
-            //        qrcodeImage = filter?.outputImage
-            
-            //Create a CIFalseColor Filter
-            let colorFilter: CIFilter = CIFilter(name: "CIFalseColor")!
-            colorFilter.setDefaults()
-            colorFilter.setValue(filter?.outputImage!, forKey: "inputImage")
-            //Then set the background colour like this,
-            let transparentBG: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
-            // let transparentBG: CIColor = CIColor(red: 255.0, green: 215.0, blue: 20.0, alpha: 1.0)
-            colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
-            colorFilter.setValue(transparentBG, forKey: "inputColor1")
-            qrcodeImage = colorFilter.outputImage!
-            
-            myCode.image = UIImage(ciImage: qrcodeImage)
-            let scaleX = myCode.frame.size.width / qrcodeImage.extent.size.width
-            let scaleY = myCode.frame.size.height / qrcodeImage.extent.size.height
-            let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
-            myCode.image = UIImage(ciImage: transformedImage)
-            
-            codeView.layer.cornerRadius = 50
-            codeView.layer.borderWidth = 2
-            codeView.layer.masksToBounds = true
-            codeView.layer.borderColor = UIColor.black.cgColor
-            
-//            print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
-//            print(list)
-            self.codeView.isHidden = false
-        }else{
-            let index: String.Index = list.index(list.startIndex, offsetBy: myString.characters.count)
-            if list.substring(to: index) == myString {
-//                let index2: String.Index = list.index(list.startIndex, offsetBy: 28)
-//                let index3: String.Index = list.index(list.startIndex, offsetBy: 44)
-//                let username = list.substring(from: index).substring(to: index2)
-                let accounts = list.substring(from: index)
-//                print(username)
-                ref.child("users").child(viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: accounts])
-                //            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
-            }
-        }
-    }
+            if(mode == 0){
+                var qrcodeImage: CIImage!
+                let data = self.list.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+                let filter = CIFilter(name: "CIQRCodeGenerator")
+                filter?.setValue(data, forKey: "inputMessage")
+                filter?.setValue("Q", forKey: "inputCorrectionLevel")
+                //        qrcodeImage = filter?.outputImage
+                
+                //Create a CIFalseColor Filter
+                let colorFilter: CIFilter = CIFilter(name: "CIFalseColor")!
+                colorFilter.setDefaults()
+                colorFilter.setValue(filter?.outputImage!, forKey: "inputImage")
+                //Then set the background colour like this,
+                let transparentBG: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+                // let transparentBG: CIColor = CIColor(red: 255.0, green: 215.0, blue: 20.0, alpha: 1.0)
+                colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
+                colorFilter.setValue(transparentBG, forKey: "inputColor1")
+                qrcodeImage = colorFilter.outputImage!
+                
+                self.myCode.image = UIImage(ciImage: qrcodeImage)
+                let scaleX = self.myCode.frame.size.width / qrcodeImage.extent.size.width
+                let scaleY = self.myCode.frame.size.height / qrcodeImage.extent.size.height
+                let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
+                self.myCode.image = UIImage(ciImage: transformedImage)
+                
+                self.codeView.layer.cornerRadius = 50
+                self.codeView.layer.borderWidth = 2
+                self.codeView.layer.masksToBounds = true
+                self.codeView.layer.borderColor = UIColor.black.cgColor
+                
+                //            print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
+                //            print(list)
+                self.codeView.isHidden = false
+            }else{
+                    let index: String.Index = self.list.index(self.list.startIndex, offsetBy: self.myString.characters.count+28)
+                    //                let index2: String.Index = list.index(list.startIndex, offsetBy: 28)
+                    //                let index3: String.Index = list.index(list.startIndex, offsetBy: 44)
+                    //                let username = list.substring(from: index).substring(to: index2)
+                    let accounts = self.list.substring(from: index)
+                    //                print(username)
+                    self.ref.child("users").child(self.viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: accounts])
+                    //            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
+                }
+        })
+               }
     
     override func viewDidLoad() {
         super.viewDidLoad()
