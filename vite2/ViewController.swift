@@ -393,13 +393,24 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String){
         if(mode == 0){
         let user = FIRAuth.auth()?.currentUser
-        ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: acc])
-//        ref.child("users").child((user?.uid)!).child("temp").updateChildValues([uid: ""])
-//        ref.child("users").child(uid).child("allowed").updateChildValues([(user?.uid)!: acc])
-//        ref.child("users").child((user?.uid)!).child("temp").setValue(nil)
-            (self.vc2 as! ViewController2).addDude(user: uid)
-    }
-        vc3.setupPerson(user: uid)
+            print(acc)
+            let accs = acc.components(separatedBy: ")").dropFirst()
+            
+            var currentList = "()00use)17BIO)18NAME)19DEF"
+            ref.child("users").child((user?.uid)!).child("allowed").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                currentList = snapshot.value as? String ?? "()00use)17BIO)18NAME)19DEF"
+                for all in accs{
+                            if(!currentList.contains(")"+all)){
+                                currentList = currentList+")"+all
+                    }
+                }
+                self.ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: currentList])
+                (self.vc2 as! ViewController2).addDude(user: uid)
+                vc3.setupPerson(user: uid)
+            })
+        }else{
+            vc3.setupPerson(user: uid)
+        }
     }
     
     func returnPage() -> CGPoint {
