@@ -9,8 +9,10 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import Contacts
+import ContactsUI
 
-class ViewController3: UIViewController {
+class ViewController3: UIViewController, CNContactViewControllerDelegate {
     
     var viewer = ViewController()
     @IBOutlet weak var profPic: UIImageView!
@@ -36,6 +38,17 @@ class ViewController3: UIViewController {
     
     @IBAction func goBack(_ sender: Any) {
         viewer.goBack(vc3: self)
+    }
+    
+    func createContact(){
+        let newContact = CNMutableContact()
+        newContact.phoneNumbers.append(CNLabeledValue(label: "home", value: CNPhoneNumber(stringValue: "123456")))
+        let contactVC = CNContactViewController(forUnknownContact: newContact)
+        contactVC.contactStore = CNContactStore()
+        contactVC.delegate = self
+        contactVC.allowsActions = true
+        let navigationController = UINavigationController(rootViewController: contactVC) //For presenting the vc you have to make it navigation controller otherwise it will not work, if you already have navigatiation controllerjust push it you dont have to make it a navigation controller
+        self.present(navigationController, animated: true, completion: nil)
     }
     
     func setupPerson(user: String){
@@ -114,7 +127,7 @@ class ViewController3: UIViewController {
                     
                     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
                     
-                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "http://snapchat.com/", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "fbPage", "mailto:"+res, "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
+                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "phone", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "fbPage", "mailto:"+res, "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
 //                    print("fb://profile/"+res)
@@ -208,9 +221,13 @@ class ViewController3: UIViewController {
     }
     
     func buttonAction(sender: UIButton!) {
-//        print(arr[sender.tag])
+//        print(sender.tag)
+        if(arr[sender.tag] == "phone"){
+            createContact()
+        }else{
         UIApplication.shared.open((URL(string: arr[sender.tag]))!
             , options: [:], completionHandler: nil)
+        }
     }
     
     override func didReceiveMemoryWarning() {

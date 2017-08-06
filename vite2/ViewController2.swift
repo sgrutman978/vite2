@@ -159,6 +159,40 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             }
             duplicateFavPlace = duplicateFavPlace - 80
         }
+        
+        self.ref.child("users").child(self.user).child("allowed").observeSingleEvent(of: .value, with: { snapshot in
+            //            let enumerator2 = snapshot.children
+            //            var arr5: [String] = []
+            //            var arr6: [String] = []
+            //            while let rest = enumerator2.nextObject() as? FIRDataSnapshot {
+            //                arr5.append(rest.key)
+            //            }
+            //        self.counter = 0
+            //        self.place = 0
+            //        for subs in self.scroller.subviews {
+            //            if(subs.accessibilityLabel != nil && !arr5.contains(subs.accessibilityLabel!)){
+            //                print("helooorty")
+            //                subs.removeFromSuperview()
+            //            }else{
+            //                if(subs.accessibilityLabel != nil){
+            //                    arr6.append(subs.accessibilityLabel!)
+            //                    subs.frame.origin.y = CGFloat(self.place)
+            //                    self.place += 94
+            //                }
+            //            }
+            //        }
+            
+            
+            let enumerator = snapshot.children
+            while let rest = enumerator.nextObject() as? FIRDataSnapshot {
+                //                print("ololol")
+                //                print(rest.key)
+                //                print(arr6)
+                //                if(!arr6.contains(rest.key)){
+                self.addPerson(rest: rest)
+                //            }
+            }
+        })
         })
         
         
@@ -176,39 +210,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         
 //print("ililil")
        
-        self.ref.child("users").child(user).child("allowed").observeSingleEvent(of: .value, with: { snapshot in
-//            let enumerator2 = snapshot.children
-//            var arr5: [String] = []
-//            var arr6: [String] = []
-//            while let rest = enumerator2.nextObject() as? FIRDataSnapshot {
-//                arr5.append(rest.key)
-//            }
-//        self.counter = 0
-//        self.place = 0
-//        for subs in self.scroller.subviews {
-//            if(subs.accessibilityLabel != nil && !arr5.contains(subs.accessibilityLabel!)){
-//                print("helooorty")
-//                subs.removeFromSuperview()
-//            }else{
-//                if(subs.accessibilityLabel != nil){
-//                    arr6.append(subs.accessibilityLabel!)
-//                    subs.frame.origin.y = CGFloat(self.place)
-//                    self.place += 94
-//                }
-//            }
-//        }
-           
-            
-            let enumerator = snapshot.children
-            while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-//                print("ololol")
-//                print(rest.key)
-//                print(arr6)
-//                if(!arr6.contains(rest.key)){
-                   self.addPerson(rest: rest)
-//            }
-        }
-        })
+       
 //        print("hdhdhd")
             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(90*self.counter)))
     }

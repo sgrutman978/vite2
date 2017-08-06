@@ -97,6 +97,7 @@ class ViewController4: UIViewController {
                         }
                     }
                 }
+                print(currentList)
                 self.ref.child("users").child(self.viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: currentList])
             })
         }
