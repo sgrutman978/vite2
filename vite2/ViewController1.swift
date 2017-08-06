@@ -13,12 +13,15 @@ import Firebase
 class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
 
 //    @IBOutlet var messageLabel:UILabel!
-    @IBOutlet var topbar: UIView!
     
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
 //    var qrCodeFrameView:UIView?
     
+    @IBOutlet weak var icon4: UIButton!
+    @IBOutlet weak var icon1: UIButton!
+    @IBOutlet weak var icon2: UIButton!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     var viewer = ViewController()
     var viewer0 = ViewController0()
     var viewer3 = ViewController3()
@@ -29,6 +32,16 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
         viewer4.view.isHidden = false
         viewer.modeVc4 = 0
         //        self.view.isHidden = true
+    }
+    @IBAction func moveLeft(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.viewer.scrollView.contentOffset.x = 0
+        }, completion: nil)
+    }
+    @IBAction func moveRight(_ sender: Any) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            self.viewer.scrollView.contentOffset.x = self.view.frame.width * 2
+        }, completion: nil)
     }
     
 //    @IBAction func showSettings(_ sender: Any) {
@@ -71,7 +84,9 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             
             // Move the message label and top bar to the front
 //            view.bringSubview(toFront: messageLabel)
-            view.bringSubview(toFront: topbar)
+            view.bringSubview(toFront: icon1)
+             view.bringSubview(toFront: icon2)
+             view.bringSubview(toFront: icon4)
             
            
             

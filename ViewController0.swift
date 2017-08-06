@@ -21,6 +21,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     var qrcodeImage: CIImage!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var scroller: UIScrollView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
 //    var arr = [String]()
     @IBOutlet weak var orange: UIImageView!
     var mainView = ViewController()
@@ -348,6 +349,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    thing.layer.borderColor = UIColor.black.cgColor
                     if number != counter{
                         thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+                    }else{
+                        self.topView.isHidden = false
+                        self.loader.isHidden = true
                     }
 //                    print("y")
                     thing.tag = counter
@@ -408,8 +412,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 51 - self.editMode*10)
              self.editMode = 0
         })
-        sleep(1)
-          self.mainView.hideLoader()
+//        sleep(1)
+//          self.mainView.hideLoader()
     }
     
     func removeService(sender: UIButton!){

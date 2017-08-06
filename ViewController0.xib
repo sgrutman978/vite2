@@ -14,6 +14,7 @@
                 <outlet property="editButton" destination="kNH-xt-yDs" id="WAc-Cv-eNA"/>
                 <outlet property="enterBio" destination="NhG-nG-Ox9" id="k1K-Q5-8fi"/>
                 <outlet property="enterName" destination="KSD-om-zxB" id="FDB-8D-BIA"/>
+                <outlet property="loader" destination="3Ei-eK-bPC" id="Fkw-r6-h8Z"/>
                 <outlet property="logoutButton" destination="jPR-iG-sMg" id="u9l-pe-n8a"/>
                 <outlet property="myCode" destination="V9c-yq-Iqo" id="bL5-DQ-aRP"/>
                 <outlet property="scroller" destination="8wh-vP-hel" id="oCA-jq-nNd"/>
@@ -31,7 +32,11 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </scrollView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-Qw-Y9D">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-eK-bPC">
+                    <rect key="frame" x="177" y="300" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xX-Qw-Y9D">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="295"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>

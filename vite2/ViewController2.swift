@@ -12,6 +12,7 @@ import FBSDKLoginKit
 
 class ViewController2: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var favs: UIScrollView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var scroller: UIScrollView!
     @IBOutlet weak var searchBar: UISearchBar!
     let ref = FIRDatabase.database().reference()
@@ -159,8 +160,9 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             }
             duplicateFavPlace = duplicateFavPlace - 80
         }
+        })
         
-        self.ref.child("users").child(self.user).child("allowed").observeSingleEvent(of: .value, with: { snapshot in
+        self.ref.child("users").child(self.user).child("allowed").observe(.value, with: { snapshot in
             //            let enumerator2 = snapshot.children
             //            var arr5: [String] = []
             //            var arr6: [String] = []
@@ -193,8 +195,6 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                 //            }
             }
         })
-        })
-        
         
 //        self.ref.child("users").child(user).child("allowed").observeSingleEvent(of: .value, with: { snapshot in
 //            
@@ -367,6 +367,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
 //                        print("plplplpl")
                         self.scroller.addSubview(thing)
                         self.reorder()
+                        self.loader.isHidden = true
                     })
                 })
             })

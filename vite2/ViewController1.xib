@@ -11,7 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController1" customModule="vite2" customModuleProvider="target">
             <connections>
-                <outlet property="topbar" destination="7WX-3i-6Uc" id="9jH-aM-rme"/>
+                <outlet property="icon1" destination="DEx-ff-ttV" id="oO9-YZ-4VV"/>
+                <outlet property="icon2" destination="lF1-lL-QNj" id="P95-7x-Hrn"/>
+                <outlet property="icon4" destination="oUL-XW-Eqg" id="0t3-pX-7Kd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,42 +22,48 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7WX-3i-6Uc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-ff-ttV">
-                            <rect key="frame" x="167" y="27" width="40" height="40"/>
-                            <color key="backgroundColor" red="0.26600573869999999" green="0.2894177684" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="40" id="cy3-iS-nsa"/>
-                            </constraints>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <state key="normal" image="cross" backgroundImage="codeSample.png"/>
-                            <connections>
-                                <action selector="showCode:" destination="-1" eventType="touchUpInside" id="Ycr-Kb-Jjq"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEx-ff-ttV">
+                    <rect key="frame" x="162" y="22" width="50" height="50"/>
+                    <color key="backgroundColor" red="0.26600573869999999" green="0.2894177684" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="top" secondItem="7WX-3i-6Uc" secondAttribute="top" constant="27" id="9dj-ka-R82"/>
-                        <constraint firstAttribute="height" constant="55" id="ZBs-dX-vrq"/>
-                        <constraint firstAttribute="bottom" secondItem="DEx-ff-ttV" secondAttribute="bottom" constant="-12" id="cNJ-Sh-yy3"/>
-                        <constraint firstItem="DEx-ff-ttV" firstAttribute="leading" secondItem="7WX-3i-6Uc" secondAttribute="leading" constant="167" id="tlL-qS-D3q"/>
+                        <constraint firstAttribute="width" constant="50" id="cy3-iS-nsa"/>
+                        <constraint firstAttribute="height" constant="50" id="we1-Sm-E7Y"/>
                     </constraints>
-                </view>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" image="cross" backgroundImage="codeSample.png"/>
+                    <connections>
+                        <action selector="showCode:" destination="-1" eventType="touchUpInside" id="Ycr-Kb-Jjq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-XW-Eqg">
+                    <rect key="frame" x="326" y="617" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="list.png"/>
+                    <connections>
+                        <action selector="moveRight:" destination="-1" eventType="touchUpInside" id="32g-93-5nl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lF1-lL-QNj">
+                    <rect key="frame" x="10" y="617" width="40" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" backgroundImage="user.png"/>
+                    <connections>
+                        <action selector="moveLeft:" destination="-1" eventType="touchUpInside" id="pxZ-0q-SCz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.98327173195111295" green="1" blue="0.12060885677440747" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
-                <constraint firstItem="7WX-3i-6Uc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GHH-dh-Mc9"/>
-                <constraint firstItem="7WX-3i-6Uc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SBd-7P-4nv"/>
-                <constraint firstAttribute="trailing" secondItem="7WX-3i-6Uc" secondAttribute="trailing" id="TsL-XT-Exe"/>
+                <constraint firstItem="DEx-ff-ttV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YL4-6l-etB"/>
+                <constraint firstItem="DEx-ff-ttV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="22" id="bvS-fa-IAd"/>
             </constraints>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <point key="canvasLocation" x="19" y="38"/>
         </view>
     </objects>
     <resources>
         <image name="codeSample.png" width="213" height="206"/>
         <image name="cross" width="16" height="16"/>
+        <image name="list.png" width="256" height="256"/>
+        <image name="user.png" width="256" height="256"/>
     </resources>
 </document>

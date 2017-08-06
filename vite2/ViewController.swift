@@ -41,7 +41,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      self.showLoader(mode: 100)
+//        UIApplication.shared.beginIgnoringInteractionEvents()
+      self.showLoader()
         self.view.bringSubview(toFront: loadScreen)
 //        self.loadScreen.layer.zPosition = CGFloat.greatestFiniteMagnitude
         NotificationCenter.default.addObserver(
@@ -63,10 +64,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         ref = FIRDatabase.database().reference()
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            
             if let user = user {
 //                                print(user.uid)
                 if(self.user2URL == ""){
                 self.setupPage(user: user)
+                self.hideLoader()
                 }
             }
             
@@ -247,20 +250,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
-    func showLoader(mode: Int){
-        switch mode {
-        case 1:
-            
-            break
-        default: break
-            //stuff2
-        }
-        if(mode >= 100){
+    func showLoader(){
         loader.startAnimating()
         loadScreen.fadeIn()
-        }else{
-            //otherloader
-        }
     }
     
     func hideLoader(){
@@ -347,7 +339,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         vc1.viewer4 = vc4
         
         vc2.viewer = self
-        
+//        vc2.viewer1 = vc1
         vc2.viewer3 = vc3
         vc3.viewer = self
         vc4.viewer = self
@@ -383,6 +375,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     func goBackHelper(timer: Timer){
         let vc3 = timer.userInfo as! ViewController3
         vc3.view.isHidden = true
+        vc3.topView.isHidden = true
         timer.invalidate()
     }
     

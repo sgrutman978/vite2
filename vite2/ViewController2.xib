@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController2" customModule="vite2" customModuleProvider="target">
             <connections>
                 <outlet property="favs" destination="hXM-q8-Ubf" id="S2R-Gt-B1R"/>
+                <outlet property="loader" destination="OEY-pL-uMD" id="Q1L-qE-Zmg"/>
                 <outlet property="scroller" destination="WEu-6z-TER" id="cyn-zC-rOo"/>
                 <outlet property="searchBar" destination="jQ2-B1-hjd" id="jqV-nA-5rI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -52,6 +53,10 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OEY-pL-uMD">
+                    <rect key="frame" x="177" y="323" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="133.5" y="54.5"/>

@@ -205,6 +205,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                 }
             }
              self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(64*counter))))
+            self.topView.isHidden = false
         })
         })
     }
