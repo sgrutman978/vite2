@@ -212,7 +212,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
        
        
 //        print("hdhdhd")
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(90*self.counter)))
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width)+1, height: (Int(90*self.counter)))
     }
     
     func reorder(){
@@ -243,11 +243,11 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         if(check){
 //            print("klklkl")
         let thing = UIScrollView()
-        thing.frame = CGRect(x: 0, y: self.place, width:Int(self.view.frame.size.width), height: 90)
+        thing.frame = CGRect(x: 0, y: self.place, width:Int(self.view.frame.size.width)+1, height: 90)
         //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
         //                    self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
         self.place+=90
-        thing.backgroundColor = UIColor.clear
+//        thing.backgroundColor = UIColor.clear
             thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
         //                    print("y")
         thing.tag = self.counter
@@ -304,7 +304,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         let button2 = UIButton()
                         //red X button
 //                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 20, height: 20)
-                        button2.frame = CGRect(x: self.view.frame.width, y: 0, width: thing.frame.width/4 + 1, height: thing.frame.height)
+                        button2.frame = CGRect(x: self.view.frame.width+1, y: 0, width: thing.frame.width/4 + 1, height: thing.frame.height)
                         button2.setTitle("Delete", for: .normal)
                         button2.accessibilityIdentifier = rest.key
                         button2.backgroundColor = UIColor.red
@@ -356,7 +356,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         
                         thing.isPagingEnabled = true
                         thing.contentSize = CGSize(width: thing.frame.width + thing.frame.width/4, height: thing.frame.height)
-                        thing.addSubview(button2)
+                        
                         thing.bounces = false
                         thing.showsHorizontalScrollIndicator = false
                         
@@ -364,6 +364,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         thing.addSubview(label)
                         thing.addSubview(label2)
                         thing.addSubview(imageView)
+                        thing.addSubview(button2)
 //                        print("plplplpl")
                         self.scroller.addSubview(thing)
                         self.reorder()
