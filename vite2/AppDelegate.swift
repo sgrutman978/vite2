@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var i = 0
+//    var window: UIWindow?
+    var loadedEnoughToDeepLink : Bool = false
+    var deepLink : RemoteNotificationDeepLink?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -42,6 +45,59 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        FBSDKAppEvents.activateApp();
 //        
 //    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        
+        if url.host == nil
+        {
+            return true;
+        }
+        
+        let urlString = url.absoluteString
+        let queryArray = urlString!.components(separatedBy: "/")
+        let query = queryArray[2]
+        
+        // Check if article
+        if query.range(of: "article") != nil
+        {
+            let data = urlString!.components(separatedBy: "/")
+            if data.count >= 3
+            {
+                let parameter = data[3]
+                let userInfo = [RemoteNotificationDeepLinkAppSectionKey : parameter ]
+                self.applicationHandleRemoteNotification(application: application, didReceiveRemoteNotification: userInfo as [NSObject : AnyObject])
+            }
+        }
+        
+        return true
+    }
+    
+    func applicationHandleRemoteNotification(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
+    {
+        if application.applicationState == UIApplicationState.background || application.applicationState == UIApplicationState.inactive
+        {
+            var canDoNow = loadedEnoughToDeepLink
+            
+            self.deepLink = RemoteNotificationDeepLink.create(userInfo: userInfo)
+            
+            if canDoNow
+            {
+                self.triggerDeepLinkIfPresent()
+            }
+        }
+    }
+    
+    func triggerDeepLinkIfPresent() -> Bool
+    {
+        self.loadedEnoughToDeepLink = true
+        var ret = (self.deepLink?.trigger() != nil)
+        self.deepLink = nil
+        return ret
+    }
+    
+    
+    
+    
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any)  -> (Bool)
     {

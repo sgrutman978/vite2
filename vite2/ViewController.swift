@@ -41,6 +41,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.triggerDeepLinkIfPresent()
+        
 //        UIApplication.shared.beginIgnoringInteractionEvents()
       self.showLoader()
         self.view.bringSubview(toFront: loadScreen)
@@ -443,6 +447,11 @@ public extension UIView {
     }
     
 }
+
+
+//**************************************************************
+
+
 
 
 //        let ref = FIRDatabase.database().reference(withPath: "vite-a7f75/grocery-items/")
