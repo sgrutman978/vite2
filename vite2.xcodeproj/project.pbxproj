@@ -12,6 +12,7 @@
 		2F0B45B61F37B966001F9C9D /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B45B41F37B966001F9C9D /* list.png */; };
 		2F0B45B71F37B966001F9C9D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B45B51F37B966001F9C9D /* user.png */; };
 		2F0B45B91F3926F0001F9C9D /* deepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B45B81F3926F0001F9C9D /* deepLink.swift */; };
+		2F0B45BB1F3A7D65001F9C9D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B45BA1F3A7D65001F9C9D /* close.png */; };
 		2F1402E31E9FE666005D3894 /* (outerCode).png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1402E21E9FE666005D3894 /* (outerCode).png */; };
 		2F1BE5C01EFA050F0076BE7B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5BF1EFA050F0076BE7B /* checked.png */; };
 		2F1BE5C51F0F266E0076BE7B /* loginTW.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5C31F0F266E0076BE7B /* loginTW.png */; };
@@ -99,6 +100,7 @@
 		2F0B45B41F37B966001F9C9D /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = SOURCE_ROOT; };
 		2F0B45B51F37B966001F9C9D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = SOURCE_ROOT; };
 		2F0B45B81F3926F0001F9C9D /* deepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deepLink.swift; sourceTree = "<group>"; };
+		2F0B45BA1F3A7D65001F9C9D /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = SOURCE_ROOT; };
 		2F1402E21E9FE666005D3894 /* (outerCode).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(outerCode).png"; sourceTree = SOURCE_ROOT; };
 		2F1BE5BF1EFA050F0076BE7B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = SOURCE_ROOT; };
 		2F1BE5C31F0F266E0076BE7B /* loginTW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginTW.png; sourceTree = SOURCE_ROOT; };
@@ -253,8 +255,8 @@
 				2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */,
 				2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */,
 				2F5FF0E51EEC638500B69423 /* ViewController4.swift */,
-				2F0B45B81F3926F0001F9C9D /* deepLink.swift */,
 				2F5FF0E61EEC638500B69423 /* ViewController4.xib */,
+				2F0B45B81F3926F0001F9C9D /* deepLink.swift */,
 				2F92B2091E426EBE001F3722 /* myProf.jpg */,
 				2F1BE5C91F0F2B500076BE7B /* anon.png */,
 				2F25485E1F29677500F346C0 /* logout.gif */,
@@ -264,6 +266,7 @@
 				2F2548601F2967C300F346C0 /* logout.png */,
 				2F2548591F29665700F346C0 /* orangeCheck.png */,
 				2F930EFD1F2ADE4B0021BF27 /* 500px.png */,
+				2F0B45BA1F3A7D65001F9C9D /* close.png */,
 				2F930EFE1F2ADE4B0021BF27 /* dribbble.jpg */,
 				2F930EFF1F2ADE4B0021BF27 /* linkedin.jpg */,
 				2F930F001F2ADE4B0021BF27 /* myspace.png */,
@@ -477,6 +480,7 @@
 				2F5FF0E81EEC638500B69423 /* ViewController4.xib in Resources */,
 				2F47F44F1E2EB6B6008D6354 /* ViewController2.xib in Resources */,
 				2F2548611F2967C300F346C0 /* logout.png in Resources */,
+				2F0B45BB1F3A7D65001F9C9D /* close.png in Resources */,
 				2F0B45B71F37B966001F9C9D /* user.png in Resources */,
 				2F92B1F81E3EA276001F3722 /* snap.jpg in Resources */,
 				2F25485B1F29665700F346C0 /* orangeCheck.png in Resources */,

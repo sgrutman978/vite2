@@ -111,6 +111,8 @@ class ViewController4: UIViewController {
             for all in self.scroller.subviews{
                 all.removeFromSuperview()
             }
+            self.getCode.layer.cornerRadius = 5
+            self.getCode.layer.masksToBounds = true
             var count = 0
             var counter = 8
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
@@ -123,24 +125,26 @@ class ViewController4: UIViewController {
                 }
                 let type = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
                 if(type >= 0){
-                let check = UIView(frame: CGRect(x: (18*(count%3+1))+(101*(count%3)), y: (134*(count/3)), width: 101, height: 116))
-                self.scroller.contentSize = CGSize(width: self.view.frame.width, height: CGFloat(((count+3)/3)*134)+47)
+                let check = UIView(frame: CGRect(x: (18*(count%3+1))+(101*(count%3)), y: (137*(count/3))+3, width: 101, height: 121))
+                self.scroller.contentSize = CGSize(width: self.view.frame.width, height: CGFloat(((count+3)/3)*137)+49)
                     count += 1
 //                check.backgroundColor = UIColor.green
                     let image = UIImageView(image: UIImage(named: self.arr2[type]))
                     image.frame = CGRect(x: 0, y: 0, width: 101, height: 101)
+                    image.layer.cornerRadius = 8
+                    image.layer.masksToBounds = true
 //                    image.layer.cornerRadius = 5
                     let newOne = UIButton()
                     newOne.accessibilityHint = String(counter)
-                    newOne.frame = CGRect(x: 0, y: 0, width: 101, height: 116)
-                    newOne.layer.borderWidth = 1
-                    newOne.layer.cornerRadius = 5
+                    newOne.frame = CGRect(x: 0, y: 0, width: 101, height: 121)
+                    newOne.layer.borderWidth = 0 //1
+                    newOne.layer.cornerRadius = 8
 //                    newOne.layer.borderColor = UIColor.white.cgColor
                     newOne.addTarget(self, action: #selector(self.checkIt), for: .touchUpInside)
                     newOne.accessibilityLabel = "cole"
-                    check.layer.cornerRadius = 5
+                    check.layer.cornerRadius = 8
                     check.layer.masksToBounds = true
-                    let label = UILabel(frame: CGRect(x: 0, y: 101, width: 101, height: 14))
+                    let label = UILabel(frame: CGRect(x: 0, y: 104, width: 101, height: 14))
                     label.adjustsFontSizeToFitWidth = true
                     label.text = res
                     label.textColor = UIColor.white
@@ -154,27 +158,27 @@ class ViewController4: UIViewController {
                     counter += 1
                     newOne.accessibilityIdentifier = rest.key
                     var bColor = UIColor.white
-                    var tColor = UIColor.white
-                    switch type {
-                    case 0:
-                        bColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
-                        tColor = UIColor.white
-                    case 1:
-                        bColor = UIColor(red: 2/255, green: 171/255, blue: 238/255, alpha: 1.0)
-                        tColor = UIColor.white
-                    case 2:
-                        bColor = UIColor(red: 40/255, green: 210/255, blue: 48/255, alpha: 1.0)
-                        tColor = UIColor.white
-                    case 3:
-                        bColor = UIColor(red: 255/255, green: 252/255, blue: 1/255, alpha: 1.0)
-                        tColor = UIColor.black
-                    case 4:
-                        bColor = UIColor(red: 255/255, green: 201/255, blue: 105/255, alpha: 1.0)
-                        tColor = UIColor.black
-                    default:
-                        bColor = UIColor.white
-                        tColor = UIColor.white
-                    }
+                    var tColor = UIColor.darkGray
+//                    switch type {
+//                    case 0:
+//                        bColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+//                        tColor = UIColor.white
+//                    case 1:
+//                        bColor = UIColor(red: 2/255, green: 171/255, blue: 238/255, alpha: 1.0)
+//                        tColor = UIColor.white
+//                    case 2:
+//                        bColor = UIColor(red: 40/255, green: 210/255, blue: 48/255, alpha: 1.0)
+//                        tColor = UIColor.white
+//                    case 3:
+//                        bColor = UIColor(red: 255/255, green: 252/255, blue: 1/255, alpha: 1.0)
+//                        tColor = UIColor.black
+//                    case 4:
+//                        bColor = UIColor(red: 255/255, green: 201/255, blue: 105/255, alpha: 1.0)
+//                        tColor = UIColor.black
+//                    default:
+//                        bColor = UIColor.white
+//                        tColor = UIColor.white
+//                    }
                     check.backgroundColor = bColor
                     label.textColor = tColor
                     check.addSubview(image)

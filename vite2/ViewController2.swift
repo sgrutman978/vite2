@@ -248,7 +248,11 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         //                    self.topView.addBottomBorderWithColor(color: UIColor.darkGray, width: 4)
         self.place+=90
 //        thing.backgroundColor = UIColor.clear
-            thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//            thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+            let grayLine = UIView()
+            grayLine.frame = CGRect(x: 90, y: thing.frame.height-1, width: thing.frame.width, height: 1)
+            grayLine.backgroundColor = UIColor.lightGray
+            thing.addSubview(grayLine)
         //                    print("y")
         thing.tag = self.counter
         let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
@@ -270,7 +274,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                     self.ref.child("users").child(rest.key).child("info").child("17BIO").observeSingleEvent(of: .value, with: { snapshot4 in
                         
                         let imageView = UIImageView()
-                        imageView.frame = CGRect(x: 10, y: 10, width: 70, height: 70)
+                        imageView.frame = CGRect(x: 11, y: 10, width: 70, height: 70)
                         imageView.layer.cornerRadius = 5
 //                        imageView.layer.borderWidth = 1
                         imageView.layer.masksToBounds = true
@@ -304,7 +308,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         let button2 = UIButton()
                         //red X button
 //                        button2.frame = CGRect(x: self.view.frame.width - 135, y: 15, width: 20, height: 20)
-                        button2.frame = CGRect(x: self.view.frame.width+1, y: 0, width: thing.frame.width/4 + 1, height: thing.frame.height)
+                        button2.frame = CGRect(x: self.view.frame.width+1, y: 0, width: thing.frame.width/4 + 1, height: thing.frame.height-1)
                         button2.setTitle("Delete", for: .normal)
                         button2.accessibilityIdentifier = rest.key
                         button2.backgroundColor = UIColor.red
@@ -313,7 +317,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         button2.layer.borderWidth = 0
                         button2.layer.masksToBounds = true
                         button2.layer.borderColor = UIColor.black.cgColor
-                        button2.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//                        button2.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         button2.addTarget(self, action: #selector(self.removePerson), for: .touchUpInside)
                         
 //                        thing.addSubview(button2)

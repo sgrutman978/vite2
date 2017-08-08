@@ -222,7 +222,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
 //        arr = [String]()
         //load info for user you scanned from database
-         self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
+         self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             var place = 295
@@ -235,7 +235,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             }
             
             self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 50)
-            self.thing2.addBottomBorderWithColor(color: UIColor.black, width: 1)
+            self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
             self.thing2.backgroundColor = UIColor.white
             self.thing2.tag = 0
@@ -348,7 +348,11 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    thing.layer.masksToBounds = true
 //                    thing.layer.borderColor = UIColor.black.cgColor
                     if number != counter{
-                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+                        let grayLine = UIView()
+                        grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width*0.76, height: 1)
+                        grayLine.backgroundColor = UIColor.lightGray
+                        thing.addSubview(grayLine)
                     }else{
                         self.topView.isHidden = false
                         self.loader.isHidden = true
@@ -366,7 +370,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     
                     let image = UIImage(named: imgString)
                     let imageView = UIImageView(image: image!)
-                    imageView.frame = CGRect(x: 10, y: 6, width: 48, height: 48)
+                    imageView.frame = CGRect(x: 14, y: 6, width: 48, height: 48)
                     imageView.layer.cornerRadius = 5
 //                    imageView.layer.borderWidth = 1
                     imageView.layer.masksToBounds = true
@@ -374,7 +378,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     
                     let label = UILabel()
                     label.text = res
-                    label.frame = CGRect(x: 64, y: 6, width: self.view.frame.size.width - 64 - 10, height: 48)
+                    label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
                     label.minimumScaleFactor = 0.1
@@ -387,15 +391,18 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     //button.setTitleColor(UIColor.clear, for: .normal)
                     if(rest.key != "20MAIN" && rest.key != "21MAIN"){
                     let button = UIButton()
-                    button.frame = CGRect(x: self.view.frame.width - 40, y: 15, width: 30, height: 30)
-                    button.setTitle("X", for: .normal)
+                    button.frame = CGRect(x: self.view.frame.width - 50, y: 15, width: 30, height: 30)
+                        button.setBackgroundImage(UIImage(named: "close.png"), for: .normal)
+//                    button.setTitle("|", for: .normal)
+//                    button.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
                     button.accessibilityIdentifier = rest.key
                     button.accessibilityLabel = "delete"
                         if self.editMode == 0{
                     button.isHidden = true
                         }
-                    button.backgroundColor = UIColor.red
-                    button.setTitleColor(UIColor.black, for: .normal)
+//                    button.backgroundColor = UIColor.red
+                        button.backgroundColor?.withAlphaComponent(0.8)
+                    button.setTitleColor(UIColor.white, for: .normal)
                     button.layer.cornerRadius = 15
                     button.layer.borderWidth = 0
                     button.layer.masksToBounds = true
