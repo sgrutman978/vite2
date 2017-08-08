@@ -18,9 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var i = 0
-//    var window: UIWindow?
-    var loadedEnoughToDeepLink : Bool = false
-    var deepLink : RemoteNotificationDeepLink?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -45,56 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        FBSDKAppEvents.activateApp();
 //        
 //    }
-    
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
-        
-        if url.host == nil
-        {
-            return true;
-        }
-        
-        let urlString = url.absoluteString
-        let queryArray = urlString!.components(separatedBy: "/")
-        let query = queryArray[2]
-        
-        // Check if article
-        if query.range(of: "article") != nil
-        {
-            let data = urlString!.components(separatedBy: "/")
-            if data.count >= 3
-            {
-                let parameter = data[3]
-                let userInfo = [RemoteNotificationDeepLinkAppSectionKey : parameter ]
-                self.applicationHandleRemoteNotification(application: application, didReceiveRemoteNotification: userInfo as [NSObject : AnyObject])
-            }
-        }
-        
-        return true
-    }
-    
-    func applicationHandleRemoteNotification(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject])
-    {
-        if application.applicationState == UIApplicationState.background || application.applicationState == UIApplicationState.inactive
-        {
-            var canDoNow = loadedEnoughToDeepLink
-            
-            self.deepLink = RemoteNotificationDeepLink.create(userInfo: userInfo)
-            
-            if canDoNow
-            {
-                self.triggerDeepLinkIfPresent()
-            }
-        }
-    }
-    
-    func triggerDeepLinkIfPresent() -> Bool
-    {
-        self.loadedEnoughToDeepLink = true
-        var ret = (self.deepLink?.trigger() != nil)
-        self.deepLink = nil
-        return ret
-    }
-    
+
     
     
     
@@ -120,6 +68,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         
+        print("rgegwreg")
+        print("url \(url)")
+        print("url host :\(url.host!)")
+        print("url path :\(url.path)")
+        let urlPath : String = url.path as String!
+        let urlHost : String = url.host as String!
+        //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if(urlHost != "inner")
+        {
+            print("Host is not correct")
+            return false
+        }else{
+//        if(urlPath == "/inner"){
+            let viewer = self.window?.rootViewController as! ViewController
+            (viewer.vc2 as! ViewController2).viewer3.view.isHidden = false
+            (viewer.vc2 as! ViewController2).viewer3.view.alpha = 1
+            viewer.scrollView.setContentOffset(CGPoint(x: viewer.view.frame.size.width, y: 0), animated: true)
+            let index2: String.Index = url.path.index(url.path.startIndex, offsetBy: 28)
+            let index22: String.Index = url.path.index(url.path.startIndex, offsetBy: 29)
+            let username = url.path.substring(from: url.path.startIndex).substring(to: index22)
+            let accounts = url.path.substring(from: index2)
+            print(username)
+            var frame1 = viewer.view.frame
+            frame1.origin.x = (viewer.vc2 as! ViewController2).viewer3.view.frame.size.width * 2
+            (viewer.vc2 as! ViewController2).viewer3.view.frame = frame1
+            viewer.addPerson(mode: 0, vc3: (viewer.vc2 as! ViewController2).viewer3, uid: username, acc: accounts)
+        } 
+        self.window?.makeKeyAndVisible()
+
         
         let wasHandled: Bool =  FBSDKApplicationDelegate.sharedInstance().application(
             app,

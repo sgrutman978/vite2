@@ -87,6 +87,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             view.bringSubview(toFront: icon1)
              view.bringSubview(toFront: icon2)
              view.bringSubview(toFront: icon4)
+//            viewer.scrollView.bringSubview(toFront: viewer3.view)
             
            
             

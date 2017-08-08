@@ -42,9 +42,6 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        appDelegate.triggerDeepLinkIfPresent()
-        
 //        UIApplication.shared.beginIgnoringInteractionEvents()
       self.showLoader()
         self.view.bringSubview(toFront: loadScreen)
@@ -67,8 +64,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 //        loginTw.layer.borderColor = UIColor.black as! CGColor
         ref = FIRDatabase.database().reference()
         
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.triggerDeepLinkIfPresent()
+        
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
-            
             if let user = user {
 //                                print(user.uid)
                 if(self.user2URL == ""){
