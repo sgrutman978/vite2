@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let accounts = url.path.substring(from: index2)
             print(username)
             var frame1 = viewer.view.frame
-            frame1.origin.x = (viewer.vc2 as! ViewController2).viewer3.view.frame.size.width * 2
+            frame1.origin.x = (viewer.vc2 as! ViewController2).viewer3.view.frame.size.width * 1
             (viewer.vc2 as! ViewController2).viewer3.view.frame = frame1
             viewer.addPerson(mode: 0, vc3: (viewer.vc2 as! ViewController2).viewer3, uid: username, acc: accounts)
         } 
