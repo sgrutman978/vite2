@@ -63,7 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(urlHost != "inner")
         {
             print("Host is not correct")
-            return false
         }else{
             //        if(urlPath == "/inner"){
             let viewer = self.window?.rootViewController as! ViewController
@@ -109,7 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if(urlHost != "inner")
         {
             print("Host is not correct")
-            return false
         }else{
 //        if(urlPath == "/inner"){
             let viewer = self.window?.rootViewController as! ViewController
