@@ -20,16 +20,90 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var i = 0
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]?) -> Bool{
+        
         FIRApp.configure()
-         Twitter.sharedInstance().start(withConsumerKey: "bsQ3hZemqFjdZi4PaWvWsMjpB", consumerSecret: "ohyvjn3TQrOowkZCVnlgiL4fAkAVkG41dYlwDvgbEHAoD2sPQS")
-              Fabric.with([Twitter.self])
-        // Override point for customization after application launch.
+        Twitter.sharedInstance().start(withConsumerKey: "bsQ3hZemqFjdZi4PaWvWsMjpB", consumerSecret: "ohyvjn3TQrOowkZCVnlgiL4fAkAVkG41dYlwDvgbEHAoD2sPQS")
+        Fabric.with([Twitter.self])
+        
+//         Override point for customization after application launch.
         if let url = launchOptions?[.url] as? URL, let annotation = launchOptions?[.annotation] {
-            return self.application(application, open: url, sourceApplication: launchOptions![.sourceApplication] as? String, annotation: annotation)
+            self.application(application, open: url, sourceApplication: launchOptions![.sourceApplication] as? String, annotation: annotation)
         }
+        
+//        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as UIViewController
+//        // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
+//        
+//        .present(viewController, animated: false, completion: nil)
+//        if let locationValue = launchOptions?[UIApplicationLaunchOptionsKey.location] as? Bool, locationValue {
+            // the app was launched in response to a location event
+            // do your location stuff
+//        FIRApp.configure()
+         
+           
+        
+//            return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+//        let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "ViewController") as UIViewController
+//        self.window = UIWindow(frame: UIScreen.main.bounds)
+//        self.window?.rootViewController = initialViewControlleripad
+//        self.window?.makeKeyAndVisible()
+//            self.window?.rootViewController?.viewDidLoad()
+//         if let url = launchOptions?[.url] as? URL, let annotation = launchOptions?[.annotation] {
+//         self.application(application, open: url, sourceApplication: launchOptions![.sourceApplication] as? String, annotation: annotation)
+//        }
+//        }else{
+//        FIRApp.configure()
+//        Twitter.sharedInstance().start(withConsumerKey: "bsQ3hZemqFjdZi4PaWvWsMjpB", consumerSecret: "ohyvjn3TQrOowkZCVnlgiL4fAkAVkG41dYlwDvgbEHAoD2sPQS")
+//                      Fabric.with([Twitter.self])
+//        }
         return true
     }
+
+//    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+//       
+////        
+//////       self.window?.makeKeyAndVisible()
+//////        print("this suckkkks")
+////        if let url = launchOptions?[.url] as? URL, let annotation = launchOptions?[.annotation] {
+//////             print("th2is suckkkks")
+//////            let storyboard = UIStoryboard(name: "Main.storyboard", bundle: nil)
+//////                    let newHomeView = storyboard.instantiateViewController(withIdentifier: "ViewController") as! UIViewController
+//////            self.window!.rootViewController = newHomeView
+//////            self.window?.makeKeyAndVisible()
+//////            self.application(application, open: url, sourceApplication: launchOptions![.sourceApplication] as? String, annotation: annotation)
+////        }else{
+//         FIRApp.configure()
+////        }
+//       
+//        
+//        
+////        let remoteNotif = launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] as? NSDictionary
+////        
+////        if remoteNotif != nil {
+////            let itemName = remoteNotif?["aps"] as! String
+////            print("Custom: \(itemName)")
+////        }
+////        else {
+////            print("//////////////////////////")
+////        }
+//        
+//        
+//        
+////        if launchOptions?[UIApplicationLaunchOptionsKey.remoteNotification] != nil {
+////            // Do what you want to happen when a remote notification is tapped.
+////        }
+//        
+//        
+//        
+//         Twitter.sharedInstance().start(withConsumerKey: "bsQ3hZemqFjdZi4PaWvWsMjpB", consumerSecret: "ohyvjn3TQrOowkZCVnlgiL4fAkAVkG41dYlwDvgbEHAoD2sPQS")
+//              Fabric.with([Twitter.self])
+//        // Override point for customization after application launch.
+//        
+//        return true
+//    }
+//    
     
     
     
@@ -53,6 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any)  -> (Bool)
     {
+//        FIRApp.configure()
         print("rgegwreg")
         print("url \(url)")
         print("url host :\(url.host!)")
@@ -66,8 +141,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }else{
             //        if(urlPath == "/inner"){
             let viewer = self.window?.rootViewController as! ViewController
-            (viewer.vc2 as! ViewController2).viewer3.view.isHidden = false
-            (viewer.vc2 as! ViewController2).viewer3.view.alpha = 1
+            let viewer3 = ViewController3()
+            viewer3.view.isHidden = false
+            viewer3.view.alpha = 1
+            //            (viewer.vc2 as! ViewController2).viewer3.view.isHidden = false
+            //            (viewer.vc2 as! ViewController2).viewer3.view.alpha = 1
             viewer.scrollView.setContentOffset(CGPoint(x: viewer.view.frame.size.width, y: 0), animated: true)
             let index2: String.Index = url.path.index(url.path.startIndex, offsetBy: 28)
             let index22: String.Index = url.path.index(url.path.startIndex, offsetBy: 29)
@@ -75,11 +153,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let accounts = url.path.substring(from: index2)
             print(username)
             var frame1 = viewer.view.frame
-            frame1.origin.x = (viewer.vc2 as! ViewController2).viewer3.view.frame.size.width * 1
-            (viewer.vc2 as! ViewController2).viewer3.view.frame = frame1
-            viewer.addPerson(mode: 0, vc3: (viewer.vc2 as! ViewController2).viewer3, uid: username, acc: accounts)
+            frame1.origin.x = viewer3.view.frame.size.width * 1
+            viewer3.view.frame = frame1
+            viewer.scrollView.addSubview(viewer3.view)
+            viewer3.view.frame = frame1
+            viewer.scrollView.bringSubview(toFront: viewer3.view)
+            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
         }
         self.window?.makeKeyAndVisible()
+        
+        
+//        print("rgegwreg")
+//        print("url \(url)")
+//        print("url host :\(url.host!)")
+//        print("url path :\(url.path)")
+//        let urlPath : String = url.path as String!
+//        let urlHost : String = url.host as String!
+//        //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        if(urlHost != "inner")
+//        {
+//            print("Host is not correct")
+//        }else{
+//            //        if(urlPath == "/inner"){
+//            let viewer = self.window?.rootViewController as! ViewController
+//            let index2: String.Index = url.path.index(url.path.startIndex, offsetBy: 28)
+//            let index22: String.Index = url.path.index(url.path.startIndex, offsetBy: 29)
+//            let username = url.path.substring(from: url.path.startIndex).substring(to: index22)
+//            let accounts = url.path.substring(from: index2)
+//            viewer.addPerson(mode: 200, vc3: ViewController3(), uid: username, acc: accounts)
+//        }
+//        self.window?.makeKeyAndVisible()
+        
+        
+        
+        
         let wasHandled: Bool = FBSDKApplicationDelegate.sharedInstance().application(application
             ,open:url
             ,sourceApplication:sourceApplication
@@ -97,34 +204,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+//        FIRApp.configure()
         print("rgegwreg")
-        print("url \(url)")
-        print("url host :\(url.host!)")
-        print("url path :\(url.path)")
-        let urlPath : String = url.path as String!
-        let urlHost : String = url.host as String!
-        //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if(urlHost != "inner")
-        {
-            print("Host is not correct")
-        }else{
-//        if(urlPath == "/inner"){
-            let viewer = self.window?.rootViewController as! ViewController
-            (viewer.vc2 as! ViewController2).viewer3.view.isHidden = false
-            (viewer.vc2 as! ViewController2).viewer3.view.alpha = 1
-            viewer.scrollView.setContentOffset(CGPoint(x: viewer.view.frame.size.width, y: 0), animated: true)
-            let index2: String.Index = url.path.index(url.path.startIndex, offsetBy: 28)
-            let index22: String.Index = url.path.index(url.path.startIndex, offsetBy: 29)
-            let username = url.path.substring(from: url.path.startIndex).substring(to: index22)
-            let accounts = url.path.substring(from: index2)
-            print(username)
-            var frame1 = viewer.view.frame
-            frame1.origin.x = (viewer.vc2 as! ViewController2).viewer3.view.frame.size.width * 1
-            (viewer.vc2 as! ViewController2).viewer3.view.frame = frame1
-            viewer.addPerson(mode: 0, vc3: (viewer.vc2 as! ViewController2).viewer3, uid: username, acc: accounts)
-        } 
-        self.window?.makeKeyAndVisible()
+                print("url \(url)")
+                print("url host :\(url.host!)")
+                print("url path :\(url.path)")
+                let urlPath : String = url.path as String!
+                let urlHost : String = url.host as String!
+                //        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                if(urlHost != "inner")
+                {
+                    print("Host is not correct")
+                }else{
+                    //        if(urlPath == "/inner"){
+                    let viewer = self.window?.rootViewController as! ViewController
+                    viewer.scrollView.setContentOffset(CGPoint(x: viewer.view.frame.size.width, y: 0), animated: true)
+                    let index2: String.Index = url.path.index(url.path.startIndex, offsetBy: 28)
+                    let index22: String.Index = url.path.index(url.path.startIndex, offsetBy: 29)
+                    let username = url.path.substring(from: url.path.startIndex).substring(to: index22)
+                    let accounts = url.path.substring(from: index2)
+                    if viewer.hasLoaded == 1 {
+                    viewer.addHelper(uid: username, acc: accounts)
+                    }else{
+                        viewer.accTemp = accounts
+                        viewer.userTemp = username
+                    }
+                }
+                self.window?.makeKeyAndVisible()
 
         
         let wasHandled: Bool =  FBSDKApplicationDelegate.sharedInstance().application(

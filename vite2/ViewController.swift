@@ -38,6 +38,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var use00 = ""
     var modeVc4 = 0
     var vc4User = ""
+    var hasLoaded = 0
+    var userTemp = ""
+    var accTemp = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -261,6 +264,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     func hideLoader(){
         loader.stopAnimating()
         loadScreen.fadeOut()
+        self.hasLoaded = 1
     }
     
     
@@ -366,24 +370,45 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         //            print(snapshot.value)
         // print(snapshot.childSnapshot(forPath: "users").value ?? 0)
         //        }
+        
+        if(userTemp != ""){
+            self.addHelper(uid: userTemp, acc: accTemp)
+        }
+        
     }
     
     //https://chart.googleapis.com/chart?cht=qr&chl=vite!-username%2F%2Fsgrutan978&chs=180x180&choe=UTF-8&chld=L|2' alt='
     
-    func goBack(vc3: ViewController3){
-        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.goBackHelper), userInfo: vc3, repeats: false)
-        vc3.view.fadeOut(withDuration: 0.3)
-    }
-    
-    func goBackHelper(timer: Timer){
-        let vc3 = timer.userInfo as! ViewController3
-        vc3.view.isHidden = true
-        vc3.topView.isHidden = true
-        timer.invalidate()
-    }
+//    func goBack(vc3: ViewController3){
+//        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.goBackHelper), userInfo: vc3, repeats: false)
+//        vc3.view.fadeOut(withDuration: 0.3)
+//    }
+//    
+//    func goBackHelper(timer: Timer){
+//        let vc3 = timer.userInfo as! ViewController3
+//        vc3.view.isHidden = true
+//        vc3.topView.isHidden = true
+//        timer.invalidate()
+//    }
     
     func goToPage(num: Int){
         self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width*CGFloat(num), y: 0), animated: false)
+    }
+    
+    func addHelper(uid: String, acc: String){
+            let viewer3 = (self.vc2 as! ViewController2).viewer3
+            viewer3.view.isHidden = false
+            viewer3.view.alpha = 1
+            //            (viewer.vc2 as! ViewController2).viewer3.view.isHidden = false
+            //            (viewer.vc2 as! ViewController2).viewer3.view.alpha = 1
+            self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: true)
+            var frame1 = self.view.frame
+            frame1.origin.x = viewer3.view.frame.size.width * 1
+            viewer3.view.frame = frame1
+            self.scrollView.addSubview(viewer3.view)
+            viewer3.view.frame = frame1
+            self.scrollView.bringSubview(toFront: viewer3.view)
+            self.addPerson(mode: 0, vc3: viewer3, uid: uid, acc: acc)
     }
     
     func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String){
@@ -401,7 +426,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
                     }
                 }
                 self.ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: currentList])
-                (self.vc2 as! ViewController2).addDude(user: uid)
+//                (self.vc2 as! ViewController2).addDude(user: uid)
                 vc3.setupPerson(user: uid)
             })
         }else{

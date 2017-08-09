@@ -37,7 +37,20 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     }
     
     @IBAction func goBack(_ sender: Any) {
-        viewer.goBack(vc3: self)
+//        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.goBackHelper), userInfo: nil, repeats: false)
+        self.view.fadeOut(withDuration: 0.3)
+    }
+    
+//    func goBack(vc3: ViewController3){
+//        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.goBackHelper), userInfo: vc3, repeats: false)
+//        vc3.view.fadeOut(withDuration: 0.3)
+//    }
+    
+    func goBackHelper(timer: Timer){
+       
+        self.view.isHidden = true
+        self.topView.isHidden = true
+//        timer.invalidate()
     }
     
     func createContact(){
