@@ -275,7 +275,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         
                         let imageView = UIImageView()
                         imageView.frame = CGRect(x: 11, y: 10, width: 70, height: 70)
-                        imageView.layer.cornerRadius = 5
+                        imageView.layer.cornerRadius = 35
 //                        imageView.layer.borderWidth = 1
                         imageView.layer.masksToBounds = true
 //                        imageView.layer.borderColor = UIColor.black.cgColor

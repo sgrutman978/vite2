@@ -152,7 +152,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //        logoutButton.layer.masksToBounds = true
 //        logoutButton.layer.borderColor = UIColor.black.cgColor
 
-        myCode.layer.cornerRadius = 8
+        myCode.layer.cornerRadius = 75
 //        myCode.layer.borderWidth = 1
         myCode.layer.masksToBounds = true
 //        myCode.layer.borderColor = UIColor.black.cgColor

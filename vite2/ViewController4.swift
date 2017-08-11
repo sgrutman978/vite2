@@ -21,6 +21,7 @@ class ViewController4: UIViewController {
     let myString = "http://www.appstore.com/stevengrutman/speedsquare#"
     var viewer = ViewController()
     var viewer3 = ViewController3()
+    var globalList = ""
     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
     var list = ""
     
@@ -33,6 +34,31 @@ class ViewController4: UIViewController {
         self.view.isHidden = true
     }
     
+    @IBAction func sendLink(_ sender: Any) {
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let textToShare = "\"Some Fucker\" has shared his Vite with you!\n"
+        
+        if let myWebsite = URL(string: "vite://inner/"+globalList) {//Enter link to your app here
+            
+            let textToShare2 = "\n\nDon't have Vite? Download it for free!\n"
+            
+            let myWebsite2 = URL(string: "http://appstore.com/stevengrutman")
+            let objectsToShare = [textToShare, myWebsite, textToShare2, myWebsite2, image ?? ""] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+            //
+            
+            activityVC.popoverPresentationController?.sourceView = sender as! UIView
+            self.present(activityVC, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func createCode(_ sender: Any) {
         createHelp(mode: viewer.modeVc4)
     }
@@ -41,11 +67,13 @@ class ViewController4: UIViewController {
         
         if(mode == 0){
             list = myString+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
+            globalList = (user?.uid)!+"()00use)17BIO)18NAME)19DEF"
             for all2 in scroller.subviews{
                 for all in all2.subviews{
                     if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
                         // && all.alpha != 1.0
                         //                     print(all.alpha)
+                        globalList = globalList+")"+all.accessibilityIdentifier!
                         list = list+")"+all.accessibilityIdentifier!
                     }
                 }
