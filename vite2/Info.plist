@@ -15,7 +15,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>NSContactsUsageDescription</key>
-	<string>We need it bitch</string>
+	<string>We need access to your contacts for you to take full advantage of the features we have to offer.</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleURLTypes</key>

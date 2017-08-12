@@ -41,6 +41,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var hasLoaded = 0
     var userTemp = ""
     var accTemp = ""
+    var viewableName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,6 +11,7 @@ import Firebase
 import FBSDKLoginKit
 import Contacts
 import ContactsUI
+import SafariServices
 
 class ViewController3: UIViewController, CNContactViewControllerDelegate {
     
@@ -66,6 +67,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     
     func setupPerson(user: String){
         self.view.isHidden = false
+        topView.isHidden = true
         viewer.vc4User = user
         //delete all existing buttons
         for subs in scroller.subviews {
@@ -211,7 +213,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                             print("Error: \(error)")
                         }
                     }
-                    self.profPic.layer.cornerRadius = 10
+                    self.profPic.layer.cornerRadius = 75
 //                    self.profPic.layer.borderWidth = 2
                     self.profPic.layer.masksToBounds = true
 //                    self.profPic.layer.borderColor = UIColor.black.cgColor
@@ -239,8 +241,10 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         if(arr[sender.tag] == "phone"){
             createContact()
         }else{
-        UIApplication.shared.open((URL(string: arr[sender.tag]))!
-            , options: [:], completionHandler: nil)
+            let svc = SFSafariViewController(url: URL(string: arr[sender.tag])!)
+            self.present(svc, animated: true, completion: nil)
+//        UIApplication.shared.open((URL(string: arr[sender.tag]))!
+//            , options: [:], completionHandler: nil)
         }
     }
     

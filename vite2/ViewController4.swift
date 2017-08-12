@@ -40,7 +40,7 @@ class ViewController4: UIViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let textToShare = "\"Some Fucker\" has shared his Vite with you!\n"
+        let textToShare = viewer.viewableName + " has shared his Vite with you!\n"
         
         if let myWebsite = URL(string: "vite://inner/"+globalList) {//Enter link to your app here
             

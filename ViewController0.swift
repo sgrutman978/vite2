@@ -52,8 +52,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     @IBAction func editClick(_ sender: Any) {
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
-            self.scroller.frame.origin.y = CGFloat(50)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(50))
+            self.scroller.frame.origin.y = CGFloat(60)
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(60))
             editButton.setTitle("D", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "orangeCheck.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -66,7 +66,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         }else{
             self.thing2.isHidden = true
             self.scroller.frame.origin.y = CGFloat(0)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(50))
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(60))
             editButton.setTitle("E", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "edit.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -184,6 +184,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.initName = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? ""
             self.enterBio.text = self.initBio
             self.enterName.text = self.initName
+            self.mainView.viewableName = self.initName
         })
         
         
@@ -225,7 +226,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
          self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
-            var place = 295
+            var place = 298
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
@@ -234,7 +235,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 }
             }
             
-            self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 50)
+            self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
             self.thing2.backgroundColor = UIColor.white
@@ -246,7 +247,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.menu.isHidden = true
             self.menu.isScrollEnabled = true
             
-            self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 60)
+            self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 55)
             
             self.label.frame = CGRect(x: 110, y: 2, width: self.view.frame.size.width - 72 - 110, height: 48)
             self.label.font = UIFont(name: "Heiti TC", size: 20)
@@ -266,7 +267,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             button4.addTarget(self, action: #selector(self.addService), for: .touchUpInside)
             self.enterText.addSubview(button4)
             
-            self.button3.frame = CGRect(x: 9, y: 7, width: 36, height: 36)
+            self.button3.frame = CGRect(x: 9, y: 9, width: 40, height: 40)
             self.button3.setTitle("X", for: .normal)
 //            self.button3.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
             self.button3.setTitleColor(UIColor.black, for: .normal)
@@ -277,10 +278,10 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.button3.addTarget(self, action: #selector(self.hideMenu), for: .touchUpInside)
             self.menu.addSubview(self.button3)
             
-            var place2 = 50
+            var place2 = 55
            
-            self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 50)
-            self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+50, height: 50)
+            self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55)
+            self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+46, height: 55)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
             var counter11 = 0
@@ -289,9 +290,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 let newOne = UIButton()
                 newOne.accessibilityIdentifier = self.arr2.index(of: all)?.description
                 newOne.setImage(image, for: .normal)
-                newOne.frame = CGRect(x: place2, y: 3, width: 44, height: 44)
+                newOne.frame = CGRect(x: place2, y: 3, width: 48, height: 48)
                 newOne.setTitle(String(counter11), for: .normal)
-                place2+=51
+                place2+=55
                 newOne.setTitleColor(UIColor.clear, for: .normal)
                 newOne.layer.cornerRadius = 5
 //                newOne.layer.borderWidth = 1
@@ -303,7 +304,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             }
             
             self.button2.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
-            self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 50)
+            self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 55)
             self.button2.setTitle("Add Service", for: .normal)
             self.button2.setTitleColor(UIColor.black, for: .normal)
             self.button2.addTarget(self, action: #selector(self.showMenu), for: .touchUpInside)
@@ -370,7 +371,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     
                     let image = UIImage(named: imgString)
                     let imageView = UIImageView(image: image!)
-                    imageView.frame = CGRect(x: 14, y: 6, width: 48, height: 48)
+                    imageView.frame = CGRect(x: 15, y: 6, width: 48, height: 48)
                     imageView.layer.cornerRadius = 5
 //                    imageView.layer.borderWidth = 1
                     imageView.layer.masksToBounds = true
@@ -416,7 +417,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 51 - self.editMode*10)
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 45 - self.editMode*10)
              self.editMode = 0
         })
 //        sleep(1)
@@ -472,7 +473,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //            , options: [:], completionHandler: nil)
         tempP = Int(sender.frame.minX)
         tempB = sender
-        sender.frame = CGRect(x: 50, y: 3, width: 44, height: 44)
+        sender.frame = CGRect(x: 50, y: 3, width: 48, height: 48)
         enterText.addSubview(sender)
         button2.isHidden = true
         menu.isHidden = true
@@ -500,7 +501,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     func hideMenu(){
         button2.isHidden = false
-        tempB.frame = CGRect(x: tempP, y: 3, width: 44, height: 44)
+        tempB.frame = CGRect(x: tempP, y: 3, width: 48, height: 48)
         self.menu.addSubview(self.button3)
         self.menu.addSubview(self.tempB)
         menu.isHidden = true

@@ -227,6 +227,14 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         let movies = moves.sorted(by: { $0.accessibilityIdentifier! < $1.accessibilityIdentifier! })
                 for subs in movies {
                             subs.frame.origin.y = CGFloat(self.place)
+//                    if(self.place == 0){
+//                        for all in subs.subviews{
+//                            if (all.accessibilityLabel == "value"){
+//                                all.frame.origin.y = -3
+//                                all.frame = CGRect(x: all.frame.origin.x, y: all.frame.origin.y, width: all.frame.width, height: all.frame.height+3)
+//                            }
+//                        }
+//                    }
                             self.place += 90
                 }
     }
@@ -311,6 +319,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         button2.frame = CGRect(x: self.view.frame.width+1, y: 0, width: thing.frame.width/4 + 1, height: thing.frame.height-1)
                         button2.setTitle("Delete", for: .normal)
                         button2.accessibilityIdentifier = rest.key
+                        button2.accessibilityLabel = "value"
                         button2.backgroundColor = UIColor.red
                         button2.setTitleColor(UIColor.white, for: .normal)
 //                        button2.layer.cornerRadius = 15
