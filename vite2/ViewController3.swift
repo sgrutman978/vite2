@@ -144,11 +144,44 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     
                     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "home.png", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
                     
-                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "phone", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "address", "mailto:"+res, "link", "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr", "aim"]
+                    let arr3: [String] = ["https://www.facebook.com/"+res,
+                                          "http://twitter.com/"+res,
+                                          "phone",
+                                          "http://snapchat.com/add/"+res,
+                                          "http://instagram.com/"+res,
+                                          "address",
+                                          "mailto:"+res,
+                                          res,
+                                          "http://pinterest.com/"+res,
+                                          "http://"+res+".tumblr.com",
+                                          "https://github.com/"+res,
+                                          "plus",
+                                          "skype:"+res,
+                                          "http://reddit.com/"+res,
+                                          "http://stackoverflow.com/users/"+res,
+                                          "http://youtube.com/channel/"+res,
+                                          "yelp.png",
+                                          "venmo.png",
+                                          "https://www.linkedin.com/in/"+res,
+                                          "dribbble.jpg",
+                                          "peri.png",
+                                          "http://500px.com/"+res,
+                                          "http://myspace.com/"+res,
+                                          "spotify.png",
+                                          "flickr",
+                                          "aim"]
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
 //                    print("fb://profile/"+res)
+                    if(rest.key == "20MAIN" || rest.key == "21MAIN"){
+                        if(numKey == 0){
+                        self.arr.append("https://www.facebook.com/"+temp)
+                        }else{
+                            self.arr.append("https://www.twitter.com/"+temp)
+                        }
+                    }else{
                     self.arr.append(arr3[numKey])
+                    }
                     imgString = arr2[numKey]
                     
                     if(numKey < 3){
@@ -243,8 +276,11 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         if(arr[sender.tag] == "phone"){
             createContact()
         }else{
+            print("fgsfdg")
+            print(arr[sender.tag])
             let svc = SFSafariViewController(url: URL(string: arr[sender.tag])!)
             self.present(svc, animated: true, completion: nil)
+            print("bgdghd")
 //        UIApplication.shared.open((URL(string: arr[sender.tag]))!
 //            , options: [:], completionHandler: nil)
         }

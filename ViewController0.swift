@@ -53,7 +53,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
             self.scroller.frame.origin.y = CGFloat(57)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(57))
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(60))
             editButton.setTitle("D", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "orangeCheck.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -66,7 +66,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         }else{
             self.thing2.isHidden = true
             self.scroller.frame.origin.y = CGFloat(0)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(57))
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(60))
             editButton.setTitle("E", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "edit.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -417,7 +417,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 42 - self.editMode*10)
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 42 - self.editMode*2)
              self.editMode = 0
         })
 //        sleep(1)
