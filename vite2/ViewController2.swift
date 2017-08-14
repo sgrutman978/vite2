@@ -120,7 +120,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
 //            print(self.favoritesPlace)
             
             imageView2.accessibilityIdentifier = rest.key
-            imageView2.layer.cornerRadius = 5
+            imageView2.layer.cornerRadius = 35
 //            imageView2.layer.borderWidth = 1
             imageView2.layer.masksToBounds = true
 //            imageView2.layer.borderColor = UIColor.black.cgColor

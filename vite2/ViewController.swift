@@ -13,7 +13,7 @@ import FBSDKLoginKit
 import Fabric
 import TwitterKit
 
-class ViewController: UIViewController, FBSDKLoginButtonDelegate {
+class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var loginView: UIView!
     
@@ -30,6 +30,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var userID = ""
     var fbid = ""
     var vc = UIViewController()
+    var vc0 = UIViewController()
     var vc2 = UIViewController()
     var vc4 = UIViewController()
     var logInButton = TWTRLogInButton()
@@ -42,9 +43,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     var userTemp = ""
     var accTemp = ""
     var viewableName = ""
+    var firstTime = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.scrollView.delegate = self
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
         
 //        UIApplication.shared.beginIgnoringInteractionEvents()
       self.showLoader()
@@ -257,6 +269,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        (vc0 as! ViewController0).view.endEditing(true)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            print("dfasdf")
+        }
+//        else {
+//            //something else
+//        }
+        
+    }
+    
     func showLoader(){
         loader.startAnimating()
         loadScreen.fadeIn()
@@ -296,6 +322,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.addChildViewController(vc0)
         self.scrollView.addSubview(vc0.view)
         vc0.didMove(toParentViewController: self)
+        self.vc0 = vc0
 //        vc0.view.isHidden = true
         
         

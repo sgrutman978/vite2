@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,42 +24,70 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEu-6z-TER">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEu-6z-TER">
                     <rect key="frame" x="0.0" y="160" width="375" height="507"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </scrollView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-q8-Ubf">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXM-q8-Ubf">
                     <rect key="frame" x="0.0" y="62" width="375" height="90"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </scrollView>
-                <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Search Your Connections" translatesAutoresizingMaskIntoConstraints="NO" id="jQ2-B1-hjd">
+                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Your Connections" translatesAutoresizingMaskIntoConstraints="NO" id="jQ2-B1-hjd">
                     <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nol-aH-5Do">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nol-aH-5Do">
                     <rect key="frame" x="0.0" y="159" width="154" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Nol-aH-5Do" secondAttribute="height" multiplier="154:1" id="J7a-jZ-9pW"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HeB-xc-P6b">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HeB-xc-P6b">
                     <rect key="frame" x="218" y="159" width="157" height="1"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdh-QA-Zfz">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdh-QA-Zfz">
                     <rect key="frame" x="160" y="140" width="64" height="39"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="39" id="3Pe-Qh-Bun"/>
+                        <constraint firstAttribute="width" constant="64" id="B8m-Sj-z4q"/>
+                        <constraint firstAttribute="width" secondItem="Fdh-QA-Zfz" secondAttribute="height" multiplier="64:39" id="VWu-MY-vWF"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="jtF-dr-e42"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="zDE-TP-bWX"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="13"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OEY-pL-uMD">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OEY-pL-uMD">
                     <rect key="frame" x="177" y="323" width="20" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="OEY-pL-uMD" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="39F-WN-PX3"/>
+                <constraint firstItem="HeB-xc-P6b" firstAttribute="top" secondItem="hXM-q8-Ubf" secondAttribute="bottom" constant="7" id="3Qa-hS-f1z"/>
+                <constraint firstAttribute="trailing" secondItem="Nol-aH-5Do" secondAttribute="trailing" constant="221" id="5UC-6x-wWB"/>
+                <constraint firstItem="jQ2-B1-hjd" firstAttribute="leading" secondItem="hXM-q8-Ubf" secondAttribute="leading" id="6ly-oT-EmX"/>
+                <constraint firstItem="hXM-q8-Ubf" firstAttribute="centerX" secondItem="OEY-pL-uMD" secondAttribute="centerX" id="84N-do-OGv"/>
+                <constraint firstItem="jQ2-B1-hjd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="A5b-ut-frz"/>
+                <constraint firstItem="hXM-q8-Ubf" firstAttribute="trailing" secondItem="HeB-xc-P6b" secondAttribute="trailing" id="A99-yS-RYV"/>
+                <constraint firstItem="Fdh-QA-Zfz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="160" id="DMH-2P-hxJ"/>
+                <constraint firstItem="jQ2-B1-hjd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EM0-f6-kDX"/>
+                <constraint firstAttribute="bottom" secondItem="WEu-6z-TER" secondAttribute="bottom" id="K4H-Dl-vnU"/>
+                <constraint firstItem="Fdh-QA-Zfz" firstAttribute="centerY" secondItem="HeB-xc-P6b" secondAttribute="centerY" id="K8k-Hc-bC4"/>
+                <constraint firstItem="Nol-aH-5Do" firstAttribute="leading" secondItem="WEu-6z-TER" secondAttribute="leading" id="QTG-0R-dLE"/>
+                <constraint firstItem="WEu-6z-TER" firstAttribute="top" secondItem="hXM-q8-Ubf" secondAttribute="bottom" constant="8" symbolic="YES" id="Rhi-eP-OSi"/>
+                <constraint firstItem="hXM-q8-Ubf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="62" id="WEG-ft-CGw"/>
+                <constraint firstItem="Fdh-QA-Zfz" firstAttribute="top" secondItem="jQ2-B1-hjd" secondAttribute="bottom" constant="76" id="Zr9-PO-2ns"/>
+                <constraint firstItem="WEu-6z-TER" firstAttribute="top" secondItem="HeB-xc-P6b" secondAttribute="bottom" id="ZtU-iD-8Y6"/>
+                <constraint firstItem="Nol-aH-5Do" firstAttribute="bottom" secondItem="HeB-xc-P6b" secondAttribute="bottom" id="a0H-ax-zt6"/>
+                <constraint firstItem="Nol-aH-5Do" firstAttribute="top" secondItem="HeB-xc-P6b" secondAttribute="top" id="lif-C9-Pq7"/>
+                <constraint firstItem="HeB-xc-P6b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="218" id="n1M-z8-xX6"/>
+                <constraint firstItem="jQ2-B1-hjd" firstAttribute="trailing" secondItem="hXM-q8-Ubf" secondAttribute="trailing" id="oAy-5e-wU9"/>
+                <constraint firstItem="hXM-q8-Ubf" firstAttribute="leading" secondItem="Nol-aH-5Do" secondAttribute="leading" id="rcM-K5-emf"/>
+                <constraint firstItem="HeB-xc-P6b" firstAttribute="trailing" secondItem="WEu-6z-TER" secondAttribute="trailing" id="wdU-Ca-zjK"/>
+                <constraint firstAttribute="trailing" secondItem="hXM-q8-Ubf" secondAttribute="trailing" id="z8M-Zb-tuX"/>
+            </constraints>
             <point key="canvasLocation" x="133.5" y="54.5"/>
         </view>
     </objects>

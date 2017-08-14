@@ -142,9 +142,9 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     
                     var imgString = ""
                     
-                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "fbPage.png", "mail.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
+                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "home.png", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
                     
-                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "phone", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "fbPage", "mailto:"+res, "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png"]
+                    let arr3: [String] = ["fb://profile/"+res, "twitter://user?screen_name="+res, "phone", "http://snapchat.com/add/"+res, "instagram://user?username="+res, "address", "mailto:"+res, "link", "pinterest://user/"+res, "http://"+res+".tumblr.com", "https://github.com/"+res, "plus", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr", "aim"]
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
 //                    print("fb://profile/"+res)
