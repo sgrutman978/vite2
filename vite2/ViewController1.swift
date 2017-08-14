@@ -30,6 +30,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     @IBAction func showCode(_ sender: Any) {
         viewer4.view.isHidden = false
+        viewer4.view.alpha = 1.0
         viewer.modeVc4 = 0
         //        self.view.isHidden = true
     }

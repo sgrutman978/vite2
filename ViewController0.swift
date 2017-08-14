@@ -52,8 +52,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     @IBAction func editClick(_ sender: Any) {
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
-            self.scroller.frame.origin.y = CGFloat(60)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(60))
+            self.scroller.frame.origin.y = CGFloat(57)
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(57))
             editButton.setTitle("D", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "orangeCheck.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -66,7 +66,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         }else{
             self.thing2.isHidden = true
             self.scroller.frame.origin.y = CGFloat(0)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(60))
+            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(57))
             editButton.setTitle("E", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "edit.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -226,7 +226,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
          self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
-            var place = 298
+            var place = 301
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
@@ -235,7 +235,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 }
             }
             
-            self.thing2.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 55)
+            self.thing2.frame = CGRect(x: 0, y: place-3, width:Int(self.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
             self.thing2.backgroundColor = UIColor.white
@@ -379,7 +379,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     
                     let label = UILabel()
                     label.text = res
-                    label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10, height: 48)
+                    label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10 - 48, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
                     label.minimumScaleFactor = 0.1
@@ -417,7 +417,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 45 - self.editMode*10)
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 42 - self.editMode*10)
              self.editMode = 0
         })
 //        sleep(1)

@@ -32,8 +32,10 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     
     @IBAction func sendBack(_ sender: Any) {
         viewer.vc4.view.isHidden = false
+        viewer.vc4.view.alpha = 1.0
         viewer.modeVc4 = 1
         viewer.goToPage(num: 1)
+        (viewer.vc4 as! ViewController4).getCode.setTitle("Send Back", for: .normal)
         goBack(UILabel())
     }
     

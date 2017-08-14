@@ -126,6 +126,11 @@ class ViewController4: UIViewController {
                     }
                 }
                 print(currentList)
+                (self.viewer.vc4 as! ViewController4).getCode.setTitle("Get Code", for: .normal)
+                let alert = UIAlertController(title: "Vite Sent!", message: "You're contact information has been delivered.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                self.view.fadeOut()
                 self.ref.child("users").child(self.viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: currentList])
             })
         }
@@ -139,8 +144,8 @@ class ViewController4: UIViewController {
             for all in self.scroller.subviews{
                 all.removeFromSuperview()
             }
-            self.getCode.layer.cornerRadius = 5
-            self.getCode.layer.masksToBounds = true
+//            self.getCode.layer.cornerRadius = 5
+//            self.getCode.layer.masksToBounds = true
             var count = 0
             var counter = 8
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
@@ -173,7 +178,7 @@ class ViewController4: UIViewController {
                     check.layer.cornerRadius = 8
                     check.layer.masksToBounds = true
                     let label = UILabel(frame: CGRect(x: 0, y: 104, width: 101, height: 14))
-                    label.adjustsFontSizeToFitWidth = true
+//                    label.adjustsFontSizeToFitWidth = true
                     label.text = res
                     label.textColor = UIColor.white
                     label.font = label.font.withSize(12)
