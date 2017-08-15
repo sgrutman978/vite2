@@ -11,6 +11,7 @@ import Firebase
 import FBSDKLoginKit
 import Fabric
 import TwitterKit
+import FirebaseMessaging
 
 
 @UIApplicationMain
@@ -31,6 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let url = launchOptions?[.url] as? URL, let annotation = launchOptions?[.annotation] {
             self.application(application, open: url, sourceApplication: launchOptions![.sourceApplication] as? String, annotation: annotation)
         }
+        
+        let notificationTypes: UIUserNotificationType = [UIUserNotificationType.alert, UIUserNotificationType.badge, UIUserNotificationType.sound]
+//
+        let notificationSettings = UIUserNotificationSettings(types: notificationTypes, categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+        application.registerForRemoteNotifications()
         
 //        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as UIViewController
 //        // .instantiatViewControllerWithIdentifier() returns AnyObject! this must be downcast to utilize it
@@ -122,6 +129,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    }
 
     
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        print(userInfo["gcm_message_id"] ?? "penis")
+        print(userInfo)
+    }
     
     
     

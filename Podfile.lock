@@ -43,6 +43,9 @@ PODS:
   - Firebase/Invites (3.11.0):
     - Firebase/Core
     - FirebaseInvites (= 1.2.3)
+  - Firebase/Messaging (3.11.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 1.2.1)
   - FirebaseAnalytics (3.6.0):
     - FirebaseCore (~> 3.4)
     - FirebaseInstanceID (~> 1.0)
@@ -81,6 +84,12 @@ PODS:
     - GoogleToolboxForMac/URLBuilder (~> 2.1)
     - GTMOAuth2 (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseMessaging (1.2.1):
+    - FirebaseAnalytics (~> 3.4)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleInterchangeUtilities (~> 1.2)
+    - GoogleSymbolUtilities (~> 1.1)
+    - GoogleToolboxForMac/Logger (~> 2.1)
   - Google-Mobile-Ads-SDK (7.16.0)
   - GoogleAPIClientForREST (1.2.0):
     - GoogleAPIClientForREST/Core (= 1.2.0)
@@ -141,6 +150,7 @@ DEPENDENCIES:
   - Firebase/Crash
   - Firebase/Database
   - Firebase/Invites
+  - Firebase/Messaging
   - TwitterKit
 
 SPEC CHECKSUMS:
@@ -161,6 +171,7 @@ SPEC CHECKSUMS:
   FirebaseDynamicLinks: c135f328a320316f0095f24aa599ff832fdebcec
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   FirebaseInvites: 4317eb941658fc601b8504d5d5b5caddba9aa262
+  FirebaseMessaging: acf66347e43c5637c697060c3001d25c809a4131
   Google-Mobile-Ads-SDK: 92dff0e9ce1cfdfe640d9d80ab86d5e4371e478f
   GoogleAPIClientForREST: 9e5fd600a06c38abf92b5db337c5df2cfb95ee12
   GoogleAppUtilities: a8a552aa74f6597f805e45b5a3962766c3134973
@@ -173,6 +184,6 @@ SPEC CHECKSUMS:
   TwitterCore: fbdbeaf6d2d20cf7c7aa4136fe5173c1c85df2e2
   TwitterKit: 97e729ceea041d174126235bf6ff67dcf37772d4
 
-PODFILE CHECKSUM: 572b16d81c9399d9c9a00967851bab727d8c3951
+PODFILE CHECKSUM: bfc479ed5d971815280b71c74e90d147f7c17c1d
 
 COCOAPODS: 1.1.1

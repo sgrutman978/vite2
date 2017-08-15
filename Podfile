@@ -9,7 +9,7 @@ target 'vite2' do
 
 pod 'Firebase/Core'
 pod 'Firebase/AdMob'
-#pod 'Firebase/Messaging'
+pod 'Firebase/Messaging'
 pod 'Firebase/Database'
 pod 'Firebase/Invites'
 #pod 'Firebase/DynamicLinks'
