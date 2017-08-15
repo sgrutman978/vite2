@@ -56,15 +56,30 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //        timer.invalidate()
     }
     
-    func createContact(){
+    func createContact(content: String, type: Int){
         let newContact = CNMutableContact()
-        newContact.phoneNumbers.append(CNLabeledValue(label: "home", value: CNPhoneNumber(stringValue: "123456")))
+        if(type == 0){
+        newContact.phoneNumbers.append(CNLabeledValue(label: "other", value: CNPhoneNumber(stringValue: content)))
+        }else if type == 1{
+            newContact.emailAddresses.append(CNLabeledValue(label: CNLabelHome, value: content as NSString))
+        }else{
+            //address?
+        }
         let contactVC = CNContactViewController(forUnknownContact: newContact)
         contactVC.contactStore = CNContactStore()
         contactVC.delegate = self
         contactVC.allowsActions = true
-        let navigationController = UINavigationController(rootViewController: contactVC) //For presenting the vc you have to make it navigation controller otherwise it will not work, if you already have navigatiation controllerjust push it you dont have to make it a navigation controller
+        let navigationController = UINavigationController(rootViewController: contactVC)
+        
+        //For presenting the vc you have to make it navigation controller otherwise it will not work, if you already have navigatiation controllerjust push it you dont have to make it a navigation controller
+        contactVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,target: self, action: "dismiss")
+        
+        
         self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     func setupPerson(user: String){
@@ -142,15 +157,14 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     
                     var imgString = ""
                     
-                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "home.png", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
+                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
                     
                     let arr3: [String] = ["https://www.facebook.com/"+res,
                                           "http://twitter.com/"+res,
                                           "phone",
                                           "http://snapchat.com/add/"+res,
                                           "http://instagram.com/"+res,
-                                          "address",
-                                          "mailto:"+res,
+                                          "email",
                                           res,
                                           "http://pinterest.com/"+res,
                                           "http://"+res+".tumblr.com",
@@ -217,6 +231,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     button.setTitleColor(UIColor.black, for: .normal)
                     button.layer.cornerRadius = 10
                     button.layer.borderWidth = 1
+                    button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
                     thing.addSubview(button)
@@ -274,14 +289,17 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     func buttonAction(sender: UIButton!) {
 //        print(sender.tag)
         if(arr[sender.tag] == "phone"){
-            createContact()
-        }else{
-            print("fgsfdg")
-            print(arr[sender.tag])
-            let svc = SFSafariViewController(url: URL(string: arr[sender.tag])!)
-            self.present(svc, animated: true, completion: nil)
-            print("bgdghd")
-//        UIApplication.shared.open((URL(string: arr[sender.tag]))!
+            createContact(content: sender.accessibilityHint!, type: 0)
+        }else if arr[sender.tag] == "email"{
+        createContact(content: sender.accessibilityHint!, type: 1)
+            //else if address?
+            }else{
+//                print("fgsfdg")
+                print(arr[sender.tag])
+                let svc = SFSafariViewController(url: URL(string: arr[sender.tag])!)
+                self.present(svc, animated: true, completion: nil)
+//                print("bgdghd")
+//              UIApplication.shared.open((URL(string: arr[sender.tag]))!
 //            , options: [:], completionHandler: nil)
         }
     }

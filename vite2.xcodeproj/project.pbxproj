@@ -21,7 +21,6 @@
 		2F1BE5CA1F0F2B500076BE7B /* anon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5C91F0F2B500076BE7B /* anon.png */; };
 		2F1BE5CC1F0F2E4A0076BE7B /* codeSample.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5CB1F0F2E4A0076BE7B /* codeSample.png */; };
 		2F1BE5CE1F0F2F930076BE7B /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5CD1F0F2F930076BE7B /* gradient.png */; };
-		2F1D39FB1F4232F900884E46 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1D39FA1F4232F900884E46 /* home.png */; };
 		2F1D39FD1F42338000884E46 /* link.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1D39FC1F42338000884E46 /* link.png */; };
 		2F1D39FF1F42342F00884E46 /* flickr.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1D39FE1F42342F00884E46 /* flickr.png */; };
 		2F1D3A011F42365500884E46 /* aim.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2F1D3A001F42365500884E46 /* aim.jpg */; };
@@ -113,7 +112,6 @@
 		2F1BE5C91F0F2B500076BE7B /* anon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anon.png; sourceTree = SOURCE_ROOT; };
 		2F1BE5CB1F0F2E4A0076BE7B /* codeSample.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = codeSample.png; sourceTree = SOURCE_ROOT; };
 		2F1BE5CD1F0F2F930076BE7B /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = SOURCE_ROOT; };
-		2F1D39FA1F4232F900884E46 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = SOURCE_ROOT; };
 		2F1D39FC1F42338000884E46 /* link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = link.png; sourceTree = SOURCE_ROOT; };
 		2F1D39FE1F42342F00884E46 /* flickr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flickr.png; sourceTree = SOURCE_ROOT; };
 		2F1D3A001F42365500884E46 /* aim.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = aim.jpg; sourceTree = SOURCE_ROOT; };
@@ -267,7 +265,6 @@
 				2F0B45B81F3926F0001F9C9D /* deepLink.swift */,
 				2F92B2091E426EBE001F3722 /* myProf.jpg */,
 				2F1BE5C91F0F2B500076BE7B /* anon.png */,
-				2F1D39FA1F4232F900884E46 /* home.png */,
 				2F1D3A001F42365500884E46 /* aim.jpg */,
 				2F25485E1F29677500F346C0 /* logout.gif */,
 				2F1D39FE1F42342F00884E46 /* flickr.png */,
@@ -527,7 +524,6 @@
 				2F92B2061E416349001F3722 /* twitter.jpg in Resources */,
 				2FD5DF1C1E6A191D00D4C4D3 /* phone.png in Resources */,
 				2F930F121F2ADE4B0021BF27 /* venmo.png in Resources */,
-				2F1D39FB1F4232F900884E46 /* home.png in Resources */,
 				2F1BE5CC1F0F2E4A0076BE7B /* codeSample.png in Resources */,
 				2FF795A51E4531EB00EDEECF /* git.png in Resources */,
 				2F930F091F2ADE4B0021BF27 /* 500px.png in Resources */,
