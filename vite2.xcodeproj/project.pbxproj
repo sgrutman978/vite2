@@ -11,7 +11,6 @@
 		21E464CAB9A31E0EB79D431C /* Pods_vite2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D8113212DC9A091B470834 /* Pods_vite2Tests.framework */; };
 		2F0B45B61F37B966001F9C9D /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B45B41F37B966001F9C9D /* list.png */; };
 		2F0B45B71F37B966001F9C9D /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B45B51F37B966001F9C9D /* user.png */; };
-		2F0B45B91F3926F0001F9C9D /* deepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0B45B81F3926F0001F9C9D /* deepLink.swift */; };
 		2F0B45BB1F3A7D65001F9C9D /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F0B45BA1F3A7D65001F9C9D /* close.png */; };
 		2F1402E31E9FE666005D3894 /* (outerCode).png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1402E21E9FE666005D3894 /* (outerCode).png */; };
 		2F1BE5C01EFA050F0076BE7B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1BE5BF1EFA050F0076BE7B /* checked.png */; };
@@ -102,7 +101,6 @@
 		25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vite2/Pods-vite2.debug.xcconfig"; sourceTree = "<group>"; };
 		2F0B45B41F37B966001F9C9D /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = SOURCE_ROOT; };
 		2F0B45B51F37B966001F9C9D /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = SOURCE_ROOT; };
-		2F0B45B81F3926F0001F9C9D /* deepLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = deepLink.swift; sourceTree = "<group>"; };
 		2F0B45BA1F3A7D65001F9C9D /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = SOURCE_ROOT; };
 		2F1402E21E9FE666005D3894 /* (outerCode).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "(outerCode).png"; sourceTree = SOURCE_ROOT; };
 		2F1BE5BF1EFA050F0076BE7B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = SOURCE_ROOT; };
@@ -262,7 +260,6 @@
 				2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */,
 				2F5FF0E51EEC638500B69423 /* ViewController4.swift */,
 				2F5FF0E61EEC638500B69423 /* ViewController4.xib */,
-				2F0B45B81F3926F0001F9C9D /* deepLink.swift */,
 				2F92B2091E426EBE001F3722 /* myProf.jpg */,
 				2F1BE5C91F0F2B500076BE7B /* anon.png */,
 				2F1D3A001F42365500884E46 /* aim.jpg */,
@@ -710,7 +707,6 @@
 				2F47F4461E2EB5D8008D6354 /* ViewController1.swift in Sources */,
 				2F92B1F51E3D5F9F001F3722 /* ViewController3.swift in Sources */,
 				2F47F4151E2EB360008D6354 /* ViewController.swift in Sources */,
-				2F0B45B91F3926F0001F9C9D /* deepLink.swift in Sources */,
 				2F47F4131E2EB360008D6354 /* AppDelegate.swift in Sources */,
 				2F47F44A1E2EB61E008D6354 /* ViewController0.swift in Sources */,
 			);
