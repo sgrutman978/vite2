@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524629325.619631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524629325.619631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524629325.619631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524629325.619631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "94"
-            endingLineNumber = "94"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524631854.866865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
             landmarkName = "setupPage(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524631854.866865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "456"
+            endingLineNumber = "456"
             landmarkName = "setupPage(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "524431349.815195"
+            timestampString = "524631854.866865"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "443"
-            endingLineNumber = "443"
+            startingLineNumber = "517"
+            endingLineNumber = "517"
             landmarkName = "addPerson(mode:vc3:uid:acc:)"
             landmarkType = "7">
          </BreakpointContent>

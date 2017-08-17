@@ -44,9 +44,32 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     var accTemp = ""
     var viewableName = ""
     var firstTime = true
+    var token = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        var request = URLRequest(url: URL(string: "http://www.thisismylink.com/postName.php")!)
+//        request.httpMethod = "POST"
+//        let postString = "id=13&name=Jack"
+//        request.httpBody = postString.data(using: .utf8)
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+//                print("error=\(error)")
+//                return
+//            }
+//            
+//            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+//                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+//                print("response = \(response)")
+//            }
+//            
+//            let responseString = String(data: data, encoding: .utf8)
+//            print("responseString = \(responseString)")
+//        }
+//        task.resume()
+        
+        
         
         self.scrollView.delegate = self
         
@@ -194,6 +217,54 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.vc.viewDidLoad()
     }
     
+    
+    func sendNotif(list: String){
+        self.ref.child("users").child(vc4User).child("info").child("16TOK").observeSingleEvent(of: .value, with: { snapshot in
+            self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").child("18NAME").observeSingleEvent(of: .value, with: { snapshot2 in
+        let headers = [
+            "authorization": "key=AAAA6z_Aucc:APA91bFJKKWMEx8Vl3FQVHvwusHpKf0LjPtyHplwGGoECTT_Fy-hk0jAsJ4Z1edwMqfyfiJSadv44J_cboSbzicxdIcLVOpoqDZkcS5nDjDcos3GMDvJroov5fnQXWJpJLB03thZy7qE",
+            "content-type": "application/json",
+            "cache-control": "no-cache",
+            "postman-token": "cdd8e810-c7bd-2cc5-873d-9392571213f9"
+        ]
+        let parameters = [
+            "notification": [
+                "title": snapshot2.value as! String,
+                "body": "has just sent you services!"
+            ],
+            "to": snapshot.value ?? ""
+            ] as [String : Any]
+        
+        
+        do {
+            let postData = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            let request = NSMutableURLRequest(url: NSURL(string: "https://fcm.googleapis.com/fcm/send")! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "POST"
+            request.allHTTPHeaderFields = headers
+            request.httpBody = postData as Data
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error)
+                } else {
+                    let httpResponse = response as? HTTPURLResponse
+                    print(httpResponse)
+                }
+            })
+            
+            dataTask.resume()
+            
+        }catch{
+            print("fml")
+        }
+        })
+        })
+    }
+
+    
     @IBAction func clickTwitter(_ sender: Any) {
         self.user2URL = "aa"
         logInButton.sendActions(for: .touchUpInside)
@@ -311,7 +382,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                 self.ref.child("users").child(user.uid).child("info").updateChildValues(["17BIO":   ""])
             }
                             })
-        
+        if self.token != ""{
+        self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   self.token])
+        }
+            
 //       print("worked")
         userID = user.uid
         self.loginView.isHidden = true

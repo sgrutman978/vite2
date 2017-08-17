@@ -112,6 +112,7 @@ class ViewController4: UIViewController {
             self.codeView.isHidden = false
         }else{
             var currentList = "()00use)17BIO)18NAME)19DEF"
+            globalList = (user?.uid)!+"()00use)17BIO)18NAME)19DEF"
             ref.child("users").child(viewer.vc4User).child("allowed").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
                 currentList = snapshot.value as? String ?? "()00use)17BIO)18NAME)19DEF"
                 for all2 in self.scroller.subviews{
@@ -121,6 +122,7 @@ class ViewController4: UIViewController {
                             //                     print(all.alpha)
                             if(!currentList.contains(")"+all.accessibilityIdentifier!)){
                                 currentList = currentList+")"+all.accessibilityIdentifier!
+                                self.globalList = self.globalList+")"+all.accessibilityIdentifier!
                             }
                         }
                     }
@@ -132,6 +134,7 @@ class ViewController4: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 self.view.fadeOut()
                 self.ref.child("users").child(self.viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: currentList])
+                self.viewer.sendNotif(list: self.globalList)
             })
         }
     }

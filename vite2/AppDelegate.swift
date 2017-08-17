@@ -135,6 +135,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(userInfo)
     }
     
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        if let refreshedToken = FIRInstanceID.instanceID().token() {
+            let viewer = self.window?.rootViewController as! ViewController
+            viewer.token = refreshedToken
+        }
+    }
+    
     
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any)  -> (Bool)

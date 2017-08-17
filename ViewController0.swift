@@ -323,7 +323,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             
             
             let enumerator = snapshot.children
-            let number = snapshot.children.allObjects.count - 5
+            let number = snapshot.children.allObjects.count - 6
             
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
 //                print("t")
@@ -455,6 +455,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         FBSDKLoginManager().logOut()
         do {
             try firebaseAuth?.signOut()
+             self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   ""])
             mainView.loginView.isHidden = false
             mainView.scrollView.isHidden = true
             for  subview in mainView.scrollView.subviews
