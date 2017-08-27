@@ -254,6 +254,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //            label.numberOfLines = 0
 //            label.minimumScaleFactor = 0.1
 //            label.baselineAdjustment = .alignCenters
+            self.label.addTarget(self, action: Selector(("textFieldDidChange")), for: UIControlEvents.editingChanged)
             self.enterText.addSubview(self.label)
             
             let button4 = UIButton()
@@ -424,6 +425,45 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //          self.mainView.hideLoader()
     }
     
+    
+    func textFieldDidChange() -> Bool{
+        var regex = ""
+        switch Int(tempB.title(for: .normal)!)! {
+        case 1:
+            regex = "^[a-zA-Z0-9_]{1,15}$"
+        case 2:
+            print("fuck yesss")
+            regex = "^\\+?(\\d{1,3})?-? ?\\(?\\d{3}\\)?-? ?\\d{3}-? ?\\d{4} ?(x|ext|extension|ext.)? ?\\d{0,10}$" //"/^(?:(?:\\(?(?:00|\\+)([1-4]\\d\\d|[1-9]\\d?)\\)?)?[\\-\\.\\ \\\\\\/]?)?((?:\\(?\\d{1,}\\)?[\\-\\.\\ \\\\\\/]?){0,})(?:[\\-\\.\\ \\\\\\/]?(?:#|ext\\.?|extension|x)[\\-\\.\\ \\\\\\/]?(\\d+))?$/i" //"(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})\\s*(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+)\\s*)?$" //"\\(?\\+[0-9]{1,3}\\)? ?-?[0-9]{1,3} ?-?[0-9]{3,5} ?-?[0-9]{4}( ?-?[0-9]{3})? ?(\\w{1,10}\\s?\\d{1,6})?" //"^\\+(?:[0-9] ?){6,14}[0-9]$"
+        case 5:
+            regex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
+        case 13:
+            regex = "^[0-9]{1,15}$"
+        default:
+            break
+//            regex = "" // ".*?"     -> anything
+        }
+        if matches(for: regex, in: label.text!) != [] {
+            label.textColor = UIColor.green
+            return true
+        }else{
+            label.textColor = UIColor.red
+            return false
+        }
+    }
+    
+    func matches(for regex: String, in text: String) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let nsString = text as NSString
+            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
+            return results.map { nsString.substring(with: $0.range)}
+        } catch let error {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
     func removeService(sender: UIButton!){
         
         let refreshAlert = UIAlertController(title: "Remove Service", message: "Would you like to remove this social media platform from your profile?", preferredStyle: UIAlertControllerStyle.alert)
@@ -451,11 +491,11 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     }
     
     func logout(){
+        self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   ""])
         let firebaseAuth = FIRAuth.auth()
         FBSDKLoginManager().logOut()
         do {
             try firebaseAuth?.signOut()
-             self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   ""])
             mainView.loginView.isHidden = false
             mainView.scrollView.isHidden = true
             for  subview in mainView.scrollView.subviews
@@ -512,10 +552,18 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     }
     
     func addService(){
+        if(textFieldDidChange()){
         self.editMode = 1
         let user = FIRAuth.auth()?.currentUser
     ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
         self.hideMenu()
+        }else{
+            let refreshAlert = UIAlertController(title: "Invalid Entry", message: "The information you provided will not properly link to any social media account. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
+            refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in
+                //            print("cancled remove")
+            }))
+            present(refreshAlert, animated: true, completion: nil)
+        }
     }
     
     //Calls this function when the tap is recognized.
