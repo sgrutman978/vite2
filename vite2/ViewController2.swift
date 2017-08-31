@@ -209,10 +209,6 @@ class ViewController2: UIViewController, UISearchBarDelegate {
 //            }
         
 //print("ililil")
-       
-       
-//        print("hdhdhd")
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width)+1, height: (Int(90*self.counter)))
     }
     
     func reorder(){
@@ -382,11 +378,15 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         self.scroller.addSubview(thing)
                         self.reorder()
                         self.loader.isHidden = true
+                        print("fuck thissss")
+                        print(90*self.scroller.subviews.count)
+                        self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width)+1, height: (Int(90*self.scroller.subviews.count-90)))
                     })
                 })
             })
         })
         }
+        
     }
     
     func removePerson(sender: UIButton!){

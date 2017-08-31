@@ -53,6 +53,12 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        icon1.layer.cornerRadius = 10
+//        icon1.layer.borderWidth = 1
+//        icon1.layer.masksToBounds = true
+//        icon1.layer.borderColor = UIColor.black.cgColor
+        
 //        print("lllrrr")
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)

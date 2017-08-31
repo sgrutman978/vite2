@@ -52,8 +52,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     @IBAction func editClick(_ sender: Any) {
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
-            self.scroller.frame.origin.y = CGFloat(57)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(60))
+            self.scroller.contentOffset.y = self.scroller.contentOffset.y - 55
+            self.scroller.contentInset.top = 55
+//            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(60))
             editButton.setTitle("D", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "orangeCheck.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -65,8 +66,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             }
         }else{
             self.thing2.isHidden = true
-            self.scroller.frame.origin.y = CGFloat(0)
-            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(60))
+            self.scroller.contentInset.top = 0
+//            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(60))
             editButton.setTitle("E", for: .normal)
             editButton.setBackgroundImage(UIImage(named: "edit.png"), for: .normal)
             for all2 in self.scroller.subviews{
@@ -366,7 +367,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
                     imgString = self.arr2[numKey]
-                    if(numKey == 4 || numKey == 1){
+                    if(numKey == 1){
                         res = "@"+res
                     }
                     
@@ -427,20 +428,55 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     
     func textFieldDidChange() -> Bool{
-        var regex = ""
+        /*
+         case 0:
+         self.label.placeholder = "Example: facebook.com/..."
+         case 1, 4, 3, 7, 8, 9, 11, 12, 13, 14, 16, 18, 19, 20, 21, 24:
+         self.label.placeholder = "username"
+         case 2:
+         self.label.placeholder = "(888) 888-8888"
+         case 5:
+         self.label.placeholder = "username@example.com"
+         case 6:
+         self.label.placeholder = "myExampleWebsite.com"
+         case 10:
+         self.label.placeholder = "plus.google.com/888888888888888888888"
+         case 15:
+         self.label.placeholder = "yelp.com/Example"
+         case 17:
+         self.label.placeholder = "linkedin.com/Example"
+         case 22:
+         self.label.placeholder = "open.spotify.com/Example"
+         case 23:
+         self.label.placeholder = "flickr.com/Example"
+ */
+        var regex = "^yelp.com/.*?$"
         switch Int(tempB.title(for: .normal)!)! {
+        case 0:
+            regex = ""
         case 1:
             regex = "^[a-zA-Z0-9_]{1,15}$"
+        case 4, 3, 7, 8, 9, 11, 12, 13, 14, 16, 18, 19, 20, 21, 24:
+            regex = "^[a-zA-Z0-9_]{1,40}$"
         case 2:
-            print("fuck yesss")
             regex = "^\\+?(\\d{1,3})?-? ?\\(?\\d{3}\\)?-? ?\\d{3}-? ?\\d{4} ?(x|ext|extension|ext.)? ?\\d{0,10}$" //"/^(?:(?:\\(?(?:00|\\+)([1-4]\\d\\d|[1-9]\\d?)\\)?)?[\\-\\.\\ \\\\\\/]?)?((?:\\(?\\d{1,}\\)?[\\-\\.\\ \\\\\\/]?){0,})(?:[\\-\\.\\ \\\\\\/]?(?:#|ext\\.?|extension|x)[\\-\\.\\ \\\\\\/]?(\\d+))?$/i" //"(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})\\s*(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+)\\s*)?$" //"\\(?\\+[0-9]{1,3}\\)? ?-?[0-9]{1,3} ?-?[0-9]{3,5} ?-?[0-9]{4}( ?-?[0-9]{3})? ?(\\w{1,10}\\s?\\d{1,6})?" //"^\\+(?:[0-9] ?){6,14}[0-9]$"
         case 5:
             regex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
-        case 13:
-            regex = "^[0-9]{1,15}$"
+        case 6:
+           regex = "[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+        case 10:
+            regex = "^plus.google.com/.*?$"
+        case 15:
+            regex = "^yelp.com/.*?$"
+        case 17:
+            regex = "^linkedin.com/.*?$"
+        case 22:
+            regex = "^open.spotify.com/.*?$"
+        case 23:
+            regex = "^flickr.com/.*?$"
         default:
+            regex = "" // ".*?" -> anything
             break
-//            regex = "" // ".*?"     -> anything
         }
         if matches(for: regex, in: label.text!) != [] {
             label.textColor = UIColor.green
@@ -521,16 +557,28 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         enterText.isHidden = false
         self.enterText.addSubview(self.button3)
         switch Int(sender.accessibilityIdentifier!)! {
-        case 1,4:
-            self.label.placeholder = "@username"
+        case 0:
+            self.label.placeholder = "facebook.com/"
+        case 1, 4, 3, 7, 8, 9, 11, 12, 13, 14, 16, 18, 19, 20, 21, 24:
+            self.label.placeholder = "username"
         case 2:
             self.label.placeholder = "(888) 888-8888"
-        case 3, 9, 10:
-            self.label.placeholder = "username"
-        case 6:
+        case 5:
             self.label.placeholder = "username@example.com"
+        case 6:
+            self.label.placeholder = "myExampleWebsite.com"
+        case 10:
+            self.label.text = "plus.google.com/"
+        case 15:
+            self.label.text = "yelp.com/"
+        case 17:
+            self.label.text = "linkedin.com/"
+        case 22:
+            self.label.text = "open.spotify.com/"
+        case 23:
+            self.label.text = "flickr.com/"
         default:
-            self.label.placeholder = "put shit here"
+            self.label.placeholder = "Add stuff here"
         }
     }
     

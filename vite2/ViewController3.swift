@@ -159,7 +159,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     
                     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
                     
-                    let arr3: [String] = ["https://www.facebook.com/"+res,
+                    let arr3: [String] = ["https://"+res,
                                           "http://twitter.com/"+res,
                                           "phone",
                                           "http://snapchat.com/add/"+res,
@@ -169,20 +169,20 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                                           "http://pinterest.com/"+res,
                                           "http://"+res+".tumblr.com",
                                           "https://github.com/"+res,
-                                          "plus",
-                                          "skype:"+res,
+                                          "https://"+res,
+                                          "skype",
                                           "http://reddit.com/"+res,
                                           "http://stackoverflow.com/users/"+res,
                                           "http://youtube.com/channel/"+res,
-                                          "yelp.png",
-                                          "venmo.png",
-                                          "https://www.linkedin.com/in/"+res,
-                                          "dribbble.jpg",
-                                          "peri.png",
+                                          "https://"+res,
+                                          "https://venmo.com/"+res,
+                                          "https://"+res,
+                                          "https://dribbble.com/"+res,
+                                          "peri",
                                           "http://500px.com/"+res,
                                           "http://myspace.com/"+res,
-                                          "spotify.png",
-                                          "flickr",
+                                          "https://"+res,
+                                          "https://"+res,
                                           "aim"]
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
@@ -198,7 +198,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     }
                     imgString = arr2[numKey]
                     
-                    if(numKey < 3){
+                    if(numKey == 1){
                         res = "@"+res
                     }
                     
@@ -234,7 +234,9 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
+                    if(numKey != 11){
                     thing.addSubview(button)
+                    }
                     thing.addSubview(label)
                     thing.addSubview(imageView)
                     self.scroller.addSubview(thing)

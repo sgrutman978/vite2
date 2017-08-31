@@ -389,7 +389,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   self.token])
         }
         
-        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
         
 //       print("worked")
@@ -405,7 +405,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.vc0 = vc0
 //        vc0.view.isHidden = true
         
-            let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+            let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
             
         //creates second view with starting place = width of first
@@ -421,7 +421,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.addChildViewController(vc0)
         self.scrollView.addSubview(vc0.view)
         
-                let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+                let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
                 DispatchQueue.main.asyncAfter(deadline: when) {
                 
         //creates 3rd view with starting place width * 2
@@ -434,7 +434,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.scrollView.addSubview(vc2.view)
         vc2.didMove(toParentViewController: self)
                     
-                    let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+                    let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
                     DispatchQueue.main.asyncAfter(deadline: when) {
         
         let vc3 = ViewController3(nibName: "ViewController3", bundle: nil)
@@ -442,7 +442,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.addChildViewController(vc3)
         self.scrollView.addSubview(vc3.view)
         
-                        let when = DispatchTime.now() + 1 // change 2 to desired number of seconds
+                        let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
                         DispatchQueue.main.asyncAfter(deadline: when) {
                         
         let vc4 = ViewController4(nibName: "ViewController4", bundle: nil)
@@ -487,10 +487,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        self.scrollView.bringSubview(toFront: self.tut)
 //        vc1.view.bringSubview(toFront: vc1.icon2)
                             
-                            vc1.icon2.layer.cornerRadius = 10
-                            vc1.icon2.layer.masksToBounds = true
-                            vc1.icon2.layer.borderWidth = 1
-                            vc1.icon2.layer.borderColor = UIColor.black as! CGColor
+//                            vc1.icon2.layer.cornerRadius = 10
+//                            vc1.icon2.layer.masksToBounds = true
+//                            vc1.icon2.layer.borderWidth = 1
+//                            vc1.icon2.layer.borderColor = (UIColor(red: 100.0/255.0, green: 130.0/255.0, blue: 230.0/255.0, alpha: 1.0)).cgColor
         
         self.hideLoader()
         //        ref.child("users").child(user.uid).child("allowed").observe(.value) { (snapshot: FIRDataSnapshot) in

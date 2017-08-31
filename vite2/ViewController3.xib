@@ -34,7 +34,7 @@
                     </constraints>
                 </scrollView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="XRh-0N-O8o">
-                    <rect key="frame" x="177" y="310" width="20" height="20"/>
+                    <rect key="frame" x="177" y="323.5" width="20" height="20"/>
                 </activityIndicatorView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ujM-Xt-rFP">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
@@ -112,9 +112,10 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="dWK-MN-Ia6" secondAttribute="trailing" id="7hB-1a-y8a"/>
-                <constraint firstItem="XRh-0N-O8o" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="310" id="Fyo-D7-Pva"/>
                 <constraint firstItem="ujM-Xt-rFP" firstAttribute="top" secondItem="dWK-MN-Ia6" secondAttribute="top" id="Hbz-WI-ikQ"/>
+                <constraint firstItem="XRh-0N-O8o" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZNE-wO-Ohg"/>
                 <constraint firstItem="ujM-Xt-rFP" firstAttribute="centerX" secondItem="XRh-0N-O8o" secondAttribute="centerX" id="f9r-Z7-Jlv"/>
+                <constraint firstItem="XRh-0N-O8o" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qM6-DZ-5bH"/>
                 <constraint firstItem="dWK-MN-Ia6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rQu-i4-ISx"/>
                 <constraint firstItem="dWK-MN-Ia6" firstAttribute="leading" secondItem="ujM-Xt-rFP" secondAttribute="leading" id="rmy-DU-51c"/>
                 <constraint firstItem="ujM-Xt-rFP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uSG-cj-tZh"/>

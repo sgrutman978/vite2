@@ -11,6 +11,7 @@ import Firebase
 
 class ViewController4: UIViewController {
 
+    @IBOutlet weak var codeView2: UIView!
     @IBOutlet weak var getCode: UIButton!
     let ref = FIRDatabase.database().reference()
     @IBOutlet weak var scroller: UIScrollView!
@@ -92,7 +93,9 @@ class ViewController4: UIViewController {
             //Then set the background colour like this,
             let transparentBG: CIColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
             // let transparentBG: CIColor = CIColor(red: 255.0, green: 215.0, blue: 20.0, alpha: 1.0)
-            colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
+            colorFilter.setValue(CIColor.init(red: 94/255, green: 180/255, blue: 255/255), forKey: "inputColor0")
+//            colorFilter.setValue(CIColor.white(), forKey: "inputColor0")
+//            colorFilter.setValue(CIColor.black(), forKey: "inputColor0")
             colorFilter.setValue(transparentBG, forKey: "inputColor1")
             qrcodeImage = colorFilter.outputImage!
             
@@ -102,10 +105,10 @@ class ViewController4: UIViewController {
             let transformedImage = qrcodeImage.applying(CGAffineTransform(scaleX: scaleX, y: scaleY))
             myCode.image = UIImage(ciImage: transformedImage)
             
-            codeView.layer.cornerRadius = 50
-            codeView.layer.borderWidth = 2
-            codeView.layer.masksToBounds = true
-            codeView.layer.borderColor = UIColor.black.cgColor
+            codeView2.layer.cornerRadius = 50
+            codeView2.layer.borderWidth = 2
+            codeView2.layer.masksToBounds = true
+            codeView2.layer.borderColor = UIColor.gray.cgColor //init(ciColor: CIColor.init(red: 94/255, green: 180/255, blue: 255/255)).cgColor
             
 //            print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
 //            print(list)
