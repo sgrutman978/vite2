@@ -194,6 +194,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                 self.addPerson(rest: rest)
                 //            }
             }
+            self.loader.isHidden = true
         })
         
 //        self.ref.child("users").child(user).child("allowed").observeSingleEvent(of: .value, with: { snapshot in
@@ -377,7 +378,6 @@ class ViewController2: UIViewController, UISearchBarDelegate {
 //                        print("plplplpl")
                         self.scroller.addSubview(thing)
                         self.reorder()
-                        self.loader.isHidden = true
                         print("fuck thissss")
                         print(90*self.scroller.subviews.count)
                         self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width)+1, height: (Int(90*self.scroller.subviews.count-90)))

@@ -120,12 +120,12 @@
                                             <constraint firstAttribute="width" secondItem="WxG-Bn-znA" secondAttribute="height" multiplier="2:1" id="Opm-ND-Knn"/>
                                         </constraints>
                                     </imageView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iVB-nQ-Uee">
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="iVB-nQ-Uee">
                                         <rect key="frame" x="169.5" y="326.5" width="37" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="abS-GA-apE"/>
                                         </constraints>
-                                        <color key="color" red="0.36862745099999999" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="color" red="0.36862745099999999" green="0.70588235290000001" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

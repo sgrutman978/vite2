@@ -46,6 +46,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     var viewableName = ""
     var firstTime = true
     var token = ""
+//    var runner = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +84,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             selector: #selector(applicationDidBecomeActive(_:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
-        
+//        do{ try FIRAuth.auth()?.signOut()
+//        }catch{}
 //        print("hellooooo")
 //        loginView.backgroundColor = UIColor.orange
         loginFb.layer.cornerRadius = 10
@@ -102,6 +104,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let user = user {
 //                                print(user.uid)
+//                self.ref.child("users").observeSingleEvent(of: .value, with: { snapshot in
+//                    print((snapshot.childSnapshot(forPath: user.uid).childSnapshot(forPath: "info").childSnapshot(forPath: "19DEF").value as? String ?? "")!)
+//                    if((snapshot.childSnapshot(forPath: user.uid).childSnapshot(forPath: "info").childSnapshot(forPath: "19DEF").value as? String ?? "")! == "" && self.runner == 0){
+//                        self.runner = 1
+//                        do{ try FIRAuth.auth()?.signOut() }catch{}
+//                    }
+//                    })
                 if(self.user2URL == ""){
                 self.setupPage(user: user)
 //                self.hideLoader()
@@ -557,18 +566,26 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         let user = FIRAuth.auth()?.currentUser
             print(acc)
             let accs = acc.components(separatedBy: ")").dropFirst()
-            
+            print("lolz")
+            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot2) in
+                print("yup")
+                if(snapshot2.hasChild(uid)){
+            print("yayayay")
             var currentList = "()00use)17BIO)18NAME)19DEF"
-            ref.child("users").child((user?.uid)!).child("allowed").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            self.ref.child("users").child((user?.uid)!).child("allowed").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 currentList = snapshot.value as? String ?? "()00use)17BIO)18NAME)19DEF"
                 for all in accs{
-                            if(!currentList.contains(")"+all)){
+                            if(!currentList.contains(")"+all) && snapshot2.childSnapshot(forPath: uid).childSnapshot(forPath: "info").hasChild(all)){
                                 currentList = currentList+")"+all
                     }
                 }
                 self.ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: currentList])
 //                (self.vc2 as! ViewController2).addDude(user: uid)
                 vc3.setupPerson(user: uid)
+            })
+                }else{
+                    print("fuck youuuuu")
+                }
             })
         }else{
             vc3.setupPerson(user: uid)

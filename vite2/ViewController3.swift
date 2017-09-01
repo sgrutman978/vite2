@@ -225,12 +225,12 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                    // button.setImage(UIImage(named: imgString), for: UIControlState.normal)
                     //button.setTitleColor(UIColor.clear, for: .normal)
                     
-                    button.backgroundColor = UIColor.yellow
+                    button.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
                     button.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
                     button.setTitle("View", for: .normal)
                     button.setTitleColor(UIColor.black, for: .normal)
                     button.layer.cornerRadius = 10
-                    button.layer.borderWidth = 1
+                    button.layer.borderWidth = 0 //1
                     button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)

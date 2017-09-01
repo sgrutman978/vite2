@@ -160,7 +160,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
         var fbTw = 0
         self.ref.child("users").child((user?.uid)!).child("info").child("00use").observe(.value, with: { snapshot6 in
-            if(snapshot6.value as! String == "tw"){
+            if(snapshot6.value as? String == "tw"){
                 fbTw = 1
             }
         })
@@ -181,8 +181,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
         
         ref.child("users").child((user?.uid)!).child("info").observe(.value, with: { snapshot in
-            self.initBio = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
-            self.initName = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? ""
+            self.initBio = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? "Enter Bio"
+            self.initName = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? "Enter Name"
             self.enterBio.text = self.initBio
             self.enterName.text = self.initName
             self.mainView.viewableName = self.initName
