@@ -147,7 +147,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     let thing = UIView()
                     thing.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
 //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
-                    self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
+//                    self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
                     place+=64
                     thing.backgroundColor = UIColor.clear
 //                   print("y")
@@ -225,7 +225,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                    // button.setImage(UIImage(named: imgString), for: UIControlState.normal)
                     //button.setTitleColor(UIColor.clear, for: .normal)
                     
-                    button.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
+                    button.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
                     button.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
                     button.setTitle("View", for: .normal)
                     button.setTitleColor(UIColor.black, for: .normal)

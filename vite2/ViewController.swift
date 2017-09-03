@@ -25,6 +25,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     
     @IBOutlet weak var tut: UIImageView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var tutView: UIView!
+    @IBOutlet weak var tutButton: UIButton!
+    @IBOutlet weak var tutLabel: UILabel!
     @IBOutlet weak var loadScreen: UIView!
     let loginButton = FBSDKLoginButton()
     var ref = FIRDatabaseReference()
@@ -32,7 +35,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     var fbid = ""
     var vc = UIViewController()
     var vc0 = UIViewController()
+    var vc1 = UIViewController()
     var vc2 = UIViewController()
+    var vc3 = UIViewController()
     var vc4 = UIViewController()
     var logInButton = TWTRLogInButton()
     var user2NAME = "Enter Name"
@@ -46,6 +51,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     var viewableName = ""
     var firstTime = true
     var token = ""
+    var blinkTime = Timer()
+    var obj = UIButton()
+    var yelp = 0
+    var gone = 0
+    var tutMode = 0
 //    var runner = 0
     
     override func viewDidLoad() {
@@ -379,7 +389,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     
     
     func setupPage(user: FIRUser){
-    
+    gone += 1
+        if(gone == 1){
 //        print("dfgdfg")
             self.ref.child("users").child(user.uid).child("info").observeSingleEvent(of: .value, with: { snapshot in
             if(!snapshot.hasChild("18NAME")){
@@ -479,7 +490,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         vc4.viewer = self
         vc4.viewer3 = vc3
         
+        self.vc0 = vc0
+        self.vc1 = vc1
         self.vc2 = vc2
+        self.vc3 = vc3
         self.vc4 = vc4
         vc3.view.alpha = 0;
         vc3.view.isHidden = true
@@ -511,8 +525,22 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         if(self.userTemp != ""){
             self.addHelper(uid: self.userTemp, acc: self.accTemp)
         }
-                         
+              
+                            
+                            
             //tutorial
+//                            let when = DispatchTime.now() + 0.25 // change 2 to desired number of seconds
+//                            DispatchQueue.main.asyncAfter(deadline: when) {
+                            self.tutView.isHidden = false
+                            self.view.bringSubview(toFront: self.tutView)
+                            self.tutButton.frame = vc1.icon2.frame
+                            self.tutLabel.text = "Click \"Profile\" Button"
+                            self.obj = vc1.icon2
+                            self.blinkTime = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.blinker), userInfo: nil, repeats: true)
+                            //vc1.icon2.backgroundColor = UIColor.black
+                            vc1.icon2.layer.cornerRadius = 10
+                            vc1.icon2.layer.masksToBounds = true
+                            
             let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
             if launchedBefore  {
                 print("Not first launch.")
@@ -522,13 +550,55 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             }
 
                             
-            }}}}}
+                            }}}}}//}
         
-        
+        }
     }
     
-    //https://chart.googleapis.com/chart?cht=qr&chl=vite!-username%2F%2Fsgrutan978&chs=180x180&choe=UTF-8&chld=L|2' alt='
+    func tutTemp(){
+        if(tutMode == 2 || tutMode == 4){
+            obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
+        }else{
+        obj.backgroundColor = UIColor.clear
+        }
+        obj.sendActions(for: .touchUpInside)
+        tutMode += 1
+        switch tutMode {
+        case 1:
+            obj = (vc0 as! ViewController0).editButton
+            tutLabel.text = "Click the \"Edit\" Button"
+            break
+        case 2:
+            obj = (vc0 as! ViewController0).button2
+            tutLabel.text = "Click \"Add Service\""
+            break
+        case 3:
+            scrollView.contentSize = CGSize(width: self.view.frame.width, height: scrollView.contentSize.height)
+            tutView.isHidden = true
+            obj = (vc0 as! ViewController0).editButton
+            break
+        case 4:
+            obj = (vc4 as! ViewController4).getCode
+            tutLabel.text = "Chose Accounts, Click \"Get Code\""
+            break
+        default:
+            self.tutView.isHidden = true
+            self.blinkTime.invalidate()
+        }
+        tutButton.frame = obj.frame
+        if(tutMode == 2){
+            tutButton.frame.origin.y = 301
+        }
+        //        obj.layer.cornerRadius = 10
+        //        obj.layer.masksToBounds = true
+    }
     
+    @IBAction func tutClick(_ sender: Any) {
+        tutTemp()
+    }
+    
+    
+    //https://chart.googleapis.com/chart?cht=qr&chl=vite!-username%2F%2Fsgrutan978&chs=180x180&choe=UTF-8&chld=L|2' alt='
 //    func goBack(vc3: ViewController3){
 //        Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.goBackHelper), userInfo: vc3, repeats: false)
 //        vc3.view.fadeOut(withDuration: 0.3)
@@ -540,6 +610,17 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        vc3.topView.isHidden = true
 //        timer.invalidate()
 //    }
+    
+    func blinker(){
+       // print("hiiibhjb")
+        yelp += 1
+        if(yelp%2 == 0){
+            obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.5)
+        }else{
+            obj.backgroundColor = UIColor.clear
+        }
+        //yelp += 1
+    }
     
     func goToPage(num: Int){
         self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width*CGFloat(num), y: 0), animated: false)

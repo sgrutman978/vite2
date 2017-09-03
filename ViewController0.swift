@@ -50,6 +50,15 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     
     @IBAction func editClick(_ sender: Any) {
+        if(mainView.tutMode == 3){
+           // mainView.tutTemp()
+            //mainView.tutButton.sendActions(for: .touchUpInside)
+            mainView.scrollView.contentSize = CGSize(width: self.view.frame.width*3, height: mainView.scrollView.contentSize.height)
+            mainView.tutView.isHidden = false
+            mainView.obj = (mainView.vc1 as! ViewController1).icon1
+            mainView.tutButton.frame = mainView.obj.frame
+            mainView.scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0), animated: true)
+        }
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
             self.scroller.contentOffset.y = self.scroller.contentOffset.y - 55
@@ -527,6 +536,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     }
     
     func logout(){
+        mainView.gone = 0
         self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   ""])
         let firebaseAuth = FIRAuth.auth()
         FBSDKLoginManager().logOut()
