@@ -462,7 +462,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         var regex = "^yelp.com/.*?$"
         switch Int(tempB.title(for: .normal)!)! {
         case 0:
-            regex = ""
+            regex = "^facebook.com/.*?$"
         case 1:
             regex = "^[a-zA-Z0-9_]{1,15}$"
         case 4, 3, 7, 8, 9, 11, 12, 13, 14, 16, 18, 19, 20, 21, 24:
