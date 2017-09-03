@@ -94,8 +94,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             selector: #selector(applicationDidBecomeActive(_:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
-        do{ try FIRAuth.auth()?.signOut()
-        }catch{}
+//        do{ try FIRAuth.auth()?.signOut()
+//        }catch{}
 //        print("hellooooo")
 //        loginView.backgroundColor = UIColor.orange
         loginFb.layer.cornerRadius = 10
