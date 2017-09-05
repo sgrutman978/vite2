@@ -101,6 +101,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         arr = [String]()
         var fbTw = 0
         var temp = ""
+        var temp2 = ""
         
         ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
             self.bio.text = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
@@ -125,6 +126,9 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                print("t")
                 if(rest.key == "19DEF"){
                     temp = rest.value as! String
+                }
+                if(rest.key == "21MAIN"){
+                    temp2 = rest.value as! String
                 }
                 if(rest.key == "00use"){
                     if(rest.value as! String == "fb"){
@@ -191,7 +195,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                         if(numKey == 0){
                         self.arr.append("https://www.facebook.com/"+temp)
                         }else{
-                            self.arr.append("https://www.twitter.com/"+temp)
+                            self.arr.append("https://www.twitter.com/"+temp2)
                         }
                     }else{
                     self.arr.append(arr3[numKey])
