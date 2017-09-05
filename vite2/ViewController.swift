@@ -387,6 +387,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.hasLoaded = 1
     }
     
+    @IBAction func questions(_ sender: Any) {
+        let email = "viteappllc@gmail.com"
+        if let url = URL(string: "mailto:\(email)") {
+            UIApplication.shared.open(url)
+        }
+    }
     
     func setupPage(user: FIRUser){
     gone += 1
@@ -409,7 +415,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   self.token])
         }
         
-        let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
+        let when = DispatchTime.now() + 0.65 // change 2 to desired number of seconds
         DispatchQueue.main.asyncAfter(deadline: when) {
         
 //       print("worked")
@@ -425,7 +431,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.vc0 = vc0
 //        vc0.view.isHidden = true
         
-            let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
+            let when = DispatchTime.now() + 0.65 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
             
         //creates second view with starting place = width of first
@@ -441,7 +447,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.addChildViewController(vc0)
         self.scrollView.addSubview(vc0.view)
         
-                let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
+                let when = DispatchTime.now() + 0.65 // change 2 to desired number of seconds
                 DispatchQueue.main.asyncAfter(deadline: when) {
                 
         //creates 3rd view with starting place width * 2
@@ -454,7 +460,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.scrollView.addSubview(vc2.view)
         vc2.didMove(toParentViewController: self)
                     
-                    let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
+                    let when = DispatchTime.now() + 0.65 // change 2 to desired number of seconds
                     DispatchQueue.main.asyncAfter(deadline: when) {
         
         let vc3 = ViewController3(nibName: "ViewController3", bundle: nil)
@@ -462,7 +468,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.addChildViewController(vc3)
         self.scrollView.addSubview(vc3.view)
         
-                        let when = DispatchTime.now() + 0.75 // change 2 to desired number of seconds
+                        let when = DispatchTime.now() + 0.65 // change 2 to desired number of seconds
                         DispatchQueue.main.asyncAfter(deadline: when) {
                         
         let vc4 = ViewController4(nibName: "ViewController4", bundle: nil)
@@ -538,8 +544,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                             self.obj = vc1.icon2
                             self.blinkTime = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.blinker), userInfo: nil, repeats: true)
                             //vc1.icon2.backgroundColor = UIColor.black
-                            vc1.icon2.layer.cornerRadius = 10
-                            vc1.icon2.layer.masksToBounds = true
+//                            vc1.icon2.layer.cornerRadius = 10
+//                            vc1.icon2.layer.masksToBounds = true
                             
             let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
             if launchedBefore  {
@@ -566,7 +572,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         switch tutMode {
         case 1:
             obj = (vc0 as! ViewController0).editButton
-            tutLabel.text = "Click the \"Edit\" Button"
+            tutLabel.text = "Click \"Edit\""
             break
         case 2:
             obj = (vc0 as! ViewController0).button2
@@ -579,7 +585,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             break
         case 4:
             obj = (vc4 as! ViewController4).getCode
-            tutLabel.text = "Chose Accounts, Click \"Get Code\""
+            tutLabel.text = "Chose Accounts then \"Get Code\""
+            break
+        case 5:
+            obj = (vc4 as! ViewController4).shareButton
+            tutLabel.text = "Share Vite! Code"
             break
         default:
             self.tutView.isHidden = true

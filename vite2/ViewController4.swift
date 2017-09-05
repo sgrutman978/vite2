@@ -25,7 +25,7 @@ class ViewController4: UIViewController {
     var globalList = ""
     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
     var list = ""
-    
+    @IBOutlet weak var shareButton: UIButton!
     
     @IBAction func closeCode(_ sender: Any) {
         codeView.isHidden = true

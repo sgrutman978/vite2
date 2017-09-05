@@ -165,14 +165,14 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                                           "http://snapchat.com/add/"+res,
                                           "http://instagram.com/"+res,
                                           "email",
-                                          res,
+                                          "http://" + res,
                                           "http://pinterest.com/"+res,
                                           "http://"+res+".tumblr.com",
                                           "https://github.com/"+res,
                                           "https://"+res,
                                           "skype",
                                           "http://reddit.com/"+res,
-                                          "http://stackoverflow.com/users/"+res,
+                                          "https://"+res,
                                           "http://youtube.com/channel/"+res,
                                           "https://"+res,
                                           "https://venmo.com/"+res,
@@ -234,7 +234,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
-                    if(numKey != 11){
+                    if(numKey != 11 && numKey != 24){
                     thing.addSubview(button)
                     }
                     thing.addSubview(label)

@@ -36,7 +36,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     let label = UITextField()
     var initName = ""
     var initBio = ""
-    var editMode = 0
+//    var editMode = 0
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
 //    var activeTextField = UITextField()
 //    
@@ -58,9 +58,12 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             mainView.obj = (mainView.vc1 as! ViewController1).icon1
             mainView.tutButton.frame = mainView.obj.frame
             mainView.scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0), animated: true)
+            editButton.backgroundColor = UIColor.clear
+            mainView.tutLabel.text = "Click Vite! Logo"
         }
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
+            hideMenu()
             self.scroller.contentOffset.y = self.scroller.contentOffset.y - 55
             self.scroller.contentInset.top = 55
 //            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height + CGFloat(60))
@@ -254,7 +257,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //            self.thing2.layer.borderWidth = 1
 //            self.thing2.layer.borderColor = UIColor.black.cgColor
             
-            self.menu.isHidden = true
+//            self.menu.isHidden = true
+            self.hideMenu()
             self.menu.isScrollEnabled = true
             
             self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 55)
@@ -268,12 +272,13 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.enterText.addSubview(self.label)
             
             let button4 = UIButton()
-            button4.backgroundColor = UIColor.yellow
-            button4.frame = CGRect(x: (self.view.frame.size.width - 72), y: 4, width: 62, height: 42)
+//            button4.backgroundColor = UIColor.yellow
+            button4.frame = CGRect(x: (self.view.frame.size.width - 72), y: 6, width: 62, height: 42)
             button4.setTitle("Add", for: .normal)
             button4.setTitleColor(UIColor.black, for: .normal)
             button4.layer.cornerRadius = 10
-            button4.layer.borderWidth = 1
+            button4.layer.borderWidth = 0 //1
+            button4.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
             button4.layer.borderColor = UIColor.black.cgColor
             button4.addTarget(self, action: #selector(self.addService), for: .touchUpInside)
             self.enterText.addSubview(button4)
@@ -326,9 +331,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.thing2.addSubview(self.enterText)
             self.thing2.addSubview(self.button2)
 //            self.scroller.addSubview(self.thing2)
-            if self.editMode == 0{
-                self.thing2.isHidden = true
-            }
+//            if self.editMode == 0{
+//                self.thing2.isHidden = true
+//            }
             self.view.addSubview(self.thing2)
             
             
@@ -409,9 +414,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    button.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
                     button.accessibilityIdentifier = rest.key
                     button.accessibilityLabel = "delete"
-                        if self.editMode == 0{
-                    button.isHidden = true
-                        }
+//                        if self.editMode == 0{
+//                    button.isHidden = true
+//                        }
 //                    button.backgroundColor = UIColor.red
                         button.backgroundColor?.withAlphaComponent(0.8)
                     button.setTitleColor(UIColor.white, for: .normal)
@@ -428,8 +433,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter+self.editMode)))) - 42 - self.editMode*2)
-             self.editMode = 0
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter/*+self.editMode*/)))) - 42 /*- self.editMode*2*/)
+//             self.editMode = 0
         })
 //        sleep(1)
 //          self.mainView.hideLoader()
@@ -465,16 +470,18 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             regex = "^facebook.com/.*?$"
         case 1:
             regex = "^[a-zA-Z0-9_]{1,15}$"
-        case 4, 3, 7, 8, 9, 11, 12, 13, 14, 16, 18, 19, 20, 21, 24:
+        case 4, 3, 7, 8, 9, 11, 12, 14, 16, 18, 19, 20, 21, 24:
             regex = "^[a-zA-Z0-9_]{1,40}$"
         case 2:
             regex = "^\\+?(\\d{1,3})?-? ?\\(?\\d{3}\\)?-? ?\\d{3}-? ?\\d{4} ?(x|ext|extension|ext.)? ?\\d{0,10}$" //"/^(?:(?:\\(?(?:00|\\+)([1-4]\\d\\d|[1-9]\\d?)\\)?)?[\\-\\.\\ \\\\\\/]?)?((?:\\(?\\d{1,}\\)?[\\-\\.\\ \\\\\\/]?){0,})(?:[\\-\\.\\ \\\\\\/]?(?:#|ext\\.?|extension|x)[\\-\\.\\ \\\\\\/]?(\\d+))?$/i" //"(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})\\s*(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+)\\s*)?$" //"\\(?\\+[0-9]{1,3}\\)? ?-?[0-9]{1,3} ?-?[0-9]{3,5} ?-?[0-9]{4}( ?-?[0-9]{3})? ?(\\w{1,10}\\s?\\d{1,6})?" //"^\\+(?:[0-9] ?){6,14}[0-9]$"
         case 5:
             regex = "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}$"
         case 6:
-           regex = "[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
+           regex = "^([a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)+.*)$" //"[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)"
         case 10:
             regex = "^plus.google.com/.*?$"
+        case 13:
+            regex = "^stackoverflow.com/.*?$"
         case 15:
             regex = "^yelp.com/.*?$"
         case 17:
@@ -513,7 +520,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         
         let refreshAlert = UIAlertController(title: "Remove Service", message: "Would you like to remove this social media platform from your profile?", preferredStyle: UIAlertControllerStyle.alert)
         refreshAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-             self.editMode = 1
+//             self.editMode = 1
             let user = FIRAuth.auth()?.currentUser
             self.ref.child("users").child((user?.uid)!).child("info").child(sender.accessibilityIdentifier!).removeValue()
         }))
@@ -569,7 +576,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         switch Int(sender.accessibilityIdentifier!)! {
         case 0:
             self.label.placeholder = "facebook.com/"
-        case 1, 4, 3, 7, 8, 9, 11, 12, 13, 14, 16, 18, 19, 20, 21, 24:
+        case 1, 4, 3, 7, 8, 9, 11, 12, 14, 16, 18, 19, 20, 21, 24:
             self.label.placeholder = "username"
         case 2:
             self.label.placeholder = "(888) 888-8888"
@@ -579,6 +586,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.label.placeholder = "myExampleWebsite.com"
         case 10:
             self.label.text = "plus.google.com/"
+        case 13:
+            self.label.text = "stackoverflow.com/"
         case 15:
             self.label.text = "yelp.com/"
         case 17:
@@ -611,7 +620,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     func addService(){
         if(textFieldDidChange()){
-        self.editMode = 1
+//        self.editMode = 1
         let user = FIRAuth.auth()?.currentUser
     ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
         self.hideMenu()

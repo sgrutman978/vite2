@@ -20,6 +20,7 @@
                 <outlet property="getCode" destination="y0T-dM-e5S" id="itR-MO-BcG"/>
                 <outlet property="myCode" destination="eBa-fD-mWs" id="yGK-LA-fzT"/>
                 <outlet property="scroller" destination="08C-vN-Jrb" id="vaU-Sc-u65"/>
+                <outlet property="shareButton" destination="oiK-9b-eLM" id="uKy-HX-lIh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -53,16 +54,17 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Accounts to Share" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqr-ZW-g98">
-                    <rect key="frame" x="14" y="29" width="347" height="25"/>
+                    <rect key="frame" x="14" y="25" width="347" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzG-M3-tPl">
-                    <rect key="frame" x="4" y="27" width="46" height="30"/>
+                    <rect key="frame" x="4" y="23" width="46" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="sLv-GL-eP4"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <state key="normal" title="X">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
