@@ -35,7 +35,10 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     var tempB = UIButton()
     let label = UITextField()
     var initName = ""
+    var temp3 = ""
     var initBio = ""
+    var linkMode = 0
+    var num = 0
 //    var editMode = 0
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
 //    var activeTextField = UITextField()
@@ -394,7 +397,13 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    imageView.layer.borderColor = UIColor.black.cgColor
                     
                     let label = UILabel()
-                    label.text = res
+                     if([0, 10, 13, 15, 17, 22, 23].contains(numKey) && rest.key != "20MAIN"){
+                    self.ref.child("users").child((user?.uid)!).child("info2").child(rest.key).observeSingleEvent(of: .value, with: { snapshot6 in
+                            label.text = snapshot6.value as? String
+                            })
+                     }else{
+                       label.text = res
+                    }
                     label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10 - 48, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
@@ -464,7 +473,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
          case 23:
          self.label.placeholder = "flickr.com/Example"
  */
-        var regex = "^yelp.com/.*?$"
+        var regex = ".*?"
+        if(linkMode == 0){
         switch Int(tempB.title(for: .normal)!)! {
         case 0:
             regex = "^facebook.com/.*?$"
@@ -493,6 +503,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         default:
             regex = "" // ".*?" -> anything
             break
+        }
         }
         if matches(for: regex, in: label.text!) != [] {
             label.textColor = UIColor.green
@@ -572,10 +583,12 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         button2.isHidden = true
         menu.isHidden = true
         enterText.isHidden = false
+        linkMode = 0
+        num = Int(tempB.title(for: .normal)!)!
         self.enterText.addSubview(self.button3)
         switch Int(sender.accessibilityIdentifier!)! {
         case 0:
-            self.label.placeholder = "facebook.com/"
+            self.label.text = "facebook.com/"
         case 1, 4, 3, 7, 8, 9, 11, 12, 14, 16, 18, 19, 20, 21, 24:
             self.label.placeholder = "username"
         case 2:
@@ -622,8 +635,24 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         if(textFieldDidChange()){
 //        self.editMode = 1
         let user = FIRAuth.auth()?.currentUser
-    ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "sgrutman978"])
-        self.hideMenu()
+            print(num)
+            if([0, 10, 13, 15, 17, 22, 23].contains(num)){
+                print("fdgdfg")
+                if(linkMode == 0){
+                    temp3 = label.text!
+                    label.text = ""
+                    label.placeholder = "Name your link"
+                    linkMode = 1
+                }else{
+                    let rand = self.randomString(length: 7)
+                ref.child("users").child((user?.uid)!).child("info2").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+rand:label.text ?? "No Name"])
+                ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+rand:temp3])
+                    self.hideMenu()
+                }
+            }else{
+                ref.child("users").child((user?.uid)!).child("info").updateChildValues([String(20+Int(tempB.title(for: .normal)!)!)+self.randomString(length: 7):label.text ?? "No Name"])
+                self.hideMenu()
+            }
         }else{
             let refreshAlert = UIAlertController(title: "Invalid Entry", message: "The information you provided will not properly link to any social media account. Please try again.", preferredStyle: UIAlertControllerStyle.alert)
             refreshAlert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { (action: UIAlertAction!) in

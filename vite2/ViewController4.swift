@@ -185,7 +185,14 @@ class ViewController4: UIViewController {
                     check.layer.masksToBounds = true
                     let label = UILabel(frame: CGRect(x: 0, y: 104, width: 101, height: 14))
 //                    label.adjustsFontSizeToFitWidth = true
-                    label.text = res
+                    if([0, 10, 13, 15, 17, 22, 23].contains(type) && rest.key != "20MAIN"){
+                    self.ref.child("users").child((user?.uid)!).child("info2").child(rest.key).observeSingleEvent(of: .value, with: { snapshot6 in
+                            label.text = snapshot6.value as? String
+                        })
+                    }else{
+                        label.text = res
+                    }
+
                     label.textColor = UIColor.white
                     label.font = label.font.withSize(12)
                     label.textAlignment = .center

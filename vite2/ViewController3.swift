@@ -215,7 +215,14 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                    imageView.layer.borderColor = UIColor.black.cgColor
                     
                     let label = UILabel()
-                    label.text = res
+                    if([0, 10, 13, 15, 17, 22, 23].contains(numKey) && rest.key != "20MAIN"){
+                    self.ref.child("users").child(user).child("info2").child(rest.key).observeSingleEvent(of: .value, with: { snapshot6 in
+                            label.text = snapshot6.value as? String
+                        })
+                    }else{
+                        label.text = res
+                    }
+
                     label.frame = CGRect(x: 64, y: 6, width: self.view.frame.size.width - 64 - 82, height: 48)
                     
                     label.font = UIFont(name: "Heiti TC", size: 20)
