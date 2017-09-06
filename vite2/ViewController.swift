@@ -100,6 +100,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        loginView.backgroundColor = UIColor.orange
         loginFb.layer.cornerRadius = 10
          loginFb.layer.masksToBounds = true
+        tutButton.layer.cornerRadius = 10
+        tutButton.layer.masksToBounds = true
 //        loginFb.layer.borderWidth = 1
 //        loginFb.layer.borderColor = UIColor.black as! CGColor
         loginTw.layer.cornerRadius = 10
@@ -539,9 +541,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //                            DispatchQueue.main.asyncAfter(deadline: when) {
                             self.tutView.isHidden = false
                             self.view.bringSubview(toFront: self.tutView)
-                            self.tutButton.frame = vc1.icon2.frame
-                            self.tutLabel.text = "Click \"Profile\" Button"
                             self.obj = vc1.icon2
+                            self.tutButton.frame = CGRect(x: self.obj.frame.origin.x-5, y: self.obj.frame.origin.y-5, width: self.obj.frame.width+10, height: self.obj.frame.height+10)
+                            self.tutLabel.text = "Click \"Profile\" Button"
                             self.blinkTime = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.blinker), userInfo: nil, repeats: true)
                             //vc1.icon2.backgroundColor = UIColor.black
 //                            vc1.icon2.layer.cornerRadius = 10
@@ -562,11 +564,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     }
     
     func tutTemp(){
-        if(tutMode == 2 || tutMode == 4){
-            obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
-        }else{
-        obj.backgroundColor = UIColor.clear
-        }
+//        if(tutMode == 2 || tutMode == 4){
+//            obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
+//        }else{
+//        obj.backgroundColor = UIColor.clear
+//        }
         obj.sendActions(for: .touchUpInside)
         tutMode += 1
         switch tutMode {
@@ -584,10 +586,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             obj = (vc0 as! ViewController0).editButton
             break
         case 4:
+//            obj = (vc1 as! ViewController1).icon1
+//            tutLabel.text = "Chose Accounts then \"Get Code\""
+            break
+        case 5:
             obj = (vc4 as! ViewController4).getCode
             tutLabel.text = "Chose Accounts then \"Get Code\""
             break
-        case 5:
+        case 6:
             obj = (vc4 as! ViewController4).shareButton
             tutLabel.text = "Share Vite! Code"
             break
@@ -595,9 +601,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             self.tutView.isHidden = true
             self.blinkTime.invalidate()
         }
-        tutButton.frame = obj.frame
+        if(tutMode == 2 || tutMode == 4){
+            tutButton.frame = obj.frame
+        }else{
+        tutButton.frame = CGRect(x: obj.frame.origin.x-5, y: obj.frame.origin.y-5, width: obj.frame.width+10, height: obj.frame.height+10)
+        }
         if(tutMode == 2){
-            tutButton.frame.origin.y = 301
+            tutButton.frame.origin.y = 298
         }
         //        obj.layer.cornerRadius = 10
         //        obj.layer.masksToBounds = true
@@ -624,12 +634,29 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     func blinker(){
        // print("hiiibhjb")
         yelp += 1
-        if(yelp%2 == 0){
-            obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.5)
-        }else{
-            obj.backgroundColor = UIColor.clear
+        switch tutMode {
+        case 2, 5:
+            if(yelp%2 == 0){
+                tutButton.backgroundColor = UIColor.white
+            }else{
+                tutButton.backgroundColor = UIColor.clear
+            }
+            break
+        case 3:
+            if(yelp%2 == 0){
+                obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.7)
+            }else{
+                obj.backgroundColor = UIColor.clear
+            }
+            break
+        default:
+            if(yelp%2 == 0){
+                tutButton.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.7)
+            }else{
+                tutButton.backgroundColor = UIColor.clear
+            }
+            //yelp += 1
         }
-        //yelp += 1
     }
     
     func goToPage(num: Int){

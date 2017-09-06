@@ -39,7 +39,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     var initBio = ""
     var linkMode = 0
     var num = 0
-//    var editMode = 0
+    var editMode = 0
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
 //    var activeTextField = UITextField()
 //    
@@ -59,13 +59,15 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             mainView.scrollView.contentSize = CGSize(width: self.view.frame.width*3, height: mainView.scrollView.contentSize.height)
             mainView.tutView.isHidden = false
             mainView.obj = (mainView.vc1 as! ViewController1).icon1
-            mainView.tutButton.frame = mainView.obj.frame
+            mainView.tutButton.frame = CGRect(x: mainView.obj.frame.origin.x-5, y: mainView.obj.frame.origin.y-5, width: mainView.obj.frame.width+10, height: mainView.obj.frame.height+10)
             mainView.scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0), animated: true)
             editButton.backgroundColor = UIColor.clear
             mainView.tutLabel.text = "Click Vite! Logo"
+            mainView.tutMode += 1
         }
         if (editButton.titleLabel?.text == "E"){
             self.thing2.isHidden = false
+            editMode = 1
             hideMenu()
             self.scroller.contentOffset.y = self.scroller.contentOffset.y - 55
             self.scroller.contentInset.top = 55
@@ -80,6 +82,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 }
             }
         }else{
+            editMode = 0
             self.thing2.isHidden = true
             self.scroller.contentInset.top = 0
 //            self.scroller.contentSize = CGSize(width: self.scroller.contentSize.width, height: self.scroller.contentSize.height - CGFloat(60))
@@ -432,9 +435,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    button.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
                     button.accessibilityIdentifier = rest.key
                     button.accessibilityLabel = "delete"
-//                        if self.editMode == 0{
-//                    button.isHidden = true
-//                        }
+                        if self.editMode == 0{
+                    button.isHidden = true
+                        }
 //                    button.backgroundColor = UIColor.red
                         button.backgroundColor?.withAlphaComponent(0.8)
                     button.setTitleColor(UIColor.white, for: .normal)
