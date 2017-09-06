@@ -142,6 +142,11 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //        self.view.endEditing(true)
 //    }
     
+    func textFieldDidChange(_ textField: UITextField) {
+        print("fsgdf")
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -167,7 +172,11 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //        logoutButton.layer.borderWidth = 1
 //        logoutButton.layer.masksToBounds = true
 //        logoutButton.layer.borderColor = UIColor.black.cgColor
-
+        
+        
+        enterBio.textAlignment = NSTextAlignment.center
+        enterBio.allowsEditingTextAttributes = false
+        
         myCode.layer.cornerRadius = 75
 //        myCode.layer.borderWidth = 1
         myCode.layer.masksToBounds = true
@@ -664,6 +673,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     
     //Calls this function when the tap is recognized.
     override func dismissKeyboard() {
+        enterBio.textAlignment = NSTextAlignment.center
         let user = FIRAuth.auth()?.currentUser
         //Causes the view (or one of its embedded text fields) to resign the first responder status.
 //        if(activeTextField == enterName){
