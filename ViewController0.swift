@@ -346,9 +346,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
             self.thing2.addSubview(self.enterText)
             self.thing2.addSubview(self.button2)
 //            self.scroller.addSubview(self.thing2)
-//            if self.editMode == 0{
-//                self.thing2.isHidden = true
-//            }
+            if self.editMode == 0{
+                self.thing2.isHidden = true
+            }
             self.view.addSubview(self.thing2)
             
             

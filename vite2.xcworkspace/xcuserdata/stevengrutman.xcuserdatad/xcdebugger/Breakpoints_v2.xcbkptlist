@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "526412532.866972"
+            timestampString = "526419839.214992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "437"
-            endingLineNumber = "437"
+            startingLineNumber = "436"
+            endingLineNumber = "436"
             landmarkName = "setupPage(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -282,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "526412532.866972"
+            timestampString = "526419839.214992"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "501"
-            endingLineNumber = "501"
+            startingLineNumber = "495"
+            endingLineNumber = "495"
             landmarkName = "setupPage(user:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "vite2/ViewController.swift"
-            timestampString = "526412532.866972"
+            timestampString = "526419962.742728"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "678"
-            endingLineNumber = "678"
+            startingLineNumber = "674"
+            endingLineNumber = "674"
             landmarkName = "addHelper(uid:acc:)"
             landmarkType = "7">
          </BreakpointContent>
