@@ -9,8 +9,11 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import Contacts
+import ContactsUI
+import SafariServices
 
-class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelegate*/ {
+class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UITextViewDelegate, UITextFieldDelegate*/ {
     
     // , UITextFieldDelegate
     @IBOutlet weak var editButton: UIButton!
@@ -41,6 +44,8 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
     var num = 0
     var editMode = 0
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
+    var arr = [String]()
+    var arr3 = [String]()
 //    var activeTextField = UITextField()
 //    
 //    private func textFieldDidBeginEditing(textField: UITextField) {
@@ -79,6 +84,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                     if(all.accessibilityLabel != nil && all.accessibilityLabel! == "delete"){
                         all.isHidden = false
                     }
+                    if(all.accessibilityLabel != nil && all.accessibilityLabel! == "View"){
+                        all.isHidden = true
+                    }
                 }
             }
         }else{
@@ -92,6 +100,9 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                 for all in all2.subviews{
                     if(all.accessibilityLabel != nil && all.accessibilityLabel! == "delete"){
                         all.isHidden = true
+                    }
+                    if(all.accessibilityLabel != nil && all.accessibilityLabel! == "View"){
+                        all.isHidden = false
                     }
             }
         }
@@ -254,6 +265,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
          self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
+            self.arr = []
             var place = 301
             //delete all existing buttons
             for subs in self.scroller.subviews {
@@ -416,7 +428,7 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
                      }else{
                        label.text = res
                     }
-                    label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10 - 48, height: 48)
+                    label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10 - 68, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
                     label.minimumScaleFactor = 0.1
@@ -435,8 +447,59 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
 //                    button.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
                     button.accessibilityIdentifier = rest.key
                     button.accessibilityLabel = "delete"
+                        
+                        let arr3: [String] = ["https://"+res,
+                                              "http://twitter.com/"+res,
+                                              "phone",
+                                              "http://snapchat.com/add/"+res,
+                                              "http://instagram.com/"+res,
+                                              "email",
+                                              "http://" + res,
+                                              "http://pinterest.com/"+res,
+                                              "http://"+res+".tumblr.com",
+                                              "https://github.com/"+res,
+                                              "https://"+res,
+                                              "skype",
+                                              "http://reddit.com/"+res,
+                                              "https://"+res,
+                                              "http://youtube.com/channel/"+res,
+                                              "https://"+res,
+                                              "https://venmo.com/"+res,
+                                              "https://"+res,
+                                              "https://dribbble.com/"+res,
+                                              "peri",
+                                              "http://500px.com/"+res,
+                                              "http://myspace.com/"+res,
+                                              "https://"+res,
+                                              "https://"+res,
+                                              "aim"]
+
+                        
+                        let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
+                        self.arr.append(arr3[numKey])
+                        let button32 = UIButton()
+                        button32.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
+                        button32.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
+                        button32.setTitle("View", for: .normal)
+                        button32.setTitleColor(UIColor.black, for: .normal)
+                        button32.layer.cornerRadius = 10
+                        button32.layer.borderWidth = 0 //1
+                        button32.accessibilityIdentifier = String(numKey)
+                        button32.accessibilityLabel = "View"
+                        
+                        button32.tag = counter-2
+                        button32.accessibilityHint = res
+                        button32.layer.borderColor = UIColor.black.cgColor
+                        button32.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
+                        if(numKey != 11 && numKey != 24){
+                            thing.addSubview(button32)
+                        }
+                        
+                        
                         if self.editMode == 0{
                     button.isHidden = true
+                        }else{
+                            button32.isHidden = true
                         }
 //                    button.backgroundColor = UIColor.red
                         button.backgroundColor?.withAlphaComponent(0.8)
@@ -459,6 +522,50 @@ class ViewController0: UIViewController/*, UITextViewDelegate, UITextFieldDelega
         })
 //        sleep(1)
 //          self.mainView.hideLoader()
+    }
+    
+    func buttonAction2(sender: UIButton!) {
+        //        print(sender.tag)
+        if(arr[sender.tag] == "phone"){
+            createContact(content: sender.accessibilityHint!, type: 0)
+        }else if arr[sender.tag] == "email"{
+            createContact(content: sender.accessibilityHint!, type: 1)
+            //else if address?
+        }else{
+            //                print("fgsfdg")
+            print(arr[sender.tag])
+            let svc = SFSafariViewController(url: URL(string: arr[sender.tag])!)
+            self.present(svc, animated: true, completion: nil)
+            //                print("bgdghd")
+            //              UIApplication.shared.open((URL(string: arr[sender.tag]))!
+            //            , options: [:], completionHandler: nil)
+        }
+    }
+    
+    func createContact(content: String, type: Int){
+        let newContact = CNMutableContact()
+        if(type == 0){
+            newContact.phoneNumbers.append(CNLabeledValue(label: "other", value: CNPhoneNumber(stringValue: content)))
+        }else if type == 1{
+            newContact.emailAddresses.append(CNLabeledValue(label: CNLabelHome, value: content as NSString))
+        }else{
+            //address?
+        }
+        let contactVC = CNContactViewController(forUnknownContact: newContact)
+        contactVC.contactStore = CNContactStore()
+        contactVC.delegate = self
+        contactVC.allowsActions = true
+        let navigationController = UINavigationController(rootViewController: contactVC)
+        
+        //For presenting the vc you have to make it navigation controller otherwise it will not work, if you already have navigatiation controllerjust push it you dont have to make it a navigation controller
+        contactVC.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,target: self, action: "dismiss")
+        
+        
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
