@@ -22,16 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-XW-Eqg">
-                    <rect key="frame" x="337" y="629" width="28" height="28"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                    <state key="normal" backgroundImage="list.png"/>
-                    <connections>
-                        <action selector="moveRight:" destination="-1" eventType="touchUpInside" id="32g-93-5nl"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lF1-lL-QNj">
-                    <rect key="frame" x="11" y="629" width="28" height="28"/>
+                    <rect key="frame" x="10" y="624" width="33" height="33"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <state key="normal" backgroundImage="user.png"/>
                     <connections>
@@ -49,6 +41,14 @@
                     <state key="normal" backgroundImage="real180c.png"/>
                     <connections>
                         <action selector="showCode:" destination="-1" eventType="touchUpInside" id="Ycr-Kb-Jjq"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUL-XW-Eqg">
+                    <rect key="frame" x="332" y="624" width="33" height="33"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                    <state key="normal" backgroundImage="list.png"/>
+                    <connections>
+                        <action selector="moveRight:" destination="-1" eventType="touchUpInside" id="32g-93-5nl"/>
                     </connections>
                 </button>
             </subviews>

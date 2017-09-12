@@ -84,7 +84,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             // Initialize the video preview layer and add it as a sublayer to the viewPreview view's layer.
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
+            videoPreviewLayer?.frame = self.viewer.view.frame
             view.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture.
@@ -155,7 +155,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                     viewer3.view.frame = frame1
                     viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
 //                    print("falseStuff")
-                     Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
+                     Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
             }
         }
     }

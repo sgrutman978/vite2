@@ -43,6 +43,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
     var linkMode = 0
     var num = 0
     var editMode = 0
+    var temp123 = ""
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
     var arr = [String]()
     var arr3 = [String]()
@@ -191,7 +192,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         enterBio.textAlignment = NSTextAlignment.center
         enterBio.allowsEditingTextAttributes = false
         
-        myCode.layer.cornerRadius = 75
+        myCode.layer.cornerRadius = (self.mainView.view.frame.height/667)*(155/2)
 //        myCode.layer.borderWidth = 1
         myCode.layer.masksToBounds = true
 //        myCode.layer.borderColor = UIColor.black.cgColor
@@ -262,11 +263,17 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         
 //        arr = [String]()
         //load info for user you scanned from database
-         self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
+//         self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             self.arr = []
-            var place = 301
+            var place = Int((281/667)*self.mainView.view.frame.height)
+            let topVLine = UIView()
+            topVLine.frame = CGRect(x: 0, y: place-3, width: Int(self.mainView.view.frame.width), height: 1)
+            self.view.addSubview(topVLine)
+            topVLine.backgroundColor = UIColor.gray
+            print(place)
+            print("fdsg")
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
@@ -275,7 +282,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                 }
             }
             
-            self.thing2.frame = CGRect(x: 0, y: place-3, width:Int(self.view.frame.size.width), height: 55)
+            self.thing2.frame = CGRect(x: 0, y: place-3, width:Int(self.mainView.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
             self.thing2.backgroundColor = UIColor.white
@@ -378,6 +385,9 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     res = rest.value as! String
                 }
 //                print("r")
+                if(rest.key == "19DEF"){
+                    self.temp123 = rest.value as! String
+                }
                 if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20){
 //                    let button = UIButton()
                     //                    button.tag = 123
@@ -394,7 +404,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     if number != counter{
 //                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         let grayLine = UIView()
-                        grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width*0.76, height: 1)
+                        grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width-83, height: 1)
                         grayLine.backgroundColor = UIColor.lightGray
                         thing.addSubview(grayLine)
                     }else{
@@ -439,7 +449,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     
                     // button.setImage(UIImage(named: imgString), for: UIControlState.normal)
                     //button.setTitleColor(UIColor.clear, for: .normal)
-                    if(rest.key != "20MAIN" && rest.key != "21MAIN"){
+                    
                     let button = UIButton()
                     button.frame = CGRect(x: self.view.frame.width - 50, y: 15, width: 30, height: 30)
                         button.setBackgroundImage(UIImage(named: "close.png"), for: .normal)
@@ -475,8 +485,18 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                                               "aim"]
 
                         
-                        let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
-                        self.arr.append(arr3[numKey])
+//                        let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
+                    if(rest.key != "20MAIN" && rest.key != "21MAIN"){
+                    self.arr.append(arr3[numKey])
+                    }else{
+                        if(rest.key == "20MAIN" || rest.key == "21MAIN"){
+                            if(numKey == 0){
+                                self.arr.append("https://www.facebook.com/"+self.temp123)
+                            }else{
+                                self.arr.append("https://www.twitter.com/"+self.temp123)
+                            }
+                        }
+                    }
                         let button32 = UIButton()
                         button32.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
                         button32.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
@@ -486,15 +506,15 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                         button32.layer.borderWidth = 0 //1
                         button32.accessibilityIdentifier = String(numKey)
                         button32.accessibilityLabel = "View"
-                        
-                        button32.tag = counter-2
+                    
+                        button32.tag = counter-1
                         button32.accessibilityHint = res
                         button32.layer.borderColor = UIColor.black.cgColor
                         button32.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
                         if(numKey != 11 && numKey != 24){
                             thing.addSubview(button32)
                         }
-                        
+                    
                         
                         if self.editMode == 0{
                     button.isHidden = true
@@ -509,15 +529,17 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     button.layer.masksToBounds = true
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.removeService), for: .touchUpInside)
-                    
+                    if(rest.key != "20MAIN" && rest.key != "21MAIN"){
                     thing.addSubview(button)
-                }
+                    }
+                    
                     thing.addSubview(label)
                     thing.addSubview(imageView)
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(60*(counter/*+self.editMode*/)))) - 42 /*- self.editMode*2*/)
+            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int((281/667)*self.mainView.view.frame.height))+3+(60*(counter)))
+/*Int(346+(60*(counter/*+self.editMode*/)))) - 42 /*- self.editMode*2*/*/
 //             self.editMode = 0
         })
 //        sleep(1)
@@ -525,7 +547,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
     }
     
     func buttonAction2(sender: UIButton!) {
-        //        print(sender.tag)
+                print(sender.tag)
         if(arr[sender.tag] == "phone"){
             createContact(content: sender.accessibilityHint!, type: 0)
         }else if arr[sender.tag] == "email"{
@@ -533,6 +555,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             //else if address?
         }else{
             //                print("fgsfdg")
+            print(sender.tag)
             print(arr[sender.tag])
             let svc = SFSafariViewController(url: URL(string: arr[sender.tag])!)
             self.present(svc, animated: true, completion: nil)
@@ -625,7 +648,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         }
         }
         if matches(for: regex, in: label.text!) != [] {
-            label.textColor = UIColor.green
+            label.textColor = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1.0)
             return true
         }else{
             label.textColor = UIColor.red

@@ -97,7 +97,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         scroller.bounces = true
         
         var counter = 0
-        var place = 346
+        var place = Int((322/667)*self.viewer.view.frame.height)
         arr = [String]()
         var fbTw = 0
         var temp = ""
@@ -282,7 +282,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                    self.profPic.layer.borderColor = UIColor.black.cgColor
                 }
             }
-             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(346+(64*counter))))
+             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(Int((322/667)*self.viewer.view.frame.height)+(64*counter))))
             self.topView.isHidden = false
         })
         })

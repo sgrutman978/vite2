@@ -375,7 +375,20 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        else {
 //            //something else
 //        }
-        
+        if(returnPage() == CGPoint(x: 0, y: 0)){
+            self.vc4.view.isHidden = true
+        }
+        if(returnPage() == CGPoint(x: self.view.frame.size.width, y: 0)){
+            if(self.vc3.view.frame.origin == CGPoint(x: self.view.frame.size.width*2, y: 0)){
+                self.vc3.view.isHidden = true
+            }
+        }
+        if(returnPage() == CGPoint(x: self.view.frame.size.width*2, y: 0)){
+            if(self.vc3.view.frame.origin == CGPoint(x: self.view.frame.size.width, y: 0)){
+                self.vc3.view.isHidden = true
+            }
+            self.vc4.view.isHidden = true
+        }
     }
     
     func showLoader(){
@@ -387,6 +400,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         loader.stopAnimating()
         loadScreen.fadeOut()
         self.hasLoaded = 1
+    }
+    
+    @IBAction func exitTut(_ sender: UIButton) {
+    self.tutView.removeFromSuperview()
+        sender.removeFromSuperview()
     }
     
     @IBAction func questions(_ sender: Any) {
@@ -410,7 +428,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                 }
                 self.ref.child("users").child(user.uid).child("info").updateChildValues(["19DEF":   self.user2URL])
                 self.ref.child("users").child(user.uid).child("info").updateChildValues(["18NAME":   self.user2NAME])
-                self.ref.child("users").child(user.uid).child("info").updateChildValues(["17BIO":   ""])
+                self.ref.child("users").child(user.uid).child("info").updateChildValues(["17BIO":  "Enter Bio..."])
             }
                             })
         if self.token != ""{
@@ -500,6 +518,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         vc3.view.alpha = 0;
         vc3.view.isHidden = true
         vc4.view.isHidden = true
+                        
+        let mainFrame = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.scrollView.frame.size = mainFrame
+        vc0.view.frame.size = mainFrame
+        vc1.view.frame.size = mainFrame
+        vc2.view.frame.size = mainFrame
+        vc3.view.frame.size = mainFrame
+        vc4.view.frame.size = mainFrame
         //        moveTofound(vc3: vc3, uid: userID)
         
         self.scrollView.contentSize = CGSize(width: self.view.frame.size.width * 3, height: self.view.frame.size.height-64)
