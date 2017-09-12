@@ -94,8 +94,8 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             selector: #selector(applicationDidBecomeActive(_:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
-//        do{ try FIRAuth.auth()?.signOut()
-//        }catch{}
+        do{ try FIRAuth.auth()?.signOut()
+        }catch{}
 //        print("hellooooo")
 //        loginView.backgroundColor = UIColor.orange
         loginFb.layer.cornerRadius = 10
@@ -629,7 +629,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         tutButton.frame = CGRect(x: obj.frame.origin.x-5, y: obj.frame.origin.y-5, width: obj.frame.width+10, height: obj.frame.height+10)
         }
         if(tutMode == 2){
-            tutButton.frame.origin.y = 298
+            tutButton.frame.origin.y = (vc0 as! ViewController0).button2.frame.origin.y
         }
         //        obj.layer.cornerRadius = 10
         //        obj.layer.masksToBounds = true

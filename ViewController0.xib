@@ -31,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8wh-vP-hel">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wh-vP-hel">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
@@ -83,8 +83,11 @@
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" text="Enter Bio..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NhG-nG-Ox9">
-                            <rect key="frame" x="29" y="224" width="316" height="54"/>
+                            <rect key="frame" x="29" y="222" width="316" height="54"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="54" id="nXv-S6-THc"/>
+                            </constraints>
                             <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
@@ -96,11 +99,10 @@
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="top" secondItem="7xX-Qw-Y9D" secondAttribute="top" constant="23" id="7ya-Db-cO2"/>
                         <constraint firstItem="V9c-yq-Iqo" firstAttribute="leading" secondItem="jPR-iG-sMg" secondAttribute="trailing" constant="72" id="8eI-4w-fee"/>
                         <constraint firstItem="kNH-xt-yDs" firstAttribute="leading" secondItem="V9c-yq-Iqo" secondAttribute="trailing" constant="72" id="9X3-fn-nNF"/>
-                        <constraint firstItem="NhG-nG-Ox9" firstAttribute="top" secondItem="V9c-yq-Iqo" secondAttribute="bottom" constant="31" id="BX2-7c-lIa"/>
+                        <constraint firstItem="NhG-nG-Ox9" firstAttribute="top" secondItem="V9c-yq-Iqo" secondAttribute="bottom" constant="29" id="BX2-7c-lIa"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="baseline" secondItem="kNH-xt-yDs" secondAttribute="firstBaseline" constant="-2" id="FTv-Qj-y4G"/>
                         <constraint firstItem="kNH-xt-yDs" firstAttribute="baseline" secondItem="jPR-iG-sMg" secondAttribute="firstBaseline" constant="2" id="Kt8-dh-9MR"/>
                         <constraint firstItem="V9c-yq-Iqo" firstAttribute="centerX" secondItem="NhG-nG-Ox9" secondAttribute="centerX" id="NDr-LB-0ca"/>
-                        <constraint firstAttribute="bottom" secondItem="NhG-nG-Ox9" secondAttribute="bottom" id="QaT-lj-H9B"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="top" secondItem="kNH-xt-yDs" secondAttribute="top" constant="-2" id="RsH-Kq-Gq2"/>
                         <constraint firstItem="NhG-nG-Ox9" firstAttribute="leading" secondItem="7xX-Qw-Y9D" secondAttribute="leading" constant="29" id="Sxf-fP-OKN"/>
                         <constraint firstItem="KSD-om-zxB" firstAttribute="top" secondItem="V9c-yq-Iqo" secondAttribute="bottom" constant="3" id="Znd-3N-Nyv"/>

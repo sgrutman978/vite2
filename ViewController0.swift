@@ -130,6 +130,8 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             return ""
         }else{
             let fullNameArr = myURLString.components(separatedBy: "_normal")
+            print("heyyygjgghg")
+            print(fullNameArr[0] + fullNameArr[1])
             return fullNameArr[0] + fullNameArr[1]
         }
     }
@@ -191,14 +193,13 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         
         enterBio.textAlignment = NSTextAlignment.center
         enterBio.allowsEditingTextAttributes = false
-        
-        myCode.layer.cornerRadius = (self.mainView.view.frame.height/667)*(155/2)
-//        myCode.layer.borderWidth = 1
-        myCode.layer.masksToBounds = true
 //        myCode.layer.borderColor = UIColor.black.cgColor
         
-        var fbTw = 0
+        var fbTw = -1
         self.ref.child("users").child((user?.uid)!).child("info").child("00use").observe(.value, with: { snapshot6 in
+            if(snapshot6.value as? String == "fb"){
+                fbTw = 0
+            }
             if(snapshot6.value as? String == "tw"){
                 fbTw = 1
             }
@@ -208,9 +209,13 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //            print(snapshot2.value as! String)
 //            print("hhhhh")
             if(snapshot2.value as? String ?? "" != ""){
+                print("got the pic!!!!!")
             if(fbTw == 0){
+                print("fb")
             self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 0, myURLString: "http://graph.facebook.com/"+(snapshot2.value as? String ?? "")+"/picture?type=large&redirect=false")))
         }else{
+                print("tw")
+                print(snapshot2.value as! String)
             self.myCode.setImageFromURl(stringImageUrl: (self.getProfPic(mode: 1, myURLString: snapshot2.value as? String ?? "")))
         }
             }
@@ -264,6 +269,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //        arr = [String]()
         //load info for user you scanned from database
 //         self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
+//        topView.frame.size = CGSize(width: topView.frame.width, height: CGFloat((281/667.0)*self.mainView.view.frame.height))
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             self.arr = []
@@ -282,10 +288,10 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                 }
             }
             
-            self.thing2.frame = CGRect(x: 0, y: place-3, width:Int(self.mainView.view.frame.size.width), height: 55)
+            self.thing2.frame = CGRect(x: 0, y: place-2, width:Int(self.mainView.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
-            self.thing2.backgroundColor = UIColor.white
+            self.thing2.backgroundColor = UIColor.clear
             self.thing2.tag = 0
 //            self.thing2.layer.cornerRadius = 10
 //            self.thing2.layer.borderWidth = 1
@@ -295,9 +301,9 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             self.hideMenu()
             self.menu.isScrollEnabled = true
             
-            self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 55)
+            self.enterText.frame = CGRect(x: 0, y: 0, width:Int(self.mainView.view.frame.size.width), height: 55)
             
-            self.label.frame = CGRect(x: 110, y: 2, width: self.view.frame.size.width - 72 - 110, height: 48)
+            self.label.frame = CGRect(x: 110, y: 2, width: self.mainView.view.frame.size.width - 72 - 110, height: 48)
             self.label.font = UIFont(name: "Heiti TC", size: 20)
 //            label.numberOfLines = 0
 //            label.minimumScaleFactor = 0.1
@@ -307,7 +313,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             
             let button4 = UIButton()
 //            button4.backgroundColor = UIColor.yellow
-            button4.frame = CGRect(x: (self.view.frame.size.width - 72), y: 6, width: 62, height: 42)
+            button4.frame = CGRect(x: (self.mainView.view.frame.size.width - 72), y: 6, width: 62, height: 42)
             button4.setTitle("Add", for: .normal)
             button4.setTitleColor(UIColor.black, for: .normal)
             button4.layer.cornerRadius = 10
@@ -317,8 +323,10 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             button4.addTarget(self, action: #selector(self.addService), for: .touchUpInside)
             self.enterText.addSubview(button4)
             
-            self.button3.frame = CGRect(x: 9, y: 9, width: 40, height: 40)
-            self.button3.setTitle("X", for: .normal)
+            self.button3.frame = CGRect(x: 8, y: 6, width: 40, height: 40)
+            self.button3.alpha = 0.5
+//            self.button3.setTitle("X", for: .normal)
+            self.button3.setBackgroundImage(UIImage.init(named: "cx2.png"), for: .normal)
 //            self.button3.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
             self.button3.setTitleColor(UIColor.black, for: .normal)
 //            self.button3.layer.cornerRadius = 15
@@ -330,7 +338,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             
             var place2 = 55
            
-            self.menu.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 55)
+            self.menu.frame = CGRect(x: 0, y: 0, width: self.mainView.view.frame.size.width, height: 55)
             self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+46, height: 55)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
@@ -354,7 +362,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             }
             
             self.button2.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)
-            self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.view.frame.size.width), height: 55)
+            self.button2.frame = CGRect(x: 0, y: 0, width:Int(self.mainView.view.frame.size.width), height: 55)
             self.button2.setTitle("Add Service", for: .normal)
             self.button2.setTitleColor(UIColor.black, for: .normal)
             self.button2.addTarget(self, action: #selector(self.showMenu), for: .touchUpInside)
@@ -391,26 +399,29 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                 if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20){
 //                    let button = UIButton()
                     //                    button.tag = 123
-                    //                    button.frame = (frame: CGRect(x: xpx, y: ypx, width: ((Int(self.view.frame.size.width) - (18*4))/3), height: ((Int(self.view.frame.size.width) - (18*4))/3)))
+                    //                    button.frame = (frame: CGRect(x: xpx, y: ypx, width: ((Int(self.mainView.view.frame.size.width) - (18*4))/3), height: ((Int(self.mainView.view.frame.size.width) - (18*4))/3)))
                     
                     let thing = UIView()
-                    thing.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
+                    thing.frame = CGRect(x: 0, y: place, width:Int(self.mainView.view.frame.size.width), height: 60)
                     place+=60
                     thing.backgroundColor = UIColor.clear
 //                    thing.layer.cornerRadius = 15
 //                    thing.layer.borderWidth = 1
 //                    thing.layer.masksToBounds = true
 //                    thing.layer.borderColor = UIColor.black.cgColor
+                    print(number)
+                    print("sfgg")
+                    print(counter)
                     if number != counter{
 //                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         let grayLine = UIView()
                         grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width-83, height: 1)
                         grayLine.backgroundColor = UIColor.lightGray
                         thing.addSubview(grayLine)
-                    }else{
+                    }//else{
                         self.topView.isHidden = false
                         self.loader.isHidden = true
-                    }
+                   // }
 //                    print("y")
                     thing.tag = counter
                     counter+=1;
@@ -438,7 +449,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                      }else{
                        label.text = res
                     }
-                    label.frame = CGRect(x: 72, y: 6, width: self.view.frame.size.width - 72 - 10 - 68, height: 48)
+                    label.frame = CGRect(x: 72, y: 6, width: self.mainView.view.frame.size.width - 72 - 10 - 68, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
                     label.minimumScaleFactor = 0.1
@@ -499,7 +510,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     }
                         let button32 = UIButton()
                         button32.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
-                        button32.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
+                        button32.frame = CGRect(x: (self.mainView.view.frame.size.width - 72), y: 10, width: 62, height: 40)
                         button32.setTitle("View", for: .normal)
                         button32.setTitleColor(UIColor.black, for: .normal)
                         button32.layer.cornerRadius = 10
@@ -538,7 +549,15 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int((281/667)*self.mainView.view.frame.height))+3+(60*(counter)))
+            self.scroller.contentSize = CGSize(width: Int(self.mainView.view.frame.size.width), height: (Int((281/667)*self.mainView.view.frame.height))+3+(60*(counter)))
+            print("Sgfg")
+            print((self.mainView.view.frame.height/667.0)*(155.0/2.0))
+            print(self.myCode.frame.height)
+            print(self.myCode.layer.cornerRadius) //(sqrt(pow(self.mainView.view.frame.height,2) + pow(self.mainView.view.frame.width,2))/765.0)*(155.0/2.0))
+            self.myCode.layer.cornerRadius = (self.mainView.view.frame.width - 76 - 72 - 72)/2.0
+                //(sqrt(pow(self.mainView.view.frame.height,2) + pow(self.mainView.view.frame.width,2))/765.0)*(155.0/2.0) //myCode.frame.width/2
+            //        myCode.layer.borderWidth = 1
+            self.myCode.layer.masksToBounds = true
 /*Int(346+(60*(counter/*+self.editMode*/)))) - 42 /*- self.editMode*2*/*/
 //             self.editMode = 0
         })
@@ -720,7 +739,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //            , options: [:], completionHandler: nil)
         tempP = Int(sender.frame.minX)
         tempB = sender
-        sender.frame = CGRect(x: 50, y: 3, width: 48, height: 48)
+        sender.frame = CGRect(x: 55, y: 3, width: 48, height: 48)
         enterText.addSubview(sender)
         button2.isHidden = true
         menu.isHidden = true

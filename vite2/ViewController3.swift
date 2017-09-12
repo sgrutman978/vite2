@@ -23,6 +23,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var bio: UITextView!
     @IBOutlet weak var nameTag: UILabel!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,9 +84,6 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     }
     
     func setupPerson(user: String){
-        self.view.isHidden = false
-        topView.isHidden = true
-        viewer.vc4User = user
         //delete all existing buttons
         for subs in scroller.subviews {
             if subs.tag != -1 {
@@ -93,6 +91,9 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                 subs.removeFromSuperview()
             }
         }
+        topView.isHidden = true
+        loader.isHidden = false
+        viewer.vc4User = user
         
         scroller.bounces = true
         
@@ -102,6 +103,8 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         var fbTw = 0
         var temp = ""
         var temp2 = ""
+        
+        self.view.isHidden = false
         
         ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
             self.bio.text = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
@@ -276,7 +279,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                             print("Error: \(error)")
                         }
                     }
-                    self.profPic.layer.cornerRadius = 75
+                    self.profPic.layer.cornerRadius = (self.viewer.view.frame.width - 76 - 72 - 72)/2.0
 //                    self.profPic.layer.borderWidth = 2
                     self.profPic.layer.masksToBounds = true
 //                    self.profPic.layer.borderColor = UIColor.black.cgColor
@@ -284,6 +287,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
             }
              self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(Int((322/667)*self.viewer.view.frame.height)+(64*counter))))
             self.topView.isHidden = false
+            self.loader.isHidden = true
         })
         })
     }
