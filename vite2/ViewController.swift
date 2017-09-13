@@ -57,6 +57,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     var gone = 0
     var tutMode = 0
 //    var runner = 0
+    @IBOutlet weak var eula: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        task.resume()
         
         
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+            self.eula.isHidden = true
+            self.view.bringSubview(toFront: self.eula)
+        }
         
         self.scrollView.delegate = self
         
@@ -94,8 +101,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             selector: #selector(applicationDidBecomeActive(_:)),
             name: NSNotification.Name.UIApplicationDidBecomeActive,
             object: nil)
-        do{ try FIRAuth.auth()?.signOut()
-        }catch{}
+        
+        
+        
+//        do{ try FIRAuth.auth()?.signOut()
+//        }catch{}
+        
+        
+        
 //        print("hellooooo")
 //        loginView.backgroundColor = UIColor.orange
         loginFb.layer.cornerRadius = 10
@@ -235,6 +248,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.vc.viewDidLoad()
     }
     
+    @IBAction func eula(_ sender: Any) {
+        eula.isHidden = true
+    }
     
     func sendNotif(list: String){
         self.ref.child("users").child(vc4User).child("info").child("16TOK").observeSingleEvent(of: .value, with: { snapshot in
@@ -574,11 +590,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                 self.tutButton.frame = CGRect(x: self.obj.frame.origin.x-5, y: self.obj.frame.origin.y-5, width: self.obj.frame.width+10, height: self.obj.frame.height+10)
                 self.tutLabel.text = "Click \"Profile\" Button"
                 self.blinkTime = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.blinker), userInfo: nil, repeats: true)
+                UserDefaults.standard.set(true, forKey: "launchedBefore")
                 //vc1.icon2.backgroundColor = UIColor.black
                 //                            vc1.icon2.layer.cornerRadius = 10
                 //                            vc1.icon2.layer.masksToBounds = true
-
-                UserDefaults.standard.set(true, forKey: "launchedBefore")
             }
 
             }
@@ -629,7 +644,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         tutButton.frame = CGRect(x: obj.frame.origin.x-5, y: obj.frame.origin.y-5, width: obj.frame.width+10, height: obj.frame.height+10)
         }
         if(tutMode == 2){
-            tutButton.frame.origin.y = (vc0 as! ViewController0).button2.frame.origin.y
+            tutButton.frame.origin.y = (vc0 as! ViewController0).topView.frame.height
         }
         //        obj.layer.cornerRadius = 10
         //        obj.layer.masksToBounds = true

@@ -43,9 +43,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-FA-qMF">
-                                        <rect key="frame" x="66" y="150" width="242" height="241"/>
+                                        <rect key="frame" x="67" y="150" width="241" height="241"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="241" id="Ahm-p3-bii"/>
+                                            <constraint firstAttribute="width" secondItem="kBy-FA-qMF" secondAttribute="height" multiplier="1:1" id="rMA-h6-BRQ"/>
                                         </constraints>
                                     </imageView>
                                     <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-Z0-NOd">
@@ -55,11 +56,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="leading" secondItem="LoK-VV-JlS" secondAttribute="leading" constant="66" id="1e1-R0-MBP"/>
-                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="centerX" secondItem="lF2-Z0-NOd" secondAttribute="centerX" id="Aiq-Qe-498"/>
+                                    <constraint firstItem="lF2-Z0-NOd" firstAttribute="top" secondItem="LoK-VV-JlS" secondAttribute="top" constant="373" id="BLq-IN-Nne"/>
+                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="centerX" secondItem="LoK-VV-JlS" secondAttribute="centerX" id="BOl-GQ-fIc"/>
                                     <constraint firstItem="kBy-FA-qMF" firstAttribute="top" secondItem="LoK-VV-JlS" secondAttribute="top" constant="150" id="QLs-Sr-qBs"/>
                                     <constraint firstItem="lF2-Z0-NOd" firstAttribute="centerX" secondItem="LoK-VV-JlS" secondAttribute="centerX" id="ZyC-y4-uf1"/>
-                                    <constraint firstItem="lF2-Z0-NOd" firstAttribute="centerY" secondItem="LoK-VV-JlS" secondAttribute="centerY" constant="58" id="a3M-sM-fv0"/>
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emR-dC-giK">
@@ -178,6 +178,83 @@
                                             <action selector="questions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H7i-Mb-pK6"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n0W-ks-41I">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="giW-iO-3Zn">
+                                                <rect key="frame" x="8" y="8" width="352" height="570"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <mutableString key="text">Vite EULA 
+
+End-User License Agreement ("Agreement")
+
+Last updated: (9/12/17)
+
+Please read this End-User License Agreement ("Agreement") carefully before clicking the "I Agree" button, downloading or using Vite ("Application").
+
+By clicking the "I Agree" button, downloading or using the Application, you are agreeing to be bound by the terms and conditions of this Agreement.
+
+If you do not agree to the terms of this Agreement, do not click on the "I Agree" button and do not download or use the Application.
+
+License
+
+Vite grants you a revocable, non-exclusive, non-transferable, limited license to download, install and use the Application solely for your personal, non-commercial purposes strictly in accordance with the terms of this Agreement.
+
+Restrictions
+
+You agree not to, and you will not permit others to:
+
+a) license, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the Application or make the Application available to any third party.
+
+Modifications to Application
+
+Vite reserves the right to modify, suspend or discontinue, temporarily or permanently, the Application or any service to which it connects, with or without notice and without liability to you.
+
+Term and Termination
+
+This Agreement shall remain in effect until terminated by you or Vite.
+Vite may, in its sole discretion, at any time and for any or no reason, suspend or terminate this Agreement with or without prior notice.
+
+This Agreement will terminate immediately, without prior notice from Vite in the event that you fail to comply with any provision of this Agreement. You may also terminate this Agreement by deleting the Application and all copies thereof from your mobile device or from your desktop.
+
+Upon termination of this Agreement, you shall cease all use of the Application and delete all copies of the Application from your mobile device or from your desktop.
+
+Severability
+
+If any provision of this Agreement is held to be unenforceable or invalid, such provision will be changed and interpreted to accomplish the objectives of such provision to the greatest extent possible under applicable law and the remaining provisions will continue in full force and effect.
+
+Amendments to this Agreement
+
+Vite reserves the right, at its sole discretion, to modify or replace this Agreement at any time. If a revision is material we will provide at least 15 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.
+
+Contact Information
+
+If you have any questions about this Agreement, please contact us.
+
+
+
+
+
+
+
+
+</mutableString>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RM6-lP-bGh">
+                                                <rect key="frame" x="84" y="604" width="200" height="45"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                                <state key="normal" title="I Accept EULA"/>
+                                                <connections>
+                                                    <action selector="eula:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JJf-XP-SUN"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -236,6 +313,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="eula" destination="n0W-ks-41I" id="NHk-kp-VH5"/>
                         <outlet property="loadScreen" destination="LoK-VV-JlS" id="xFe-EH-osW"/>
                         <outlet property="loader" destination="lF2-Z0-NOd" id="MWx-Ew-j0W"/>
                         <outlet property="loginFb" destination="mrc-7w-VFu" id="hb0-2q-YfZ"/>

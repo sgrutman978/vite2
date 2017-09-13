@@ -91,8 +91,11 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                 subs.removeFromSuperview()
             }
         }
-        topView.isHidden = true
-        loader.isHidden = false
+        self.topView.isHidden = false
+        self.view.alpha = 1
+        self.loader.isHidden = true
+//        topView.isHidden = true
+//        loader.isHidden = false
         viewer.vc4User = user
         
         scroller.bounces = true
@@ -164,7 +167,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     
                     var imgString = ""
                     
-                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
+                    let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg", "xbox.jpg"]
                     
                     let arr3: [String] = ["https://"+res,
                                           "http://twitter.com/"+res,
@@ -190,7 +193,8 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                                           "http://myspace.com/"+res,
                                           "https://"+res,
                                           "https://"+res,
-                                          "aim"]
+                                          "aim",
+                                          "xbox"]
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
 //                    print("fb://profile/"+res)
@@ -248,7 +252,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
-                    if(numKey != 11 && numKey != 24){
+                    if(numKey != 11 && numKey != 24 && numKey != 25){
                     thing.addSubview(button)
                     }
                     thing.addSubview(label)
@@ -286,8 +290,6 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                 }
             }
              self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(Int((322/667)*self.viewer.view.frame.height)+(64*counter))))
-            self.topView.isHidden = false
-            self.loader.isHidden = true
         })
         })
     }

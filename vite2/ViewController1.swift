@@ -153,6 +153,10 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                     viewer3.view.frame = frame1
                     viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
 //                    print("falseStuff")
+//                    viewer3.topView.isHidden = true
+//                    viewer3.loader.isHidden = false
+//                    viewer3.view.isHidden = false
+//                    viewer3.view.alpha = 1
                      Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
             }
         }

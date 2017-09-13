@@ -44,7 +44,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
     var num = 0
     var editMode = 0
     var temp123 = ""
-     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg"]
+     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg", "xbox.jpg"]
     var arr = [String]()
     var arr3 = [String]()
 //    var activeTextField = UITextField()
@@ -291,7 +291,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             self.thing2.frame = CGRect(x: 0, y: place-2, width:Int(self.mainView.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
-            self.thing2.backgroundColor = UIColor.clear
+            self.thing2.backgroundColor = UIColor.white
             self.thing2.tag = 0
 //            self.thing2.layer.cornerRadius = 10
 //            self.thing2.layer.borderWidth = 1
@@ -493,7 +493,8 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                                               "http://myspace.com/"+res,
                                               "https://"+res,
                                               "https://"+res,
-                                              "aim"]
+                                              "aim",
+                                              "xbox"]
 
                         
 //                        let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
@@ -522,7 +523,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                         button32.accessibilityHint = res
                         button32.layer.borderColor = UIColor.black.cgColor
                         button32.addTarget(self, action: #selector(self.buttonAction2), for: .touchUpInside)
-                        if(numKey != 11 && numKey != 24){
+                        if(numKey != 11 && numKey != 24 && numKey != 25){
                             thing.addSubview(button32)
                         }
                     
@@ -641,7 +642,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             regex = "^facebook.com/.*?$"
         case 1:
             regex = "^[a-zA-Z0-9_]{1,15}$"
-        case 4, 3, 7, 8, 9, 11, 12, 14, 16, 18, 19, 20, 21, 24:
+        case 4, 3, 7, 8, 9, 11, 12, 14, 18, 19, 20, 21, 24:
             regex = "^[a-zA-Z0-9_]{1,40}$"
         case 2:
             regex = "^\\+?(\\d{1,3})?-? ?\\(?\\d{3}\\)?-? ?\\d{3}-? ?\\d{4} ?(x|ext|extension|ext.)? ?\\d{0,10}$" //"/^(?:(?:\\(?(?:00|\\+)([1-4]\\d\\d|[1-9]\\d?)\\)?)?[\\-\\.\\ \\\\\\/]?)?((?:\\(?\\d{1,}\\)?[\\-\\.\\ \\\\\\/]?){0,})(?:[\\-\\.\\ \\\\\\/]?(?:#|ext\\.?|extension|x)[\\-\\.\\ \\\\\\/]?(\\d+))?$/i" //"(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})\\s*(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+)\\s*)?$" //"\\(?\\+[0-9]{1,3}\\)? ?-?[0-9]{1,3} ?-?[0-9]{3,5} ?-?[0-9]{4}( ?-?[0-9]{3})? ?(\\w{1,10}\\s?\\d{1,6})?" //"^\\+(?:[0-9] ?){6,14}[0-9]$"
@@ -655,12 +656,16 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             regex = "^stackoverflow.com/.*?$"
         case 15:
             regex = "^yelp.com/.*?$"
+        case 16:
+            regex = "^[a-zA-Z0-9_-]{1,40}$"
         case 17:
             regex = "^linkedin.com/.*?$"
         case 22:
             regex = "^open.spotify.com/.*?$"
         case 23:
             regex = "^flickr.com/.*?$"
+        case 25:
+            regex = "^[a-zA-Z0-9_ ]{1,40}$"
         default:
             regex = "" // ".*?" -> anything
             break
@@ -747,6 +752,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         linkMode = 0
         num = Int(tempB.title(for: .normal)!)!
         self.enterText.addSubview(self.button3)
+        self.button3.addTarget(self, action: #selector(self.hideMenu), for: .touchUpInside)
         switch Int(sender.accessibilityIdentifier!)! {
         case 0:
             self.label.text = "facebook.com/"
@@ -770,6 +776,8 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             self.label.text = "open.spotify.com/"
         case 23:
             self.label.text = "flickr.com/"
+        case 25:
+            self.label.placeholder = "gamertag"
         default:
             self.label.placeholder = "Add stuff here"
         }
@@ -782,13 +790,14 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
     }
     
     func hideMenu(){
-        button2.isHidden = false
-        tempB.frame = CGRect(x: tempP, y: 3, width: 48, height: 48)
+        self.button2.isHidden = false
+        self.tempB.frame = CGRect(x: tempP, y: 3, width: 48, height: 48)
         self.menu.addSubview(self.button3)
+        self.button3.addTarget(self, action: #selector(self.hideMenu), for: .touchUpInside)
         self.menu.addSubview(self.tempB)
-        menu.isHidden = true
-        enterText.isHidden = true
-        label.text = ""
+        self.menu.isHidden = true
+        self.enterText.isHidden = true
+        self.label.text = ""
         self.dismissKeyboard()
     }
     
@@ -835,7 +844,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         }
 //        if(activeTextField == enterBio){
         if(initBio != enterBio.text){
-            ref.child("users").child((user?.uid)!).child("info").updateChildValues(["17BIO": enterBio.text ?? "Enter Bio"])
+            ref.child("users").child((user?.uid)!).child("info").updateChildValues(["17BIO": enterBio.text ?? "Enter Bio..."])
             initBio = enterBio.text
         }
 //        activeTextField = UITextField()
