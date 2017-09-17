@@ -382,6 +382,12 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         (vc0 as! ViewController0).view.endEditing(true)
+        self.dismissKeyboard()
+        self.vc0.dismissKeyboard()
+        self.vc1.dismissKeyboard()
+        self.vc2.dismissKeyboard()
+        self.vc3.dismissKeyboard()
+        self.vc4.dismissKeyboard()
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

@@ -91,13 +91,13 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                 subs.removeFromSuperview()
             }
         }
-        self.topView.isHidden = false
-        self.view.alpha = 1
-        self.loader.isHidden = true
+        self.topView.isHidden = true
+        self.loader.isHidden = false
 //        topView.isHidden = true
 //        loader.isHidden = false
         viewer.vc4User = user
         
+        self.view.alpha = 1
         scroller.bounces = true
         
         var counter = 0
@@ -290,6 +290,8 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                 }
             }
              self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(Int((322/667)*self.viewer.view.frame.height)+(64*counter))))
+            self.topView.isHidden = false
+            self.loader.isHidden = true
         })
         })
     }
