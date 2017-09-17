@@ -132,7 +132,7 @@ class ViewController4: UIViewController {
                 }
                 print(currentList)
                 (self.viewer.vc4 as! ViewController4).getCode.setTitle("Get Code", for: .normal)
-                let alert = UIAlertController(title: "Vite Sent!", message: "You're contact information has been delivered.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Vite Sent!", message: "Your contact information has been delivered.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 self.view.fadeOut()
