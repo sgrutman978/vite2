@@ -207,7 +207,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
          self.ref.child("users").child((user?.uid)!).child("info").child("19DEF").observe(.value, with: { snapshot2 in
 //            print("ggggg")
 //            print(snapshot2.value as! String)
-//            print("hhhhh")
+            print("hhhhh")
             if(snapshot2.value as? String ?? "" != ""){
                 print("got the pic!!!!!")
             if(fbTw == 0){
@@ -283,7 +283,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             //delete all existing buttons
             for subs in self.scroller.subviews {
                 if subs.tag != -1 {
-//                    print(subs)
+                    print(subs)
                     subs.removeFromSuperview()
                 }
             }
@@ -291,7 +291,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             self.thing2.frame = CGRect(x: 0, y: place-2, width:Int(self.mainView.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
-            self.thing2.backgroundColor = UIColor.white
+            self.thing2.backgroundColor = UIColor.clear
             self.thing2.tag = 0
 //            self.thing2.layer.cornerRadius = 10
 //            self.thing2.layer.borderWidth = 1
@@ -384,7 +384,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             let number = snapshot.children.allObjects.count - 6
             
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-//                print("t")
+                print("t")
                 var res = ""
                 if let result_number = (rest.value)! as? NSNumber
                 {
@@ -412,7 +412,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     print(number)
                     print("sfgg")
                     print(counter)
-                    if number != counter{
+                    if number != (counter-1){
 //                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         let grayLine = UIView()
                         grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width-83, height: 1)
@@ -511,7 +511,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     }
                         let button32 = UIButton()
                         button32.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
-                        button32.frame = CGRect(x: (self.mainView.view.frame.size.width - 72), y: 10, width: 62, height: 40)
+                        button32.frame = CGRect(x: (self.mainView.view.frame.size.width - 72), y: 7, width: 62, height: 40)
                         button32.setTitle("View", for: .normal)
                         button32.setTitleColor(UIColor.black, for: .normal)
                         button32.layer.cornerRadius = 10

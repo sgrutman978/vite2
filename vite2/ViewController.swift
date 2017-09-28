@@ -82,12 +82,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        }
 //        task.resume()
         
-        
+        self.view.bringSubview(toFront: self.eula)
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
-            print("Not first launch.")
+            print("Not first launch1.")
             self.eula.isHidden = true
-            self.view.bringSubview(toFront: self.eula)
+        }else{
+            do{ try FIRAuth.auth()?.signOut()
+                        }catch{}
         }
         
         self.scrollView.delegate = self
@@ -320,7 +322,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton?, didCompleteWith result: FBSDKLoginManagerLoginResult?, error: Error?) {
-//        print("helloss")
+        print("helloss")
         if let error = error {
             print(error.localizedDescription)
             return
@@ -333,7 +335,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         }
         //        print("jj")
         //        print(FBSDKAccessToken.current().tokenString)
-        //        print("ooo")
+                print("ooo")
         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
 //            self.hideLoader()
@@ -453,6 +455,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                 self.ref.child("users").child(user.uid).child("info").updateChildValues(["17BIO":  "Enter Bio..."])
             }
                             })
+            print("tokens")
         if self.token != ""{
         self.ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("info").updateChildValues(["16TOK":   self.token])
         }
@@ -471,6 +474,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        vc0.view.isHidden = true
         
             let vc1 = ViewController1(nibName: "ViewController1", bundle: nil)
+            vc1.viewer = self
             var frame1 = self.view.frame
             let when = DispatchTime.now() + 0.5 // change 2 to desired number of seconds
             DispatchQueue.main.asyncAfter(deadline: when) {
@@ -500,10 +504,30 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         vc2.didMove(toParentViewController: self)
             }
             
-            let vc3 = ViewController3(nibName: "ViewController3", bundle: nil)
-            let vc4 = ViewController4(nibName: "ViewController4", bundle: nil)
                     let when3 = DispatchTime.now() + 2.5 // change 2 to desired number of seconds
                     DispatchQueue.main.asyncAfter(deadline: when) {
+                        let vc3 = ViewController3(nibName: "ViewController3", bundle: nil)
+                        let vc4 = ViewController4(nibName: "ViewController4", bundle: nil)
+                        
+                        vc1.viewer3 = vc3
+                        vc1.viewer0 = vc0
+                        vc1.viewer = self
+                        vc1.viewer4 = vc4
+                        
+                        vc2.viewer = self
+                        //        vc2.viewer1 = vc1
+                        vc2.viewer3 = vc3
+                        vc3.viewer = self
+                        vc4.viewer = self
+                        vc4.viewer3 = vc3
+                        
+                        self.vc0 = vc0
+                        self.vc1 = vc1
+                        self.vc2 = vc2
+                        self.vc3 = vc3
+                        self.vc4 = vc4
+                        
+                        
         vc3.view.frame = frame1
         self.addChildViewController(vc3)
         self.scrollView.addSubview(vc3.view)
@@ -520,23 +544,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        vc1.viewer4 = vc4
 //        vc2.viewer3 = vc3
         
-        vc1.viewer3 = vc3
-        vc1.viewer0 = vc0
-        vc1.viewer = self
-        vc1.viewer4 = vc4
-        
-        vc2.viewer = self
-//        vc2.viewer1 = vc1
-        vc2.viewer3 = vc3
-        vc3.viewer = self
-        vc4.viewer = self
-        vc4.viewer3 = vc3
-                        
-        self.vc0 = vc0
-        self.vc1 = vc1
-        self.vc2 = vc2
-        self.vc3 = vc3
-        self.vc4 = vc4
+      
         vc3.view.alpha = 0;
         vc3.view.isHidden = true
         vc4.view.isHidden = true
@@ -575,32 +583,14 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         // print(snapshot.childSnapshot(forPath: "users").value ?? 0)
         //        }
         
-        if(self.userTemp != ""){
-            self.addHelper(uid: self.userTemp, acc: self.accTemp)
-        }
+//        if(self.userTemp != ""){
+//            self.addHelper(uid: self.userTemp, acc: self.accTemp)
+//        }
               
                             
                             
                 
-            let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-            if launchedBefore  {
-                print("Not first launch.")
-            } else {
-                print("First launch, setting UserDefault.")
-                //tutorial
-                //                            let when = DispatchTime.now() + 0.25 // change 2 to desired number of seconds
-                //                            DispatchQueue.main.asyncAfter(deadline: when) {
-                self.tutView.isHidden = false
-                self.view.bringSubview(toFront: self.tutView)
-                self.obj = vc1.icon2
-                self.tutButton.frame = CGRect(x: self.obj.frame.origin.x-5, y: self.obj.frame.origin.y-5, width: self.obj.frame.width+10, height: self.obj.frame.height+10)
-                self.tutLabel.text = "Click \"Profile\" Button"
-                self.blinkTime = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.blinker), userInfo: nil, repeats: true)
-                UserDefaults.standard.set(true, forKey: "launchedBefore")
-                //vc1.icon2.backgroundColor = UIColor.black
-                //                            vc1.icon2.layer.cornerRadius = 10
-                //                            vc1.icon2.layer.masksToBounds = true
-            }
+            
 
             }
                             }//}
@@ -674,6 +664,11 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        timer.invalidate()
 //    }
     
+    
+    func blink() {
+        self.blinkTime = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(self.blinker), userInfo: nil, repeats: true)
+    }
+    
     func blinker(){
        // print("hiiibhjb")
         yelp += 1
@@ -723,6 +718,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     }
     
     func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String){
+        print("chiwawa")
         if(mode == 0){
         let user = FIRAuth.auth()?.currentUser
             print(acc)

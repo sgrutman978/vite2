@@ -28,7 +28,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         super.viewDidLoad()
          self.hideKeyboardWhenTappedAround()
         searchBar.delegate = self
-//        print("uuuu")
+        print("uuuu")
         setupList()
             }
     
@@ -66,7 +66,8 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     func setupList() {
         //load info for user you scanned from database
 //        print("ululul")
-    ref.child("users").child(user).child("allowed").observe(.value, with: { snapshot in
+        self.user = (FIRAuth.auth()?.currentUser?.uid)!
+    ref.child("users").child(self.user).child("allowed").observe(.value, with: { snapshot in
         var arr = [String]()
         for subs in self.favs.subviews {
             arr.append(subs.accessibilityIdentifier! as String)
@@ -408,9 +409,8 @@ class ViewController2: UIViewController, UISearchBarDelegate {
 //        print("alalal")
         viewer3.view.isHidden = false
         viewer3.view.alpha = 1
-        var frame2 = self.view.frame
-        frame2.origin.x = self.view.frame.size.width * 2
-        viewer3.view.frame = frame2
+        viewer3.view.frame.origin.x = self.view.frame.size.width * 2
+        viewer.scrollView.bringSubview(toFront: viewer3.view)
         viewer.addPerson(mode: 1, vc3: viewer3, uid: sender.accessibilityLabel!, acc: "")
     }
     

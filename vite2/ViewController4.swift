@@ -144,6 +144,7 @@ class ViewController4: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("pedal4")
         let user = FIRAuth.auth()?.currentUser
         ref.child("users").child((user?.uid)!).child("info").observe(.value, with: { snapshot in
             let enumerator = snapshot.children

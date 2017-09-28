@@ -13,21 +13,6 @@
 		<string>real120.png</string>
 		<string>real180.png</string>
 	</array>
-	<key>CFBundleIcons</key>
-	<dict>
-		<key>UINewsstandIcon</key>
-		<dict>
-			<key>CFBundleIconFiles</key>
-			<array>
-				<string>real180.png</string>
-				<string>real120.png</string>
-			</array>
-			<key>UINewsstandBindingEdge</key>
-			<string>UINewsstandBindingEdgeLeft</string>
-			<key>UINewsstandBindingType</key>
-			<string>UINewsstandBindingTypeMagazine</string>
-		</dict>
-	</dict>
 	<key>CFBundleIcons~ipad</key>
 	<dict>
 		<key>UINewsstandIcon</key>
@@ -67,7 +52,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>4</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -105,10 +90,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We need this.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>We need to access the camera to scan codes.</string>
+	<string>We need to access the camera to allow for scanning Vite codes.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>We need access to your contacts for you to take full advantage of the features we have to offer.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need this.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

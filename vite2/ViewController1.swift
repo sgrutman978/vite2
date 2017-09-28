@@ -29,9 +29,14 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     var allowed = true
     
     @IBAction func showCode(_ sender: Any) {
+        print("show me my fucking code")
+        print(viewer4.view.alpha)
+        print(viewer4.view.isHidden)
         viewer4.view.isHidden = false
         viewer4.view.alpha = 1.0
         viewer4.getCode.setTitle("Get Code", for: .normal)
+        viewer.scrollView.bringSubview(toFront: viewer4.view)
+        viewer4.view.frame.origin.x = viewer.view.frame.size.width
         viewer.modeVc4 = 0
         //        self.view.isHidden = true
     }
@@ -115,6 +120,28 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             return
         }
         
+        
+        
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch2.")
+        } else {
+            print("First launch, setting UserDefault.")
+            //tutorial
+                                        let when = DispatchTime.now() + 0.25 // change 2 to desired number of seconds
+                                        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.viewer.tutView.isHidden = false
+            self.viewer.view.bringSubview(toFront: self.viewer.tutView)
+            self.viewer.obj = self.icon2
+            self.viewer.tutButton.frame = CGRect(x: self.viewer.obj.frame.origin.x-5, y: self.viewer.obj.frame.origin.y-5, width: self.viewer.obj.frame.width+10, height: self.viewer.obj.frame.height+10)
+            self.viewer.tutLabel.text = "Click \"Profile\" Button"
+            self.viewer.blink()
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            //vc1.icon2.backgroundColor = UIColor.black
+            //                            vc1.icon2.layer.cornerRadius = 10
+            //                            vc1.icon2.layer.masksToBounds = true
+            }}
     }
     
     
@@ -148,9 +175,8 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                     let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
                     let accounts = metadataObj.stringValue.substring(from: index3)
 //                    print(username)
-                    var frame1 = self.view.frame
-                    frame1.origin.x = self.view.frame.size.width * 1
-                    viewer3.view.frame = frame1
+                    viewer3.view.frame.origin.x = self.view.frame.size.width
+                    viewer.scrollView.bringSubview(toFront: viewer3.view)
                     viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
 //                    print("falseStuff")
 //                    viewer3.topView.isHidden = true

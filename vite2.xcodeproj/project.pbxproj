@@ -440,7 +440,7 @@
 				TargetAttributes = {
 					2F47F40E1E2EB360008D6354 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 78PV2V3EX4;
+						DevelopmentTeam = AAF498CNQG;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -884,10 +884,11 @@
 			baseConfigurationReference = 25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = vite2/vite2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				DEVELOPMENT_TEAM = AAF498CNQG;
 				INFOPLIST_FILE = vite2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite;
@@ -903,10 +904,11 @@
 			baseConfigurationReference = 7354D1120997013625A1BC87 /* Pods-vite2.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = vite2/vite2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 78PV2V3EX4;
+				DEVELOPMENT_TEAM = AAF498CNQG;
 				INFOPLIST_FILE = vite2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite;
