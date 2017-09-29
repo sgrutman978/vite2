@@ -40,29 +40,6 @@
                                     <constraint firstItem="Q1J-7M-jDM" firstAttribute="centerX" secondItem="PEu-DT-DZQ" secondAttribute="centerX" id="pFb-qA-QQE"/>
                                 </constraints>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-VV-JlS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-FA-qMF">
-                                        <rect key="frame" x="67" y="150" width="241" height="241"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="241" id="o3m-Px-bcs"/>
-                                        </constraints>
-                                    </imageView>
-                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-Z0-NOd">
-                                        <rect key="frame" x="169" y="373" width="37" height="37"/>
-                                        <color key="color" red="0.36862745099999999" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="leading" secondItem="LoK-VV-JlS" secondAttribute="leading" constant="67" id="FVe-DN-36W"/>
-                                    <constraint firstAttribute="bottom" secondItem="lF2-Z0-NOd" secondAttribute="bottom" constant="257" id="YXf-Xv-7HS"/>
-                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="centerX" secondItem="LoK-VV-JlS" secondAttribute="centerX" id="aaJ-Xc-A3j"/>
-                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="top" secondItem="LoK-VV-JlS" secondAttribute="top" constant="150" id="dsx-rb-DSS"/>
-                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="centerX" secondItem="lF2-Z0-NOd" secondAttribute="centerX" id="sgz-wK-wQz"/>
-                                </constraints>
-                            </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emR-dC-giK">
                                 <rect key="frame" x="166" y="323" width="44" height="21"/>
                                 <color key="backgroundColor" red="0.36862745099999999" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -70,6 +47,33 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LoK-VV-JlS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear1024.png" translatesAutoresizingMaskIntoConstraints="NO" id="kBy-FA-qMF">
+                                        <rect key="frame" x="67" y="163" width="241" height="241"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="kBy-FA-qMF" secondAttribute="height" multiplier="1:1" id="Qbb-bw-RjQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-Z0-NOd">
+                                        <rect key="frame" x="169" y="392" width="37" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="37" id="O7a-sW-xBJ"/>
+                                            <constraint firstAttribute="height" constant="37" id="foV-4n-cBj"/>
+                                        </constraints>
+                                        <color key="color" red="0.36862745099999999" green="0.70588235290000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="lF2-Z0-NOd" firstAttribute="centerX" secondItem="kBy-FA-qMF" secondAttribute="centerX" id="31f-4S-UdW"/>
+                                    <constraint firstItem="lF2-Z0-NOd" firstAttribute="bottom" secondItem="kBy-FA-qMF" secondAttribute="bottom" constant="25" id="B0L-K2-PHb"/>
+                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="centerY" secondItem="LoK-VV-JlS" secondAttribute="centerY" constant="-50" id="Dcq-EL-J2a"/>
+                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="centerX" secondItem="LoK-VV-JlS" secondAttribute="centerX" id="OoV-ja-nTi"/>
+                                    <constraint firstItem="kBy-FA-qMF" firstAttribute="leading" secondItem="LoK-VV-JlS" secondAttribute="leading" constant="67" id="xtP-Ec-2Co"/>
+                                </constraints>
+                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VDe-u5-rM3">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>

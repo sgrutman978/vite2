@@ -165,18 +165,23 @@ class ViewController4: UIViewController {
                 }
                 let type = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
                 if(type >= 0){
-                let check = UIView(frame: CGRect(x: (18*(count%3+1))+(101*(count%3)), y: (137*(count/3))+3, width: 101, height: 121))
-                self.scroller.contentSize = CGSize(width: self.view.frame.width, height: CGFloat(((count+3)/3)*137)+49)
+                    let vw = (self.view.frame.width/375)
+                    let vw2 = 101*vw
+                    let vh = (self.view.frame.height/667)
+                    let vh2 = 101*vh
+                    let vh3 = 121*vh
+                let check = UIView(frame: CGRect(x: ((18.0*vw*CGFloat(count%3+1))+(vw2*CGFloat(count%3))), y: CGFloat(((137.0*vh*CGFloat(count/3))+3.0)), width: vw2, height: vh3))
+                self.scroller.contentSize = CGSize(width: (self.view.frame.width), height: CGFloat((CGFloat((count+3)/3)*137.0*vh)+(49.0*vh)))
                     count += 1
 //                check.backgroundColor = UIColor.green
                     let image = UIImageView(image: UIImage(named: self.arr2[type]))
-                    image.frame = CGRect(x: 0, y: 0, width: 101, height: 101)
+                    image.frame = CGRect(x: 0.0, y: 0.0, width: vw2, height: vh2)
                     image.layer.cornerRadius = 8
                     image.layer.masksToBounds = true
 //                    image.layer.cornerRadius = 5
                     let newOne = UIButton()
                     newOne.accessibilityHint = String(counter)
-                    newOne.frame = CGRect(x: 0, y: 0, width: 101, height: 121)
+                    newOne.frame = CGRect(x: 0.0, y: 0.0, width: vw2, height: vh3)
                     newOne.layer.borderWidth = 0 //1
                     newOne.layer.cornerRadius = 8
 //                    newOne.layer.borderColor = UIColor.white.cgColor
@@ -184,7 +189,7 @@ class ViewController4: UIViewController {
                     newOne.accessibilityLabel = "cole"
                     check.layer.cornerRadius = 8
                     check.layer.masksToBounds = true
-                    let label = UILabel(frame: CGRect(x: 0, y: 104, width: 101, height: 14))
+                    let label = UILabel(frame: CGRect(x: 0.0, y: 104.0*vh, width: vw2, height: 14.0*vh))
 //                    label.adjustsFontSizeToFitWidth = true
                     if([0, 10, 13, 15, 17, 22, 23].contains(type) && rest.key != "20MAIN"){
                     self.ref.child("users").child((user?.uid)!).child("info2").child(rest.key).observeSingleEvent(of: .value, with: { snapshot6 in
@@ -198,7 +203,7 @@ class ViewController4: UIViewController {
                     label.font = label.font.withSize(12)
                     label.textAlignment = .center
                     var checkThing = UIButton()
-                    checkThing.frame = CGRect(x: 68, y: 3, width: 30, height: 30)
+                    checkThing.frame = CGRect(x: 68.0*vw, y: 3.0, width: 30.0*vw, height: 30.0*vh)
                     checkThing.setBackgroundImage(UIImage(named: "check.png"), for: .normal)
                     checkThing.accessibilityHint = String(counter)
                     checkThing.isHidden = true
