@@ -101,8 +101,8 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         scroller.bounces = true
         
         var counter = 0
-        var place = Int((327/667)*self.viewer.view.frame.height)
-        self.topView.frame.size = CGSize(width: self.topView.frame.width, height: (324/667)*self.viewer.view.frame.height)
+        var place = Int(self.topView.frame.height+3)
+//        self.topView.frame.size = CGSize(width: self.topView.frame.width, height: (324/667)*self.viewer.view.frame.height)
         arr = [String]()
         var fbTw = 0
         var temp = ""
