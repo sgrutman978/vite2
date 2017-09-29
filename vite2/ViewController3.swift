@@ -101,7 +101,8 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         scroller.bounces = true
         
         var counter = 0
-        var place = Int((322/667)*self.viewer.view.frame.height)
+        var place = Int((327/667)*self.viewer.view.frame.height)
+        self.topView.frame.size = CGSize(width: self.topView.frame.width, height: (324/667)*self.viewer.view.frame.height)
         arr = [String]()
         var fbTw = 0
         var temp = ""
@@ -283,7 +284,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                             print("Error: \(error)")
                         }
                     }
-                    self.profPic.layer.cornerRadius = (self.viewer.view.frame.width - 76 - 72 - 72)/2.0
+                    self.profPic.layer.cornerRadius = (self.viewer.view.frame.width*0.42)/2.0
 //                    self.profPic.layer.borderWidth = 2
                     self.profPic.layer.masksToBounds = true
 //                    self.profPic.layer.borderColor = UIColor.black.cgColor

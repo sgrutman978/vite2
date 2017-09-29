@@ -269,7 +269,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //        arr = [String]()
         //load info for user you scanned from database
 //         self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
-//        topView.frame.size = CGSize(width: topView.frame.width, height: CGFloat((281/667.0)*self.mainView.view.frame.height))
+        topView.frame.size = CGSize(width: topView.frame.width, height: CGFloat((281/667.0)*self.mainView.view.frame.height))
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             self.arr = []
@@ -555,7 +555,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             print((self.mainView.view.frame.height/667.0)*(155.0/2.0))
             print(self.myCode.frame.height)
             print(self.myCode.layer.cornerRadius) //(sqrt(pow(self.mainView.view.frame.height,2) + pow(self.mainView.view.frame.width,2))/765.0)*(155.0/2.0))
-            self.myCode.layer.cornerRadius = (self.mainView.view.frame.width - 76 - 72 - 72)/2.0
+            self.myCode.layer.cornerRadius = (self.mainView.view.frame.width*0.42)/2.0
                 //(sqrt(pow(self.mainView.view.frame.height,2) + pow(self.mainView.view.frame.width,2))/765.0)*(155.0/2.0) //myCode.frame.width/2
             //        myCode.layer.borderWidth = 1
             self.myCode.layer.masksToBounds = true
