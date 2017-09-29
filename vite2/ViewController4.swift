@@ -167,9 +167,9 @@ class ViewController4: UIViewController {
                 if(type >= 0){
                     let vw = (self.view.frame.width/375)
                     let vw2 = 101*vw
-                    let vh = (self.view.frame.height/667)
-                    let vh2 = 101*vh
-                    let vh3 = 121*vh
+                    let vh = vw
+                    let vh2 = vw2
+                    let vh3 = vw2+20.0*(self.view.frame.height/667)
                 let check = UIView(frame: CGRect(x: ((18.0*vw*CGFloat(count%3+1))+(vw2*CGFloat(count%3))), y: CGFloat(((137.0*vh*CGFloat(count/3))+3.0)), width: vw2, height: vh3))
                 self.scroller.contentSize = CGSize(width: (self.view.frame.width), height: CGFloat((CGFloat((count+3)/3)*137.0*vh)+(49.0*vh)))
                     count += 1
