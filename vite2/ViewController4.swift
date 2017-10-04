@@ -19,7 +19,7 @@ class ViewController4: UIViewController {
     @IBOutlet weak var myCode: UIImageView!
     @IBOutlet weak var closeCode: UIButton!
     @IBOutlet weak var choseLabel: UILabel!
-    let myString = "http://www.appstore.com/stevengrutman/speedsquare#"
+    let myString = "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
     var viewer = ViewController()
     var viewer3 = ViewController3()
     var globalList = ""
@@ -41,18 +41,21 @@ class ViewController4: UIViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let textToShare = viewer.viewableName + " has shared his Vite with you!\n"
+        let textToShare = viewer.viewableName + " has shared their Vite with you!\n"
         
         if let myWebsite = URL(string: "vite://inner/"+globalList) {//Enter link to your app here
             
             let textToShare2 = "\n\nDon't have Vite? Download it for free!\n"
             
-            let myWebsite2 = URL(string: "http://appstore.com/stevengrutman")
-            let objectsToShare = [textToShare, myWebsite, textToShare2, myWebsite2, image ?? ""] as [Any]
-            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            let myWebsite2 = URL(string: "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8")
+            
+            let alltext = viewer.viewableName + " has shared their Vite with you!\nvite://inner/"+globalList+"\n\nDon't have Vite? Download it for free!\nhttps://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
+            
+            let objectsToShare = [image ?? "", alltext] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [])
             
             //Excluded Activities
-            activityVC.excludedActivityTypes = [UIActivityType.airDrop, UIActivityType.addToReadingList]
+            activityVC.excludedActivityTypes = [UIActivityType.addToReadingList]
             //
             
             activityVC.popoverPresentationController?.sourceView = sender as! UIView
@@ -62,10 +65,38 @@ class ViewController4: UIViewController {
     
     @IBAction func createCode(_ sender: Any) {
         createHelp(mode: viewer.modeVc4)
+        
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore2")
+        if launchedBefore  {
+            print("Not first launch2.")
+        } else {
+            print("First launch, setting UserDefault.")
+            //tutorial
+            let when = DispatchTime.now() + 0.25 // change 2 to desired number of seconds
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.viewer.tutView.isHidden = false
+                self.viewer.view.bringSubview(toFront: self.viewer.tutView)
+                self.viewer.obj = self.shareButton
+                self.viewer.tutButton.frame = self.shareButton.frame
+                self.viewer.tutLabel.text = "Click \"Profile\" Button"
+                self.viewer.tutMode = 6
+//                self.viewer.blink()
+             UserDefaults.standard.set(true, forKey: "launchedBefore2")
+            }}
     }
+    
     func createHelp(mode: Int){
+        var counter44 = 0
         let user = FIRAuth.auth()?.currentUser
         
+        for all2 in scroller.subviews{
+            for all in all2.subviews{
+                if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
+                    counter44 = counter44 + 1
+                }
+            }
+        }
+        if(counter44 != 0){
         if(mode == 0){
             list = myString+(user?.uid)!+"()00use)17BIO)18NAME)19DEF"
             globalList = (user?.uid)!+"()00use)17BIO)18NAME)19DEF"
@@ -73,12 +104,13 @@ class ViewController4: UIViewController {
                 for all in all2.subviews{
                     if(all.accessibilityIdentifier != nil && all.accessibilityIdentifier! != "" && all.accessibilityLabel == "seth"){
                         // && all.alpha != 1.0
-                        //                     print(all.alpha)
+                                             print(all.alpha)
                         globalList = globalList+")"+all.accessibilityIdentifier!
                         list = list+")"+all.accessibilityIdentifier!
                     }
                 }
             }
+            print(counter44)
             var qrcodeImage: CIImage!
             let data = list.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             let filter = CIFilter(name: "CIQRCodeGenerator")
@@ -126,6 +158,7 @@ class ViewController4: UIViewController {
                             if(!currentList.contains(")"+all.accessibilityIdentifier!)){
                                 currentList = currentList+")"+all.accessibilityIdentifier!
                                 self.globalList = self.globalList+")"+all.accessibilityIdentifier!
+                                counter44 = counter44 + 1
                             }
                         }
                     }
@@ -139,6 +172,11 @@ class ViewController4: UIViewController {
                 self.ref.child("users").child(self.viewer.vc4User).child("allowed").updateChildValues([(user?.uid)!: currentList])
                 self.viewer.sendNotif(list: self.globalList)
             })
+        }
+        }else{
+            let alert = UIAlertController(title: "Choose Accounts to Share!", message: "You did not chose any accounts to share!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     

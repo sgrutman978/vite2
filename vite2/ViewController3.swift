@@ -128,6 +128,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         //load info for user you scanned from database
         self.ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
 //            print(snapshot.childrenCount) // I got the expected number of items
+            let number = arr.count-1
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
 //                print("t")
@@ -156,11 +157,18 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                    button.frame = (frame: CGRect(x: xpx, y: ypx, width: ((Int(self.view.frame.size.width) - (18*4))/3), height: ((Int(self.view.frame.size.width) - (18*4))/3)))
                     
                     let thing = UIView()
-                    thing.frame = CGRect(x: 0, y: place, width:Int(self.view.frame.size.width), height: 60)
+                    thing.frame = CGRect(x: 0, y: place-17, width:Int(self.view.frame.size.width), height: 60)
 //                    let mygray = UIColor.init(red: 167, green: 170, blue: 175, alpha: 1)
 //                    self.topView.addBottomBorderWithColor(color: UIColor.black, width: 1)
                     place+=64
                     thing.backgroundColor = UIColor.clear
+                    if number != counter{
+                        //                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
+                        let grayLine = UIView()
+                        grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width-83, height: 1)
+                        grayLine.backgroundColor = UIColor.lightGray
+                        thing.addSubview(grayLine)
+                    }
 //                   print("y")
                     thing.tag = counter
                     button.tag = counter
@@ -231,7 +239,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                         label.text = res
                     }
 
-                    label.frame = CGRect(x: 64, y: 6, width: self.view.frame.size.width - 64 - 82, height: 48)
+                    label.frame = CGRect(x: 64, y: 6, width: self.view.frame.size.width - 64 - 14, height: 48)
                     
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
@@ -244,11 +252,13 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                    // button.setImage(UIImage(named: imgString), for: UIControlState.normal)
                     //button.setTitleColor(UIColor.clear, for: .normal)
                     
-                    button.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
-                    button.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
-                    button.setTitle("View", for: .normal)
+                    button.backgroundColor = UIColor.clear
+                        //UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
+                     button.frame = CGRect(x: 0.0, y: -8.0, width: thing.frame.width, height: thing.frame.height+8)
+                    //button.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
+                    button.setTitle("", for: .normal) //"View"
                     button.setTitleColor(UIColor.black, for: .normal)
-                    button.layer.cornerRadius = 10
+//                    button.layer.cornerRadius = 10
                     button.layer.borderWidth = 0 //1
                     button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
@@ -290,7 +300,9 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                    self.profPic.layer.borderColor = UIColor.black.cgColor
                 }
             }
-             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(Int((322/667)*self.viewer.view.frame.height)+(64*counter))))
+            print("chgv")
+            print(self.topView.frame.height)
+             self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width), height: (Int(Int((322/667)*self.viewer.view.frame.height)+(64*counter))-((Int(self.topView.frame.height)-313))))
             self.topView.isHidden = false
             self.loader.isHidden = true
         })
@@ -323,6 +335,11 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                print("bgdghd")
 //              UIApplication.shared.open((URL(string: arr[sender.tag]))!
 //            , options: [:], completionHandler: nil)
+        }
+        sender.backgroundColor = UIColor.lightGray
+        let when = DispatchTime.now() + 0.15 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            sender.backgroundColor = UIColor.clear
         }
     }
     

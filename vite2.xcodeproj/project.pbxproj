@@ -142,6 +142,8 @@
 		2F47F44D1E2EB6B6008D6354 /* ViewController2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
 		2F5FF0E51EEC638500B69423 /* ViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
 		2F5FF0E61EEC638500B69423 /* ViewController4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController4.xib; sourceTree = "<group>"; };
+		2F66D68E1F7E042200C670D5 /* real167.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = real167.png; sourceTree = SOURCE_ROOT; };
+		2F66D68F1F7E042300C670D5 /* real152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = real152.png; sourceTree = SOURCE_ROOT; };
 		2F92B1F31E3D5F9F001F3722 /* ViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		2F92B1F41E3D5F9F001F3722 /* ViewController3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController3.xib; sourceTree = "<group>"; };
 		2F92B1F71E3EA276001F3722 /* snap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = snap.jpg; sourceTree = SOURCE_ROOT; };
@@ -278,6 +280,8 @@
 				2FB315991F572A7C0001CE67 /* real180c.png */,
 				2F0F49CF1F68A0B600AD76E9 /* xbox.jpg */,
 				2FB315AB1F5C99B60001CE67 /* clear80.png */,
+				2F66D68F1F7E042300C670D5 /* real152.png */,
+				2F66D68E1F7E042200C670D5 /* real167.png */,
 				2FB315AD1F5C99B60001CE67 /* clear1024.png */,
 				2FB315AE1F5C99B60001CE67 /* longVite.png */,
 				2FB315AF1F5C99B60001CE67 /* real80.png */,

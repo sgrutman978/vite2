@@ -623,10 +623,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //            tutLabel.text = "Chose Accounts then \"Get Code\""
             break
         case 5:
+            tutView.isHidden = true
             obj = (vc4 as! ViewController4).getCode
             tutLabel.text = "Chose Accounts then \"Get Code\""
             break
         case 6:
+            obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1)
+            tutView.isHidden = false
             obj = (vc4 as! ViewController4).shareButton
             tutLabel.text = "Share Vite! Code"
             break
@@ -673,7 +676,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
        // print("hiiibhjb")
         yelp += 1
         switch tutMode {
-        case 2, 5:
+        case 2:
             if(yelp%2 == 0){
                 tutButton.backgroundColor = UIColor.white
             }else{
@@ -685,6 +688,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                 obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.7)
             }else{
                 obj.backgroundColor = UIColor.clear
+            }
+            break
+        case 5:
+            if(yelp%2 == 0){
+                obj.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1)
+            }else{
+                obj.backgroundColor = UIColor.white
             }
             break
         default:

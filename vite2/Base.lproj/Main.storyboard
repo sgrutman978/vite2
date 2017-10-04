@@ -78,11 +78,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3So-W3-IQ1">
-                                        <rect key="frame" x="100" y="500" width="175" height="40"/>
+                                        <rect key="frame" x="113.5" y="500" width="148" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="iqK-11-n0Y"/>
-                                            <constraint firstAttribute="width" constant="175" id="ubv-JO-SLB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Exit Tutorial"/>

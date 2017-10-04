@@ -269,11 +269,11 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //        arr = [String]()
         //load info for user you scanned from database
 //         self.topView.addBottomBorderWithColor(color: UIColor.gray, width: 1)
-        topView.frame.size = CGSize(width: topView.frame.width, height: CGFloat((281/667.0)*self.mainView.view.frame.height))
+//        topView.frame.size = CGSize(width: topView.frame.width, height: CGFloat((281/667.0)*self.mainView.view.frame.height))
         ref.child("users").child((user?.uid)!).child("info").observe(FIRDataEventType.value, with: { snapshot in
             var counter = 0
             self.arr = []
-            var place = Int((281/667)*self.mainView.view.frame.height)
+            var place = Int((282/667)*self.mainView.view.frame.height)
             let topVLine = UIView()
             topVLine.frame = CGRect(x: 0, y: place-3, width: Int(self.mainView.view.frame.width), height: 1)
             self.view.addSubview(topVLine)
@@ -291,7 +291,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             self.thing2.frame = CGRect(x: 0, y: place-2, width:Int(self.mainView.view.frame.size.width), height: 55)
             self.thing2.addBottomBorderWithColor(color: UIColor.gray, width: 1)
 //            place+=54
-            self.thing2.backgroundColor = UIColor.clear
+            self.thing2.backgroundColor = UIColor.white
             self.thing2.tag = 0
 //            self.thing2.layer.cornerRadius = 10
 //            self.thing2.layer.borderWidth = 1
@@ -402,7 +402,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     //                    button.frame = (frame: CGRect(x: xpx, y: ypx, width: ((Int(self.mainView.view.frame.size.width) - (18*4))/3), height: ((Int(self.mainView.view.frame.size.width) - (18*4))/3)))
                     
                     let thing = UIView()
-                    thing.frame = CGRect(x: 0, y: place, width:Int(self.mainView.view.frame.size.width), height: 60)
+                    thing.frame = CGRect(x: 0, y: place-17, width:Int(self.mainView.view.frame.size.width), height: 60)
                     place+=60
                     thing.backgroundColor = UIColor.clear
 //                    thing.layer.cornerRadius = 15
@@ -412,7 +412,8 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     print(number)
                     print("sfgg")
                     print(counter)
-                    if number != (counter-1){
+                    print(self.topView.frame.height)
+                    if number != counter{
 //                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         let grayLine = UIView()
                         grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width-83, height: 1)
@@ -449,7 +450,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                      }else{
                        label.text = res
                     }
-                    label.frame = CGRect(x: 72, y: 6, width: self.mainView.view.frame.size.width - 72 - 10 - 68, height: 48)
+                    label.frame = CGRect(x: 72, y: 6, width: self.mainView.view.frame.size.width - 72 - 10, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
                     label.minimumScaleFactor = 0.1
@@ -510,11 +511,13 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                         }
                     }
                         let button32 = UIButton()
-                        button32.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
-                        button32.frame = CGRect(x: (self.mainView.view.frame.size.width - 72), y: 7, width: 62, height: 40)
-                        button32.setTitle("View", for: .normal)
+                        button32.backgroundColor = UIColor.clear
+                    //init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
+                        button32.frame = CGRect(x: 0.0, y: -5.0, width: thing.frame.width, height: thing.frame.height+5)
+                            //CGRect(x: (self.mainView.view.frame.size.width - 72), y: 7, width: 62, height: 40)
+                        button32.setTitle("", for: .normal) //"View"
                         button32.setTitleColor(UIColor.black, for: .normal)
-                        button32.layer.cornerRadius = 10
+//                        button32.layer.cornerRadius = 10
                         button32.layer.borderWidth = 0 //1
                         button32.accessibilityIdentifier = String(numKey)
                         button32.accessibilityLabel = "View"
@@ -550,7 +553,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     self.scroller.addSubview(thing)
                 }
             }
-            self.scroller.contentSize = CGSize(width: Int(self.mainView.view.frame.size.width), height: (Int((281/667)*self.mainView.view.frame.height))+3+(60*(counter)))
+            self.scroller.contentSize = CGSize(width: Int(self.mainView.view.frame.size.width), height: (Int((281/667)*self.mainView.view.frame.height))-14+(60*(counter)))
             print("Sgfg")
             print((self.mainView.view.frame.height/667.0)*(155.0/2.0))
             print(self.myCode.frame.height)
@@ -582,6 +585,11 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             //                print("bgdghd")
             //              UIApplication.shared.open((URL(string: arr[sender.tag]))!
             //            , options: [:], completionHandler: nil)
+        }
+        sender.backgroundColor = UIColor.lightGray
+        let when = DispatchTime.now() + 0.15 // change 2 to desired number of seconds
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            sender.backgroundColor = UIColor.clear
         }
     }
     
