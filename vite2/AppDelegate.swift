@@ -131,7 +131,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
-        print(userInfo["gcm_message_id"] ?? "penis")
+        print(userInfo["gcm_message_id"] ?? "yup")
+        UIApplication.shared.applicationIconBadgeNumber = UIApplication.shared.applicationIconBadgeNumber + 1
         print(userInfo)
     }
     
@@ -172,7 +173,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let accounts = url.path.substring(from: index2)
             print(username)
             var frame1 = viewer.view.frame
-            frame1.origin.x = viewer3.view.frame.size.width * 1
+            frame1.origin.x = viewer.view.frame.size.width * 1
             viewer3.view.frame = frame1
             viewer.scrollView.addSubview(viewer3.view)
             viewer3.view.frame = frame1
@@ -224,6 +225,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 //        FIRApp.configure()
+        let when = DispatchTime.now() + 2.6
+         DispatchQueue.main.asyncAfter(deadline: when) {
         print("rgegwreg")
                 print("url \(url)")
                 print("url host :\(url.host!)")
@@ -250,7 +253,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
                 self.window?.makeKeyAndVisible()
-
+        }
         
         let wasHandled: Bool =  FBSDKApplicationDelegate.sharedInstance().application(
             app,

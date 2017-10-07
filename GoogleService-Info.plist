@@ -11,7 +11,7 @@
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.1010386909639-ojt9gd3fuvbd906kifiu48f7c5hbbbkm</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBiiFVzhwEWaZejgFk38F-sMfKFY9pdbT4</string>
+	<string>AIzaSyCrC81y8zItjEhyuiJ_K04Yzx79NzkVn28</string>
 	<key>GCM_SENDER_ID</key>
 	<string>1010386909639</string>
 	<key>PLIST_VERSION</key>
@@ -23,15 +23,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>vite-a7f75.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:1010386909639:ios:f9c32f76b91af0a0</string>
 	<key>DATABASE_URL</key>

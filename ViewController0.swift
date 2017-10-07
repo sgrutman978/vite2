@@ -225,7 +225,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         
         
         ref.child("users").child((user?.uid)!).child("info").observe(.value, with: { snapshot in
-            self.initBio = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? "Enter Bio"
+            self.initBio = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? "Enter Bio..."
             self.initName = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? "Enter Name"
             self.enterBio.text = self.initBio
             self.enterName.text = self.initName
@@ -381,7 +381,15 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             
             
             let enumerator = snapshot.children
-            let number = snapshot.children.allObjects.count - 6
+            let enumerator2 = snapshot.children
+            var number = 0
+            while let rest = enumerator2.nextObject() as? FIRDataSnapshot {
+                if(Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! >= 20){
+                    number = number + 1
+                }
+            }
+            print("number is")
+            print(number)
             
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
                 print("t")
@@ -409,11 +417,12 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //                    thing.layer.borderWidth = 1
 //                    thing.layer.masksToBounds = true
 //                    thing.layer.borderColor = UIColor.black.cgColor
+                    counter+=1;
                     print(number)
                     print("sfgg")
                     print(counter)
                     print(self.topView.frame.height)
-                    if number != counter{
+                    if number != (counter){
 //                        thing.addBottomBorderWithColor(color: UIColor.black, width: 1)
                         let grayLine = UIView()
                         grayLine.frame = CGRect(x: 72, y: thing.frame.height - 3, width: thing.frame.width-83, height: 1)
@@ -425,7 +434,6 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                    // }
 //                    print("y")
                     thing.tag = counter
-                    counter+=1;
                     var imgString = ""
                     
                     let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
@@ -463,7 +471,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                     //button.setTitleColor(UIColor.clear, for: .normal)
                     
                     let button = UIButton()
-                    button.frame = CGRect(x: self.view.frame.width - 50, y: 15, width: 30, height: 30)
+                    button.frame = CGRect(x: self.mainView.view.frame.width - 50, y: 15, width: 30, height: 30)
                         button.setBackgroundImage(UIImage(named: "close.png"), for: .normal)
 //                    button.setTitle("|", for: .normal)
 //                    button.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
@@ -851,7 +859,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             initName = enterName.text!
         }
 //        if(activeTextField == enterBio){
-        if(initBio != enterBio.text){
+        if(initBio != enterBio.text && enterBio.text != "Enter Bio..." && enterBio.text != "" && initBio != ""){
             ref.child("users").child((user?.uid)!).child("info").updateChildValues(["17BIO": enterBio.text ?? "Enter Bio..."])
             initBio = enterBio.text
         }

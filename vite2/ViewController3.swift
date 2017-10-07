@@ -37,6 +37,10 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         viewer.modeVc4 = 1
         viewer.goToPage(num: 1)
         (viewer.vc4 as! ViewController4).getCode.setTitle("Send Back", for: .normal)
+        viewer.vc4.view.isHidden = false
+        viewer.vc4.view.alpha = 1.0
+        viewer.scrollView.bringSubview(toFront: viewer.vc4.view)
+        viewer.vc4.view.frame.origin.x = viewer.view.frame.size.width
         goBack(UILabel())
     }
     
@@ -84,10 +88,11 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     }
     
     func setupPerson(user: String){
+        print("fuck all this shit give me some")
         //delete all existing buttons
         for subs in scroller.subviews {
             if subs.tag != -1 {
-//                print(subs)
+                print(subs)
                 subs.removeFromSuperview()
             }
         }
@@ -111,7 +116,12 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
         self.view.isHidden = false
         
         ref.child("users").child(user).child("info").observeSingleEvent(of: .value, with: { snapshot in
-            self.bio.text = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
+            let currBio = snapshot.childSnapshot(forPath: "17BIO").value as? String ?? ""
+            if(currBio != "" && currBio != "Enter Bio..."){
+            self.bio.text = currBio
+            }else{
+                self.bio.text = ""
+            }
             self.nameTag.text = snapshot.childSnapshot(forPath: "18NAME").value as? String ?? ""
         })
         ref.child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("allowed").child(user).observeSingleEvent(of: .value, with: { snapshot33 in

@@ -61,7 +61,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
 //        var request = URLRequest(url: URL(string: "http://www.thisismylink.com/postName.php")!)
 //        request.httpMethod = "POST"
 //        let postString = "id=13&name=Jack"
@@ -399,6 +399,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //        else {
 //            //something else
 //        }
+        
+        (vc4 as! ViewController4).codeView.isHidden = true
+        
         if(returnPage() == CGPoint(x: 0, y: 0)){
             self.vc4.view.isHidden = true
         }
@@ -464,6 +467,13 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         self.userID = user.uid
         self.loginView.isHidden = true
         self.scrollView.isHidden = false
+            
+            self.scrollView.contentSize = CGSize(width: self.view.frame.size.width * 3, height: self.view.frame.size.height-64)
+            
+            //        self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            
+            self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: false)
+            
         //creates first view
         let vc0 = ViewController0(nibName: "ViewController0", bundle: nil)
         vc0.mainView = self
@@ -563,6 +573,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
         //        self.scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: false)
+                        self.scrollView.bringSubview(toFront: vc3.view)
+                        self.scrollView.bringSubview(toFront: vc4.view)
+                        
                             
 //        self.tut.frame = frame1
 //        self.scrollView.bringSubview(toFront: self.tut)
@@ -718,11 +731,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             //            (viewer.vc2 as! ViewController2).viewer3.view.isHidden = false
             //            (viewer.vc2 as! ViewController2).viewer3.view.alpha = 1
             self.scrollView.setContentOffset(CGPoint(x: self.view.frame.size.width, y: 0), animated: true)
-            var frame1 = self.view.frame
-            frame1.origin.x = viewer3.view.frame.size.width * 1
-            viewer3.view.frame = frame1
+        let mainFrame = CGRect(x: self.view.frame.size.width * 1, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+            viewer3.view.frame = mainFrame
             self.scrollView.addSubview(viewer3.view)
-            viewer3.view.frame = frame1
+            viewer3.view.frame = mainFrame
             self.scrollView.bringSubview(toFront: viewer3.view)
             self.addPerson(mode: 0, vc3: viewer3, uid: uid, acc: acc)
     }

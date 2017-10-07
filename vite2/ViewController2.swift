@@ -304,8 +304,10 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         label.font = UIFont(name: "Heiti TC", size: 20)
                         
                         let label2 = UILabel()
-                        if(snapshot4.value != nil){
+                        if(snapshot4.value != nil && snapshot4.value as? String != "" && snapshot4.value as? String != "Enter Bio..."){
                             label2.text = snapshot4.value as? String
+                        }else{
+                            label2.text = ""
                         }
                         label2.frame = CGRect(x: 90, y: 35, width: self.view.frame.size.width - 90 - 82, height: 48)
                         
