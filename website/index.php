@@ -3,6 +3,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-database.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
@@ -12,19 +14,19 @@
 	width:100%;
 	height: 56;
 	border-bottom: thin solid #777777;
-	background-color:green;
+	background-color:white;
 }
 body{
 	
 }
 .middleText{
-color:red;
+color:black;
 position:absolute;
-top:13;
+top:14;
 left: 60px;
 right:7px;
-font-size:30px;
-background-color: blue;
+font-size:26px;
+background-color: white;
 overflow:hidden;
  white-space: nowrap;
 text-overflow:ellipsis;

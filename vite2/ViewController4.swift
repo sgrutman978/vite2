@@ -19,7 +19,7 @@ class ViewController4: UIViewController {
     @IBOutlet weak var myCode: UIImageView!
     @IBOutlet weak var closeCode: UIButton!
     @IBOutlet weak var choseLabel: UILabel!
-    let myString = "http://stevengrutman.com/vite?info="
+    let myString = "http://vite.online?info="
     var viewer = ViewController()
     var viewer3 = ViewController3()
     var globalList = ""
