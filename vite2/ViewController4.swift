@@ -19,10 +19,11 @@ class ViewController4: UIViewController {
     @IBOutlet weak var myCode: UIImageView!
     @IBOutlet weak var closeCode: UIButton!
     @IBOutlet weak var choseLabel: UILabel!
-    let myString = "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
+    let myString = "http://stevengrutman.com/vite?info="
     var viewer = ViewController()
     var viewer3 = ViewController3()
     var globalList = ""
+    var rand = ""
     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg", "xbox.jpg"]
     var list = ""
     @IBOutlet weak var shareButton: UIButton!
@@ -36,22 +37,23 @@ class ViewController4: UIViewController {
     }
     
     @IBAction func sendLink(_ sender: Any) {
+        let user = FIRAuth.auth()?.currentUser
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.render(in: UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        let textToShare = viewer.viewableName + " has shared their Vite with you!\n"
+//        let textToShare = viewer.viewableName + " has shared their Vite with you!\n"
+//        if let myWebsite = URL(string: "vite://inner/"+globalList) {//Enter link to your app here
+//            let textToShare2 = "\n\nDon't have Vite? Download it for free!\n"
+//            let myWebsite2 = URL(string: "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8")
+//            let alltext = viewer.viewableName + " has shared their Vite with you!\nvite://inner/"+globalList+"\n\nDon't have Vite? Download it for free!\nhttps://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
         
-        if let myWebsite = URL(string: "vite://inner/"+globalList) {//Enter link to your app here
-            
-            let textToShare2 = "\n\nDon't have Vite? Download it for free!\n"
-            
-            let myWebsite2 = URL(string: "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8")
-            
-            let alltext = viewer.viewableName + " has shared their Vite with you!\nvite://inner/"+globalList+"\n\nDon't have Vite? Download it for free!\nhttps://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
-            
-            let objectsToShare = [image ?? "", alltext] as [Any]
+        self.ref.child("users").child((user?.uid)!).child("codes").updateChildValues([rand: globalList])
+        
+        let textToShare = viewer.viewableName + " has shared their Vite with you!\n"
+        if let myWebsite = URL(string: "http://stevengrutman.com/vite?info="+rand+(user?.uid)!) {//Enter link to your app here
+            let objectsToShare = [image ?? "", textToShare, myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [])
             
             //Excluded Activities
@@ -61,6 +63,22 @@ class ViewController4: UIViewController {
             activityVC.popoverPresentationController?.sourceView = sender as! UIView
             self.present(activityVC, animated: true, completion: nil)
         }
+    }
+    
+    func randomString(length: Int) -> String {
+        
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
+        }
+        
+        return randomString
     }
     
     @IBAction func createCode(_ sender: Any) {
@@ -120,7 +138,9 @@ class ViewController4: UIViewController {
             }
             
             var qrcodeImage: CIImage!
-            let data = list.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
+            rand = randomString(length: 8)
+            let ext = myString+rand+(user?.uid)!
+            let data = ext.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             let filter = CIFilter(name: "CIQRCodeGenerator")
             filter?.setValue(data, forKey: "inputMessage")
             filter?.setValue("Q", forKey: "inputCorrectionLevel")

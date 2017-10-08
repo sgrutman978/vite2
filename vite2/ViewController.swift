@@ -746,15 +746,15 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             print(acc)
             let accs = acc.components(separatedBy: ")").dropFirst()
             print("lolz")
-            ref.child("users").observeSingleEvent(of: .value, with: { (snapshot2) in
+            ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot2) in
                 print("yup")
-                if(snapshot2.hasChild(uid)){
+                if(snapshot2.hasChild("info")){
             print("yayayay")
             var currentList = "()00use)17BIO)18NAME)19DEF"
             self.ref.child("users").child((user?.uid)!).child("allowed").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 currentList = snapshot.value as? String ?? "()00use)17BIO)18NAME)19DEF"
                 for all in accs{
-                            if(!currentList.contains(")"+all) && snapshot2.childSnapshot(forPath: uid).childSnapshot(forPath: "info").hasChild(all)){
+                            if(!currentList.contains(")"+all) && snapshot2.childSnapshot(forPath: "info").hasChild(all)){
                                 currentList = currentList+")"+all
                     }
                 }

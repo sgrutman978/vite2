@@ -17,7 +17,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
 //    var qrCodeFrameView:UIView?
-    
+    let ref = FIRDatabase.database().reference()
     @IBOutlet weak var icon4: UIButton!
     @IBOutlet weak var icon1: UIButton!
     @IBOutlet weak var icon2: UIButton!
@@ -166,24 +166,35 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             
             if metadataObj.stringValue != nil {
 //                messageLabel.text = metadataObj.stringValue
-                let myString = "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
+                let myString = "http://stevengrutman.com/vite?info="
                 let index: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: myString.characters.count)
 //                print("helllooooodsfgdgsdgs")
                 if metadataObj.stringValue.substring(to: index) == myString {
-                    let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
-                    let index3: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: myString.characters.count + 28)
-                    let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
-                    let accounts = metadataObj.stringValue.substring(from: index3)
+//                    let user = FIRAuth.auth()?.currentUser
+                    let index5: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 8)
+                    let code = metadataObj.stringValue.substring(from: index).substring(to: index5)
+                    let username = metadataObj.stringValue.substring(from: index).substring(from: index5)
+                    var accounts = ""
+                     ref.child("users").child(username).child("codes").child(code).observeSingleEvent(of: .value, with: { (snapshot) in
+                         let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
+                        accounts = (snapshot.value as! String).substring(from: index2)
+
+//                    let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
+//                    let index3: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: myString.characters.count + 28)
+//                    let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
+                    print(username)
+//                    let accounts = metadataObj.stringValue.substring(from: index3)
 //                    print(username)
-                    viewer3.view.frame.origin.x = self.view.frame.size.width
-                    viewer.scrollView.bringSubview(toFront: viewer3.view)
-                    viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
+                        self.viewer3.view.frame.origin.x = self.view.frame.size.width
+                        self.viewer.scrollView.bringSubview(toFront: self.viewer3.view)
+                        self.viewer.addPerson(mode: 0, vc3: self.viewer3, uid: username, acc: accounts)
 //                    print("falseStuff")
 //                    viewer3.topView.isHidden = true
 //                    viewer3.loader.isHidden = false
 //                    viewer3.view.isHidden = false
 //                    viewer3.view.alpha = 1
                      Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
+                     });
             }
         }
     }

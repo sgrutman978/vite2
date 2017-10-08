@@ -507,16 +507,10 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 
                         
 //                        let numKey = Int(rest.key.substring(to: rest.key.index(rest.key.startIndex, offsetBy: 2)))! - 20
-                    if(rest.key != "20MAIN" && rest.key != "21MAIN"){
+                    if(rest.key != "20MAIN"){
                     self.arr.append(arr3[numKey])
                     }else{
-                        if(rest.key == "20MAIN" || rest.key == "21MAIN"){
-                            if(numKey == 0){
-                                self.arr.append("https://www.facebook.com/"+self.temp123)
-                            }else{
-                                self.arr.append("https://www.twitter.com/"+self.temp123)
-                            }
-                        }
+                        self.arr.append("https://www.facebook.com/"+self.temp123)
                     }
                         let button32 = UIButton()
                         button32.backgroundColor = UIColor.clear
