@@ -52,7 +52,7 @@ class ViewController4: UIViewController {
         self.ref.child("users").child((user?.uid)!).child("codes").updateChildValues([rand: globalList])
         
         let textToShare = viewer.viewableName + " has shared their Vite with you!\n"
-        if let myWebsite = URL(string: "http://stevengrutman.com/vite?info="+rand+(user?.uid)!) {//Enter link to your app here
+        if let myWebsite = URL(string: "http://vite.online?info="+rand+(user?.uid)!) {//Enter link to your app here
             let objectsToShare = [image ?? "", textToShare, myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [])
             
