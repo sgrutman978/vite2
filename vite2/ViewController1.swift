@@ -166,7 +166,7 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
             
             if metadataObj.stringValue != nil {
 //                messageLabel.text = metadataObj.stringValue
-                let myString = "http://vite.online?info="
+                let myString = "http://vite.online/?info="
                 let index: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: myString.characters.count)
 //                print("helllooooodsfgdgsdgs")
                 if metadataObj.stringValue.substring(to: index) == myString {
