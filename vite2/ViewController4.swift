@@ -49,14 +49,12 @@ class ViewController4: UIViewController {
 //            let myWebsite2 = URL(string: "https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8")
 //            let alltext = viewer.viewableName + " has shared their Vite with you!\nvite://inner/"+globalList+"\n\nDon't have Vite? Download it for free!\nhttps://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8"
         
-        self.ref.child("users").child((user?.uid)!).child("codes").updateChildValues([rand: globalList])
-        
         let textToShare = viewer.viewableName + " has shared their Vite with you!\n"
         if let myWebsite = URL(string: "http://vite.online/?info="+rand+(user?.uid)!) {//Enter link to your app here
             let objectsToShare = [image ?? "", textToShare, myWebsite] as [Any]
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: [])
             
-            //Excluded Activities
+            //Excluded Activities 
             activityVC.excludedActivityTypes = [UIActivityType.addToReadingList]
             //
             
@@ -139,6 +137,7 @@ class ViewController4: UIViewController {
             
             var qrcodeImage: CIImage!
             rand = randomString(length: 8)
+            self.ref.child("users").child((user?.uid)!).child("codes").updateChildValues([rand: globalList])
             let ext = myString+rand+(user?.uid)!
             let data = ext.data(using: String.Encoding.isoLatin1, allowLossyConversion: false)
             let filter = CIFilter(name: "CIQRCodeGenerator")

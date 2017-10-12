@@ -17,7 +17,39 @@
 	background-color:white;
 }
 body{
-	
+	  font-family: Ubuntu, sans-serif;
+}
+.avail{
+	height:50px;
+	position:relative;
+	top:-20px;
+}
+#buttons{
+	position: relative;
+	top:-15px;
+	margin-bottom:-45px;
+}
+#profPic{
+	width:250px;
+	height:250px;
+	border-radius: 125px;
+}
+#vite{
+	height:50px;
+	position:relative;
+	top:-20px;
+	margin-left: 2px;
+}
+#name{
+	font-size:30px;
+	position:relative;
+	top:-18px;
+}
+#bio{
+	font-size:20px;
+	position:relative;
+	top:-33px;
+	height:45px;
 }
 .middleText{
 color:black;
@@ -32,7 +64,7 @@ overflow:hidden;
 text-overflow:ellipsis;
   /*vertical-align: middle;*/
   /*line-height: normal;*/
-  font-family: Ubuntu, sans-serif;
+
 }
 .servicePic{
 	position:relative;
@@ -56,7 +88,7 @@ var uid = "<?php echo $_GET['info']; ?>".substring(8);
 var arr4 = []
 
 $(document).ready(function(){
-   $(document).on("click", ".boxThingy" , function() {
+   $(document).on("click touchstart", ".boxThingy" , function() {
         var temp = arr4[$(this).attr('id')]
         if(temp != "skype" && temp != "peri", temp!= "aim" && temp != "xbox"){
         	window.open(temp);
@@ -79,7 +111,7 @@ $(document).ready(function(){
 
 firebase.auth().signInWithEmailAndPassword("viteappllc@gmail.com", "AnAwesomePassworddot123098").catch(function(error) {
   // Handle Errors here.
-  document.write("hiiiii")
+  
   var errorCode = error.code;
   var errorMessage = error.message;
   // ...
@@ -121,8 +153,13 @@ var codeVals = "";
 var ref4 = firebase.database().ref('/users/'+uid+'/codes/'+code);
 ref4.once('value', function(snapshot) {
 	codeVals = snapshot.val();
-	window.location = ("vite://inner/"+codeVals);
-document.body.innerHTML = document.body.innerHTML + ("<a id='toApp' href='vite://inner/"+codeVals+"'>Click me</a>");
+	// window.location = ("vite://inner/"+codeVals);
+	if(snapshot.val() != null){
+		console.log(snapshot);
+document.body.innerHTML = document.body.innerHTML + ("<center><img src='' id='profPic' /><p id='name'>Hello World</p><p id='bio'>Hello World</p></br><div id='buttons'><a style='top:-20px;position:relative' id='toApp' href='vite://inner/"+codeVals+"'><button class='avail' style='background-color:#5eb4ff'>Open in Vite App</button></a>"+"<img id='vite' src='http://is5.mzstatic.com/image/thumb/Purple128/v4/7d/43/82/7d438203-699e-79a2-8d88-9c4fcd56d56b/source/175x175bb.jpg' /><a id='toApp' href='https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8'><img class='avail' src='http://www.prosperityadvisers.com.au/SiteFiles/prosperityadviserscomau/app_store.png'/></a></span></center>");
+}else{
+	document.write("<iframe src='home.php' style='margin:0;border:none;width:100%;height:100%'> </iframe>")
+}
 });
 
 var place = 0;
@@ -130,16 +167,38 @@ var pics = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail
 var ref = firebase.database().ref('/users/'+uid+'/info');
 var counter = 0
 var temp123 = "";
+var fbTw = 0;
 
 ref.once('value', function(snapshot) {
 snapshot.forEach(function(childSnapshot) {
     var childKey = childSnapshot.key;
+    var childData = childSnapshot.val();
+    if(childKey == "00use" && childData == "tw"){
+    	fbTw = 1;
+    }
+    if(childKey == "19DEF"){
+    	if(fbTw == 0){
+    		$.getJSON("http://graph.facebook.com/"+childData+"/picture?type=large&redirect=false", function(data) {
+    			// var t = JSON.parse(data);
+    $('#profPic').attr('src', data['data']['url']);
+});
+    		
+    	}else{
+    		$('img #profPic').attr('src', childData);
+    	}
+    }
+    if(childKey == "17BIO"){
+    		var obj = $('#bio').text(childData);
+			obj.html(obj.html().replace(/\n/g,'<br/>'));
+    }
+    if(childKey == "18NAME"){
+    		$('#name').text(childData);
+    }
 
     if(codeVals.indexOf(childKey) >= 0){
 
     var num = parseInt(childKey.substring(0,2));
     // document.write(num);
-    var childData = childSnapshot.val();
     if(num == 19){
     	temp123 = childData;
     }

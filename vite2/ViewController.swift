@@ -445,6 +445,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
     gone += 1
         if(gone == 1){
 //        print("dfgdfg")
+            self.ref.child("users").child(user.uid).child("codes").updateChildValues(["temp1234": "hi"])
             self.ref.child("users").child(user.uid).child("info").observeSingleEvent(of: .value, with: { snapshot in
             if(!snapshot.hasChild("18NAME")){
                 if(self.use00 != "" && self.use00 != "fb"){
@@ -736,31 +737,35 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
             self.scrollView.addSubview(viewer3.view)
             viewer3.view.frame = mainFrame
             self.scrollView.bringSubview(toFront: viewer3.view)
-            self.addPerson(mode: 0, vc3: viewer3, uid: uid, acc: acc)
+        self.addPerson(mode: 0, vc3: viewer3, uid: uid, acc: acc, code: "temp1234")
     }
     
-    func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String){
+    func addPerson(mode: Int, vc3: ViewController3, uid: String, acc: String, code: String){
         print("chiwawa")
         if(mode == 0){
         let user = FIRAuth.auth()?.currentUser
             print(acc)
             let accs = acc.components(separatedBy: ")").dropFirst()
-            print("lolz")
-            ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot2) in
+            print("lolzsfsdf")
+            print(uid)
+            ref.child("users").child(uid).child("codes").child(code).observeSingleEvent(of: .value, with: { (snapshot2) in
                 print("yup")
-                if(snapshot2.hasChild("info")){
+                if(snapshot2.value != nil){
             print("yayayay")
             var currentList = "()00use)17BIO)18NAME)19DEF"
             self.ref.child("users").child((user?.uid)!).child("allowed").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 currentList = snapshot.value as? String ?? "()00use)17BIO)18NAME)19DEF"
+                self.ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: ""])
+                self.ref.child("users").child(uid).child("info").observeSingleEvent(of: .value, with: { (snapshot7) in
                 for all in accs{
-                            if(!currentList.contains(")"+all) && snapshot2.childSnapshot(forPath: "info").hasChild(all)){
+                            if(!currentList.contains(")"+all) && snapshot7.hasChild(all)){
                                 currentList = currentList+")"+all
                     }
                 }
                 self.ref.child("users").child((user?.uid)!).child("allowed").updateChildValues([uid: currentList])
 //                (self.vc2 as! ViewController2).addDude(user: uid)
                 vc3.setupPerson(user: uid)
+                })
             })
                 }else{
                     print("fuck youuuuu")

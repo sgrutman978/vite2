@@ -175,10 +175,14 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
                     let code = metadataObj.stringValue.substring(from: index).substring(to: index5)
                     let username = metadataObj.stringValue.substring(from: index).substring(from: index5)
                     var accounts = ""
+                    print("bitch nigga")
                      ref.child("users").child(username).child("codes").child(code).observeSingleEvent(of: .value, with: { (snapshot) in
+                        print("heyyyyyy")
+                        print(snapshot.value)
+                        if(snapshot.value != nil){
                          let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
                         accounts = (snapshot.value as! String).substring(from: index2)
-
+                        
 //                    let index2: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: 28)
 //                    let index3: String.Index = metadataObj.stringValue.index(metadataObj.stringValue.startIndex, offsetBy: myString.characters.count + 28)
 //                    let username = metadataObj.stringValue.substring(from: index).substring(to: index2)
@@ -187,13 +191,14 @@ class ViewController1: UIViewController, AVCaptureMetadataOutputObjectsDelegate 
 //                    print(username)
                         self.viewer3.view.frame.origin.x = self.view.frame.size.width
                         self.viewer.scrollView.bringSubview(toFront: self.viewer3.view)
-                        self.viewer.addPerson(mode: 0, vc3: self.viewer3, uid: username, acc: accounts)
+                            self.viewer.addPerson(mode: 0, vc3: self.viewer3, uid: username, acc: accounts, code: code)
 //                    print("falseStuff")
 //                    viewer3.topView.isHidden = true
 //                    viewer3.loader.isHidden = false
 //                    viewer3.view.isHidden = false
 //                    viewer3.view.alpha = 1
                      Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.reAllow), userInfo: nil, repeats: false)
+                        }
                      });
             }
         }

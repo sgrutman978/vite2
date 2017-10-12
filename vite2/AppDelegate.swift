@@ -178,7 +178,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             viewer.scrollView.addSubview(viewer3.view)
             viewer3.view.frame = frame1
             viewer.scrollView.bringSubview(toFront: viewer3.view)
-            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts)
+            viewer.addPerson(mode: 0, vc3: viewer3, uid: username, acc: accounts, code: "temp1234")
         }
         self.window?.makeKeyAndVisible()
         

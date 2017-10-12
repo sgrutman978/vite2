@@ -57,11 +57,11 @@ class ViewController2: UIViewController, UISearchBarDelegate {
         }
     }
     
-    func addDude(user: String){
-        self.ref.child("users").child(self.user).child("allowed").child(user).observeSingleEvent(of: .value, with: { snapshot in
-            self.addPerson(rest: snapshot)
-        })
-    }
+//    func addDude(user: String){
+//        self.ref.child("users").child(self.user).child("allowed").child(user).observeSingleEvent(of: .value, with: { snapshot in
+//            self.addPerson(rest: snapshot)
+//        })
+//    }
     
     func setupList() {
         //load info for user you scanned from database
@@ -162,7 +162,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             duplicateFavPlace = duplicateFavPlace - 80
         }
         })
-        
+        print("why twice?")
         self.ref.child("users").child(self.user).child("allowed").observe(.value, with: { snapshot in
             //            let enumerator2 = snapshot.children
             //            var arr5: [String] = []
@@ -185,11 +185,12 @@ class ViewController2: UIViewController, UISearchBarDelegate {
             //            }
             //        }
             
-            
+            print("yyooooyooyo")
+            print(snapshot.childrenCount)
             let enumerator = snapshot.children
             while let rest = enumerator.nextObject() as? FIRDataSnapshot {
-                //                print("ololol")
-                //                print(rest.key)
+                                print("whoever threw this paper")
+                                print(rest.key)
                 //                print(arr6)
                 //                if(!arr6.contains(rest.key)){
                 self.addPerson(rest: rest)
@@ -217,9 +218,15 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                 self.counter = 0
                 self.place = 0
         var moves: [UIView] = []
+        var moves2: [String] = []
         for subs in self.scroller.subviews {
             if(subs.accessibilityLabel != nil){
-                moves.append(subs)
+                if(!moves2.contains(subs.accessibilityLabel!)){
+                    moves.append(subs)
+                    moves2.append(subs.accessibilityLabel!)
+                }else{
+                    subs.removeFromSuperview()
+                }
             }
         }
         let movies = moves.sorted(by: { $0.accessibilityIdentifier! < $1.accessibilityIdentifier! })
@@ -239,6 +246,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     
     
     func addPerson(rest: FIRDataSnapshot){
+        print("yo mom's a ho")
         var check = true
         for subs in self.scroller.subviews {
             if(subs.accessibilityLabel != nil && rest.key == subs.accessibilityLabel!){
@@ -408,12 +416,13 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     }
     
     func someAction(_ sender:UITapGestureRecognizer){
+        print(sender.accessibilityLabel)
 //        print("alalal")
         viewer3.view.isHidden = false
         viewer3.view.alpha = 1
         viewer3.view.frame.origin.x = self.view.frame.size.width * 2
         viewer.scrollView.bringSubview(toFront: viewer3.view)
-        viewer.addPerson(mode: 1, vc3: viewer3, uid: sender.accessibilityLabel!, acc: "")
+        viewer.addPerson(mode: 1, vc3: viewer3, uid: sender.accessibilityLabel!, acc: "", code: "temp1234")
     }
     
     func getProfPic(mode: Int, myURLString: String) -> String {
