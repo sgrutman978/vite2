@@ -392,6 +392,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         print("fuck thissss")
                         print(90*self.scroller.subviews.count)
                         self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width)+1, height: (Int(90*self.scroller.subviews.count-90)))
+                        self.searchBar.placeholder = "Search Your \((self.scroller.subviews.count-1)) Connections"
                     })
                 })
             })

@@ -140,6 +140,9 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
 //                    })
                 if(self.user2URL == ""){
                 self.setupPage(user: user)
+                    if let refreshedToken = FIRInstanceID.instanceID().token() {
+                        self.token = refreshedToken
+                    }
 //                self.hideLoader()
                 }
             }

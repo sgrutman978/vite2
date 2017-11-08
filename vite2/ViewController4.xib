@@ -14,6 +14,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController4" customModule="vite2" customModuleProvider="target">
             <connections>
+                <outlet property="allButton" destination="lYv-Qf-Tzv" id="SA4-YE-H1w"/>
                 <outlet property="choseLabel" destination="iqr-ZW-g98" id="uca-XB-BkS"/>
                 <outlet property="codeView" destination="IYc-yh-vtc" id="fgf-4q-Eyz"/>
                 <outlet property="codeView2" destination="brI-PT-k9l" id="L9q-7o-hRE"/>
@@ -32,9 +33,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfk-DS-hym">
                     <rect key="frame" x="0.0" y="-1" width="375" height="59"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="Bfk-DS-hym" secondAttribute="height" multiplier="375:59" id="nqw-EA-0te"/>
-                    </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08C-vN-Jrb">
                     <rect key="frame" x="0.0" y="73" width="375" height="594"/>
@@ -68,6 +66,19 @@
                     </state>
                     <connections>
                         <action selector="closeIt:" destination="-1" eventType="touchUpInside" id="5iX-zh-Y5A"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lYv-Qf-Tzv">
+                    <rect key="frame" x="320" y="25" width="50" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="vYI-nC-3Sg"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="All">
+                        <color key="titleColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="choseAll:" destination="-1" eventType="touchUpInside" id="VKw-Pi-qZx"/>
                     </connections>
                 </button>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYc-yh-vtc">
@@ -114,6 +125,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="oiK-9b-eLM" secondAttribute="height" multiplier="35:32" constant="-1.28125" id="yQa-xS-92q"/>
                             </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" backgroundImage="share.png"/>
                             <connections>
                                 <action selector="sendLink:" destination="-1" eventType="touchUpInside" id="zap-Zj-eck"/>
@@ -158,9 +170,12 @@
                 <constraint firstItem="IYc-yh-vtc" firstAttribute="leading" secondItem="Bfk-DS-hym" secondAttribute="leading" id="B8A-CM-NTp"/>
                 <constraint firstItem="08C-vN-Jrb" firstAttribute="trailing" secondItem="y0T-dM-e5S" secondAttribute="trailing" id="EJJ-4x-UIi"/>
                 <constraint firstItem="08C-vN-Jrb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="EbB-3S-faa"/>
+                <constraint firstItem="lYv-Qf-Tzv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="P7m-32-Ciw"/>
                 <constraint firstAttribute="trailing" secondItem="08C-vN-Jrb" secondAttribute="trailing" id="YY8-R0-DAU"/>
                 <constraint firstItem="Bfk-DS-hym" firstAttribute="leading" secondItem="08C-vN-Jrb" secondAttribute="leading" id="YYR-yY-K6G"/>
+                <constraint firstAttribute="trailing" secondItem="lYv-Qf-Tzv" secondAttribute="trailing" constant="5" id="bzZ-Oa-3Vv"/>
                 <constraint firstItem="IYc-yh-vtc" firstAttribute="trailing" secondItem="Bfk-DS-hym" secondAttribute="trailing" id="fb7-k2-CqC"/>
+                <constraint firstItem="iqr-ZW-g98" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="gam-Sq-K7A"/>
                 <constraint firstItem="08C-vN-Jrb" firstAttribute="top" secondItem="Bfk-DS-hym" secondAttribute="bottom" constant="15" id="gfS-ap-WAl"/>
                 <constraint firstItem="IYc-yh-vtc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="h74-RM-UnD"/>
                 <constraint firstItem="Bfk-DS-hym" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-1" id="kHR-Rk-8JS"/>

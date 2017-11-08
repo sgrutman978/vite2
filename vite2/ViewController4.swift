@@ -18,10 +18,12 @@ class ViewController4: UIViewController {
     @IBOutlet weak var codeView: UIView!
     @IBOutlet weak var myCode: UIImageView!
     @IBOutlet weak var closeCode: UIButton!
+    @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var choseLabel: UILabel!
     let myString = "http://vite.online/?info="
     var viewer = ViewController()
     var viewer3 = ViewController3()
+    var checkList = [UIButton]()
     var globalList = ""
     var rand = ""
     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg", "xbox.jpg"]
@@ -30,6 +32,7 @@ class ViewController4: UIViewController {
     
     @IBAction func closeCode(_ sender: Any) {
         codeView.isHidden = true
+        self.allButton.isHidden = false
     }
     
     @IBAction func closeIt(_ sender: Any) {
@@ -77,6 +80,24 @@ class ViewController4: UIViewController {
         }
         
         return randomString
+    }
+    
+    @IBAction func choseAll(_ sender: Any) {
+        if(allButton.currentTitle == "All"){
+            allButton.setTitle("None", for: .normal)
+            allButton.setTitleColor(UIColor.init(red: 186/255, green: 0, blue: 0, alpha: 1.0), for: .normal)
+        }else{
+            allButton.setTitle("All", for: .normal)
+            allButton.setTitleColor(UIColor.init(red: 0, green: 128/255, blue: 0, alpha: 1.0), for: .normal)
+        }
+        for all in checkList {
+            if(allButton.currentTitle == "All"){
+            all.accessibilityLabel = "seth"
+            }else{
+                all.accessibilityLabel = "cole"
+            }
+            all.sendActions(for: .touchUpInside)
+        }
     }
     
     @IBAction func createCode(_ sender: Any) {
@@ -172,6 +193,7 @@ class ViewController4: UIViewController {
 //            print("send 'list' to qr code generator piece in this view controller (find in vc0 commented out) and change GUI accordingly to show code and such")
 //            print(list)
             self.codeView.isHidden = false
+            self.allButton.isHidden = true
         }else{
             var currentList = "()00use)17BIO)18NAME)19DEF"
             globalList = (user?.uid)!+"()00use)17BIO)18NAME)19DEF"
@@ -206,6 +228,7 @@ class ViewController4: UIViewController {
         print("pedal4")
         let user = FIRAuth.auth()?.currentUser
         ref.child("users").child((user?.uid)!).child("info").observe(.value, with: { snapshot in
+            self.checkList = [UIButton]()
             let enumerator = snapshot.children
             for all in self.scroller.subviews{
                 all.removeFromSuperview()
@@ -245,6 +268,7 @@ class ViewController4: UIViewController {
                     newOne.layer.cornerRadius = 8
 //                    newOne.layer.borderColor = UIColor.white.cgColor
                     newOne.addTarget(self, action: #selector(self.checkIt), for: .touchUpInside)
+                    self.checkList.append(newOne)
                     newOne.accessibilityLabel = "cole"
                     check.layer.cornerRadius = 8
                     check.layer.masksToBounds = true
