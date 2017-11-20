@@ -349,11 +349,12 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
             var place2 = 55
            
             self.menu.frame = CGRect(x: 0, y: 0, width: self.mainView.view.frame.size.width, height: 55)
-            self.menu.contentSize = CGSize(width: (self.arr2.count-1)*58+46, height: 55)
+            self.menu.contentSize = CGSize(width: (self.arr2.count-7)*55+51, height: 55)
             self.menu.showsHorizontalScrollIndicator = false
             self.menu.bounces = false
             var counter11 = 0
             for all in self.arr2[0..<(self.arr2.count)] {
+                if(!(["reddit.jpg", "stack.png", "yelp.png", "peri.png", "500px.png", "myspace.png", "aim.jpg"].contains(all))){
                 let image = UIImage(named: all)
                 let newOne = UIButton()
                 newOne.accessibilityIdentifier = self.arr2.index(of: all)?.description
@@ -369,6 +370,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                  newOne.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
                 self.menu.addSubview(newOne)
                 counter11 = counter11 + 1
+                }
             }
             
             self.button2.backgroundColor = UIColor(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0)

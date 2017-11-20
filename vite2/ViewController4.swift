@@ -155,7 +155,7 @@ class ViewController4: UIViewController {
                     }
                 }
             }
-            
+            self.ref.child("users").child((user?.uid)!).child("codes").updateChildValues(["temp1234": (myString+rand+(user?.uid)!)])
             var qrcodeImage: CIImage!
             rand = randomString(length: 8)
             self.ref.child("users").child((user?.uid)!).child("codes").updateChildValues([rand: globalList])
