@@ -189,10 +189,10 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg", "xbox.jpg"]
                     
                     let arr3: [String] = ["https://"+res,
-                                          "http://twitter.com/"+res,
+                                          "twitter://user?screen_name="+res, //"http://twitter.com/"+res,
                                           "phone",
                                           "http://snapchat.com/add/"+res,
-                                          "http://instagram.com/"+res,
+                                          "instagram://user?username="+res, /* http://instagram.com/ */
                                           "email",
                                           "http://" + res,
                                           "http://pinterest.com/"+res,
@@ -219,9 +219,11 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                    print("fb://profile/"+res)
                     if(rest.key == "20MAIN" || rest.key == "21MAIN"){
                         if(numKey == 0){
-                        self.arr.append("https://www.facebook.com/"+temp)
+                        self.arr.append("https://www.facebook.com/"+temp) //"fb://profile/"+temp
+                             button.accessibilityLabel = "openInApp"
                         }else{
-                            self.arr.append("https://www.twitter.com/"+temp2)
+                            self.arr.append("twitter://user?screen_name="+temp2) //"https://www.twitter.com/"+temp2
+                             button.accessibilityLabel = "openInApp"
                         }
                     }else{
                     self.arr.append(arr3[numKey])
@@ -230,6 +232,9 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                     
                     if(numKey == 1){
                         res = "@"+res
+                    }
+                    if(numKey == 4 || numKey == 1){
+                        button.accessibilityLabel = "openInApp"
                     }
                     
                     let image = UIImage(named: imgString)
@@ -249,7 +254,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                         label.text = res
                     }
 
-                    label.frame = CGRect(x: 64, y: 6, width: self.view.frame.size.width - 64 - 14, height: 48)
+                    label.frame = CGRect(x: 64, y: 6, width: self.view.frame.size.width - 64 - 74, height: 48)
                     
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
@@ -262,14 +267,14 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
                    // button.setImage(UIImage(named: imgString), for: UIControlState.normal)
                     //button.setTitleColor(UIColor.clear, for: .normal)
                     
-                    button.backgroundColor = UIColor.clear
-                        //UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
-                     button.frame = CGRect(x: 0.0, y: -8.0, width: thing.frame.width, height: thing.frame.height+8)
-                    //button.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
-                    button.setTitle("", for: .normal) //"View"
+//                    button.backgroundColor = UIColor.clear
+                        button.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
+//                     button.frame = CGRect(x: 0.0, y: -8.0, width: thing.frame.width, height: thing.frame.height+8)
+                    button.frame = CGRect(x: (self.view.frame.size.width - 72), y: 10, width: 62, height: 40)
+                    button.setTitle("View", for: .normal) //""
                     button.setTitleColor(UIColor.black, for: .normal)
-//                    button.layer.cornerRadius = 10
-                    button.layer.borderWidth = 0 //1
+                    button.layer.cornerRadius = 10
+                    button.layer.borderWidth = 1 //0
                     button.accessibilityHint = res
                     button.layer.borderColor = UIColor.black.cgColor
                     button.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
@@ -331,12 +336,17 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
     }
     
     func buttonAction(sender: UIButton!) {
-//        print(sender.tag)
+        print(sender.tag)
         if(arr[sender.tag] == "phone"){
             createContact(content: sender.accessibilityHint!, type: 0)
         }else if arr[sender.tag] == "email"{
         createContact(content: sender.accessibilityHint!, type: 1)
             //else if address?
+            }else{
+            print(arr[sender.tag])
+            if(sender.accessibilityLabel == "openInApp"){
+                UIApplication.shared.open((URL(string: arr[sender.tag]))!
+                            , options: [:], completionHandler: nil)
             }else{
 //                print("fgsfdg")
                 print(arr[sender.tag])
@@ -345,6 +355,7 @@ class ViewController3: UIViewController, CNContactViewControllerDelegate {
 //                print("bgdghd")
 //              UIApplication.shared.open((URL(string: arr[sender.tag]))!
 //            , options: [:], completionHandler: nil)
+            }
         }
         sender.backgroundColor = UIColor.lightGray
         let when = DispatchTime.now() + 0.15 // change 2 to desired number of seconds

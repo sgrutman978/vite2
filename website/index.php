@@ -156,7 +156,7 @@ ref4.once('value', function(snapshot) {
 	// window.location = ("vite://inner/"+codeVals);
 	if(snapshot.val() != null){
 		console.log(snapshot);
-document.body.innerHTML = document.body.innerHTML + ("<center><img src='' id='profPic' /><p id='name'>Hello World</p><p id='bio'>Hello World</p></br><div id='buttons'><a style='top:-20px;position:relative' id='toApp' href='vite://inner/"+codeVals+"'><button class='avail' style='background-color:#5eb4ff'>Open in Vite App</button></a>"+"<img id='vite' src='http://is5.mzstatic.com/image/thumb/Purple128/v4/7d/43/82/7d438203-699e-79a2-8d88-9c4fcd56d56b/source/175x175bb.jpg' /><a id='toApp' href='https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8'><img class='avail' src='http://www.prosperityadvisers.com.au/SiteFiles/prosperityadviserscomau/app_store.png'/></a></span></center>");
+document.body.innerHTML = document.body.innerHTML + ("<center><img src='' id='profPic' /><p id='name'>404 Error</p><p id='bio'>Sorry, we are having trouble finding this person's Vite!</p></br><div id='buttons'><a style='top:-20px;position:relative' id='toApp' href='vite://inner/"+codeVals+"'><button class='avail' style='background-color:#5eb4ff'>Open in Vite App</button></a>"+"<img id='vite' src='http://is5.mzstatic.com/image/thumb/Purple128/v4/7d/43/82/7d438203-699e-79a2-8d88-9c4fcd56d56b/source/175x175bb.jpg' /><a id='toApp' href='https://itunes.apple.com/us/app/vite-meet-greet-connect/id1289967327?ls=1&mt=8'><img class='avail' src='http://www.prosperityadvisers.com.au/SiteFiles/prosperityadviserscomau/app_store.png'/></a></span></center>");
 }else{
 	document.write("<iframe src='home.php' style='margin:0;border:none;width:100%;height:100%'> </iframe>")
 }

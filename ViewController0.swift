@@ -15,6 +15,7 @@ import SafariServices
 
 class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UITextViewDelegate, UITextFieldDelegate*/ {
     
+    @IBOutlet weak var connNum: UILabel!
     // , UITextFieldDelegate
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var enterBio: UITextView!
@@ -44,6 +45,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
     var num = 0
     var editMode = 0
     var temp123 = ""
+//    var connectionCount = 0
      let arr2: [String] = ["fb.png", "twitter.jpg", "phone.png", "snap.jpg", "insta.jpg", "mail.png", "link.png", "pint.png", "tumblr.png", "git.png", "plus.png", "skype.jpg", "reddit.jpg", "stack.png", "youtube.png", "yelp.png", "venmo.png", "linkedin.jpg", "dribbble.jpg", "peri.png", "500px.png", "myspace.png", "spotify.png", "flickr.png", "aim.jpg", "xbox.jpg"]
     var arr = [String]()
     var arr3 = [String]()
@@ -57,6 +59,10 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
 //        self.view.isHidden = true
 //    }
     
+    
+    func getConnections(conns: Int){
+        connNum.text = String(conns)
+    }
     
     @IBAction func editClick(_ sender: Any) {
         if(mainView.tutMode == 3){
@@ -169,6 +175,10 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
         
        self.hideKeyboardWhenTappedAround()
         let user = FIRAuth.auth()?.currentUser
+                connNum.layer.cornerRadius = 30
+                connNum.layer.borderWidth = 4
+                connNum.layer.masksToBounds = true
+        connNum.layer.borderColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 1.0).cgColor
 //        enterBio.delegate = self
         
 //        //only apply the blur if the user hasn't disabled transparency effects
@@ -458,7 +468,7 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                      }else{
                        label.text = res
                     }
-                    label.frame = CGRect(x: 72, y: 6, width: self.mainView.view.frame.size.width - 72 - 10, height: 48)
+                    label.frame = CGRect(x: 72, y: 6, width: self.mainView.view.frame.size.width - 72 - 82/* - 10*/, height: 48)
                     label.font = UIFont(name: "Heiti TC", size: 20)
                     label.numberOfLines = 0
                     label.minimumScaleFactor = 0.1
@@ -513,14 +523,14 @@ class ViewController0: UIViewController, CNContactViewControllerDelegate /*, UIT
                         self.arr.append("https://www.facebook.com/"+self.temp123)
                     }
                         let button32 = UIButton()
-                        button32.backgroundColor = UIColor.clear
-                    //init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
-                        button32.frame = CGRect(x: 0.0, y: -5.0, width: thing.frame.width, height: thing.frame.height+5)
-                            //CGRect(x: (self.mainView.view.frame.size.width - 72), y: 7, width: 62, height: 40)
-                        button32.setTitle("", for: .normal) //"View"
+//                        button32.backgroundColor = UIColor.clear
+                    button32.backgroundColor = UIColor.init(red: 94/255, green: 180/255, blue: 255/255, alpha: 0.4)
+//                        button32.frame = CGRect(x: 0.0, y: -5.0, width: thing.frame.width, height: thing.frame.height+5)
+                            button32.frame = CGRect(x: (self.mainView.view.frame.size.width - 72), y: 7, width: 62, height: 40)
+                        button32.setTitle("View", for: .normal) //""
                         button32.setTitleColor(UIColor.black, for: .normal)
-//                        button32.layer.cornerRadius = 10
-                        button32.layer.borderWidth = 0 //1
+                        button32.layer.cornerRadius = 10
+                        button32.layer.borderWidth = 1 //0
                         button32.accessibilityIdentifier = String(numKey)
                         button32.accessibilityLabel = "View"
                     

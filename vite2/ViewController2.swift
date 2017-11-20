@@ -22,6 +22,7 @@ class ViewController2: UIViewController, UISearchBarDelegate {
     var favoritesPlace = 10
     var arr2 = [String]()
     var viewer = ViewController()
+    var viewer0 = ViewController0()
     var viewer3 = ViewController3()
     
     override func viewDidLoad() {
@@ -393,6 +394,8 @@ class ViewController2: UIViewController, UISearchBarDelegate {
                         print(90*self.scroller.subviews.count)
                         self.scroller.contentSize = CGSize(width: Int(self.view.frame.size.width)+1, height: (Int(90*self.scroller.subviews.count-90)))
                         self.searchBar.placeholder = "Search Your \((self.scroller.subviews.count-1)) Connections"
+//                        self.viewer0.connectionCount = self.scroller.subviews.count-1
+                        self.viewer0.getConnections(conns: (self.scroller.subviews.count-1))
                     })
                 })
             })

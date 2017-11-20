@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController0" customModule="vite2" customModuleProvider="target">
             <connections>
+                <outlet property="connNum" destination="hBA-gh-HXV" id="SgX-Mw-aaJ"/>
                 <outlet property="editButton" destination="kNH-xt-yDs" id="WAc-Cv-eNA"/>
                 <outlet property="enterBio" destination="NhG-nG-Ox9" id="k1K-Q5-8fi"/>
                 <outlet property="enterName" destination="KSD-om-zxB" id="FDB-8D-BIA"/>
@@ -48,7 +54,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V9c-yq-Iqo">
-                            <rect key="frame" x="109" y="31" width="157.5" height="158"/>
+                            <rect key="frame" x="109" y="31" width="158" height="158"/>
                             <color key="backgroundColor" red="0.40137971936458539" green="0.49130438131527876" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="V9c-yq-Iqo" secondAttribute="height" multiplier="1:1" id="UO9-fD-5Bu"/>
@@ -92,6 +98,12 @@
                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
                         </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hBA-gh-HXV">
+                            <rect key="frame" x="287" y="80" width="60" height="60"/>
+                            <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="30"/>
+                            <color key="textColor" red="0.18525071488888889" green="0.38239602477500001" blue="0.60731336805555558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -99,9 +111,12 @@
                         <constraint firstItem="NhG-nG-Ox9" firstAttribute="centerX" secondItem="7xX-Qw-Y9D" secondAttribute="centerX" id="5jj-aR-7jD"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="top" secondItem="7xX-Qw-Y9D" secondAttribute="top" constant="23" id="7ya-Db-cO2"/>
                         <constraint firstItem="NhG-nG-Ox9" firstAttribute="top" secondItem="V9c-yq-Iqo" secondAttribute="bottom" constant="28" id="BX2-7c-lIa"/>
+                        <constraint firstItem="hBA-gh-HXV" firstAttribute="centerY" secondItem="V9c-yq-Iqo" secondAttribute="centerY" id="CsZ-EF-Qbg"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="baseline" secondItem="kNH-xt-yDs" secondAttribute="firstBaseline" constant="-2" id="FTv-Qj-y4G"/>
+                        <constraint firstItem="hBA-gh-HXV" firstAttribute="trailing" secondItem="NhG-nG-Ox9" secondAttribute="trailing" id="G2x-an-Yc3"/>
                         <constraint firstItem="kNH-xt-yDs" firstAttribute="baseline" secondItem="jPR-iG-sMg" secondAttribute="firstBaseline" constant="2" id="Kt8-dh-9MR"/>
                         <constraint firstItem="V9c-yq-Iqo" firstAttribute="centerY" secondItem="7xX-Qw-Y9D" secondAttribute="centerY" constant="-30" id="KxC-94-oR1"/>
+                        <constraint firstItem="hBA-gh-HXV" firstAttribute="leading" secondItem="V9c-yq-Iqo" secondAttribute="trailing" constant="20" id="OLM-FI-sAU"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="leading" secondItem="7xX-Qw-Y9D" secondAttribute="leading" constant="8" id="Odq-Ge-9IE"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="top" secondItem="kNH-xt-yDs" secondAttribute="top" constant="-2" id="RsH-Kq-Gq2"/>
                         <constraint firstItem="NhG-nG-Ox9" firstAttribute="leading" secondItem="7xX-Qw-Y9D" secondAttribute="leading" constant="29" id="Sxf-fP-OKN"/>
@@ -109,6 +124,7 @@
                         <constraint firstItem="KSD-om-zxB" firstAttribute="top" secondItem="V9c-yq-Iqo" secondAttribute="bottom" constant="3" id="Znd-3N-Nyv"/>
                         <constraint firstItem="jPR-iG-sMg" firstAttribute="leading" secondItem="7xX-Qw-Y9D" secondAttribute="leadingMargin" id="g0C-LI-f4f"/>
                         <constraint firstAttribute="trailing" secondItem="kNH-xt-yDs" secondAttribute="trailing" constant="8" id="hhn-6K-quc"/>
+                        <constraint firstItem="hBA-gh-HXV" firstAttribute="top" secondItem="kNH-xt-yDs" secondAttribute="bottom" constant="25" id="kJw-LW-rXJ"/>
                         <constraint firstItem="KSD-om-zxB" firstAttribute="leading" secondItem="7xX-Qw-Y9D" secondAttribute="leading" constant="45" id="oXL-sj-jjf"/>
                         <constraint firstAttribute="trailing" secondItem="KSD-om-zxB" secondAttribute="trailing" constant="43" id="s9r-IW-n9W"/>
                     </constraints>

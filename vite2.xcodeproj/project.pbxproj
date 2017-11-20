@@ -76,6 +76,10 @@
 		2FB315B71F5C99B60001CE67 /* real120.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB315B01F5C99B60001CE67 /* real120.png */; };
 		2FB315B81F5C99B60001CE67 /* real1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB315B11F5C99B60001CE67 /* real1024.png */; };
 		2FB315BE1F5E4A8F0001CE67 /* clear180OG.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB315BD1F5E4A8F0001CE67 /* clear180OG.png */; };
+		2FCB4BF21FC297BF00631C3B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FCB4BF11FC297BF00631C3B /* NotificationCenter.framework */; };
+		2FCB4BF51FC297BF00631C3B /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCB4BF41FC297BF00631C3B /* TodayViewController.swift */; };
+		2FCB4BF81FC297BF00631C3B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FCB4BF61FC297BF00631C3B /* MainInterface.storyboard */; };
+		2FCB4BFC1FC297C000631C3B /* codes.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2FCB4BF01FC297BF00631C3B /* codes.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2FD5DF1C1E6A191D00D4C4D3 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5DF1B1E6A191D00D4C4D3 /* phone.png */; };
 		2FD5DF1E1E80B32B00D4C4D3 /* fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FD5DF1D1E80B32B00D4C4D3 /* fb.png */; };
 		2FF795A51E4531EB00EDEECF /* git.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF795A41E4531EB00EDEECF /* git.png */; };
@@ -99,7 +103,28 @@
 			remoteGlobalIDString = 2F47F40E1E2EB360008D6354;
 			remoteInfo = vite2;
 		};
+		2FCB4BFA1FC297C000631C3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F47F4071E2EB360008D6354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FCB4BEF1FC297BF00631C3B;
+			remoteInfo = codes;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2FCB4C001FC297C000631C3B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2FCB4BFC1FC297C000631C3B /* codes.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		25AC31A3BDABA676EBBC2A21 /* Pods-vite2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-vite2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-vite2/Pods-vite2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +204,11 @@
 		2FB315B01F5C99B60001CE67 /* real120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = real120.png; sourceTree = SOURCE_ROOT; };
 		2FB315B11F5C99B60001CE67 /* real1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = real1024.png; sourceTree = SOURCE_ROOT; };
 		2FB315BD1F5E4A8F0001CE67 /* clear180OG.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear180OG.png; sourceTree = SOURCE_ROOT; };
+		2FCB4BF01FC297BF00631C3B /* codes.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = codes.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FCB4BF11FC297BF00631C3B /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2FCB4BF41FC297BF00631C3B /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		2FCB4BF71FC297BF00631C3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2FCB4BF91FC297C000631C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FD5DF1B1E6A191D00D4C4D3 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = SOURCE_ROOT; };
 		2FD5DF1D1E80B32B00D4C4D3 /* fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fb.png; sourceTree = SOURCE_ROOT; };
 		2FF795A41E4531EB00EDEECF /* git.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = git.png; sourceTree = SOURCE_ROOT; };
@@ -219,6 +249,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FCB4BED1FC297BF00631C3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FCB4BF21FC297BF00631C3B /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -228,6 +266,7 @@
 				39C2BC42E193F88EF9246705 /* Pods_vite2.framework */,
 				48D8113212DC9A091B470834 /* Pods_vite2Tests.framework */,
 				D673F9ACD9D56F7BACBCDAF0 /* Pods_vite2UITests.framework */,
+				2FCB4BF11FC297BF00631C3B /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -238,6 +277,7 @@
 				2F47F4111E2EB360008D6354 /* vite2 */,
 				2F47F4261E2EB360008D6354 /* vite2Tests */,
 				2F47F4311E2EB360008D6354 /* vite2UITests */,
+				2FCB4BF31FC297BF00631C3B /* codes */,
 				2F47F4101E2EB360008D6354 /* Products */,
 				30688FDC3AC360979272CC7E /* Pods */,
 				267FCC14A2F7B9278089A7FC /* Frameworks */,
@@ -250,6 +290,7 @@
 				2F47F40F1E2EB360008D6354 /* vite2.app */,
 				2F47F4231E2EB360008D6354 /* vite2Tests.xctest */,
 				2F47F42E1E2EB360008D6354 /* vite2UITests.xctest */,
+				2FCB4BF01FC297BF00631C3B /* codes.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -353,6 +394,16 @@
 			path = vite2UITests;
 			sourceTree = "<group>";
 		};
+		2FCB4BF31FC297BF00631C3B /* codes */ = {
+			isa = PBXGroup;
+			children = (
+				2FCB4BF41FC297BF00631C3B /* TodayViewController.swift */,
+				2FCB4BF61FC297BF00631C3B /* MainInterface.storyboard */,
+				2FCB4BF91FC297C000631C3B /* Info.plist */,
+			);
+			path = codes;
+			sourceTree = "<group>";
+		};
 		30688FDC3AC360979272CC7E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,10 +431,12 @@
 				8DA2CB4112EF803B358D6324 /* [CP] Embed Pods Frameworks */,
 				0CB5FBE3A1AEBC74B4E71139 /* [CP] Copy Pods Resources */,
 				2F1402E11E95973F005D3894 /* ShellScript */,
+				2FCB4C001FC297C000631C3B /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2FCB4BFB1FC297C000631C3B /* PBXTargetDependency */,
 			);
 			name = vite2;
 			productName = vite2;
@@ -432,13 +485,30 @@
 			productReference = 2F47F42E1E2EB360008D6354 /* vite2UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		2FCB4BEF1FC297BF00631C3B /* codes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FCB4BFF1FC297C000631C3B /* Build configuration list for PBXNativeTarget "codes" */;
+			buildPhases = (
+				2FCB4BEC1FC297BF00631C3B /* Sources */,
+				2FCB4BED1FC297BF00631C3B /* Frameworks */,
+				2FCB4BEE1FC297BF00631C3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = codes;
+			productName = codes;
+			productReference = 2FCB4BF01FC297BF00631C3B /* codes.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		2F47F4071E2EB360008D6354 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Steven Grutman";
 				TargetAttributes = {
@@ -464,6 +534,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 2F47F40E1E2EB360008D6354;
 					};
+					2FCB4BEF1FC297BF00631C3B = {
+						CreatedOnToolsVersion = 9.1;
+						DevelopmentTeam = AAF498CNQG;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 2F47F40A1E2EB360008D6354 /* Build configuration list for PBXProject "vite2" */;
@@ -482,6 +557,7 @@
 				2F47F40E1E2EB360008D6354 /* vite2 */,
 				2F47F4221E2EB360008D6354 /* vite2Tests */,
 				2F47F42D1E2EB360008D6354 /* vite2UITests */,
+				2FCB4BEF1FC297BF00631C3B /* codes */,
 			);
 		};
 /* End PBXProject section */
@@ -568,6 +644,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FCB4BEE1FC297BF00631C3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FCB4BF81FC297BF00631C3B /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,6 +839,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2FCB4BEC1FC297BF00631C3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FCB4BF51FC297BF00631C3B /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -767,6 +859,11 @@
 			isa = PBXTargetDependency;
 			target = 2F47F40E1E2EB360008D6354 /* vite2 */;
 			targetProxy = 2F47F42F1E2EB360008D6354 /* PBXContainerItemProxy */;
+		};
+		2FCB4BFB1FC297C000631C3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FCB4BEF1FC297BF00631C3B /* codes */;
+			targetProxy = 2FCB4BFA1FC297C000631C3B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -785,6 +882,14 @@
 				2F47F41C1E2EB360008D6354 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2FCB4BF61FC297BF00631C3B /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FCB4BF71FC297BF00631C3B /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -891,6 +996,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = vite2/vite2.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAF498CNQG;
@@ -913,6 +1019,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = vite2/vite2.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AAF498CNQG;
@@ -989,6 +1096,60 @@
 			};
 			name = Release;
 		};
+		2FCB4BFD1FC297C000631C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AAF498CNQG;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = codes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite.codes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2FCB4BFE1FC297C000631C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = AAF498CNQG;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = codes/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.sgrutman978.vite.codes;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1024,6 +1185,15 @@
 			buildConfigurations = (
 				2F47F43E1E2EB360008D6354 /* Debug */,
 				2F47F43F1E2EB360008D6354 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FCB4BFF1FC297C000631C3B /* Build configuration list for PBXNativeTarget "codes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FCB4BFD1FC297C000631C3B /* Debug */,
+				2FCB4BFE1FC297C000631C3B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

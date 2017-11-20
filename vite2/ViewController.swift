@@ -529,6 +529,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate, UIScrollViewDe
                         vc1.viewer4 = vc4
                         
                         vc2.viewer = self
+                        vc2.viewer0 = vc0
                         //        vc2.viewer1 = vc1
                         vc2.viewer3 = vc3
                         vc3.viewer = self
