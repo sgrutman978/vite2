@@ -27,5 +27,18 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 	</dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>vite</string>
+				<string>com.googleusercontent.apps.1010386909639-ojt9gd3fuvbd906kifiu48f7c5hbbbkm</string>
+				<string>fb1225300990887011</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

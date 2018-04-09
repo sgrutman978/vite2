@@ -8,9 +8,11 @@
 
 import UIKit
 import NotificationCenter
+//import Firebase
 
 class TodayViewController: UIViewController, NCWidgetProviding {
          
+//    var ref = FIRDatabaseReference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
